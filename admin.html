@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="sw">
-<head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -862,6 +863,37 @@
     displayPosts();
 
   </script>
+<script>
+  const SUPABASE_URL =
+    "https://otmejtcequreccarwvkt.supabase.co";
+
+  const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
+
+  const { createClient } = window.supabase;
+
+  const supabaseClient = createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+  async function protectAdminPage() {
+
+    const { data, error } =
+      await supabaseClient.auth.getSession();
+
+    if (error || !data.session) {
+
+      window.location.href =
+        "admin-login.html";
+
+      return;
+    }
+  }
+
+  protectAdminPage();
+</script>
+
 
 </body>
 </html>
