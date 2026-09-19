@@ -232,4 +232,462 @@
     .read-more {
       display: inline-block;
       color: #fff;
-      font-size: 13px
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .read-more:hover {
+      color: #e50914;
+    }
+
+    /* INFO */
+
+    .info {
+      padding: 75px 0;
+      background: #0d0d0d;
+    }
+
+    .info-box {
+      padding: 45px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      background: #111;
+    }
+
+    .info-box h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .info-box p {
+      color: #999;
+      max-width: 800px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 55px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      color: #888;
+      font-size: 13px;
+      max-width: 300px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 8px;
+      transition: .3s;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: #aaa;
+    }
+
+    .social-links a:hover {
+      color: #e50914;
+    }
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: 90%;
+      }
+
+      .page-hero {
+        padding: 80px 0 60px;
+      }
+
+      .news-section {
+        padding: 60px 0;
+      }
+
+      .news-image {
+        height: 240px;
+      }
+
+      .info {
+        padding: 60px 0;
+      }
+
+      .info-box {
+        padding: 28px 22px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .copyright {
+        display: block;
+      }
+
+      .social-links {
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="index.html" class="brand">
+        <img src="assets/logo-nav.png" alt="Dizzah Media Logo">
+        <span>DIZZAH MEDIA</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="simulizi.html">Simulizi</a>
+        <a href="movies.html">Movies</a>
+        <a href="videos.html">Videos</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="podcasts.html">Podcasts</a>
+        <a href="motivation.html">Motivation</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-button">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- PAGE HERO -->
+
+  <main>
+
+    <section class="page-hero">
+
+      <div class="container">
+
+        <div class="label">
+          DIZZAH MEDIA • NEWS
+        </div>
+
+        <h1>
+          Habari za <span>Dunia.</span>
+        </h1>
+
+        <p>
+          Pata habari na taarifa kutoka Tanzania, Afrika na
+          duniani kupitia Dizzah Media.
+          Hakika leo, kesho kwa ubora zaidi.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- NEWS -->
+
+    <section class="news-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>Habari Mpya</h2>
+
+          <p>
+            Sehemu ya habari za Dizzah Media.
+          </p>
+
+        </div>
+
+
+        <div class="news-grid">
+
+          <!-- TANZANIA -->
+
+          <article class="news-card">
+
+            <div class="news-image">
+
+              <img
+                src="assets/news1.jpg"
+                alt="Habari za Tanzania"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="news-content">
+
+              <div class="category">
+                TANZANIA
+              </div>
+
+              <h3>
+                Habari za Tanzania
+              </h3>
+
+              <p>
+                Taarifa, matukio na habari mbalimbali
+                kutoka Tanzania.
+              </p>
+
+              <a href="#" class="read-more">
+                Soma zaidi →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- DUNIA -->
+
+          <article class="news-card">
+
+            <div class="news-image">
+
+              <img
+                src="assets/news1.jpg"
+                alt="Habari za Dunia"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="news-content">
+
+              <div class="category">
+                DUNIA
+              </div>
+
+              <h3>
+                Habari za Dunia
+              </h3>
+
+              <p>
+                Taarifa na matukio muhimu kutoka Afrika
+                na sehemu mbalimbali duniani.
+              </p>
+
+              <a href="#" class="read-more">
+                Soma zaidi →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT NEWS -->
+
+    <section class="info">
+
+      <div class="container">
+
+        <div class="info-box">
+
+          <div class="category">
+            DIZZAH MEDIA
+          </div>
+
+          <h2>
+            Habari zenye mtazamo mpana.
+          </h2>
+
+          <p>
+            Dizzah Media inalenga kutoa maudhui yenye taarifa,
+            simulizi na mitazamo mbalimbali kwa hadhira ya
+            Tanzania, Afrika na Dunia. Endelea kutufuatilia
+            kwa maudhui mapya.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <h3>DIZZAH MEDIA</h3>
+
+          <p>
+            Hakika leo, kesho kwa ubora zaidi.
+            Media house kutoka Tanzania inayolenga
+            hadhira ya Afrika na Dunia.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Explore</h4>
+
+          <a href="index.html">Home</a>
+          <a href="news.html">News</a>
+          <a href="simulizi.html">Simulizi</a>
+          <a href="movies.html">Movies</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>More</h4>
+
+          <a href="videos.html">Videos</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="podcasts.html">Podcasts</a>
+          <a href="motivation.html">Motivation</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Contact</h4>
+
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact Us</a>
+
+          <a href="mailto:info@dizzahmedia.com">
+            Email
+          </a>
+
+          <a href="tel:+255754742555">
+            +255 754 742 555
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        <div>
+          © 2026 Dizzah Media. All Rights Reserved.
+        </div>
+
+        <div class="social-links">
+
+          <a
+            href="https://www.youtube.com/@DizzahMedia"
+            target="_blank"
+            rel="noopener"
+          >
+            YouTube
+          </a>
+
+          <a
+            href="https://www.instagram.com/dizzah_media"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@dizzahmedia"
+            target="_blank"
+            rel="noopener"
+          >
+            TikTok
+          </a>
+
+          <a
+            href="https://www.facebook.com/share/1ES11b5jWR/"
+            target="_blank"
+            rel="noopener"
+          >
+            Facebook
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
