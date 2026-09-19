@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Dashboard | Dizzah Media</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    .topbar {
+      background: #111;
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #e50914;
+    }
+
+    .admin-text {
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .layout {
+      display: flex;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar {
+      width: 240px;
+      background: #181818;
+      color: white;
+      padding: 20px 12px;
+    }
+
+    .sidebar h3 {
+      font-size: 14px;
+      color: #aaa;
+      margin: 10px 12px 15px;
+      text-transform: uppercase;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #eee;
+      text-decoration: none;
+      padding: 13px 14px;
+      margin-bottom: 5px;
+      border-radius: 7px;
+      font-size: 15px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #e50914;
+      color: white;
+    }
+
+    .main {
+      flex: 1;
+      padding: 25px;
+      max-width: 1400px;
+    }
+
+    .welcome {
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .welcome h1 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    }
+
+    .card small {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .card h2 {
+      margin-top: 10px;
+      font-size: 28px;
+    }
+
+    .card.red {
+      border-left: 5px solid #e50914;
+    }
+
+    .card.blue {
+      border-left: 5px solid #1976d2;
+    }
+
+    .card.green {
+      border-left: 5px solid #159447;
+    }
+
+    .card.orange {
+      border-left: 5px solid #f39c12;
+    }
+
+    .section {
+      background: white;
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .section h2 {
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 7px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #e50914;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .btn-red {
+      background: #e50914;
+      color: white;
+    }
+
+    .btn-dark {
+      background: #222;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px;
+    }
+
+    th,
+    td {
+      padding: 13px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f7f7f7;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #e7f7ed;
+      color: #159447;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .quick {
+      padding: 18px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #eee;
+    }
+
+    .quick:hover {
+      background: #eee;
+    }
+
+    .quick strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .message {
+      display: none;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 7px;
+      background: #e7f7ed;
+      color: #159447;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 25px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sidebar {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .layout {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .sidebar h3 {
+        display: none;
+      }
+
+      .sidebar a {
+        display: inline-block;
+        padding: 9px 11px;
+        font-size: 13px;
+      }
+
+      .main {
+        padding: 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .card {
+        padding: 15px;
+      }
+
+      .card h2 {
+        font-size: 22px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome h1 {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="logo">
+      DIZZAH <span>MEDIA</span>
+    </div>
+
+    <div class="admin-text">
+      Admin Dashboard
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+
+      <h3>Menu</h3>
+
+      <a href="#" class="active">🏠 Dashboard</a>
+
+      <a href="#ongeza">➕ Ongeza Maudhui</a>
+
+      <a href="#posts">📰 Posts</a>
+
+      <a href="news.html">🗞️ News</a>
+
+      <a href="simulizi.html">📖 Simulizi</a>
+
+      <a href="videos.html">🎬 Videos</a>
+
+      <a href="movies.html">🎞️ Movies</a>
+
+      <a href="gallery.html">🖼️ Gallery</a>
+
+      <a href="podcasts.html">🎙️ Podcasts</a>
+
+      <a href="motivation.html">💡 Motivation</a>
+
+      <h3>Website</h3>
+
+      <a href="index.html">🌐 Fungua Website</a>
+
+      <a href="profile.html">👤 Profile</a>
+
+    </aside>
+
+
+    <main class="main">
+
+      <section class="welcome">
+
+        <h1>Karibu Dizzah Media Admin 👋</h1>
+
+        <p>
+          Hapa ndipo utakapoweza kusimamia maudhui ya Dizzah Media,
+          kuongeza habari, simulizi, videos, movies, podcasts na taarifa
+          nyingine za website.
+        </p>
+
+      </section>
+
+
+      <section class="cards">
+
+        <div class="card red">
+          <small>Habari</small>
+          <h2 id="newsCount">0</h2>
+        </div>
+
+        <div class="card blue">
+          <small>Simulizi</small>
+          <h2 id="storyCount">0</h2>
+        </div>
+
+        <div class="card green">
+          <small>Videos</small>
+          <h2 id="videoCount">0</h2>
+        </div>
+
+        <div class="card orange">
+          <small>Maudhui Yote</small>
+          <h2 id="totalCount">0</h2>
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <h2>⚡ Quick Actions</h2>
+
+        <div class="quick-actions">
+
+          <div class="quick" onclick="scrollToAdd()">
+            <strong>➕ Ongeza Post</strong>
+            <span>Weka maudhui mapya</span>
+          </div>
+
+          <div class="quick" onclick="location.href='news.html'">
+            <strong>📰 Angalia News</strong>
+            <span>Fungua ukurasa wa habari</span>
+          </div>
+
+          <div class="quick" onclick="location.href='index.html'">
+            <strong>🌐 Website</strong>
+            <span>Fungua Dizzah Media</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="section" id="ongeza">
+
+        <h2>➕ Ongeza Maudhui Mapya</h2>
+
+        <form id="contentForm">
+
+          <div class="form-grid">
+
+            <div>
+              <label for="title">Kichwa cha Maudhui</label>
+
+              <input
+                type="text"
+                id="title"
+                placeholder="Mfano: Habari mpya kutoka Tanzania"
+                required
+              >
+            </div>
+
+
+            <div>
+
+              <label for="category">Aina ya Maudhui</label>
+
+              <select id="category" required>
+
+                <option value="">-- Chagua --</option>
+
+                <option value="Habari">Habari</option>
+
+                <option value="Simulizi">Simulizi</option>
+
+                <option value="Video">Video</option>
+
+                <option value="Movie">Movie</option>
+
+                <option value="Podcast">Podcast</option>
+
+                <option value="Motivation">Motivation</option>
+
+              </select>
+
+            </div>
+
+
+            <div class="full">
+
+              <label for="image">Link ya Picha</label>
+
+              <input
+                type="url"
+                id="image"
+                placeholder="https://..."
+              >
+
+            </div>
+
+
+            <div class="full">
+
+              <label for="video">Link ya Video / YouTube</label>
+
+              <input
+                type="url"
+                id="video"
+                placeholder="https://youtube.com/..."
+              >
+
+            </div>
+
+
+            <div class="full">
+
+              <label for="description">Maelezo</label>
+
+              <textarea
+                id="description"
+                placeholder="Andika maelezo ya maudhui hapa..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <div class="full">
+
+              <button
+                type="submit"
+                class="btn btn-red"
+              >
+                🚀 Hifadhi Maudhui
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="message" id="message">
+            Maudhui yamehifadhiwa kwenye kifaa hiki. ✅
+          </div>
+
+        </form>
+
+      </section>
+
+
+      <section class="section" id="posts">
+
+        <h2>📰 Maudhui Yaliyoongezwa</h2>
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Kichwa</th>
+                <th>Aina</th>
+                <th>Tarehe</th>
+                <th>Hali</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="postsTable">
+
+              <tr>
+                <td colspan="4">
+                  Hakuna maudhui yaliyoongezwa bado.
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <h2>🔗 Sehemu za Website</h2>
+
+        <div class="quick-actions">
+
+          <div
+            class="quick"
+            onclick="location.href='news.html'"
+          >
+            <strong>📰 News</strong>
+            <span>Habari</span>
+          </div>
+
+          <div
+            class="quick"
+            onclick="location.href='simulizi.html'"
+          >
+            <strong>📖 Simulizi</strong>
+            <span>Hadithi za maisha</span>
+          </div>
+
+          <div
+            class="quick"
+            onclick="location.href='videos.html'"
+          >
+            <strong>🎬 Videos</strong>
+            <span>Video za Dizzah</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <footer>
+
+        © 2026 Dizzah Media — Admin Dashboard
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <script>
+
+    const form = document.getElementById("contentForm");
+
+    const message = document.getElementById("message");
+
+    const postsTable = document.getElementById("postsTable");
+
+    const newsCount = document.getElementById("newsCount");
+
+    const storyCount = document.getElementById("storyCount");
+
+    const videoCount = document.getElementById("videoCount");
+
+    const totalCount = document.getElementById("totalCount");
+
+
+    function getPosts() {
+
+      return JSON.parse(
+        localStorage.getItem("dizzahPosts") || "[]"
+      );
+
+    }
+
+
+    function savePosts(posts) {
+
+      localStorage.setItem(
+        "dizzahPosts",
+        JSON.stringify(posts)
+      );
+
+    }
+
+
+    function displayPosts() {
+
+      const posts = getPosts();
+
+      let news = 0;
+
+      let stories = 0;
+
+      let videos = 0;
+
+
+      posts.forEach(post => {
+
+        if (post.category === "Habari") {
+          news++;
+        }
+
+        if (post.category === "Simulizi") {
+          stories++;
+        }
+
+        if (post.category === "Video") {
+          videos++;
+        }
+
+      });
+
+
+      newsCount.textContent = news;
+
+      storyCount.textContent = stories;
+
+      videoCount.textContent = videos;
+
+      totalCount.textContent = posts.length;
+
+
+      if (posts.length === 0) {
+
+        postsTable.innerHTML = `
+          <tr>
+            <td colspan="4">
+              Hakuna maudhui yaliyoongezwa bado.
+            </td>
+          </tr>
+        `;
+
+        return;
+
+      }
+
+
+      postsTable.innerHTML = posts
+        .slice()
+        .reverse()
+        .map(post => `
+
+          <tr>
+
+            <td>${escapeHTML(post.title)}</td>
+
+            <td>${escapeHTML(post.category)}</td>
+
+            <td>${escapeHTML(post.date)}</td>
+
+            <td>
+              <span class="status">
+                Imehifadhiwa
+              </span>
+            </td>
+
+          </tr>
+
+        `)
+        .join("");
+
+    }
+
+
+    function escapeHTML(text) {
+
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+
+      const title =
+        document.getElementById("title").value.trim();
+
+      const category =
+        document.getElementById("category").value;
+
+      const image =
+        document.getElementById("image").value.trim();
+
+      const video =
+        document.getElementById("video").value.trim();
+
+      const description =
+        document.getElementById("description").value.trim();
+
+
+      const posts = getPosts();
+
+
+      posts.push({
+
+        title: title,
+
+        category: category,
+
+        image: image,
+
+        video: video,
+
+        description: description,
+
+        date: new Date().toLocaleDateString("sw-TZ")
+
+      });
+
+
+      savePosts(posts);
+
+
+      form.reset();
+
+      message.style.display = "block";
+
+
+      setTimeout(function() {
+
+        message.style.display = "none";
+
+      }, 4000);
+
+
+      displayPosts();
+
+    });
+
+
+    function scrollToAdd() {
+
+      document
+        .getElementById("ongeza")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    displayPosts();
+
+  </script>
+
+</body>
+</html>
