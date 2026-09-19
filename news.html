@@ -4,690 +4,256 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>News | Dizzah Media</title>
+  <title>News - Dizzah Media</title>
 
-  <meta name="description" content="Habari za Tanzania na Dunia kupitia Dizzah Media. Hakika leo, kesho kwa ubora zaidi.">
-  <meta name="theme-color" content="#070707">
+  <link rel="stylesheet" href="style.css">
 
-  <link rel="icon" href="assets/favicon-32.png">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .news-container {
+      width: 92%;
+      max-width: 1100px;
+      margin: 40px auto;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .news-title {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #070707;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
-    }
-
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(5, 5, 5, 0.96);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-    }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
-    .brand span {
-      font-size: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: #ddd;
-      font-size: 14px;
-      font-weight: 600;
-      transition: .3s;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .nav-button {
-      background: #e50914;
-      color: #fff !important;
-      padding: 10px 16px;
-      border-radius: 8px;
-    }
-
-    .nav-button:hover {
-      background: #ff1b26 !important;
-    }
-
-    /* PAGE HERO */
-
-    .page-hero {
-      padding: 110px 0 80px;
-      background:
-        radial-gradient(circle at 80% 30%, rgba(229,9,20,.22), transparent 35%),
-        #070707;
-      border-bottom: 1px solid rgba(255,255,255,.07);
-    }
-
-    .label {
-      display: inline-block;
-      padding: 7px 13px;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 30px;
-      color: #ccc;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
-
-    .page-hero h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
-    }
-
-    .page-hero h1 span {
-      color: #e50914;
-    }
-
-    .page-hero p {
-      max-width: 700px;
-      color: #aaa;
-      font-size: 17px;
-    }
-
-    /* NEWS SECTION */
-
-    .news-section {
-      padding: 80px 0;
-    }
-
-    .section-heading {
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      margin-bottom: 8px;
-    }
-
-    .section-heading p {
-      color: #888;
-      font-size: 14px;
+    .news-title h1 {
+      margin-bottom: 10px;
     }
 
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
     }
 
     .news-card {
-      background: #111;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 15px;
+      background: #fff;
+      border-radius: 12px;
       overflow: hidden;
-      transition: .35s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
 
-    .news-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(229,9,20,.55);
-      box-shadow: 0 18px 45px rgba(0,0,0,.35);
-    }
-
-    .news-image {
-      height: 300px;
-      background: #181818;
-      overflow: hidden;
-    }
-
-    .news-image img {
-      height: 100%;
+    .news-card img {
+      width: 100%;
+      height: 200px;
       object-fit: cover;
-      transition: .4s;
-    }
-
-    .news-card:hover .news-image img {
-      transform: scale(1.05);
+      display: block;
     }
 
     .news-content {
-      padding: 25px;
+      padding: 20px;
     }
 
-    .category {
-      color: #e50914;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+    .news-category {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
-    .news-content h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
+    .news-content h2 {
+      margin: 0 0 10px;
     }
 
     .news-content p {
-      color: #999;
-      font-size: 14px;
-      margin-bottom: 20px;
+      line-height: 1.6;
     }
 
-    .read-more {
-      display: inline-block;
-      color: #fff;
+    .news-date {
       font-size: 13px;
-      font-weight: 700;
+      margin-top: 15px;
+      opacity: 0.7;
     }
 
-    .read-more:hover {
-      color: #e50914;
+    .loading {
+      text-align: center;
+      padding: 40px 10px;
     }
 
-    /* INFO */
-
-    .info {
-      padding: 75px 0;
-      background: #0d0d0d;
+    .empty {
+      text-align: center;
+      padding: 40px 10px;
     }
 
-    .info-box {
-      padding: 45px;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 16px;
-      background: #111;
-    }
-
-    .info-box h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    .info-box p {
-      color: #999;
-      max-width: 800px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #050505;
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 55px 0 25px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr 1fr;
-      gap: 35px;
-      margin-bottom: 40px;
-    }
-
-    .footer-brand h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .footer-brand p {
-      color: #888;
-      font-size: 13px;
-      max-width: 300px;
-    }
-
-    .footer-column h4 {
-      margin-bottom: 15px;
-      font-size: 14px;
-    }
-
-    .footer-column a {
-      display: block;
-      color: #888;
-      font-size: 13px;
-      margin-bottom: 8px;
-      transition: .3s;
-    }
-
-    .footer-column a:hover {
-      color: #fff;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      color: #666;
-      font-size: 12px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      color: #aaa;
-    }
-
-    .social-links a:hover {
-      color: #e50914;
-    }
-
-    @media (max-width: 900px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .news-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .container {
-        width: 90%;
-      }
-
-      .page-hero {
-        padding: 80px 0 60px;
-      }
-
-      .news-section {
-        padding: 60px 0;
-      }
-
-      .news-image {
-        height: 240px;
-      }
-
-      .info {
-        padding: 60px 0;
-      }
-
-      .info-box {
-        padding: 28px 22px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .copyright {
-        display: block;
-      }
-
-      .social-links {
-        margin-top: 15px;
-      }
+    .error {
+      text-align: center;
+      padding: 30px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
-    <div class="container nav">
-
-      <a href="index.html" class="brand">
-        <img src="assets/logo-nav.png" alt="Dizzah Media Logo">
-        <span>DIZZAH MEDIA</span>
-      </a>
-
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="news.html">News</a>
-        <a href="simulizi.html">Simulizi</a>
-        <a href="movies.html">Movies</a>
-        <a href="videos.html">Videos</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="podcasts.html">Podcasts</a>
-        <a href="motivation.html">Motivation</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="nav-button">Contact</a>
-      </nav>
-
-    </div>
+    <nav>
+      <a href="index.html">DIZZAH MEDIA</a>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html">Podcasts</a>
+      <a href="motivation.html">Motivation</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
+  <main class="news-container">
 
-  <!-- PAGE HERO -->
-
-  <main>
-
-    <section class="page-hero">
-
-      <div class="container">
-
-        <div class="label">
-          DIZZAH MEDIA • NEWS
-        </div>
-
-        <h1>
-          Habari za <span>Dunia.</span>
-        </h1>
-
-        <p>
-          Pata habari na taarifa kutoka Tanzania, Afrika na
-          duniani kupitia Dizzah Media.
-          Hakika leo, kesho kwa ubora zaidi.
-        </p>
-
-      </div>
-
+    <section class="news-title">
+      <h1>Habari za Dizzah Media</h1>
+      <p>Habari mpya kutoka Dizzah Media</p>
     </section>
 
-
-    <!-- NEWS -->
-
-    <section class="news-section">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <h2>Habari Mpya</h2>
-
-          <p>
-            Sehemu ya habari za Dizzah Media.
-          </p>
-
-        </div>
-
-
-        <div class="news-grid">
-
-          <!-- TANZANIA -->
-
-          <article class="news-card">
-
-            <div class="news-image">
-
-              <img
-                src="assets/news1.jpg"
-                alt="Habari za Tanzania"
-                loading="lazy"
-              >
-
-            </div>
-
-            <div class="news-content">
-
-              <div class="category">
-                TANZANIA
-              </div>
-
-              <h3>
-                Habari za Tanzania
-              </h3>
-
-              <p>
-                Taarifa, matukio na habari mbalimbali
-                kutoka Tanzania.
-              </p>
-
-              <a href="#" class="read-more">
-                Soma zaidi →
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- DUNIA -->
-
-          <article class="news-card">
-
-            <div class="news-image">
-
-              <img
-                src="assets/news1.jpg"
-                alt="Habari za Dunia"
-                loading="lazy"
-              >
-
-            </div>
-
-            <div class="news-content">
-
-              <div class="category">
-                DUNIA
-              </div>
-
-              <h3>
-                Habari za Dunia
-              </h3>
-
-              <p>
-                Taarifa na matukio muhimu kutoka Afrika
-                na sehemu mbalimbali duniani.
-              </p>
-
-              <a href="#" class="read-more">
-                Soma zaidi →
-              </a>
-
-            </div>
-
-          </article>
-
-        </div>
-
+    <section id="newsList" class="news-grid">
+      <div class="loading">
+        Inapakia habari...
       </div>
-
-    </section>
-
-
-    <!-- ABOUT NEWS -->
-
-    <section class="info">
-
-      <div class="container">
-
-        <div class="info-box">
-
-          <div class="category">
-            DIZZAH MEDIA
-          </div>
-
-          <h2>
-            Habari zenye mtazamo mpana.
-          </h2>
-
-          <p>
-            Dizzah Media inalenga kutoa maudhui yenye taarifa,
-            simulizi na mitazamo mbalimbali kwa hadhira ya
-            Tanzania, Afrika na Dunia. Endelea kutufuatilia
-            kwa maudhui mapya.
-          </p>
-
-        </div>
-
-      </div>
-
     </section>
 
   </main>
 
-
-  <!-- FOOTER -->
-
   <footer>
-
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-
-          <h3>DIZZAH MEDIA</h3>
-
-          <p>
-            Hakika leo, kesho kwa ubora zaidi.
-            Media house kutoka Tanzania inayolenga
-            hadhira ya Afrika na Dunia.
-          </p>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>Explore</h4>
-
-          <a href="index.html">Home</a>
-          <a href="news.html">News</a>
-          <a href="simulizi.html">Simulizi</a>
-          <a href="movies.html">Movies</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>More</h4>
-
-          <a href="videos.html">Videos</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="podcasts.html">Podcasts</a>
-          <a href="motivation.html">Motivation</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>Contact</h4>
-
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact Us</a>
-
-          <a href="mailto:info@dizzahmedia.com">
-            Email
-          </a>
-
-          <a href="tel:+255754742555">
-            +255 754 742 555
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="copyright">
-
-        <div>
-          © 2026 Dizzah Media. All Rights Reserved.
-        </div>
-
-        <div class="social-links">
-
-          <a
-            href="https://www.youtube.com/@DizzahMedia"
-            target="_blank"
-            rel="noopener"
-          >
-            YouTube
-          </a>
-
-          <a
-            href="https://www.instagram.com/dizzah_media"
-            target="_blank"
-            rel="noopener"
-          >
-            Instagram
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@dizzahmedia"
-            target="_blank"
-            rel="noopener"
-          >
-            TikTok
-          </a>
-
-          <a
-            href="https://www.facebook.com/share/1ES11b5jWR/"
-            target="_blank"
-            rel="noopener"
-          >
-            Facebook
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
+    <p>&copy; 2026 Dizzah Media. Haki zote zimehifadhiwa.</p>
   </footer>
+
+  <script>
+    const SUPABASE_URL =
+      "https://otmejtcequreccarwvkt.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
+
+    const { createClient } = window.supabase;
+
+    const supabaseClient = createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+    function escapeHTML(text) {
+      if (text === null || text === undefined) return "";
+
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function formatDate(date) {
+      if (!date) return "";
+
+      return new Date(date).toLocaleDateString("sw-TZ", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    }
+
+    async function loadNews() {
+
+      const newsList = document.getElementById("newsList");
+
+      const { data, error } = await supabaseClient
+        .from("posts")
+        .select(
+          "id,title,category,image_url,video_url,description,created_at"
+        )
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error(error);
+
+        newsList.innerHTML = `
+          <div class="error">
+            <h2>Imeshindikana kupakia habari</h2>
+            <p>Tafadhali jaribu tena baadaye.</p>
+          </div>
+        `;
+
+        return;
+      }
+
+      if (!data || data.length === 0) {
+        newsList.innerHTML = `
+          <div class="empty">
+            <h2>Hakuna habari bado</h2>
+            <p>Habari mpya zitaonekana hapa.</p>
+          </div>
+        `;
+
+        return;
+      }
+
+      newsList.innerHTML = data.map(post => {
+
+        const image = post.image_url
+          ? escapeHTML(post.image_url)
+          : "https://via.placeholder.com/800x450?text=Dizzah+Media";
+
+        return `
+          <article class="news-card">
+
+            <img
+              src="${image}"
+              alt="${escapeHTML(post.title)}"
+              onerror="this.src='https://via.placeholder.com/800x450?text=Dizzah+Media'"
+            >
+
+            <div class="news-content">
+
+              <div class="news-category">
+                ${escapeHTML(post.category || "Habari")}
+              </div>
+
+              <h2>
+                ${escapeHTML(post.title)}
+              </h2>
+
+              <p>
+                ${escapeHTML(post.description || "")}
+              </p>
+
+              ${
+                post.video_url
+                  ? `
+                    <p>
+                      <a
+                        href="${escapeHTML(post.video_url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        ▶ Tazama Video
+                      </a>
+                    </p>
+                  `
+                  : ""
+              }
+
+              <div class="news-date">
+                ${formatDate(post.created_at)}
+              </div>
+
+            </div>
+
+          </article>
+        `;
+
+      }).join("");
+    }
+
+    loadNews();
+  </script>
 
 </body>
 </html>
