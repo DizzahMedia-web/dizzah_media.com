@@ -1,145 +1,125 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Simulizi | Dizzah Media</title>
-
-<meta name="description" content="Simulizi za maisha, hadithi za kweli na visa vya kusisimua kutoka Dizzah Media.">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<header class="site-header">
-
-<div class="container navbar">
-
-<a href="index.html" class="logo">
-
-<img src="assets/logo.png" alt="Dizzah Media Logo">
-
-<h1>Dizzah <span>Media</span></h1>
-
-</a>
-
-<nav class="nav-links">
-
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="videos.html">Videos</a>
-<a href="movies.html">Movies</a>
-<a href="simulizi.html" class="active">Simulizi</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-
-</nav>
-
-<div class="menu-btn">☰</div>
-
-</div>
-
-</header>
-
-<section class="hero">
-
-<div class="container hero-content">
-
-<h2>Simulizi za <span>Maisha</span></h2>
-
-<p>Soma na tazama simulizi za kweli, hadithi zenye mafunzo na visa vinavyogusa maisha ya kila siku.</p>
-
-</div>
-
-</section><section>
-
-<div class="container">
-
-<h2 class="section-title">Simulizi Maarufu</h2>
-
-<div class="news-grid">
-
-<div class="news-card">
-
-<img src="assets/story1.jpg" alt="Life Story">
-
-<div class="news-content">
-
-<h3>Safari ya Mafanikio</h3>
-
-<p>Hadithi ya mtu aliyepitia changamoto nyingi hadi kufikia mafanikio makubwa maishani.</p>
-
-<a href="#" class="read-more">Soma zaidi →</a>
-
-</div>
-
-</div>
-
-<div class="news-card">
-
-<img src="assets/story2.jpg" alt="Inspiration">
-
-<div class="news-content">
-
-<h3>Simulizi ya Hamasa</h3>
-
-<p>Kisa cha kweli kinachofundisha uvumilivu, matumaini na nguvu ya kuendelea kupambana.</p>
-
-<a href="#" class="read-more">Soma zaidi →</a>
-
-</div>
-
-</div>
-
-<div class="news-card">
-
-<img src="assets/story3.jpg" alt="True Story">
-
-<div class="news-content">
-
-<h3>Hadithi ya Kweli</h3>
-
-<p>Visa vya kweli vinavyogusa maisha ya kila siku na kutoa mafunzo kwa jamii.</p>
-
-<a href="#" class="read-more">Soma zaidi →</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-  </section><footer class="footer">
-
-<div class="container">
-
-<p>&copy; 2026 <strong>Dizzah Media</strong>. All Rights Reserved.</p>
-
-<p>Hakika Leo, Kesho kwa Ubora Zaidi.</p>
-
-<div class="social-links">
-
-<a href="https://www.youtube.com/@DizzahMedia" target="_blank">▶</a>
-
-<a href="https://www.instagram.com/dizzah_media" target="_blank">◎</a>
-
-<a href="https://www.tiktok.com/@dizzahmedia" target="_blank">♪</a>
-
-<a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">f</a>
-
-</div>
-
-</div>
-
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-  </html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simulizi | Dizzah Media</title>
+
+  <meta name="description" content="Simulizi za maisha, hadithi za kweli, hamasa na stories kutoka Dizzah Media.">
+  <meta name="theme-color" content="#070707">
+
+  <link rel="icon" href="assets/favicon-32.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #070707;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 5, 5, 0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .brand span {
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-button {
+      background: #e50914;
+      color: #fff !important;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+
+    .nav-button:hover {
+      background: #ff1b26 !important;
+    }
+
+    /* HERO */
+
+    .page-hero {
+      padding: 110px 0 80px;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(229,9,20,.22), transparent 35%),
+        #070707;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .label {
+      display
