@@ -369,6 +369,9 @@
 
     <div class="admin-text">
       Admin Dashboard
+      <button onclick="logoutAdmin()" type="button">
+  Logout
+</button>
     </div>
   </header>
 
@@ -894,6 +897,30 @@
   protectAdminPage();
 </script>
 
+  protectAdminPage();
 
+  async function logoutAdmin() {
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (error) {
+      alert("Imeshindikana kutoka. Tafadhali jaribu tena.");
+      return;
+    }
+
+    window.location.href = "admin-login.html";
+  }
+</script>
+  <script>
+  async function logoutAdmin() {
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (error) {
+      alert("Imeshindikana kutoka. Tafadhali jaribu tena.");
+      return;
+    }
+
+    window.location.href = "admin-login.html";
+  }
+</script>
 </body>
 </html>
