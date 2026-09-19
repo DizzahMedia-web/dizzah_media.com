@@ -1,116 +1,235 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News | Dizzah Media</title>
 
-<title>News | Dizzah Media</title>
+  <meta name="description" content="Habari za Tanzania na Dunia kupitia Dizzah Media. Hakika leo, kesho kwa ubora zaidi.">
+  <meta name="theme-color" content="#070707">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon-32.png">
 
-</head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<body>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<header class="site-header">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #070707;
+      color: #fff;
+      line-height: 1.6;
+    }
 
-<div class="container navbar">
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-<a href="index.html" class="logo">
+    img {
+      display: block;
+      width: 100%;
+    }
 
-<img src="assets/logo.png" alt="Dizzah Media">
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
 
-<h1>Dizzah <span>Media</span></h1>
+    /* HEADER */
 
-</a>
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 5, 5, 0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
 
-<nav class="nav-links">
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
 
-<a href="index.html">Home</a>
-<a href="news.html" class="active">News</a>
-<a href="videos.html">Videos</a>
-<a href="movies.html">Movies</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
 
-</nav>
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
 
-<div class="menu-btn">☰</div>
+    .brand span {
+      font-size: 20px;
+    }
 
-</div>
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-</header>
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s;
+    }
 
-<section class="hero">
+    .nav-links a:hover {
+      color: #fff;
+    }
 
-<div class="container hero-content">
+    .nav-button {
+      background: #e50914;
+      color: #fff !important;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
 
-<h2>Habari za <span>Dizzah Media</span></h2>
+    .nav-button:hover {
+      background: #ff1b26 !important;
+    }
 
-<p>Pata habari za uhakika kutoka Tanzania na duniani kila siku kupitia Dizzah Media.</p>
+    /* PAGE HERO */
 
-</div>
+    .page-hero {
+      padding: 110px 0 80px;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(229,9,20,.22), transparent 35%),
+        #070707;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
 
-</section><section>
+    .label {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 30px;
+      color: #ccc;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
 
-<div class="container">
+    .page-hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
 
-<h2 class="section-title">Habari Mpya</h2>
+    .page-hero h1 span {
+      color: #e50914;
+    }
 
-<div class="news-grid">
+    .page-hero p {
+      max-width: 700px;
+      color: #aaa;
+      font-size: 17px;
+    }
 
-<div class="news-card">
+    /* NEWS SECTION */
 
-<img src="assets/news1.jpg" alt="Habari">
+    .news-section {
+      padding: 80px 0;
+    }
 
-<div class="news-content">
+    .section-heading {
+      margin-bottom: 35px;
+    }
 
-<h3>Habari za Tanzania</h3>
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 8px;
+    }
 
-<p>Taarifa za uhakika kuhusu siasa, uchumi, michezo na jamii kutoka Tanzania.</p>
+    .section-heading p {
+      color: #888;
+      font-size: 14px;
+    }
 
-<a href="#" class="read-more">Soma zaidi →</a>
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
 
-</div>
+    .news-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .35s;
+    }
 
-</div>
+    .news-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(229,9,20,.55);
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+    }
 
-<div class="news-card">
+    .news-image {
+      height: 300px;
+      background: #181818;
+      overflow: hidden;
+    }
 
-<img src="assets/news2.jpg" alt="Dunia">
+    .news-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: .4s;
+    }
 
-<div class="news-content">
+    .news-card:hover .news-image img {
+      transform: scale(1.05);
+    }
 
-<h3>Habari za Dunia</h3>
+    .news-content {
+      padding: 25px;
+    }
 
-<p>Matukio makubwa yanayotokea duniani yakiletwa kwa haraka na kwa uhakika.</p>
+    .category {
+      color: #e50914;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
 
-<a href="#" class="read-more">Soma zaidi<footer class="footer">
+    .news-content h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
 
-<div class="container">
+    .news-content p {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
 
-<p>&copy; 2026 <strong>Dizzah Media</strong>. All Rights Reserved.</p>
-
-<p>Hakika Leo, Kesho kwa Ubora Zaidi.</p>
-
-<div class="social-links">
-
-<a href="https://www.youtube.com/@DizzahMedia" target="_blank">▶</a>
-
-<a href="https://www.instagram.com/dizzah_media" target="_blank">◎</a>
-
-<a href="https://www.tiktok.com/@dizzahmedia" target="_blank">♪</a>
-
-<a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">f</a>
-
-</div>
-
-</div>
-
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-  </html>
+    .read-more {
+      display: inline-block;
+      color: #fff;
+      font-size: 13px
