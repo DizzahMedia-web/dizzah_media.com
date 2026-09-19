@@ -1,123 +1,587 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Contact | Dizzah Media</title>
+<meta name="description" content="Wasiliana na Dizzah Media - Media House ya Tanzania.">
+<link rel="icon" href="assets/favicon-32.png">
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070707;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(5,5,5,.96);
+  border-bottom:1px solid #222;
+  backdrop-filter:blur(10px);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:72px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo img{
+  width:145px;
+  display:block;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:18px;
+}
+
+nav a{
+  color:#ddd;
+  font-size:14px;
+  font-weight:600;
+  transition:.25s;
+}
+
+nav a:hover,
+nav a.active{
+  color:#e50914;
+}
+
+.hero{
+  min-height:390px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.9)),
+    url("assets/news1.jpg") center/cover;
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.hero h1{
+  font-size:clamp(40px,7vw,76px);
+  line-height:1;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#e50914;
+}
+
+.hero p{
+  color:#ccc;
+  font-size:18px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.section-title p{
+  color:#999;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.contact-card{
+  background:#111;
+  border:1px solid #222;
+  border-radius:16px;
+  padding:30px 22px;
+  text-align:center;
+  transition:.3s;
+}
+
+.contact-card:hover{
+  transform:translateY(-6px);
+  border-color:#e50914;
+}
+
+.icon{
+  width:58px;
+  height:58px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e50914;
+  font-size:25px;
+}
+
+.contact-card h3{
+  margin-bottom:8px;
+  font-size:20px;
+}
+
+.contact-card p{
+  color:#aaa;
+  font-size:15px;
+}
+
+.contact-card a{
+  color:#fff;
+}
+
+.contact-card a:hover{
+  color:#e50914;
+}
+
+.contact-area{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  margin-top:50px;
+}
+
+.box{
+  background:#111;
+  border:1px solid #222;
+  border-radius:16px;
+  padding:30px;
+}
+
+.box h2{
+  margin-bottom:10px;
+}
+
+.box>p{
+  color:#999;
+  margin-bottom:25px;
+}
+
+form{
+  display:grid;
+  gap:15px;
+}
+
+input,
+textarea{
+  width:100%;
+  background:#080808;
+  color:#fff;
+  border:1px solid #292929;
+  border-radius:9px;
+  padding:14px;
+  font:inherit;
+  outline:none;
+}
+
+input:focus,
+textarea:focus{
+  border-color:#e50914;
+}
+
+textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:14px 20px;
+  background:#e50914;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#b80710;
+}
+
+.socials{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+.socials a{
+  border:1px solid #333;
+  padding:10px 15px;
+  border-radius:8px;
+  color:#ddd;
+  font-size:14px;
+}
+
+.socials a:hover{
+  background:#e50914;
+  border-color:#e50914;
+  color:#fff;
+}
+
+.cta{
+  text-align:center;
+  margin-top:50px;
+  padding:45px 20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#160507,#111);
+  border:1px solid #2a1718;
+}
+
+.cta h2{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.cta p{
+  color:#aaa;
+  margin-bottom:22px;
+}
+
+.cta a{
+  display:inline-block;
+  background:#e50914;
+  padding:13px 25px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+footer{
+  border-top:1px solid #222;
+  padding:45px 20px 25px;
+  background:#030303;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr;
+  gap:35px;
+}
+
+.footer-logo{
+  width:155px;
+  margin-bottom:15px;
+}
+
+footer p{
+  color:#888;
+  font-size:14px;
+}
+
+footer h3{
+  margin-bottom:15px;
+}
+
+.footer-links{
+  display:grid;
+  gap:8px;
+}
+
+.footer-links a{
+  color:#999;
+  font-size:14px;
+}
+
+.footer-links a:hover{
+  color:#e50914;
+}
+
+.copyright{
+  max-width:1100px;
+  margin:35px auto 0;
+  padding-top:20px;
+  border-top:1px solid #1d1d1d;
+  text-align:center;
+  color:#666;
+  font-size:13px;
+}
+
+@media(max-width:850px){
+  nav{
+    gap:10px;
+  }
+
+  nav a{
+    font-size:12px;
+  }
+
+  .contact-grid,
+  .contact-area,
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .nav{
+    flex-direction:column;
+    padding:15px;
+  }
+
+  nav{
+    gap:9px 13px;
+  }
+
+  .hero{
+    min-height:330px;
+  }
+
+  .container{
+    padding:50px 16px;
+  }
+
+  .section-title h2{
+    font-size:28px;
+  }
+
+  .box{
+    padding:22px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">
+      <img src="assets/logo-nav.png" alt="Dizzah Media">
+    </a>
 
-<div class="container navbar">
-
-<a href="index.html" class="logo">
-
-<img src="assets/logo.png" alt="Dizzah Media">
-
-<h1>Dizzah <span>Media</span></h1>
-
-</a>
-
-<nav class="nav-links">
-
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="videos.html">Videos</a>
-<a href="movies.html">Movies</a>
-<a href="contact.html" class="active">Contact</a>
-
-</nav>
-
-<div class="menu-btn">☰</div>
-
-</div>
-
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html">Podcasts</a>
+      <a href="motivation.html">Motivation</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
+  <div class="hero-content">
+    <h1>Contact <span>Dizzah Media</span></h1>
+    <p>
+      Tuwasiliane kwa habari, ushirikiano, matangazo,
+      mawazo au kazi mbalimbali za media.
+    </p>
+  </div>
+</section>
 
-<div class="container hero-content">
+<main>
 
-<h2>Wasiliana na <span>Dizzah Media</span></h2>
+<section class="container">
+  <div class="section-title">
+    <h2>Wasiliana Nasi</h2>
+    <p>Dizzah Media — Hakika Leo, Kesho kwa Ubora Zaidi.</p>
+  </div>
 
-<p>Tunafurahi kupokea maoni, ushauri, matangazo na ushirikiano kutoka popote duniani.</p>
+  <div class="contact-grid">
 
-</div>
+    <div class="contact-card">
+      <div class="icon">☎</div>
+      <h3>Simu</h3>
+      <p>
+        <a href="tel:+255754742555">
+          +255 754 742 555
+        </a>
+      </p>
+    </div>
 
-</section><section>
+    <div class="contact-card">
+      <div class="icon">✉</div>
+      <h3>Email</h3>
+      <p>
+        <a href="mailto:info@dizzahmedia.com">
+          info@dizzahmedia.com
+        </a>
+      </p>
+    </div>
 
-<div class="container">
+    <div class="contact-card">
+      <div class="icon">⌖</div>
+      <h3>Location</h3>
+      <p>Kigamboni, Dar es Salaam, Tanzania</p>
+    </div>
 
-<div class="contact-grid">
+  </div>
 
-<div class="contact-card">
+  <div class="contact-area">
 
-<h3>Mawasiliano</h3>
+    <div class="box">
+      <h2>Tuma Ujumbe</h2>
+      <p>
+        Jaza taarifa zako hapa chini. Ukibonyeza kutuma,
+        email yako itafunguka kupitia programu ya barua pepe.
+      </p>
 
-<p><strong>📞 Simu / WhatsApp</strong><br>
-+255 754 742 555</p>
+      <form action="mailto:info@dizzahmedia.com"
+            method="post"
+            enctype="text/plain">
 
-<p><strong>📧 Email</strong><br>
-info@dizzahmedia.com</p>
+        <input
+          type="text"
+          name="Jina"
+          placeholder="Jina lako"
+          required
+        >
 
-<p><strong>📍 Mahali</strong><br>
-Kigamboni, Dar es Salaam, Tanzania</p>
+        <input
+          type="email"
+          name="Email"
+          placeholder="Email yako"
+          required
+        >
 
-<a href="https://wa.me/255754742555" target="_blank" class="whatsapp-btn">
+        <textarea
+          name="Ujumbe"
+          placeholder="Andika ujumbe wako..."
+          required
+        ></textarea>
 
-Chat kupitia WhatsApp
+        <button type="submit">
+          Tuma Ujumbe
+        </button>
 
-</a>
+      </form>
+    </div>
 
-</div>
+    <div class="box">
+      <h2>Fuata Dizzah Media</h2>
+      <p>
+        Endelea kufuatilia habari, simulizi, movies,
+        motivation na video kupitia mitandao yetu.
+      </p>
 
-<div class="contact-card">
+      <div class="socials">
+        <a href="https://www.youtube.com/@DizzahMedia" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/dizzah_media" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@dizzahmedia" target="_blank">TikTok</a>
+        <a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">Facebook</a>
+      </div>
 
-<h3>Tufuatilie Mitandaoni</h3>
+      <div style="margin-top:30px;">
+        <h3>WhatsApp</h3>
+        <p style="margin-bottom:18px;">
+          Kwa mawasiliano ya haraka kupitia WhatsApp.
+        </p>
 
-<a href="https://www.youtube.com/@DizzahMedia" target="_blank">YouTube</a>
-<a href="https://www.facebook.com/share/18aoq727Ey/" target="_blank">Facebook</a>
-<a href="https://www.tiktok.com/@dizzahmedia" target="_blank">TikTok</a>
-<a href="https://www.instagram.com/dizzah_media" target="_blank">Instagram</a>
+        <a
+          href="https://wa.me/255754742555"
+          target="_blank"
+          style="display:inline-block;background:#e50914;padding:12px 20px;border-radius:8px;font-weight:bold;"
+        >
+          Chat WhatsApp
+        </a>
+      </div>
+    </div>
 
-</div>
+  </div>
 
-</div>
+  <div class="cta">
+    <h2>Dizzah Media</h2>
+    <p>
+      Habari. Simulizi. Movies. Motivation. Entertainment.
+    </p>
+    <a href="https://www.youtube.com/@DizzahMedia" target="_blank">
+      Tazama YouTube
+    </a>
+  </div>
 
-</div>
+</section>
 
-  </section><footer class="footer">
+</main>
 
-<div class="container">
+<footer>
+  <div class="footer-inner">
 
-<p>&copy; 2026 <strong>Dizzah Media</strong>. All Rights Reserved.</p>
+    <div>
+      <img
+        src="assets/logo-full.png"
+        alt="Dizzah Media"
+        class="footer-logo"
+      >
+      <p>
+        Dizzah Media ni media house inayolenga kuleta
+        habari, simulizi, movies, motivation na maudhui
+        yenye ubora kwa Tanzania na dunia.
+      </p>
+    </div>
 
-<p>Hakika Leo, Kesho kwa Ubora Zaidi.</p>
+    <div>
+      <h3>Quick Links</h3>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="simulizi.html">Simulizi</a>
+        <a href="movies.html">Movies</a>
+        <a href="videos.html">Videos</a>
+      </div>
+    </div>
 
-<div class="social-links">
+    <div>
+      <h3>More</h3>
+      <div class="footer-links">
+        <a href="gallery.html">Gallery</a>
+        <a href="podcasts.html">Podcasts</a>
+        <a href="motivation.html">Motivation</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
 
-<a href="https://www.youtube.com/@DizzahMedia" target="_blank">▶</a>
+  </div>
 
-<a href="https://www.instagram.com/dizzah_media" target="_blank">◎</a>
-
-<a href="https://www.tiktok.com/@dizzahmedia" target="_blank">♪</a>
-
-<a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">f</a>
-
-</div>
-
-</div>
-
+  <div class="copyright">
+    © 2026 Dizzah Media. All Rights Reserved.
+  </div>
 </footer>
 
-<script src="script.js"></script>
-
 </body>
-  </html>
+</html>
