@@ -2,19 +2,28 @@
 <html lang="sw">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Habari | Dizzah Media</title>
 
   <meta
     name="description"
-    content="Soma habari mpya kutoka Dizzah Media."
+    content="Habari mpya kutoka Dizzah Media."
   >
 
-  <!-- Supabase -->
+  <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
+
+    /* ================================
+       GENERAL
+    ================================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,64 +31,90 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f6f8;
-      color: #222;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: #f4f6f8;
+      color: #1a1a1a;
       line-height: 1.6;
     }
 
-    /* HEADER */
+    a {
+      text-decoration: none;
+    }
+
+
+    /* ================================
+       HEADER
+    ================================= */
+
     header {
       background: #111;
-      color: white;
-      padding: 16px 20px;
+      color: #fff;
+      padding: 15px 20px;
+
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+      box-shadow:
+        0 2px 10px rgba(0,0,0,0.18);
     }
 
     .header-inner {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 15px;
     }
 
     .logo {
+      color: #fff;
       font-size: 22px;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
-    .back-btn {
-      color: white;
-      text-decoration: none;
+    .home-button {
+      color: #fff;
       border: 1px solid #555;
-      padding: 7px 12px;
+
+      padding: 7px 13px;
       border-radius: 6px;
+
       font-size: 14px;
     }
 
-    .back-btn:hover {
+    .home-button:hover {
       background: #222;
     }
 
-    /* HERO */
+
+    /* ================================
+       HERO
+    ================================= */
+
     .hero {
-      background: white;
-      padding: 45px 20px 35px;
+      background: #fff;
       text-align: center;
-      border-bottom: 1px solid #e5e5e5;
+
+      padding: 45px 20px 35px;
+
+      border-bottom:
+        1px solid #e5e5e5;
     }
 
     .hero h1 {
-      font-size: 34px;
-      margin-bottom: 8px;
+      font-size: 36px;
       color: #111;
+
+      margin-bottom: 8px;
     }
 
     .hero p {
@@ -87,93 +122,186 @@
       font-size: 16px;
     }
 
-    /* MAIN */
+
+    /* ================================
+       MAIN
+    ================================= */
+
     main {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 35px auto;
-      padding: 0 20px;
+
+      padding:
+        0 20px;
+    }
+
+    .top-bar {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 22px;
     }
 
     .section-title {
-      font-size: 24px;
-      margin-bottom: 22px;
+      font-size: 25px;
       color: #111;
     }
 
-    /* LOADING */
-    .loading {
-      background: white;
-      padding: 30px;
-      text-align: center;
-      border-radius: 10px;
-      color: #666;
+    .refresh-button {
+      border: none;
+      background: #111;
+      color: #fff;
+
+      padding: 9px 14px;
+
+      border-radius: 7px;
+
+      cursor: pointer;
+
+      font-size: 14px;
     }
 
-    /* EMPTY */
-    .empty {
-      background: white;
-      padding: 45px 20px;
-      text-align: center;
+    .refresh-button:hover {
+      background: #333;
+    }
+
+
+    /* ================================
+       STATUS
+    ================================= */
+
+    .status-box {
+      background: #fff;
+
       border-radius: 12px;
-      color: #666;
-      border: 1px solid #e5e5e5;
+
+      padding: 35px 20px;
+
+      text-align: center;
+
+      border:
+        1px solid #e3e3e3;
     }
 
-    .empty h2 {
-      color: #333;
+    .status-box h2 {
       margin-bottom: 8px;
+      color: #222;
     }
 
-    /* ERROR */
+    .status-box p {
+      color: #777;
+    }
+
+    .loading {
+      color: #666;
+    }
+
     .error {
       background: #fff0f0;
-      color: #b00020;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #ffcaca;
+
+      border:
+        1px solid #ffcaca;
+
+      color: #a00000;
     }
 
-    /* NEWS GRID */
+
+    /* ================================
+       NEWS GRID
+    ================================= */
+
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 22px;
     }
 
-    /* NEWS CARD */
+
+    /* ================================
+       NEWS CARD
+    ================================= */
+
     .news-card {
-      background: white;
+      background: #fff;
+
       border-radius: 12px;
+
       overflow: hidden;
-      border: 1px solid #e5e5e5;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      border:
+        1px solid #e2e2e2;
+
+      box-shadow:
+        0 3px 14px
+        rgba(0,0,0,0.06);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .news-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(0,0,0,0.10);
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 8px 22px
+        rgba(0,0,0,0.10);
     }
+
+
+    /* ================================
+       IMAGE
+    ================================= */
 
     .news-image {
       width: 100%;
-      height: 210px;
+
+      height: 215px;
+
       object-fit: cover;
+
       display: block;
+
       background: #eee;
     }
 
     .no-image {
-      height: 210px;
-      background: #eeeeee;
+      width: 100%;
+      height: 215px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eeeeee,
+          #dddddd
+        );
+
       display: flex;
+
       align-items: center;
       justify-content: center;
-      color: #888;
-      font-size: 15px;
+
+      color: #777;
+
+      font-size: 14px;
+
       text-align: center;
+
       padding: 20px;
     }
+
+
+    /* ================================
+       CONTENT
+    ================================= */
 
     .news-content {
       padding: 18px;
@@ -181,67 +309,111 @@
 
     .category {
       display: inline-block;
+
       background: #111;
-      color: white;
-      font-size: 12px;
-      padding: 5px 9px;
+
+      color: #fff;
+
+      padding:
+        4px 9px;
+
       border-radius: 5px;
+
+      font-size: 12px;
+
       margin-bottom: 10px;
     }
 
     .news-title {
-      font-size: 20px;
-      line-height: 1.35;
-      margin-bottom: 9px;
       color: #111;
+
+      font-size: 20px;
+
+      line-height: 1.35;
+
+      margin-bottom: 8px;
     }
 
     .date {
       color: #888;
+
       font-size: 13px;
+
       margin-bottom: 12px;
     }
 
     .description {
       color: #555;
+
       font-size: 15px;
+
       margin-bottom: 15px;
+
+      white-space: pre-line;
     }
 
-    .video-link {
+    .video-button {
       display: inline-block;
-      background: #e60000;
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
+
+      background: #e00000;
+
+      color: #fff;
+
+      padding:
+        8px 12px;
+
       border-radius: 6px;
+
       font-size: 14px;
     }
 
-    .video-link:hover {
-      background: #c00000;
+    .video-button:hover {
+      background: #b80000;
     }
 
-    /* FOOTER */
+
+    /* ================================
+       FOOTER
+    ================================= */
+
     footer {
+      margin-top: 55px;
+
       background: #111;
-      color: #bbb;
+
+      color: #aaa;
+
       text-align: center;
+
       padding: 25px 15px;
-      margin-top: 50px;
+
       font-size: 14px;
     }
 
-    /* MOBILE */
-    @media (max-width: 850px) {
+
+    /* ================================
+       TABLET
+    ================================= */
+
+    @media (max-width: 900px) {
+
       .news-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, 1fr);
       }
+
     }
+
+
+    /* ================================
+       MOBILE
+    ================================= */
 
     @media (max-width: 600px) {
-      .header-inner {
-        flex-direction: row;
+
+      header {
+        padding:
+          13px 15px;
       }
 
       .logo {
@@ -249,70 +421,130 @@
       }
 
       .hero {
-        padding: 35px 15px 28px;
+        padding:
+          35px 15px 28px;
       }
 
       .hero h1 {
-        font-size: 27px;
+        font-size: 28px;
       }
 
       main {
-        margin: 25px auto;
-        padding: 0 14px;
+        margin:
+          25px auto;
+
+        padding:
+          0 14px;
+      }
+
+      .top-bar {
+        align-items:
+          flex-start;
+
+        flex-direction:
+          column;
       }
 
       .section-title {
-        font-size: 21px;
+        font-size: 22px;
       }
 
       .news-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .news-image,
       .no-image {
         height: 220px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- ================================
+       HEADER
+  ================================= -->
+
   <header>
+
     <div class="header-inner">
 
-      <a href="index.html" class="logo">
+      <a
+        href="index.html"
+        class="logo"
+      >
         DIZZAH MEDIA
       </a>
 
-      <a href="index.html" class="back-btn">
+      <a
+        href="index.html"
+        class="home-button"
+      >
         ← Home
       </a>
 
     </div>
+
   </header>
 
 
-  <!-- HERO -->
+  <!-- ================================
+       HERO
+  ================================= -->
+
   <section class="hero">
-    <h1>Habari za Dizzah Media</h1>
-    <p>Habari mpya kutoka Dizzah Media</p>
+
+    <h1>
+      Habari za Dizzah Media
+    </h1>
+
+    <p>
+      Habari mpya kutoka Dizzah Media
+    </p>
+
   </section>
 
 
-  <!-- MAIN CONTENT -->
+  <!-- ================================
+       MAIN
+  ================================= -->
+
   <main>
 
-    <h2 class="section-title">
-      Habari Mpya
-    </h2>
+    <div class="top-bar">
+
+      <h2 class="section-title">
+        Habari Mpya
+      </h2>
+
+      <button
+        class="refresh-button"
+        onclick="loadNews()"
+        type="button"
+      >
+        ↻ Refresh
+      </button>
+
+    </div>
+
+
+    <!-- HABARI ZITAINGIA HAPA -->
 
     <div id="newsContainer">
 
-      <div class="loading">
-        Inapakia habari...
+      <div class="status-box">
+
+        <div class="loading">
+          Inapakia habari...
+        </div>
+
       </div>
 
     </div>
@@ -320,18 +552,27 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- ================================
+       FOOTER
+  ================================= -->
+
   <footer>
-    © 2026 Dizzah Media. Haki zote zimehifadhiwa.
+
+    © 2026 Dizzah Media.
+    Haki zote zimehifadhiwa.
+
   </footer>
 
 
-  <!-- SUPABASE + NEWS SYSTEM -->
+  <!-- ================================
+       JAVASCRIPT
+  ================================= -->
+
   <script>
 
-    /* ==============================
-       SUPABASE CONNECTION
-    ============================== */
+    /* =================================
+       SUPABASE
+    ================================= */
 
     const SUPABASE_URL =
       "https://otmejtcequreccarwvkt.supabase.co";
@@ -339,56 +580,88 @@
     const SUPABASE_PUBLISHABLE_KEY =
       "sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
 
-    const { createClient } = window.supabase;
+    const {
+      createClient
+    } = window.supabase;
 
-    const supabaseClient = createClient(
-      SUPABASE_URL,
-      SUPABASE_PUBLISHABLE_KEY
-    );
+    const supabaseClient =
+      createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
 
 
-    /* ==============================
-       NEWS CONTAINER
-    ============================== */
+    /* =================================
+       CONTAINER
+    ================================= */
 
     const newsContainer =
-      document.getElementById("newsContainer");
+      document.getElementById(
+        "newsContainer"
+      );
 
 
-    /* ==============================
-       ESCAPE HTML
-       Inazuia maandishi ya database
-       kuharibu ukurasa
-    ============================== */
+    /* =================================
+       SECURITY
+    ================================= */
 
     function escapeHTML(value) {
 
-      if (value === null || value === undefined) {
+      if (
+        value === null ||
+        value === undefined
+      ) {
         return "";
       }
 
       return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
     }
 
 
-    /* ==============================
-       DATE FORMAT
-    ============================== */
+    /* =================================
+       DATE
+    ================================= */
 
-    function formatDate(dateValue) {
+    function formatDate(value) {
 
-      if (!dateValue) {
+      if (!value) {
         return "";
       }
 
-      const date = new Date(dateValue);
+      const date =
+        new Date(value);
 
-      if (isNaN(date.getTime())) {
+      if (
+        isNaN(
+          date.getTime()
+        )
+      ) {
         return "";
       }
 
@@ -400,228 +673,344 @@
           year: "numeric"
         }
       );
+
     }
 
 
-    /* ==============================
-       LOAD NEWS
-    ============================== */
+    /* =================================
+       LOAD POSTS
+       
+       MUHIMU:
+       HATUTUMII CATEGORY FILTER.
+       ================================= */
 
     async function loadNews() {
 
       newsContainer.innerHTML = `
-        <div class="loading">
-          Inapakia habari...
+
+        <div class="status-box">
+
+          <div class="loading">
+            Inapakia habari...
+          </div>
+
         </div>
+
       `;
 
 
-      const { data, error } = await supabaseClient
+      try {
 
-        .from("posts")
+        const {
+          data,
+          error
+        } =
+        await supabaseClient
 
-        .select(
-          "id,title,category,image_url,video_url,description,created_at"
-        )
+          .from("posts")
 
-        .eq("category", "Habari")
+          .select(
+            `
+            id,
+            title,
+            category,
+            image_url,
+            video_url,
+            description,
+            created_at
+            `
+          )
 
-        .order(
-          "created_at",
-          {
-            ascending: false
+          .order(
+            "created_at",
+            {
+              ascending: false
+            }
+          );
+
+
+        /* ==========================
+           DATABASE ERROR
+        ========================== */
+
+        if (error) {
+
+          console.error(
+            "Supabase error:",
+            error
+          );
+
+          newsContainer.innerHTML = `
+
+            <div class="status-box error">
+
+              <h2>
+                Imeshindikana kupakia habari
+              </h2>
+
+              <p>
+                Kuna tatizo wakati wa kuwasiliana
+                na mfumo wa habari.
+              </p>
+
+            </div>
+
+          `;
+
+          return;
+        }
+
+
+        /* ==========================
+           NO POSTS
+        ========================== */
+
+        if (
+          !data ||
+          data.length === 0
+        ) {
+
+          newsContainer.innerHTML = `
+
+            <div class="status-box">
+
+              <h2>
+                Hakuna habari mpya
+              </h2>
+
+              <p>
+                Habari mpya zitaonekana hapa
+                baada ya kuongezwa kupitia
+                Dizzah Media Admin.
+              </p>
+
+            </div>
+
+          `;
+
+          return;
+        }
+
+
+        /* ==========================
+           GRID
+        ========================== */
+
+        const grid =
+          document.createElement(
+            "div"
+          );
+
+        grid.className =
+          "news-grid";
+
+
+        /* ==========================
+           POSTS
+        ========================== */
+
+        data.forEach(
+          function(post) {
+
+            const card =
+              document.createElement(
+                "article"
+              );
+
+            card.className =
+              "news-card";
+
+
+            /* ======================
+               IMAGE
+            ====================== */
+
+            let imageHTML = "";
+
+
+            if (
+              post.image_url &&
+              String(
+                post.image_url
+              ).trim() !== ""
+            ) {
+
+              imageHTML = `
+
+                <img
+                  src="${escapeHTML(
+                    post.image_url
+                  )}"
+                  alt="${escapeHTML(
+                    post.title ||
+                    "Dizzah Media"
+                  )}"
+                  class="news-image"
+                  loading="lazy"
+                >
+
+              `;
+
+            } else {
+
+              imageHTML = `
+
+                <div class="no-image">
+
+                  Hakuna picha
+                  iliyowekwa kwenye habari hii
+
+                </div>
+
+              `;
+
+            }
+
+
+            /* ======================
+               VIDEO
+            ====================== */
+
+            let videoHTML = "";
+
+
+            if (
+              post.video_url &&
+              String(
+                post.video_url
+              ).trim() !== ""
+            ) {
+
+              videoHTML = `
+
+                <a
+                  href="${escapeHTML(
+                    post.video_url
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="video-button"
+                >
+                  ▶ Tazama Video
+                </a>
+
+              `;
+
+            }
+
+
+            /* ======================
+               CARD
+            ====================== */
+
+            card.innerHTML = `
+
+              ${imageHTML}
+
+              <div class="news-content">
+
+                <span class="category">
+
+                  ${escapeHTML(
+                    post.category ||
+                    "Habari"
+                  )}
+
+                </span>
+
+
+                <h3 class="news-title">
+
+                  ${escapeHTML(
+                    post.title ||
+                    "Bila kichwa cha habari"
+                  )}
+
+                </h3>
+
+
+                <div class="date">
+
+                  ${formatDate(
+                    post.created_at
+                  )}
+
+                </div>
+
+
+                <p class="description">
+
+                  ${escapeHTML(
+                    post.description ||
+                    "Hakuna maelezo ya habari hii."
+                  )}
+
+                </p>
+
+
+                ${videoHTML}
+
+              </div>
+
+            `;
+
+
+            grid.appendChild(
+              card
+            );
+
           }
         );
 
 
-      /* ==============================
-         ERROR
-      ============================== */
+        /* ==========================
+           SHOW POSTS
+        ========================== */
 
-      if (error) {
+        newsContainer.innerHTML = "";
+
+        newsContainer.appendChild(
+          grid
+        );
+
+      }
+
+      catch (error) {
 
         console.error(
-          "Supabase error:",
+          "Unexpected error:",
           error
         );
 
         newsContainer.innerHTML = `
-          <div class="error">
-            <strong>Imeshindikana kupakia habari.</strong>
-            <br>
-            Tafadhali jaribu tena baadaye.
-          </div>
-        `;
 
-        return;
-      }
-
-
-      /* ==============================
-         NO NEWS
-      ============================== */
-
-      if (!data || data.length === 0) {
-
-        newsContainer.innerHTML = `
-          <div class="empty">
+          <div class="status-box error">
 
             <h2>
-              Hakuna habari zilizochapishwa bado
+              Hitilafu imetokea
             </h2>
 
             <p>
-              Habari mpya zitaonekana hapa baada ya
-              kuchapishwa kupitia Dizzah Media Admin.
+              Tafadhali jaribu tena.
             </p>
 
           </div>
+
         `;
 
-        return;
       }
-
-
-      /* ==============================
-         NEWS GRID
-      ============================== */
-
-      const grid =
-        document.createElement("div");
-
-      grid.className = "news-grid";
-
-
-      /* ==============================
-         CREATE EACH NEWS CARD
-      ============================== */
-
-      data.forEach(post => {
-
-        const card =
-          document.createElement("article");
-
-        card.className = "news-card";
-
-
-        /* IMAGE */
-
-        let imageHTML = "";
-
-        if (
-          post.image_url &&
-          post.image_url.trim() !== ""
-        ) {
-
-          imageHTML = `
-            <img
-              src="${escapeHTML(post.image_url)}"
-              alt="${escapeHTML(post.title)}"
-              class="news-image"
-              loading="lazy"
-              onerror="
-                this.style.display='none';
-                this.nextElementSibling.style.display='flex';
-              "
-            >
-
-            <div
-              class="no-image"
-              style="display:none;"
-            >
-              Picha haikupatikana
-            </div>
-          `;
-
-        } else {
-
-          imageHTML = `
-            <div class="no-image">
-              Hakuna picha ya habari hii
-            </div>
-          `;
-        }
-
-
-        /* VIDEO */
-
-        let videoHTML = "";
-
-        if (
-          post.video_url &&
-          post.video_url.trim() !== ""
-        ) {
-
-          videoHTML = `
-            <a
-              href="${escapeHTML(post.video_url)}"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="video-link"
-            >
-              ▶ Tazama Video
-            </a>
-          `;
-        }
-
-
-        /* CARD */
-
-        card.innerHTML = `
-
-          ${imageHTML}
-
-          <div class="news-content">
-
-            <span class="category">
-              ${escapeHTML(post.category || "Habari")}
-            </span>
-
-            <h3 class="news-title">
-              ${escapeHTML(post.title || "Bila kichwa")}
-            </h3>
-
-            <div class="date">
-              ${formatDate(post.created_at)}
-            </div>
-
-            <p class="description">
-              ${escapeHTML(
-                post.description ||
-                "Hakuna maelezo ya habari hii."
-              )}
-            </p>
-
-            ${videoHTML}
-
-          </div>
-
-        `;
-
-
-        grid.appendChild(card);
-
-      });
-
-
-      /* ==============================
-         DISPLAY NEWS
-      ============================== */
-
-      newsContainer.innerHTML = "";
-
-      newsContainer.appendChild(grid);
 
     }
 
 
-    /* ==============================
-       START
-    ============================== */
+    /* =================================
+       START AUTOMATICALLY
+    ================================= */
 
     loadNews();
 
   </script>
+
 
 </body>
 </html>
