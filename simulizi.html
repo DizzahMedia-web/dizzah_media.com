@@ -122,4 +122,818 @@
     }
 
     .label {
-      display
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 30px;
+      color: #ccc;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .page-hero h1 span {
+      color: #e50914;
+    }
+
+    .page-hero p {
+      max-width: 720px;
+      color: #aaa;
+      font-size: 17px;
+    }
+
+    /* SECTION */
+
+    .stories {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: #888;
+      font-size: 14px;
+      max-width: 650px;
+    }
+
+    /* STORY CARDS */
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .story-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .35s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(229,9,20,.55);
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+    }
+
+    .story-image {
+      height: 260px;
+      overflow: hidden;
+      background: #181818;
+    }
+
+    .story-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: .4s;
+    }
+
+    .story-card:hover .story-image img {
+      transform: scale(1.05);
+    }
+
+    .story-content {
+      padding: 24px;
+    }
+
+    .category {
+      color: #e50914;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .story-content h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .story-content p {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .story-link {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .story-link:hover {
+      color: #e50914;
+    }
+
+    /* FEATURE */
+
+    .feature {
+      padding: 80px 0;
+      background: #0d0d0d;
+    }
+
+    .feature-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: #111;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .feature-image {
+      min-height: 420px;
+      background: #181818;
+    }
+
+    .feature-image img {
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .feature-content {
+      padding: 45px 45px 45px 5px;
+    }
+
+    .feature-content h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .feature-content h2 span {
+      color: #e50914;
+    }
+
+    .feature-content p {
+      color: #999;
+      margin-bottom: 25px;
+      max-width: 520px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 8px;
+      background: #e50914;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: #ff1b26;
+      transform: translateY(-2px);
+    }
+
+    /* QUOTE */
+
+    .quote {
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .quote-box {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .quote-mark {
+      color: #e50914;
+      font-size: 55px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .quote h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      margin: 15px 0;
+    }
+
+    .quote p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 55px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      color: #888;
+      font-size: 13px;
+      max-width: 300px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 8px;
+      transition: .3s;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: #aaa;
+    }
+
+    .social-links a:hover {
+      color: #e50914;
+    }
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-box {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-content {
+        padding: 35px;
+      }
+
+      .feature-image,
+      .feature-image img {
+        min-height: 320px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: 90%;
+      }
+
+      .page-hero {
+        padding: 80px 0 60px;
+      }
+
+      .stories {
+        padding: 60px 0;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-image {
+        height: 240px;
+      }
+
+      .feature {
+        padding: 60px 0;
+      }
+
+      .feature-content {
+        padding: 28px 22px;
+      }
+
+      .feature-image,
+      .feature-image img {
+        min-height: 250px;
+      }
+
+      .quote {
+        padding: 70px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .copyright {
+        display: block;
+      }
+
+      .social-links {
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="index.html" class="brand">
+
+        <img
+          src="assets/logo-nav.png"
+          alt="Dizzah Media Logo"
+        >
+
+        <span>DIZZAH MEDIA</span>
+
+      </a>
+
+
+      <nav class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="news.html">News</a>
+
+        <a href="simulizi.html">Simulizi</a>
+
+        <a href="movies.html">Movies</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="podcasts.html">Podcasts</a>
+
+        <a href="motivation.html">Motivation</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html" class="nav-button">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="page-hero">
+
+      <div class="container">
+
+        <div class="label">
+          DIZZAH MEDIA • SIMULIZI
+        </div>
+
+        <h1>
+          Simulizi za <span>Maisha.</span>
+        </h1>
+
+        <p>
+          Hadithi zinazogusa moyo, maisha, changamoto,
+          mapambano, mapenzi, ndoto na safari za mafanikio.
+          Karibu kwenye ulimwengu wa simulizi wa Dizzah Media.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- STORIES -->
+
+    <section class="stories">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Simulizi Maarufu
+          </h2>
+
+          <p>
+            Gundua hadithi zetu na simulizi zinazobeba
+            ujumbe wa maisha.
+          </p>
+
+        </div>
+
+
+        <div class="story-grid">
+
+          <!-- STORY 1 -->
+
+          <article class="story-card">
+
+            <div class="story-image">
+
+              <img
+                src="assets/simulizi.jpg"
+                alt="Safari ya Mafanikio"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="story-content">
+
+              <div class="category">
+                MAISHA
+              </div>
+
+              <h3>
+                Safari ya Mafanikio
+              </h3>
+
+              <p>
+                Kila mafanikio yana safari yake.
+                Hadithi ya mtu anayepambana kutimiza ndoto zake.
+              </p>
+
+              <a href="#" class="story-link">
+                Soma simulizi →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- STORY 2 -->
+
+          <article class="story-card">
+
+            <div class="story-image">
+
+              <img
+                src="assets/simulizi.jpg"
+                alt="Simulizi ya Hamasa"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="story-content">
+
+              <div class="category">
+                HAMASA
+              </div>
+
+              <h3>
+                Simulizi ya Hamasa
+              </h3>
+
+              <p>
+                Hadithi inayokukumbusha kuwa changamoto
+                si mwisho wa safari.
+              </p>
+
+              <a href="#" class="story-link">
+                Soma simulizi →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- STORY 3 -->
+
+          <article class="story-card">
+
+            <div class="story-image">
+
+              <img
+                src="assets/simulizi.jpg"
+                alt="Hadithi ya Kweli"
+                loading="lazy"
+              >
+
+            </div>
+
+            <div class="story-content">
+
+              <div class="category">
+                HADITHI
+              </div>
+
+              <h3>
+                Hadithi ya Kweli
+              </h3>
+
+              <p>
+                Simulizi kuhusu maisha halisi na mambo
+                tunayokutana nayo kila siku.
+              </p>
+
+              <a href="#" class="story-link">
+                Soma simulizi →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURE STORY -->
+
+    <section class="feature">
+
+      <div class="container">
+
+        <div class="feature-box">
+
+          <div class="feature-image">
+
+            <img
+              src="assets/simulizi.jpg"
+              alt="Dizzah Media Stories"
+              loading="lazy"
+            >
+
+          </div>
+
+
+          <div class="feature-content">
+
+            <div class="category">
+              DIZZAH STORIES
+            </div>
+
+            <h2>
+              Kila mtu ana <span>story.</span>
+            </h2>
+
+            <p>
+              Dizzah Media inaamini kuwa kila maisha yana
+              simulizi yenye thamani. Tunataka kuleta mbele
+              hadithi za watu, jamii na safari zinazoweza
+              kuelimisha, kuburudisha na kuhamasisha.
+            </p>
+
+            <a href="contact.html" class="btn">
+              Shiriki Story Yako
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+
+    <section class="quote">
+
+      <div class="container">
+
+        <div class="quote-box">
+
+          <div class="quote-mark">
+            “
+          </div>
+
+          <h2>
+            Hakika leo, kesho kwa ubora zaidi.
+          </h2>
+
+          <p>
+            Dizzah Media — Stories • People • Life
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <h3>
+            DIZZAH MEDIA
+          </h3>
+
+          <p>
+            Hakika leo, kesho kwa ubora zaidi.
+            Media house kutoka Tanzania inayolenga
+            hadhira ya Afrika na Dunia.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>
+            Explore
+          </h4>
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="news.html">
+            News
+          </a>
+
+          <a href="simulizi.html">
+            Simulizi
+          </a>
+
+          <a href="movies.html">
+            Movies
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>
+            More
+          </h4>
+
+          <a href="videos.html">
+            Videos
+          </a>
+
+          <a href="gallery.html">
+            Gallery
+          </a>
+
+          <a href="podcasts.html">
+            Podcasts
+          </a>
+
+          <a href="motivation.html">
+            Motivation
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>
+            Contact
+          </h4>
+
+          <a href="about.html">
+            About
+          </a>
+
+          <a href="contact.html">
+            Contact Us
+          </a>
+
+          <a href="mailto:info@dizzahmedia.com">
+            Email
+          </a>
+
+          <a href="tel:+255754742555">
+            +255 754 742 555
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        <div>
+          © 2026 Dizzah Media. All Rights Reserved.
+        </div>
+
+
+        <div class="social-links">
+
+          <a
+            href="https://www.youtube.com/@DizzahMedia"
+            target="_blank"
+            rel="noopener"
+          >
+            YouTube
+          </a>
+
+          <a
+            href="https://www.instagram.com/dizzah_media"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@dizzahmedia"
+            target="_blank"
+            rel="noopener"
+          >
+            TikTok
+          </a>
+
+          <a
+            href="https://www.facebook.com/share/1ES11b5jWR/"
+            target="_blank"
+            rel="noopener"
+          >
+            Facebook
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
