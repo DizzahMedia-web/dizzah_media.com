@@ -1,119 +1,1062 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Videos | Dizzah Media</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="Tazama videos za Dizzah Media — habari, simulizi, movies, interviews, motivation na Dizzah Originals.">
 
+<link rel="icon" href="assets/favicon-32.png">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070707;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(7,7,7,.96);
+  border-bottom:1px solid #222;
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo img{
+  width:135px;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:14px;
+}
+
+nav a{
+  color:#ccc;
+  font-size:13px;
+  font-weight:700;
+}
+
+nav a:hover,
+nav .active{
+  color:#e50914;
+}
+
+/* HERO */
+.hero{
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,#050505 10%,rgba(5,5,5,.75),rgba(5,5,5,.2)),
+    url("assets/movie.jpg") center/cover;
+}
+
+.hero-content{
+  max-width:1200px;
+  width:100%;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.label{
+  display:inline-block;
+  background:#e50914;
+  padding:6px 12px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  max-width:750px;
+  font-size:clamp(42px,7vw,76px);
+  line-height:.98;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#e50914;
+}
+
+.hero p{
+  max-width:650px;
+  color:#ccc;
+  font-size:17px;
+  margin-bottom:25px;
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:5px;
+  font-size:13px;
+  font-weight:800;
+  margin-right:8px;
+  transition:.3s;
+}
+
+.red{
+  background:#e50914;
+}
+
+.red:hover{
+  background:#b80710;
+  transform:translateY(-2px);
+}
+
+.dark{
+  background:#222;
+  border:1px solid #444;
+}
+
+.dark:hover{
+  background:#333;
+}
+
+/* MAIN */
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:65px 20px;
+}
+
+.heading{
+  margin-bottom:28px;
+}
+
+.heading small{
+  color:#e50914;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.heading h2{
+  font-size:clamp(30px,5vw,46px);
+  line-height:1.1;
+  margin:7px 0 10px;
+}
+
+.heading p{
+  color:#888;
+  max-width:650px;
+}
+
+/* FEATURED */
+.featured{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  background:#111;
+  border:1px solid #222;
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:75px;
+}
+
+.featured-img{
+  min-height:360px;
+  position:relative;
+}
+
+.featured-img img{
+  height:100%;
+  object-fit:cover;
+}
+
+.play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#e50914;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+.featured-text{
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.featured-text h2{
+  font-size:40px;
+  line-height:1.05;
+  margin:10px 0 15px;
+}
+
+.featured-text p{
+  color:#888;
+  margin-bottom:22px;
+}
+
+/* VIDEO CARDS */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-bottom:75px;
+}
+
+.card{
+  background:#111;
+  border:1px solid #222;
+  border-radius:10px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#e50914;
+}
+
+.thumb{
+  height:210px;
+  position:relative;
+}
+
+.thumb img{
+  height:100%;
+  object-fit:cover;
+}
+
+.tag{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#e50914;
+  padding:5px 9px;
+  border-radius:3px;
+  font-size:9px;
+  font-weight:900;
+}
+
+.small-play{
+  position:absolute;
+  bottom:12px;
+  left:12px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#e50914;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card-body{
+  padding:19px;
+}
+
+.card h3{
+  font-size:19px;
+  margin-bottom:7px;
+}
+
+.card p{
+  color:#888;
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.watch{
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+}
+
+.watch:hover{
+  color:#e50914;
+}
+
+/* CATEGORIES */
+.categories{
+  margin-bottom:75px;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.category{
+  background:#101010;
+  border:1px solid #222;
+  border-radius:9px;
+  padding:22px;
+  transition:.3s;
+}
+
+.category:hover{
+  border-color:#e50914;
+}
+
+.number{
+  color:#e50914;
+  font-weight:900;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.category h3{
+  margin-bottom:5px;
+}
+
+.category p{
+  color:#777;
+  font-size:13px;
+}
+
+/* YOUTUBE */
+.youtube{
+  text-align:center;
+  padding:50px 25px;
+  background:linear-gradient(135deg,#190607,#111);
+  border:1px solid #3a1517;
+  border-radius:12px;
+}
+
+.youtube-icon{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#e50914;
+  margin:0 auto 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+
+.youtube h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.youtube p{
+  color:#888;
+  max-width:650px;
+  margin:0 auto 22px;
+}
+
+/* FOOTER */
+footer{
+  background:#030303;
+  border-top:1px solid #222;
+}
+
+.footer{
+  max-width:1200px;
+  margin:auto;
+  padding:50px 20px 20px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:35px;
+}
+
+.footer-logo{
+  width:135px;
+  margin-bottom:15px;
+}
+
+.about p{
+  max-width:400px;
+  color:#777;
+  font-size:13px;
+}
+
+.footer h3{
+  font-size:15px;
+  margin-bottom:15px;
+}
+
+.footer a{
+  display:block;
+  color:#777;
+  font-size:13px;
+  margin-bottom:9px;
+}
+
+.footer a:hover{
+  color:#e50914;
+}
+
+.bottom{
+  border-top:1px solid #222;
+  padding-top:18px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  color:#555;
+  font-size:11px;
+}
+
+.bottom span{
+  color:#e50914;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .nav{
+    align-items:flex-start;
+  }
+
+  nav{
+    gap:8px 11px;
+  }
+
+  nav a{
+    font-size:11px;
+  }
+
+  .featured{
+    grid-template-columns:1fr;
+  }
+
+  .video-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .category-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .logo img{
+    width:115px;
+  }
+
+  nav{
+    max-width:260px;
+  }
+
+  .hero{
+    min-height:540px;
+  }
+
+  .hero-content{
+    padding:60px 18px;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  main{
+    padding:50px 18px;
+  }
+
+  .featured-img{
+    min-height:250px;
+  }
+
+  .featured-text{
+    padding:28px 22px;
+  }
+
+  .featured-text h2{
+    font-size:32px;
+  }
+
+  .video-grid,
+  .category-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .thumb{
+    height:235px;
+  }
+
+  .youtube h2{
+    font-size:30px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header>
+  <div class="nav">
 
-<div class="container navbar">
+    <a href="index.html" class="logo">
+      <img src="assets/logo-nav.png" alt="Dizzah Media">
+    </a>
 
-<a href="index.html" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="videos.html" class="active">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html">Podcasts</a>
+      <a href="motivation.html">Motivation</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-<img src="assets/logo.png" alt="Dizzah Media">
-
-<h1>Dizzah <span>Media</span></h1>
-
-</a>
-
-<nav class="nav-links">
-
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="videos.html" class="active">Videos</a>
-<a href="movies.html">Movies</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-
-</nav>
-
-<div class="menu-btn">☰</div>
-
-</div>
-
+  </div>
 </header>
 
+
 <section class="hero">
+  <div class="hero-content">
 
-<div class="container hero-content">
+    <div class="label">DIZZAH MEDIA TV</div>
 
-<h2>Video za <span>Dizzah Media</span></h2>
+    <h1>
+      Watch. Discover.
+      <span>Experience.</span>
+    </h1>
 
-<p>Tazama video zetu mpya kutoka YouTube na maudhui mengine ya kipekee.</p>
+    <p>
+      Karibu kwenye ulimwengu wa video wa Dizzah Media.
+      Habari, interviews, simulizi, movies, motivation
+      na Dizzah Originals.
+    </p>
 
-</div>
+    <a
+      href="https://www.youtube.com/@DizzahMedia"
+      target="_blank"
+      class="btn red"
+    >
+      ▶ Tazama YouTube
+    </a>
 
-</section><section>
+    <a href="#videos" class="btn dark">
+      Explore Videos
+    </a>
 
-<div class="container">
+  </div>
+</section>
 
-<h2 class="section-title">Video Zetu</h2>
 
-<div class="video-grid">
+<main>
 
-<div class="video-card">
+<section>
 
-<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=DizzahMedia"
-title="Dizzah Media YouTube"
-allowfullscreen>
-</iframe>
+  <div class="heading">
+    <small>DIZZAH MEDIA TV</small>
+    <h2>Featured Video</h2>
+    <p>
+      Gundua video na stories zinazotengenezwa na Dizzah Media.
+    </p>
+  </div>
 
-</div>
+  <div class="featured">
 
-<div class="contact-card">
+    <div class="featured-img">
 
-<h3>Tembelea Channel Yetu</h3>
+      <img src="assets/movie.jpg" alt="Dizzah Media TV">
 
-<p>Jiunge nasi YouTube kwa habari, simulizi, documentaries, motivation, podcasts na maudhui mengine mapya kila wiki.</p>
+      <a
+        href="https://www.youtube.com/@DizzahMedia"
+        target="_blank"
+        class="play"
+      >
+        ▶
+      </a>
 
-<a href="https://www.youtube.com/@DizzahMedia"
-target="_blank"
-class="btn">
+    </div>
 
-Tazama YouTube
+    <div class="featured-text">
 
-</a>
+      <small style="color:#e50914;font-weight:900;">
+        DIZZAH ORIGINALS
+      </small>
 
-</div>
+      <h2>Stories Worth Watching.</h2>
 
-</div>
+      <p>
+        Maudhui yanayoburudisha, kuelimisha na kugusa
+        maisha ya watu kutoka Tanzania kwenda duniani.
+      </p>
 
-</div>
+      <div>
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="btn red"
+        >
+          Fungua YouTube
+        </a>
+      </div>
 
-</section><footer class="footer">
+    </div>
 
-<div class="container">
+  </div>
 
-<p>&copy; 2026 <strong>Dizzah Media</strong>. All Rights Reserved.</p>
+</section>
 
-<p>Hakika Leo, Kesho kwa Ubora Zaidi.</p>
 
-<div class="social-links">
+<section id="videos">
 
-<a href="https://www.youtube.com/@DizzahMedia" target="_blank">▶</a>
+  <div class="heading">
+    <small>VIDEO COLLECTION</small>
+    <h2>Explore Our Videos</h2>
+    <p>
+      Chagua aina ya maudhui unayotaka kutazama.
+    </p>
+  </div>
 
-<a href="https://www.instagram.com/dizzah_media" target="_blank">◎</a>
+  <div class="video-grid">
 
-<a href="https://www.tiktok.com/@dizzahmedia" target="_blank">♪</a>
 
-<a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">f</a>
+    <article class="card">
 
-</div>
+      <div class="thumb">
 
-</div>
+        <img src="assets/news1.jpg" alt="Dizzah Media News">
+
+        <span class="tag">NEWS</span>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="small-play"
+        >
+          ▶
+        </a>
+
+      </div>
+
+      <div class="card-body">
+
+        <h3>Dizzah Media News</h3>
+
+        <p>
+          Habari, matukio na taarifa kutoka Tanzania na duniani.
+        </p>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="watch"
+        >
+          Tazama YouTube →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="thumb">
+
+        <img src="assets/simulizi.jpg" alt="Simulizi">
+
+        <span class="tag">SIMULIZI</span>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="small-play"
+        >
+          ▶
+        </a>
+
+      </div>
+
+      <div class="card-body">
+
+        <h3>Simulizi za Maisha</h3>
+
+        <p>
+          Hadithi na safari za maisha zenye kugusa moyo.
+        </p>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="watch"
+        >
+          Tazama YouTube →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="thumb">
+
+        <img src="assets/movie.jpg" alt="Movies">
+
+        <span class="tag">MOVIES</span>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="small-play"
+        >
+          ▶
+        </a>
+
+      </div>
+
+      <div class="card-body">
+
+        <h3>Movies & Drama</h3>
+
+        <p>
+          Filamu, drama na tamthilia zenye stories za kipekee.
+        </p>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="watch"
+        >
+          Tazama YouTube →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="thumb">
+
+        <img src="assets/news1.jpg" alt="Interviews">
+
+        <span class="tag">INTERVIEWS</span>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="small-play"
+        >
+          ▶
+        </a>
+
+      </div>
+
+      <div class="card-body">
+
+        <h3>Interviews</h3>
+
+        <p>
+          Mazungumzo na watu wenye stories na uzoefu.
+        </p>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="watch"
+        >
+          Tazama YouTube →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="thumb">
+
+        <img src="assets/simulizi.jpg" alt="Motivation">
+
+        <span class="tag">MOTIVATION</span>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="small-play"
+        >
+          ▶
+        </a>
+
+      </div>
+
+      <div class="card-body">
+
+        <h3>Motivation</h3>
+
+        <p>
+          Inspiration, success stories na mindset.
+        </p>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="watch"
+        >
+          Tazama YouTube →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="thumb">
+
+        <img src="assets/movie.jpg" alt="Dizzah Originals">
+
+        <span class="tag">ORIGINALS</span>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="small-play"
+        >
+          ▶
+        </a>
+
+      </div>
+
+      <div class="card-body">
+
+        <h3>Dizzah Originals</h3>
+
+        <p>
+          Productions maalum kutoka Dizzah Media.
+        </p>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+          class="watch"
+        >
+          Tazama YouTube →
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<section class="categories">
+
+  <div class="heading">
+    <small>DISCOVER</small>
+    <h2>Video Categories</h2>
+  </div>
+
+  <div class="category-grid">
+
+    <div class="category">
+      <div class="number">01</div>
+      <h3>News</h3>
+      <p>Habari na matukio Tanzania na duniani.</p>
+    </div>
+
+    <div class="category">
+      <div class="number">02</div>
+      <h3>Entertainment</h3>
+      <p>Burudani, interviews na stories.</p>
+    </div>
+
+    <div class="category">
+      <div class="number">03</div>
+      <h3>Movies</h3>
+      <p>Filamu, drama na Dizzah Originals.</p>
+    </div>
+
+    <div class="category">
+      <div class="number">04</div>
+      <h3>Motivation</h3>
+      <p>Inspiration na success stories.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="youtube">
+
+  <div class="youtube-icon">▶</div>
+
+  <h2>Subscribe to Dizzah Media</h2>
+
+  <p>
+    Jiunge na YouTube channel yetu kupata videos mpya,
+    movies, interviews, simulizi na Dizzah Originals.
+  </p>
+
+  <a
+    href="https://www.youtube.com/@DizzahMedia"
+    target="_blank"
+    class="btn red"
+  >
+    ▶ Visit YouTube Channel
+  </a>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer">
+
+    <div class="footer-grid">
+
+      <div class="about">
+
+        <img
+          src="assets/logo-full.png"
+          alt="Dizzah Media"
+          class="footer-logo"
+        >
+
+        <p>
+          Dizzah Media ni media house inayolenga kuleta
+          habari, simulizi, filamu, videos, motivation
+          na maudhui yenye ubora.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Explore</h3>
+
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="simulizi.html">Simulizi</a>
+        <a href="movies.html">Movies</a>
+        <a href="videos.html">Videos</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Connect</h3>
+
+        <a
+          href="https://www.youtube.com/@DizzahMedia"
+          target="_blank"
+        >
+          YouTube
+        </a>
+
+        <a
+          href="https://www.instagram.com/dizzah_media"
+          target="_blank"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@dizzahmedia"
+          target="_blank"
+        >
+          TikTok
+        </a>
+
+        <a
+          href="https://www.facebook.com/share/1ES11b5jWR/"
+          target="_blank"
+        >
+          Facebook
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="bottom">
+
+      <div>
+        © 2026 Dizzah Media. All Rights Reserved.
+      </div>
+
+      <div>
+        <span>Hakika Leo, Kesho kwa Ubora Zaidi.</span>
+      </div>
+
+    </div>
+
+  </div>
 
 </footer>
-
-<script src="script.js"></script>
 
 </body>
   </html>
