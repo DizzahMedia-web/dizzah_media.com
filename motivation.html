@@ -1,145 +1,516 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Motivation | Dizzah Media</title>
+<meta name="description" content="Motivation kutoka Dizzah Media — hamasa, mafanikio, uongozi na mawazo ya kujenga maisha.">
 
-<meta name="description" content="Motivational speeches, success stories na mafunzo kutoka Dizzah Media.">
+<link rel="icon" href="assets/favicon-32.png">
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070707;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#050505;
+  border-bottom:1px solid #222;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo img{
+  width:145px;
+  display:block;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px;
+}
+
+nav a{
+  color:#ddd;
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+  color:#e50914;
+}
+
+.hero{
+  min-height:50vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.68),rgba(0,0,0,.92)),
+    url("assets/simulizi.jpg") center/cover;
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,82px);
+  line-height:1;
+  margin-bottom:20px;
+  text-transform:uppercase;
+}
+
+.hero h1 span{
+  color:#e50914;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:18px;
+  max-width:680px;
+  margin:auto;
+}
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:65px 20px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.title h2{
+  font-size:35px;
+  margin-bottom:8px;
+}
+
+.title p{
+  color:#999;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.card{
+  background:#111;
+  border:1px solid #222;
+  border-radius:14px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#e50914;
+}
+
+.card img{
+  width:100%;
+  height:225px;
+  object-fit:cover;
+  display:block;
+}
+
+.content{
+  padding:24px;
+}
+
+.content h3{
+  font-size:23px;
+  margin-bottom:10px;
+}
+
+.content p{
+  color:#aaa;
+  margin-bottom:20px;
+}
+
+.btn{
+  display:inline-block;
+  background:#e50914;
+  padding:11px 20px;
+  border-radius:7px;
+  font-weight:bold;
+  font-size:14px;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#b80710;
+}
+
+.quote{
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+  padding:45px 25px;
+  background:#111;
+  border:1px solid #222;
+  border-radius:14px;
+}
+
+.quote p{
+  font-size:26px;
+  font-weight:bold;
+}
+
+.quote span{
+  display:block;
+  color:#e50914;
+  margin-top:15px;
+}
+
+.cta{
+  text-align:center;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
+  background:#0d0d0d;
+}
+
+.cta h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.cta p{
+  color:#aaa;
+  margin-bottom:22px;
+}
+
+footer{
+  background:#030303;
+  border-top:1px solid #222;
+  padding:45px 20px 25px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo{
+  width:180px;
+  margin-bottom:15px;
+}
+
+footer p{
+  color:#999;
+}
+
+footer h3{
+  margin-bottom:15px;
+}
+
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.links a{
+  color:#999;
+}
+
+.links a:hover{
+  color:#e50914;
+}
+
+.copy{
+  max-width:1200px;
+  margin:35px auto 0;
+  padding-top:20px;
+  border-top:1px solid #222;
+  text-align:center;
+  color:#666;
+  font-size:13px;
+}
+
+@media(max-width:900px){
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:650px){
+  .nav{
+    flex-direction:column;
+  }
+
+  nav{
+    gap:10px;
+  }
+
+  nav a{
+    font-size:13px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:42vh;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .quote p{
+    font-size:21px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="site-header">
+<header>
+  <div class="nav">
 
-<div class="container navbar">
+    <a href="index.html" class="logo">
+      <img src="assets/logo-nav.png" alt="Dizzah Media">
+    </a>
 
-<a href="index.html" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html">Podcasts</a>
+      <a href="motivation.html" class="active">Motivation</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-<img src="assets/logo.png" alt="Dizzah Media Logo">
-
-<h1>Dizzah <span>Media</span></h1>
-
-</a>
-
-<nav class="nav-links">
-
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="videos.html">Videos</a>
-<a href="movies.html">Movies</a>
-<a href="motivation.html" class="active">Motivation</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-
-</nav>
-
-<div class="menu-btn">☰</div>
-
-</div>
-
+  </div>
 </header>
 
 <section class="hero">
+  <div class="hero-content">
+    <h1>Dizzah <span>Motivation</span></h1>
 
-<div class="container hero-content">
+    <p>
+      Hamasa, maarifa na simulizi za maisha kwa watu wanaothubutu
+      kuamini ndoto zao na kujenga kesho bora.
+    </p>
+  </div>
+</section>
 
-<h2>Motivation <span>Hub</span></h2>
+<section class="section">
 
-<p>Pata hamasa, mafunzo na hadithi za mafanikio zitakazokupa nguvu ya kufikia ndoto zako.</p>
+  <div class="title">
+    <h2>Jenga Mawazo. Jenga Maisha.</h2>
+    <p>
+      Maudhui yanayolenga kuhamasisha, kuelimisha na kuleta mtazamo mpya.
+    </p>
+  </div>
 
-</div>
+  <div class="cards">
 
-</section><section>
+    <article class="card">
+      <img src="assets/simulizi.jpg" alt="Success Stories">
 
-<div class="container">
+      <div class="content">
+        <h3>Success Stories</h3>
 
-<h2 class="section-title">Mafunzo ya Mafanikio</h2>
+        <p>
+          Hadithi za watu, safari zao, changamoto walizopitia
+          na hatua zilizowasaidia kufikia mafanikio.
+        </p>
 
-<div class="news-grid">
+        <a class="btn"
+           href="https://www.youtube.com/@DizzahMedia"
+           target="_blank">
+          Tazama YouTube
+        </a>
+      </div>
+    </article>
 
-<div class="news-card">
+    <article class="card">
+      <img src="assets/news1.jpg" alt="Leadership">
 
-<img src="assets/motivation1.jpg" alt="Success">
+      <div class="content">
+        <h3>Leadership</h3>
 
-<div class="news-content">
+        <p>
+          Mawazo kuhusu uongozi, uwajibikaji, nidhamu na namna
+          ya kuwa mtu mwenye mchango chanya katika jamii.
+        </p>
 
-<h3>Success Stories</h3>
+        <a class="btn"
+           href="https://www.youtube.com/@DizzahMedia"
+           target="_blank">
+          Tazama YouTube
+        </a>
+      </div>
+    </article>
 
-<p>Hadithi za watu waliofanikiwa zitakazokupa hamasa ya kuendelea kupambana na kufikia malengo yako.</p>
+    <article class="card">
+      <img src="assets/movie.jpg" alt="Business Mindset">
 
-<a href="#" class="read-more">Soma zaidi →</a>
+      <div class="content">
+        <h3>Business Mindset</h3>
 
-</div>
+        <p>
+          Hamasa kwa vijana na wajasiriamali wanaotaka kuanza,
+          kujifunza, kuendelea na kujenga kitu chao.
+        </p>
 
-</div>
+        <a class="btn"
+           href="https://www.youtube.com/@DizzahMedia"
+           target="_blank">
+          Tazama YouTube
+        </a>
+      </div>
+    </article>
 
-<div class="news-card">
+  </div>
 
-<img src="assets/motivation2.jpg" alt="Leadership">
+</section>
 
-<div class="news-content">
+<section class="section">
 
-<h3>Leadership</h3>
+  <div class="quote">
+    <p>
+      “Usisubiri mazingira yakamilike. Anza na kile ulicho nacho,
+      jifunze na endelea kusonga mbele.”
+    </p>
 
-<p>Jifunze uongozi, nidhamu, kujitambua na namna ya kujenga maisha yenye mafanikio.</p>
+    <span>Dizzah Media</span>
+  </div>
 
-<a href="#" class="read-more">Soma zaidi →</a>
+</section>
 
-</div>
+<section class="section cta">
 
-</div>
+  <h2>Usikose Maudhui Mapya</h2>
 
-<div class="news-card">
+  <p>
+    Fuatilia Dizzah Media kwa simulizi, video, motivation na maudhui mengine.
+  </p>
 
-<img src="assets/motivation3.jpg" alt="Business">
+  <a class="btn"
+     href="https://www.youtube.com/@DizzahMedia"
+     target="_blank">
+    Tazama Dizzah Media
+  </a>
 
-<div class="news-content">
+</section>
 
-<h3>Business Mindset</h3>
+<footer>
 
-<p>Maudhui yatakayokusaidia kukuza fikra za biashara, ubunifu na maendeleo binafsi.</p>
+  <div class="footer-inner">
 
-<a href="#" class="read-more">Soma zaidi →</a>
+    <div>
+      <img
+        class="footer-logo"
+        src="assets/logo-full.png"
+        alt="Dizzah Media"
+      >
 
-</div>
+      <p>
+        Hakika Leo, Kesho kwa Ubora Zaidi.
+      </p>
 
-</div>
+      <p>
+        Media house kutoka Tanzania inayolenga kuleta
+        maudhui yenye ubora kwa hadhira ya ndani na kimataifa.
+      </p>
+    </div>
 
-</div>
+    <div>
+      <h3>Quick Links</h3>
 
-</div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="simulizi.html">Simulizi</a>
+        <a href="movies.html">Movies</a>
+        <a href="videos.html">Videos</a>
+      </div>
+    </div>
 
-  </section><footer class="footer">
+    <div>
+      <h3>Connect</h3>
 
-<div class="container">
+      <div class="links">
+        <a href="https://www.youtube.com/@DizzahMedia" target="_blank">
+          YouTube
+        </a>
 
-<p>&copy; 2026 <strong>Dizzah Media</strong>. All Rights Reserved.</p>
+        <a href="https://www.instagram.com/dizzah_media" target="_blank">
+          Instagram
+        </a>
 
-<p>Hakika Leo, Kesho kwa Ubora Zaidi.</p>
+        <a href="https://www.tiktok.com/@dizzahmedia" target="_blank">
+          TikTok
+        </a>
 
-<div class="social-links">
+        <a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">
+          Facebook
+        </a>
+      </div>
+    </div>
 
-<a href="https://www.youtube.com/@DizzahMedia" target="_blank">▶</a>
+  </div>
 
-<a href="https://www.instagram.com/dizzah_media" target="_blank">◎</a>
-
-<a href="https://www.tiktok.com/@dizzahmedia" target="_blank">♪</a>
-
-<a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">f</a>
-
-</div>
-
-</div>
+  <div class="copy">
+    © 2026 Dizzah Media. All Rights Reserved.
+  </div>
 
 </footer>
 
-<script src="script.js"></script>
-
 </body>
-  </html>
+</html>
