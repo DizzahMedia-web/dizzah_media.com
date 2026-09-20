@@ -1,66 +1,480 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Ukurasa Haujapatikana | Dizzah Media</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Ukurasa haujapatikana. Rudi Dizzah Media kwa habari, simulizi, movies, videos, motivation na Dizzah Originals."
+  >
+
+  <meta name="robots" content="noindex, follow">
+
+  <meta name="theme-color" content="#12051f">
+
+  <title>404 | Ukurasa Haujapatikana — Dizzah Media</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon-32.png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .error-page-modern {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      place-items: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(147,79,224,.20),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 15% 80%,
+          rgba(116,39,201,.16),
+          transparent 30%
+        ),
+        #12051f;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .error-inner {
+      width: min(100%, 900px);
+      text-align: center;
+    }
+
+    .error-logo {
+      width: 95px;
+      height: 95px;
+      margin: 0 auto 28px;
+      object-fit: contain;
+    }
+
+    .error-number {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(7rem, 22vw, 13rem);
+      line-height: .8;
+      font-weight: 950;
+      letter-spacing: -.08em;
+      text-shadow:
+        0 15px 45px rgba(0,0,0,.35);
+    }
+
+    .error-title {
+      margin-top: 35px;
+      color: #fff;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .error-description {
+      max-width: 650px;
+      margin: 16px auto 30px;
+      color: rgba(255,255,255,.70);
+      font-size: 1.05rem;
+    }
+
+    .error-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .error-actions .btn {
+      min-width: 170px;
+    }
+
+    .error-links {
+      margin-top: 45px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    .error-links p {
+      margin-bottom: 15px;
+      color: rgba(255,255,255,.50);
+      font-size: .85rem;
+    }
+
+    .error-navigation {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .error-navigation a {
+      color: rgba(255,255,255,.68);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .error-navigation a:hover {
+      color: #b37bea;
+    }
+
+    @media (max-width: 600px) {
+      .error-page-modern {
+        min-height: calc(100vh - 68px);
+        padding: 60px 18px;
+      }
+
+      .error-logo {
+        width: 78px;
+        height: 78px;
+      }
+
+      .error-actions {
+        flex-direction: column;
+      }
+
+      .error-actions .btn {
+        width: 100%;
+      }
+
+      .error-navigation {
+        gap: 12px 18px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<section class="error-page">
-    <div class="container">
+  <header class="site-header">
 
-        <h1 class="error-code">404</h1>
+    <div class="container navbar">
 
-        <h2>Samahani! Ukurasa huu haujapatikana.</h2>
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="Dizzah Media - Nyumbani"
+      >
 
-        <p>
-            Inawezekana kiungo ulichotumia si sahihi au ukurasa umehamishwa.
-        </p>        <div class="error-actions">
-            <a href="index.html" class="btn">
-                🏠 Rudi Nyumbani
-            </a>
+        <img
+          src="assets/dizzah-logo-profile.png"
+          alt="Dizzah Media"
+        >
 
-            <a href="contact.html" class="btn">
-                📞 Wasiliana Nasi
-            </a>
+        <div>
+          <div class="logo-title">
+            DIZZAH <span>MEDIA</span>
+          </div>
         </div>
 
-        <div class="error-message">
-            <h3>Kwa nini umeona ukurasa huu?</h3>
+      </a>
 
-            <ul>
-                <li>Kiungo ulichofungua hakipo.</li>
-                <li>Ukurasa umehamishwa au umefutwa.</li>
-                <li>Huenda umeandika anwani (URL) isiyo sahihi.</li>
-            </ul>
+      <nav
+        class="nav-links"
+        aria-label="Menyu kuu"
+      >
 
-            <p>
-                Tafadhali tumia menyu ya website au bonyeza
-                <strong>"Rudi Nyumbani"</strong> ili kuendelea kutumia
-                Dizzah Media.
-            </p>
-        </div>    </div>
-</section>
+        <a href="index.html">
+          Nyumbani
+        </a>
 
-<footer class="footer">
-    <div class="container">
-        <h3>Dizzah Media</h3>
-        <p>Hakika leo, Kesho kwa ubora.</p>
+        <a href="news.html">
+          Habari
+        </a>
 
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-        </div>
+        <a href="simulizi.html">
+          Simulizi
+        </a>
 
-        <p>&copy; 2026 Dizzah Media. Haki zote zimehifadhiwa.</p>
+        <a href="movies.html">
+          Movies
+        </a>
+
+        <a href="videos.html">
+          Videos
+        </a>
+
+        <a href="motivation.html">
+          Motivation
+        </a>
+
+        <a href="originals.html">
+          Originals
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+      <button
+        id="mobileToggle"
+        type="button"
+        aria-label="Fungua menyu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
     </div>
-</footer>
 
-<script src="script.js"></script>
+  </header>
+
+
+  <main>
+
+    <section
+      class="error-page-modern"
+      aria-labelledby="error-title"
+    >
+
+      <div class="error-inner">
+
+        <img
+          class="error-logo"
+          src="assets/dizzah-logo-profile.png"
+          alt="Dizzah Media"
+        >
+
+        <div
+          class="error-number"
+          aria-hidden="true"
+        >
+          404
+        </div>
+
+        <h1
+          id="error-title"
+          class="error-title"
+        >
+          Ukurasa Haujapatikana
+        </h1>
+
+        <p class="error-description">
+          Samahani, ukurasa unaoutafuta haujapatikana,
+          umehamishwa au kiungo ulichotumia si sahihi.
+          Usijali — Dizzah Media bado iko hapa kwa ajili yako.
+        </p>
+
+        <div class="error-actions">
+
+          <a
+            href="index.html"
+            class="btn btn-white"
+          >
+            ← Rudi Nyumbani
+          </a>
+
+          <a
+            href="news.html"
+            class="btn"
+          >
+            Soma Habari
+          </a>
+
+          <a
+            href="contact.html"
+            class="btn btn-outline"
+            style="color:#fff;border-color:rgba(255,255,255,.35);"
+          >
+            Wasiliana Nasi
+          </a>
+
+        </div>
+
+
+        <div class="error-links">
+
+          <p>
+            Endelea kugundua Dizzah Media
+          </p>
+
+          <div class="error-navigation">
+
+            <a href="simulizi.html">
+              Simulizi
+            </a>
+
+            <a href="movies.html">
+              Movies
+            </a>
+
+            <a href="videos.html">
+              Videos
+            </a>
+
+            <a href="gallery.html">
+              Gallery
+            </a>
+
+            <a href="podcasts.html">
+              Podcasts
+            </a>
+
+            <a href="motivation.html">
+              Motivation
+            </a>
+
+            <a href="originals.html">
+              Dizzah Originals
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <img
+            src="assets/dizzah-logo-profile.png"
+            alt="Dizzah Media"
+          >
+
+          <h3>
+            DIZZAH MEDIA
+          </h3>
+
+          <p>
+            Habari, simulizi, entertainment,
+            motivation na productions zinazounganisha
+            Tanzania, Afrika na dunia.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Explore
+          </h4>
+
+          <div class="footer-links">
+
+            <a href="news.html">
+              Habari
+            </a>
+
+            <a href="simulizi.html">
+              Simulizi
+            </a>
+
+            <a href="movies.html">
+              Movies
+            </a>
+
+            <a href="videos.html">
+              Videos
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Dizzah
+          </h4>
+
+          <div class="footer-links">
+
+            <a href="about.html">
+              About Us
+            </a>
+
+            <a href="originals.html">
+              Dizzah Originals
+            </a>
+
+            <a href="gallery.html">
+              Gallery
+            </a>
+
+            <a href="podcasts.html">
+              Podcasts
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Mawasiliano
+          </h4>
+
+          <div class="footer-links">
+
+            <a href="contact.html">
+              Contact
+            </a>
+
+            <a href="faq.htm">
+              FAQ
+            </a>
+
+            <a href="Privacy.html">
+              Privacy
+            </a>
+
+            <a href="Terms.html">
+              Terms
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © <span id="year">2026</span>
+          Dizzah Media. Haki zote zimehifadhiwa.
+        </span>
+
+        <span>
+          Hakika Leo, Kesho kwa Ubora Zaidi.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
 
 </body>
-  </html>
+</html>
