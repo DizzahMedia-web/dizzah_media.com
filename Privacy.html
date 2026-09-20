@@ -1,79 +1,1057 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sera ya Faragha - Dizzah Media</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Privacy Policy | Dizzah Media</title>
+
+<meta name="description" content="Sera ya Faragha ya Dizzah Media. Fahamu jinsi tunavyolinda na kutumia taarifa zako.">
+<meta name="author" content="Dizzah Media">
+
+<link rel="icon" href="assets/favicon-32.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080808;
+    color:#fff;
+    line-height:1.7;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,8,8,.96);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+}
+
+.header-inner{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.brand-name{
+    display:block;
+    font-size:19px;
+    font-weight:900;
+}
+
+.brand-tagline{
+    display:block;
+    color:#b98cff;
+    font-size:9px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:17px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:#bbb;
+    font-size:12px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.nav a:hover{
+    color:#b98cff;
+}
+
+.nav .active{
+    color:#b98cff;
+}
+
+/* HERO */
+
+.hero{
+    padding:95px 0 80px;
+    background:
+        radial-gradient(circle at 80% 20%,rgba(123,44,255,.25),transparent 35%),
+        radial-gradient(circle at 15% 80%,rgba(90,0,180,.15),transparent 30%),
+        linear-gradient(135deg,#090909,#130a1c,#080808);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.eyebrow{
+    display:inline-block;
+    color:#b98cff;
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,70px);
+    line-height:1.05;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#b98cff;
+}
+
+.hero p{
+    color:#aaa;
+    max-width:700px;
+    font-size:17px;
+}
+
+/* CONTENT */
+
+.content{
+    padding:75px 0 90px;
+}
+
+.policy-layout{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:45px;
+    align-items:start;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    position:sticky;
+    top:105px;
+    background:#101010;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    padding:22px;
+}
+
+.sidebar h3{
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.sidebar a{
+    display:block;
+    color:#888;
+    font-size:12px;
+    padding:7px 0;
+    transition:.2s;
+}
+
+.sidebar a:hover{
+    color:#b98cff;
+}
+
+/* POLICY */
+
+.policy{
+    background:#0e0e0e;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:42px;
+}
+
+.policy-section{
+    padding-bottom:35px;
+    margin-bottom:35px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.policy-section:last-child{
+    border-bottom:0;
+    margin-bottom:0;
+}
+
+.policy h2{
+    font-size:25px;
+    margin-bottom:14px;
+}
+
+.policy h2 span{
+    color:#b98cff;
+}
+
+.policy p{
+    color:#aaa;
+    font-size:14px;
+    margin-bottom:13px;
+}
+
+.policy ul{
+    padding-left:22px;
+    color:#aaa;
+    font-size:14px;
+}
+
+.policy li{
+    margin-bottom:8px;
+}
+
+.highlight{
+    padding:18px 20px;
+    border-radius:10px;
+    background:rgba(123,44,255,.08);
+    border:1px solid rgba(123,44,255,.20);
+    color:#cfcfcf;
+    margin-top:15px;
+    font-size:13px;
+}
+
+.contact-box{
+    margin-top:20px;
+    padding:22px;
+    border-radius:12px;
+    background:#151515;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.contact-box strong{
+    color:#fff;
+}
+
+.contact-box a{
+    color:#b98cff;
+}
+
+.updated{
+    color:#666 !important;
+    font-size:11px !important;
+    margin-bottom:0 !important;
+}
+
+/* CTA */
+
+.cta{
+    margin-top:45px;
+    padding:45px 30px;
+    text-align:center;
+    border-radius:18px;
+    background:
+        radial-gradient(circle at center,rgba(123,44,255,.18),transparent 55%),
+        #101010;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.cta h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#888;
+    max-width:600px;
+    margin:0 auto 22px;
+    font-size:14px;
+}
+
+.btn{
+    display:inline-flex;
+    padding:13px 22px;
+    border-radius:8px;
+    background:#7b2cff;
+    color:#fff;
+    font-size:13px;
+    font-weight:900;
+    transition:.25s;
+}
+
+.btn:hover{
+    background:#9654ff;
+    transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+.footer{
+    background:#050505;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:55px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:35px;
+}
+
+.footer h3{
+    margin-bottom:12px;
+    font-size:17px;
+}
+
+.footer p{
+    color:#777;
+    font-size:13px;
+    max-width:430px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.footer-links a{
+    color:#777;
+    font-size:12px;
+}
+
+.footer-links a:hover{
+    color:#b98cff;
+}
+
+.socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.socials a{
+    padding:7px 10px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:6px;
+    color:#777;
+    font-size:11px;
+}
+
+.socials a:hover{
+    color:#fff;
+    border-color:#8d4dff;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding-top:20px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    color:#555;
+    font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .header-inner{
+        padding:12px 0;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .nav{
+        width:100%;
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        padding-bottom:5px;
+    }
+
+    .nav a{
+        white-space:nowrap;
+    }
+
+    .policy-layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:static;
+    }
+
+    .sidebar a{
+        display:inline-block;
+        margin-right:15px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding:70px 0 60px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .content{
+        padding:50px 0 65px;
+    }
+
+    .policy{
+        padding:27px 20px;
+    }
+
+    .policy h2{
+        font-size:22px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <h1>Dizzah Media</h1>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Nyumbani</a></li>
-                <li><a href="about.html">Kuhusu</a></li>
-                <li><a href="contact.html">Mawasiliano</a></li>
-                <li><a href="privacy.html" class="active">Privacy</a></li>
-            </ul>
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="brand">
+
+            <img
+                src="assets/dizzah-logo-profile.png"
+                alt="Dizzah Media Logo">
+
+            <span>
+
+                <span class="brand-name">
+                    DIZZAH MEDIA
+                </span>
+
+                <span class="brand-tagline">
+                    Hakika Leo, Kesho kwa Ubora Zaidi.
+                </span>
+
+            </span>
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="index.html">
+                Nyumbani
+            </a>
+
+            <a href="news.html">
+                Habari
+            </a>
+
+            <a href="simulizi.html">
+                Simulizi
+            </a>
+
+            <a href="movies.html">
+                Movies
+            </a>
+
+            <a href="motivation.html">
+                Motivation
+            </a>
+
+            <a href="videos.html">
+                Video
+            </a>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+            <a href="podcasts.html">
+                Podcasts
+            </a>
+
+            <a href="Live.html">
+                Live
+            </a>
+
+            <a href="about.html">
+                Kuhusu
+            </a>
+
+            <a href="contact.html">
+                Mawasiliano
+            </a>
+
         </nav>
+
     </div>
+
 </header>
 
-<section class="privacy-section">
+
+<!-- HERO -->
+
+<section class="hero">
+
     <div class="container">
-        <h2>Sera ya Faragha</h2>
-        <p>
-            Dizzah Media inaheshimu faragha ya watumiaji wake. Ukurasa huu unaeleza jinsi tunavyokusanya, kutumia na kulinda taarifa zako.
-                      </p><div class="privacy-content">
 
-    <h3>1. Taarifa Tunazokusanya</h3>
-    <p>
-        Tunaweza kukusanya taarifa unazotupa mwenyewe, kama jina, barua pepe,
-        namba ya simu na taarifa nyingine unapojiandikisha au kuwasiliana nasi.
-    </p>
+        <div class="hero-content">
 
-    <h3>2. Matumizi ya Taarifa</h3>
-    <p>
-        Taarifa zako hutumika kuboresha huduma za Dizzah Media, kukujibu
-        unapowasiliana nasi, na kukuletea taarifa muhimu kuhusu maudhui mapya.
-    </p>
+            <span class="eyebrow">
+                Dizzah Media
+            </span>
 
-    <h3>3. Ulinzi wa Taarifa</h3>
-    <p>
-        Tunachukua hatua zinazofaa kulinda taarifa zako dhidi ya matumizi
-        yasiyoidhinishwa, upotevu au uharibifu.
-    </p>
+            <h1>
+                Sera ya <span>Faragha</span>
+            </h1>
 
-    <h3>4. Kushiriki Taarifa</h3>
-    <p>
-        Hatutauza wala kushiriki taarifa zako binafsi na watu wengine isipokuwa
-        pale sheria inapohitaji au kwa idhini yako.
-    </p>
+            <p>
+                Tunaheshimu faragha yako na tunajitahidi
+                kulinda taarifa zako unapokuwa sehemu ya
+                Dizzah Media.
+            </p>
 
-      </div>    </div>
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <h3>Dizzah Media</h3>
-        <p>Hakika leo, Kesho kwa ubora.</p>
-
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
         </div>
 
-        <p>&copy; 2026 Dizzah Media. Haki zote zimehifadhiwa.</p>
     </div>
+
+</section>
+
+
+<!-- CONTENT -->
+
+<main class="content">
+
+    <div class="container">
+
+        <div class="policy-layout">
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+                <h3>
+                    Katika ukurasa huu
+                </h3>
+
+                <a href="#utangulizi">
+                    Utangulizi
+                </a>
+
+                <a href="#taarifa">
+                    Taarifa Tunazokusanya
+                </a>
+
+                <a href="#matumizi">
+                    Matumizi ya Taarifa
+                </a>
+
+                <a href="#usalama">
+                    Usalama
+                </a>
+
+                <a href="#cookies">
+                    Cookies
+                </a>
+
+                <a href="#huduma">
+                    Huduma za Nje
+                </a>
+
+                <a href="#haki">
+                    Haki Zako
+                </a>
+
+                <a href="#mawasiliano">
+                    Mawasiliano
+                </a>
+
+            </aside>
+
+
+            <!-- POLICY -->
+
+            <article class="policy">
+
+
+                <section
+                    class="policy-section"
+                    id="utangulizi">
+
+                    <h2>
+                        1. <span>Utangulizi</span>
+                    </h2>
+
+                    <p>
+                        Karibu Dizzah Media. Sera hii ya
+                        Faragha inaeleza namna tunavyokusanya,
+                        kutumia, kuhifadhi na kulinda taarifa
+                        zinazohusiana na watumiaji wa tovuti
+                        na huduma zetu.
+                    </p>
+
+                    <p>
+                        Kwa kutumia tovuti ya Dizzah Media,
+                        unakubali taratibu zilizoelezwa katika
+                        Sera hii ya Faragha.
+                    </p>
+
+                    <div class="highlight">
+                        Dizzah Media inalenga kutoa maudhui
+                        yenye ubora huku ikiheshimu faragha
+                        na usalama wa watumiaji wake.
+                    </div>
+
+                </section>
+
+
+                <section
+                    class="policy-section"
+                    id="taarifa">
+
+                    <h2>
+                        2. <span>Taarifa Tunazokusanya</span>
+                    </h2>
+
+                    <p>
+                        Kulingana na huduma unayotumia,
+                        tunaweza kukusanya taarifa kama:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Jina unalotumia wakati wa
+                            kutengeneza akaunti.
+                        </li>
+
+                        <li>
+                            Barua pepe unayotumia
+                            kujisajili au kuwasiliana nasi.
+                        </li>
+
+                        <li>
+                            Taarifa zinazohusiana na akaunti
+                            yako ya Dizzah Media.
+                        </li>
+
+                        <li>
+                            Taarifa za matumizi ya tovuti,
+                            kama kurasa unazotembelea.
+                        </li>
+
+                        <li>
+                            Taarifa unazotuma kwetu kwa hiari
+                            kupitia mawasiliano.
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <section
+                    class="policy-section"
+                    id="matumizi">
+
+                    <h2>
+                        3. <span>Matumizi ya Taarifa</span>
+                    </h2>
+
+                    <p>
+                        Taarifa zinazokusanywa zinaweza
+                        kutumika kwa madhumuni yafuatayo:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Kutoa na kuboresha huduma za
+                            Dizzah Media.
+                        </li>
+
+                        <li>
+                            Kusimamia akaunti za watumiaji.
+                        </li>
+
+                        <li>
+                            Kuwasiliana na watumiaji
+                            inapohitajika.
+                        </li>
+
+                        <li>
+                            Kuboresha uzoefu wa mtumiaji
+                            kwenye tovuti.
+                        </li>
+
+                        <li>
+                            Kusaidia kutambua na kuzuia
+                            matumizi yasiyoruhusiwa.
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <section
+                    class="policy-section"
+                    id="usalama">
+
+                    <h2>
+                        4. <span>Usalama wa Taarifa</span>
+                    </h2>
+
+                    <p>
+                        Tunachukua hatua zinazofaa kulinda
+                        taarifa za watumiaji dhidi ya matumizi,
+                        upatikanaji au mabadiliko yasiyoruhusiwa.
+                    </p>
+
+                    <p>
+                        Hata hivyo, hakuna mfumo wa mtandao
+                        unaoweza kuhakikishwa kuwa salama kwa
+                        asilimia mia moja.
+                    </p>
+
+                    <div class="highlight">
+                        Tunashauri watumiaji kutumia nenosiri
+                        imara na kutoshirikisha taarifa zao za
+                        kuingia na mtu mwingine.
+                    </div>
+
+                </section>
+
+
+                <section
+                    class="policy-section"
+                    id="cookies">
+
+                    <h2>
+                        5. <span>Cookies</span>
+                    </h2>
+
+                    <p>
+                        Dizzah Media inaweza kutumia cookies
+                        au teknolojia zinazofanana kusaidia
+                        tovuti kufanya kazi vizuri na kuelewa
+                        namna watumiaji wanavyotumia huduma.
+                    </p>
+
+                    <p>
+                        Unaweza kudhibiti au kuzuia cookies
+                        kupitia mipangilio ya kivinjari chako.
+                    </p>
+
+                </section>
+
+
+                <section
+                    class="policy-section"
+                    id="huduma">
+
+                    <h2>
+                        6. <span>Huduma za Nje</span>
+                    </h2>
+
+                    <p>
+                        Baadhi ya huduma zinazotumika kwenye
+                        tovuti zinaweza kutolewa na huduma
+                        za kampuni au majukwaa mengine.
+                    </p>
+
+                    <p>
+                        Mifano inaweza kujumuisha huduma za
+                        uthibitishaji wa akaunti, hosting,
+                        analytics au video platforms.
+                    </p>
+
+                    <p>
+                        Huduma hizo zinaweza kuwa na sera zao
+                        binafsi za faragha ambazo zinapaswa
+                        kusomwa na mtumiaji inapohitajika.
+                    </p>
+
+                </section>
+
+
+                <section
+                    class="policy-section"
+                    id="haki">
+
+                    <h2>
+                        7. <span>Haki Zako</span>
+                    </h2>
+
+                    <p>
+                        Kulingana na mazingira na sheria
+                        zinazotumika, unaweza kuwa na haki
+                        zinazohusiana na taarifa zako binafsi,
+                        ikiwa ni pamoja na:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Kuomba taarifa kuhusu data
+                            inayohusiana na akaunti yako.
+                        </li>
+
+                        <li>
+                            Kuomba marekebisho ya taarifa
+                            zisizo sahihi.
+                        </li>
+
+                        <li>
+                            Kuomba kufutwa kwa taarifa fulani
+                            pale inapowezekana.
+                        </li>
+
+                        <li>
+                            Kuuliza namna taarifa zako
+                            zinavyotumika.
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <section
+                    class="policy-section"
+                    id="mawasiliano">
+
+                    <h2>
+                        8. <span>Wasiliana Nasi</span>
+                    </h2>
+
+                    <p>
+                        Ikiwa una swali kuhusu Sera hii ya
+                        Faragha au namna tunavyoshughulikia
+                        taarifa zako, unaweza kuwasiliana nasi.
+                    </p>
+
+
+                    <div class="contact-box">
+
+                        <p>
+                            <strong>Email:</strong><br>
+
+                            <a href="mailto:info@dizzahmedia.com">
+                                info@dizzahmedia.com
+                            </a>
+                        </p>
+
+                        <p>
+                            <strong>Simu:</strong><br>
+
+                            <a href="tel:+255754742555">
+                                +255 754 742 555
+                            </a>
+                        </p>
+
+                        <p>
+                            <strong>Mahali:</strong><br>
+
+                            Kigamboni, Dar es Salaam,
+                            Tanzania
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <p class="updated">
+                    Toleo la sasa la Sera hii ya Faragha:
+                    Septemba 2026.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <!-- CTA -->
+
+        <section class="cta">
+
+            <h2>
+                Una swali kuhusu faragha yako?
+            </h2>
+
+            <p>
+                Timu ya Dizzah Media iko tayari kupokea
+                swali au maoni yako kuhusu taarifa zako.
+            </p>
+
+            <a
+                href="contact.html"
+                class="btn">
+                Wasiliana na Dizzah Media
+            </a>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>DIZZAH MEDIA</h3>
+
+                <p>
+                    Hakika Leo, Kesho kwa Ubora Zaidi.
+                    Media house kutoka Tanzania inayolenga
+                    Afrika na Dunia.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Kurasa</h3>
+
+                <div class="footer-links">
+
+                    <a href="about.html">
+                        Kuhusu Dizzah
+                    </a>
+
+                    <a href="contact.html">
+                        Mawasiliano
+                    </a>
+
+                    <a href="Privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="Terms.html">
+                        Terms & Conditions
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>Mitandao</h3>
+
+                <div class="socials">
+
+                    <a
+                        href="https://www.youtube.com/@DizzahMedia"
+                        target="_blank">
+                        YouTube
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/dizzah_media"
+                        target="_blank">
+                        Instagram
+                    </a>
+
+                    <a
+                        href="https://www.tiktok.com/@dizzahmedia"
+                        target="_blank">
+                        TikTok
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/share/1ES11b5jWR/"
+                        target="_blank">
+                        Facebook
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Dizzah Media. Haki zote zimehifadhiwa.
+            </span>
+
+            <span>
+                Kigamboni, Dar es Salaam, Tanzania
+            </span>
+
+        </div>
+
+    </div>
+
 </footer>
 
-<script src="script.js"></script>
 
 </body>
-  </html>
+</html>
