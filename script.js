@@ -1,287 +1,636 @@
-/* ===========================
-   DIZZAH MEDIA - SCRIPT
-=========================== */
+/* =========================================================
+   DIZZAH MEDIA
+   GLOBAL JAVASCRIPT
+   International Media House — Production Ready
+   ========================================================= */
+
+"use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
+  /* =======================================================
+     1. MOBILE NAVIGATION
+     ======================================================= */
 
-if(menuBtn){
+  const mobileToggle =
+    document.getElementById("mobileToggle") ||
+    document.querySelector(".menu-btn") ||
+    document.querySelector(".mobile-menu-btn");
 
-menuBtn.addEventListener("click", ()=>{
+  const navLinks =
+    document.querySelector(".nav-links");
 
-navLinks.classList.toggle("active");
+  if (mobileToggle && navLinks) {
 
-});
+    mobileToggle.setAttribute("aria-expanded", "false");
 
-}
+    mobileToggle.addEventListener("click", () => {
 
-});// Sticky Header
+      const isOpen =
+        navLinks.classList.toggle("show") ||
+        navLinks.classList.toggle("open") ||
+        navLinks.classList.toggle("active");
 
-window.addEventListener("scroll", () => {
-
-const header = document.querySelector(".site-header");
-
-if(header){
-
-if(window.scrollY > 50){
-
-header.classList.add("sticky");
-
-}else{
-
-header.classList.remove("sticky");
-
-}
-
-}
-
-});
-
-// Smooth Animation
-
-const cards = document.querySelectorAll(".news-card,.category-card,.contact-card");
-
-const observer = new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-});
-
-cards.forEach(card=>observer.observe(card));// Current Year
-
-const year = document.getElementById("year");
-
-if(year){
-
-year.textContent = new Date().getFullYear();
-
-}
-
-// Back To Top
-
-const topBtn = document.getElementById("backToTop");
-
-if(topBtn){
-
-window.addEventListener("scroll",()=>{
-
-topBtn.style.display = window.scrollY > 400 ? "block" : "none";
-
-});
-
-topBtn.addEventListener("click",()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-});
-
-}
-/* ==========================
-   MOBILE MENU
-========================== */
-
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector("nav");
-
-if (menuBtn && nav) {
-    menuBtn.addEventListener("click", () => {
-        nav.classList.toggle("show");
+      mobileToggle.setAttribute(
+        "aria-expanded",
+        String(Boolean(isOpen))
+      );
     });
-}
 
-/* ==========================
-   SEARCH
-========================== */
+    navLinks.querySelectorAll("a").forEach(link => {
 
-const searchForm = document.querySelector(".search-form");
+      link.addEventListener("click", () => {
 
-if (searchForm) {
+        navLinks.classList.remove("show");
+        navLinks.classList.remove("open");
+        navLinks.classList.remove("active");
 
-    searchForm.addEventListener("submit", function (e) {
+        mobileToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
-        e.preventDefault();
-
-        const input = document.getElementById("search");
-
-        if (input.value.trim() === "") {
-
-            alert("Tafadhali andika unachotafuta.");
-
-            return;
-
-        }
-
-        alert("Umetafuta: " + input.value);
+      });
 
     });
 
-}/* ==========================
-   LOGIN VALIDATION
-========================== */
+  }
 
-const loginForm = document.querySelector(".login-form");
 
-if (loginForm) {
+  /* =======================================================
+     2. CURRENT YEAR
+     ======================================================= */
 
-    loginForm.addEventListener("submit", function (e) {
+  const yearElements =
+    document.querySelectorAll("#year, .current-year");
 
-        const email = document.querySelector("#email");
-        const password = document.querySelector("#password");
+  yearElements.forEach(element => {
+    element.textContent =
+      new Date().getFullYear();
+  });
 
-        if (!email.value.trim() || !password.value.trim()) {
 
-            e.preventDefault();
+  /* =======================================================
+     3. ACTIVE NAVIGATION
+     ======================================================= */
 
-            alert("Tafadhali jaza Email na Password.");
+  const currentPage =
+    window.location.pathname
+      .split("/")
+      .pop()
+      .toLowerCase();
 
-            return;
+  const navigationLinks =
+    document.querySelectorAll(".nav-links a");
 
-        }
+  navigationLinks.forEach(link => {
 
-        alert("Login imefanikiwa!");
+    const href =
+      link.getAttribute("href");
 
-    });
+    if (!href) return;
 
-}
+    const cleanHref =
+      href.split("#")[0]
+        .split("?")[0]
+        .split("/")
+        .pop()
+        .toLowerCase();
 
-/* ==========================
-   REGISTER VALIDATION
-========================== */
+    if (
+      cleanHref &&
+      cleanHref === currentPage
+    ) {
+      link.classList.add("active");
+      link.setAttribute(
+        "aria-current",
+        "page"
+      );
+    }
 
-const registerForm = document.querySelector(".register-form");
+  });
 
-if (registerForm) {
 
-    registerForm.addEventListener("submit", function (e) {
+  /* =======================================================
+     4. BACK TO TOP
+     ======================================================= */
 
-        const password = document.querySelector("#password");
-        const confirmPassword = document.querySelector("#confirm-password");
+  let backToTop =
+    document.getElementById("backToTop");
 
-        if (password.value !== confirmPassword.value) {
+  if (!backToTop) {
 
-            e.preventDefault();
+    backToTop =
+      document.createElement("button");
 
-            alert("Password hazifanani.");
+    backToTop.id = "backToTop";
+    backToTop.type = "button";
+    backToTop.className = "back-to-top";
+    backToTop.setAttribute(
+      "aria-label",
+      "Rudi juu"
+    );
+    backToTop.setAttribute(
+      "title",
+      "Rudi juu"
+    );
 
-            return;
+    backToTop.innerHTML = "↑";
 
-        }
+    document.body.appendChild(backToTop);
 
-        if (password.value.length < 6) {
+  }
 
-            e.preventDefault();
+  const updateBackToTop = () => {
 
-            alert("Password lazima iwe na herufi angalau 6.");
+    if (window.scrollY > 450) {
 
-            return;
-
-        }
-
-        alert("Usajili umefanikiwa!");
-
-    });
-
-                /* ==========================
-   BACK TO TOP BUTTON
-========================== */
-
-const backToTop = document.createElement("button");
-
-backToTop.innerHTML = "⬆";
-backToTop.className = "back-to-top";
-
-document.body.appendChild(backToTop);
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 300) {
-
-        backToTop.style.display = "block";
+      backToTop.style.display =
+        "grid";
 
     } else {
 
-        backToTop.style.display = "none";
+      backToTop.style.display =
+        "none";
 
     }
 
-});
+  };
 
-backToTop.addEventListener("click", () => {
+  updateBackToTop();
 
-    window.scrollTo({
+  window.addEventListener(
+    "scroll",
+    updateBackToTop,
+    { passive: true }
+  );
 
+  backToTop.addEventListener(
+    "click",
+    () => {
+
+      window.scrollTo({
         top: 0,
-
         behavior: "smooth"
+      });
+
+    }
+  );
+
+
+  /* =======================================================
+     5. HEADER SCROLL STATE
+     ======================================================= */
+
+  const header =
+    document.querySelector(".site-header");
+
+  const updateHeader =
+    () => {
+
+      if (!header) return;
+
+      if (window.scrollY > 30) {
+
+        header.classList.add("scrolled");
+
+      } else {
+
+        header.classList.remove("scrolled");
+
+      }
+
+    };
+
+  updateHeader();
+
+  window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+  );
+
+
+  /* =======================================================
+     6. CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
+     ======================================================= */
+
+  document.addEventListener(
+    "click",
+    event => {
+
+      if (
+        !navLinks ||
+        !mobileToggle
+      ) {
+        return;
+      }
+
+      const clickedInsideNav =
+        navLinks.contains(event.target);
+
+      const clickedToggle =
+        mobileToggle.contains(event.target);
+
+      if (
+        !clickedInsideNav &&
+        !clickedToggle
+      ) {
+
+        navLinks.classList.remove("show");
+        navLinks.classList.remove("open");
+        navLinks.classList.remove("active");
+
+        mobileToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     7. ESCAPE KEY — CLOSE MOBILE MENU
+     ======================================================= */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (event.key !== "Escape") {
+        return;
+      }
+
+      if (!navLinks || !mobileToggle) {
+        return;
+      }
+
+      navLinks.classList.remove("show");
+      navLinks.classList.remove("open");
+      navLinks.classList.remove("active");
+
+      mobileToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     8. LAZY LOAD IMAGES
+     ======================================================= */
+
+  const images =
+    document.querySelectorAll(
+      "img[data-src]"
+    );
+
+  if ("IntersectionObserver" in window) {
+
+    const imageObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const image =
+              entry.target;
+
+            const source =
+              image.getAttribute(
+                "data-src"
+              );
+
+            if (source) {
+
+              image.src = source;
+              image.removeAttribute(
+                "data-src"
+              );
+
+            }
+
+            imageObserver.unobserve(
+              image
+            );
+
+          });
+
+        },
+        {
+          rootMargin: "150px"
+        }
+      );
+
+    images.forEach(image => {
+      imageObserver.observe(image);
+    });
+
+  } else {
+
+    images.forEach(image => {
+
+      const source =
+        image.getAttribute(
+          "data-src"
+        );
+
+      if (source) {
+        image.src = source;
+      }
 
     });
 
-});
+  }
 
-/* ==========================
-   SIMPLE FADE ANIMATION
-========================== */
 
-const sections = document.querySelectorAll("section");
+  /* =======================================================
+     9. EXTERNAL LINKS
+     ======================================================= */
 
-const observer = new IntersectionObserver((entries) => {
+  const externalLinks =
+    document.querySelectorAll(
+      'a[href^="http"]'
+    );
 
-    entries.forEach(entry => {
+  externalLinks.forEach(link => {
 
-        if (entry.isIntersecting) {
+    const sameHost =
+      link.hostname ===
+      window.location.hostname;
 
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
+    if (!sameHost) {
+
+      link.setAttribute(
+        "rel",
+        "noopener noreferrer"
+      );
+
+    }
+
+  });
+
+
+  /* =======================================================
+     10. SMOOTH ANCHOR NAVIGATION
+     ======================================================= */
+
+  const anchorLinks =
+    document.querySelectorAll(
+      'a[href^="#"]'
+    );
+
+  anchorLinks.forEach(link => {
+
+    link.addEventListener(
+      "click",
+      event => {
+
+        const targetId =
+          link.getAttribute("href");
+
+        if (
+          !targetId ||
+          targetId === "#"
+        ) {
+          return;
+        }
+
+        const target =
+          document.querySelector(
+            targetId
+          );
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        const headerHeight =
+          header
+            ? header.offsetHeight
+            : 0;
+
+        const targetPosition =
+          target.getBoundingClientRect()
+            .top +
+          window.scrollY -
+          headerHeight -
+          15;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     11. NEWSLETTER / SIMPLE FORMS
+     ======================================================= */
+
+  const newsletterForms =
+    document.querySelectorAll(
+      ".newsletter-form"
+    );
+
+  newsletterForms.forEach(form => {
+
+    form.addEventListener(
+      "submit",
+      event => {
+
+        const email =
+          form.querySelector(
+            'input[type="email"]'
+          );
+
+        if (!email) {
+          return;
+        }
+
+        if (!email.value.trim()) {
+
+          event.preventDefault();
+
+          email.focus();
+
+          return;
 
         }
 
-    });
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     12. SEARCH INPUT — BASIC UX ONLY
+     
+     IMPORTANT:
+     This does NOT replace Search.html's
+     Supabase search system.
+     ======================================================= */
+
+  const searchInputs =
+    document.querySelectorAll(
+      'input[type="search"]'
+    );
+
+  searchInputs.forEach(input => {
+
+    input.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          input.value = "";
+
+        }
+
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     13. IMAGE ERROR FALLBACK
+     ======================================================= */
+
+  const siteImages =
+    document.querySelectorAll(
+      "img"
+    );
+
+  siteImages.forEach(image => {
+
+    image.addEventListener(
+      "error",
+      () => {
+
+        if (
+          image.dataset.fallbackApplied
+        ) {
+          return;
+        }
+
+        image.dataset.fallbackApplied =
+          "true";
+
+        image.src =
+          "assets/news1.jpg";
+
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     14. ACCESSIBLE DETAILS / FAQ
+     ======================================================= */
+
+  const faqItems =
+    document.querySelectorAll(
+      ".faq-item"
+    );
+
+  faqItems.forEach(item => {
+
+    const heading =
+      item.querySelector(
+        "h3"
+      );
+
+    if (!heading) {
+      return;
+    }
+
+    heading.setAttribute(
+      "tabindex",
+      "0"
+    );
+
+    heading.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          item.classList.toggle(
+            "open"
+          );
+
+        }
+
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     15. REDUCED MOTION SUPPORT
+     ======================================================= */
+
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+  if (reducedMotion.matches) {
+
+    document.documentElement
+      .style
+      .scrollBehavior = "auto";
+
+  }
+
+
+  /* =======================================================
+     16. PAGE READY STATE
+     ======================================================= */
+
+  document.documentElement
+    .classList
+    .add("js-ready");
+
+
+  /* =======================================================
+     17. CONSOLE BRANDING
+     ======================================================= */
+
+  console.info(
+    "%cDIZZAH MEDIA",
+    "font-size:18px;font-weight:800;color:#7427c9;"
+  );
+
+  console.info(
+    "Hakika Leo, Kesho kwa Ubora Zaidi."
+  );
 
 });
-
-sections.forEach(section => {
-
-    section.style.opacity = "0";
-    section.style.transform = "translateY(30px)";
-    section.style.transition = "all .6s ease";
-
-    observer.observe(section);
-
-});   /* BACK TO TOP BUTTON */
-
-.back-to-top{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:#0d6efd;
-    color:#fff;
-    font-size:20px;
-    cursor:pointer;
-    display:none;
-    z-index:999;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
-
-.back-to-top:hover{
-    background:#0b5ed7;
-               }                   }
