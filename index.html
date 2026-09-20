@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dizzah Media | Habari, Simulizi, Movies, Motivation & Originals</title>
+
+  <meta name="description"
+    content="Dizzah Media ni media house inayowasilisha habari, simulizi za maisha, movies, motivation, podcasts, video na Dizzah Originals kutoka Tanzania kwenda Afrika na dunia.">
+
+  <meta name="keywords"
+    content="Dizzah Media, Tanzania news, habari Tanzania, simulizi, movies, motivation, podcasts, Dizzah Originals, media Tanzania">
+
+  <meta name="author" content="Dizzah Media">
+
+  <meta name="theme-color" content="#17113d">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dizzah Media | Tanzania → Africa → World">
+  <meta property="og:description"
+    content="Habari, simulizi, video, movies, motivation, podcasts na Dizzah Originals.">
+  <meta property="og:image" content="assets/dizzah-logo-profile.png">
+
+  <link rel="icon" type="image/png" href="assets/favicon-32.png">
+
+  <style>
+    :root {
+      --purple: #5b35d5;
+      --purple-dark: #17113d;
+      --purple-deep: #0d0924;
+      --purple-light: #eee9ff;
+      --white: #ffffff;
+      --black: #111111;
+      --text: #202020;
+      --muted: #707070;
+      --border: #e8e8e8;
+      --soft: #f6f6f8;
+      --red: #e3293f;
+      --green: #159957;
+      --max: 1240px;
+      --shadow: 0 12px 35px rgba(18, 12, 48, .10);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    /* =========================
+       TOP UTILITY BAR
+    ========================== */
+
+    .utility {
+      background: var(--purple-deep);
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .utility-inner {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .utility-left,
+    .utility-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .utility a {
+      opacity: .9;
+    }
+
+    .utility a:hover {
+      opacity: 1;
+      color: #d8ccff;
+    }
+
+    /* =========================
+       MAIN HEADER
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-main {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 190px;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: .7px;
+      color: var(--purple-dark);
+    }
+
+    .brand-tagline {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 3px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 9px 10px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #333;
+      transition: .2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background: var(--purple) !important;
+      color: #fff !important;
+      padding-left: 14px !important;
+      padding-right: 14px !important;
+    }
+
+    .mobile-toggle {
+      display: none;
+      border: 0;
+      background: var(--purple-light);
+      color: var(--purple-dark);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       BREAKING NEWS
+    ========================== */
+
+    .breaking {
+      background: var(--black);
+      color: #fff;
+      border-bottom: 3px solid var(--purple);
+    }
+
+    .breaking-inner {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .breaking-label {
+      background: var(--red);
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .7px;
+      white-space: nowrap;
+    }
+
+    .breaking-text {
+      font-size: 13px;
+      font-weight: 600;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(117,76,255,.45), transparent 32%),
+        linear-gradient(120deg, #100a2c, #25145c 55%, #5b35d5);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 50px;
+      padding: 70px 0;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-top: 20px;
+      font-size: clamp(38px, 5vw, 70px);
+      line-height: 1.02;
+      font-weight: 950;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: #cfc2ff;
+    }
+
+    .hero p {
+      max-width: 670px;
+      margin-top: 20px;
+      font-size: 17px;
+      color: rgba(255,255,255,.82);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 850;
+      border: 1px solid transparent;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--purple-dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.32);
+      color: #fff;
+      background: rgba(255,255,255,.06);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.14);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 12px;
+      border-radius: 22px;
+      box-shadow: 0 25px 60px rgba(0,0,0,.22);
+    }
+
+    .hero-card img {
+      height: 340px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .hero-card-caption {
+      padding: 15px 7px 6px;
+    }
+
+    .hero-card-caption small {
+      color: #cfc2ff;
+      font-weight: 800;
+    }
+
+    .hero-card-caption h3 {
+      margin-top: 5px;
+      font-size: 19px;
+    }
+
+    /* =========================
+       CATEGORY STRIP
+    ========================== */
+
+    .categories {
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .category-inner {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .category-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category {
+      white-space: nowrap;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--soft);
+      font-size: 12px;
+      font-weight: 800;
+      color: #444;
+    }
+
+    .category:hover {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    /* =========================
+       SECTION SYSTEM
+    ========================== */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+    }
+
+    .section-head h2 {
+      margin-top: 5px;
+      font-size: clamp(27px, 3vw, 40px);
+      line-height: 1.1;
+      color: var(--purple-dark);
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 600px;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .view-all {
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       LEAD NEWS
+    ========================== */
+
+    .lead-grid {
+      display: grid;
+      grid-template-columns: 1.5fr .85fr;
+      gap: 24px;
+    }
+
+    .lead-story {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--black);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .lead-story img {
+      height: 100%;
+      min-height: 460px;
+      object-fit: cover;
+      opacity: .76;
+      transition: transform .4s ease;
+    }
+
+    .lead-story:hover img {
+      transform: scale(1.03);
+    }
+
+    .lead-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        transparent 20%,
+        rgba(0,0,0,.88) 100%
+      );
+      display: flex;
+      align-items: end;
+      padding: 30px;
+    }
+
+    .lead-content {
+      max-width: 720px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .lead-content h3 {
+      font-size: clamp(27px, 3vw, 44px);
+      line-height: 1.08;
+      margin-top: 12px;
+    }
+
+    .lead-content p {
+      margin-top: 12px;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+    }
+
+    .story-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 16px;
+      font-size: 11px;
+      color: #bbb;
+    }
+
+    .side-stories {
+      display: grid;
+      gap: 18px;
+    }
+
+    .side-story {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .side-story img {
+      height: 105px;
+      object-fit: cover;
+      border-radius: 11px;
+    }
+
+    .side-story .tag {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .side-story h4 {
+      margin-top: 6px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .side-story p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    /* =========================
+       CONTENT CARDS
+    ========================== */
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: #d8cffc;
+    }
+
+    .card-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      height: 220px;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+
+    .card:hover .card-img img {
+      transform: scale(1.04);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body h3 {
+      font-size: 19px;
+      line-height: 1.25;
+      color: var(--purple-dark);
+      margin-top: 10px;
+    }
+
+    .card-body p {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      margin-top: 15px;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* =========================
+       DIZZAH ORIGINALS
+    ========================== */
+
+    .originals {
+      background: var(--purple-deep);
+      color: #fff;
+    }
+
+    .originals .section-head h2 {
+      color: #fff;
+    }
+
+    .originals .section-head p {
+      color: rgba(255,255,255,.65);
+    }
+
+    .original-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+    }
+
+    .original-feature {
+      min-height: 440px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #000;
+    }
+
+    .original-feature img {
+      height: 100%;
+      min-height: 440px;
+      object-fit: cover;
+      opacity: .7;
+    }
+
+    .original-overlay {
+      position: absolute;
+      inset: 0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      background: linear-gradient(
+        transparent 20%,
+        rgba(10,6,25,.96)
+      );
+    }
+
+    .original-overlay h3 {
+      margin-top: 12px;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .original-overlay p {
+      margin-top: 10px;
+      color: rgba(255,255,255,.75);
+      font-size: 13px;
+    }
+
+    .original-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .original-item {
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 15px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 13px;
+      background: rgba(255,255,255,.05);
+    }
+
+    .original-item img {
+      height: 92px;
+      object-fit: cover;
+      border-radius: 9px;
+    }
+
+    .original-item h4 {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .original-item p {
+      font-size: 11px;
+      color: rgba(255,255,255,.62);
+      margin-top: 6px;
+    }
+
+    /* =========================
+       VIDEO
+    ========================== */
+
+    .video-section {
+      background: var(--soft);
+    }
+
+    .video-card {
+      position: relative;
+    }
+
+    .video-thumb {
+      position: relative;
+    }
+
+    .play {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--red);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.2);
+    }
+
+    .youtube-banner {
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: var(--radius);
+      background: linear-gradient(120deg, #24125a, #5b35d5);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .youtube-banner h3 {
+      font-size: 23px;
+    }
+
+    .youtube-banner p {
+      margin-top: 5px;
+      font-size: 13px;
+      color: rgba(255,255,255,.75);
+    }
+
+    /* =========================
+       MEDIA HOUSE GRID
+    ========================== */
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .media-box {
+      min-height: 190px;
+      padding: 22px;
+      border-radius: 14px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      transition: .2s ease;
+    }
+
+    .media-box:hover {
+      background: var(--purple-light);
+      transform: translateY(-3px);
+    }
+
+    .media-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--purple);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .media-box h3 {
+      margin-top: 18px;
+      font-size: 17px;
+      color: var(--purple-dark);
+    }
+
+    .media-box p {
+      margin-top: 7px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       ABOUT / MISSION
+    ========================== */
+
+    .mission {
+      background: #fff;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .mission-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .mission-image img {
+      height: 430px;
+      object-fit: cover;
+    }
+
+    .mission-copy h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
+      color: var(--purple-dark);
+      margin-top: 8px;
+    }
+
+    .mission-copy > p {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .mission-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .point strong {
+      color: var(--purple);
+      font-size: 17px;
+    }
+
+    .point div {
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* =========================
+       SOCIAL CTA
+    ========================== */
+
+    .social-cta {
+      background:
+        linear-gradient(
+          135deg,
+          #f1edff,
+          #ffffff
+        );
+    }
+
+    .social-box {
+      padding: 45px;
+      border-radius: 22px;
+      border: 1px solid #ddd4ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .social-box h2 {
+      color: var(--purple-dark);
+      font-size: 32px;
+      line-height: 1.1;
+    }
+
+    .social-box p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 620px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .social-link {
+      border: 1px solid #d9d2f4;
+      background: #fff;
+      color: var(--purple-dark);
+      padding: 9px 13px;
+      border-radius: 9px;
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .social-link:hover {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: var(--purple-deep);
+      color: #fff;
+      padding-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 35px;
+      padding-bottom: 45px;
+    }
+
+    .footer-brand {
+      max-width: 330px;
+    }
+
+    .footer-brand img {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand h3 {
+      font-size: 22px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.58);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      color: #fff;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,.6);
+      font-size: 12px;
+      margin: 9px 0;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.09);
+      min-height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: rgba(255,255,255,.45);
+      font-size: 11px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 1050px) {
+      nav {
+        gap: 0;
+      }
+
+      nav a {
+        padding: 8px 7px;
+        font-size: 12px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        max-width: 700px;
+      }
+
+      .lead-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-stories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .media-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .utility {
+        display: none;
+      }
+
+      header {
+        position: relative;
+      }
+
+      .header-main {
+        min-height: 72px;
+      }
+
+      .brand img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 72px;
+        background: #fff;
+        padding: 12px 4%;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 30px rgba(0,0,0,.08);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 12px;
+        font-size: 13px;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding: 55px 0;
+        gap: 35px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .hero-card img {
+        height: 260px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cards-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .lead-story,
+      .lead-story img {
+        min-height: 380px;
+      }
+
+      .lead-overlay {
+        padding: 20px;
+      }
+
+      .lead-content h3 {
+        font-size: 27px;
+      }
+
+      .side-stories {
+        grid-template-columns: 1fr;
+      }
+
+      .original-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .original-feature,
+      .original-feature img {
+        min-height: 370px;
+      }
+
+      .youtube-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .media-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .mission-image img {
+        height: 300px;
+      }
+
+      .social-box {
+        padding: 28px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 20px;
+      }
+
+      .footer-bottom {
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 470px) {
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-story {
+        grid-template-columns: 105px 1fr;
+      }
+
+      .side-story img {
+        height: 90px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-tagline {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       UTILITY BAR
+  ========================== -->
+
+  <div class="utility">
+    <div class="container utility-inner">
+
+      <div class="utility-left">
+        <span>🇹🇿 Tanzania → Africa → World</span>
+        <span>● Dizzah Media</span>
+      </div>
+
+      <div class="utility-right">
+        <a href="about.html">Kuhusu Sisi</a>
+        <a href="contact.html">Mawasiliano</a>
+        <a href="faq.htm">FAQ</a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="container header-main">
+
+      <a href="index.html" class="brand">
+
+        <img
+          src="assets/dizzah-logo-profile.png"
+          alt="Dizzah Media Logo"
+        >
+
+        <div class="brand-text">
+          <div class="brand-name">DIZZAH MEDIA</div>
+          <div class="brand-tagline">
+            Hakika Leo, Kesho kwa Ubora Zaidi.
+          </div>
+        </div>
+
+      </a>
+
+
+      <button
+        class="mobile-toggle"
+        id="mobileToggle"
+        aria-label="Fungua menyu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+
+      <nav id="mainNav">
+
+        <a href="index.html" class="active">Home</a>
+
+        <a href="news.html">News</a>
+
+        <a href="simulizi.html">Simulizi</a>
+
+        <a href="movies.html">Movies</a>
+
+        <a href="originals.html">Originals</a>
+
+        <a href="videos.html">Videos</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="podcasts.html">Podcasts</a>
+
+        <a href="motivation.html">Motivation</a>
+
+        <a href="Live.html">Live</a>
+
+        <a href="Search.html">Search</a>
+
+        <a href="Profile.html">Profile</a>
+
+        <a href="contact.html" class="nav-cta">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       BREAKING NEWS
+  ========================== -->
+
+  <div class="breaking">
+
+    <div class="container breaking-inner">
+
+      <span class="breaking-label">
+        BREAKING
+      </span>
+
+      <div class="breaking-text">
+        Karibu Dizzah Media — Tunakuletea habari, simulizi, video na maudhui yenye ubora kutoka Tanzania kwenda dunia.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-inner">
+
+        <div>
+
+          <span class="hero-label">
+            DIZZAH MEDIA • MEDIA HOUSE
+          </span>
+
+          <h1>
+            Stories That
+            <span>Connect</span>
+            The World.
+          </h1>
+
+          <p>
+            Dizzah Media ni media house inayolenga kuunganisha
+            Tanzania, Afrika na dunia kupitia habari, simulizi,
+            movies, motivation, podcasts, video na Dizzah Originals.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="news.html" class="btn btn-primary">
+              📰 Soma Habari
+            </a>
+
+            <a href="originals.html" class="btn btn-outline">
+              ▶ Dizzah Originals
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+          <div class="hero-card">
+
+            <img
+              src="assets/news1.jpg"
+              alt="Dizzah Media featured story"
+            >
+
+            <div class="hero-card-caption">
+
+              <small>
+                DIZZAH MEDIA
+              </small>
+
+              <h3>
+                Maudhui yenye hadithi, taarifa na mtazamo wa dunia.
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <div class="categories">
+
+      <div class="container category-inner">
+
+        <a class="category" href="news.html">
+          📰 Habari
+        </a>
+
+        <a class="category" href="simulizi.html">
+          📖 Simulizi
+        </a>
+
+        <a class="category" href="movies.html">
+          🎬 Movies
+        </a>
+
+        <a class="category" href="originals.html">
+          ⭐ Originals
+        </a>
+
+        <a class="category" href="videos.html">
+          ▶ Videos
+        </a>
+
+        <a class="category" href="gallery.html">
+          📸 Gallery
+        </a>
+
+        <a class="category" href="podcasts.html">
+          🎙 Podcasts
+        </a>
+
+        <a class="category" href="motivation.html">
+          💡 Motivation
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         LEAD STORIES
+    ========================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <div class="eyebrow">
+              Newsroom
+            </div>
+
+            <h2>
+              Featured Stories
+            </h2>
+
+            <p>
+              Chagua habari na simulizi zinazokupa mtazamo
+              mpana wa kinachoendelea Tanzania, Afrika na dunia.
+            </p>
+          </div>
+
+          <a href="news.html" class="view-all">
+            Angalia Habari Zote →
+          </a>
+
+        </div>
+
+
+        <div class="lead-grid">
+
+          <article class="lead-story">
+
+            <img
+              src="assets/news1.jpg"
+              alt="Featured Dizzah Media story"
+            >
+
+            <div class="lead-overlay">
+
+              <div class="lead-content">
+
+                <span class="tag">
+                  Featured
+                </span>
+
+                <h3>
+                  Karibu Dizzah Media — Sauti za Tanzania kwa Dunia.
+                </h3>
+
+                <p>
+                  Tunajenga jukwaa la maudhui linalochanganya
+                  taarifa, ubunifu, burudani na hadithi za maisha.
+                </p>
+
+                <div class="story-meta">
+                  <span>● Dizzah Media</span>
+                  <span>Media House</span>
+                  <span>Tanzania</span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <div class="side-stories">
+
+            <article class="side-story">
+
+              <img
+                src="assets/news1.jpg"
+                alt="Dizzah Media News"
+              >
+
+              <div>
+
+                <span class="tag">
+                  News
+                </span>
+
+                <h4>
+                  Habari kutoka Tanzania na dunia.
+                </h4>
+
+                <p>
+                  Taarifa na maudhui kwa mtazamo mpana.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="side-story">
+
+              <img
+                src="assets/simulizi.jpg"
+                alt="Dizzah Media Simulizi"
+              >
+
+              <div>
+
+                <span class="tag">
+                  Simulizi
+                </span>
+
+                <h4>
+                  Hadithi za maisha zinazogusa jamii.
+                </h4>
+
+                <p>
+                  Simulizi zinazobeba hisia, changamoto na matumaini.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="side-story">
+
+              <img
+                src="assets/movie.jpg"
+                alt="Dizzah Media Movies"
+              >
+
+              <div>
+
+                <span class="tag">
+                  Movies
+                </span>
+
+                <h4>
+                  Filamu na storytelling ya kisasa.
+                </h4>
+
+                <p>
+                  Ubunifu wa ndani wenye mtazamo wa kimataifa.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="side-story">
+
+              <img
+                src="assets/news1.jpg"
+                alt="Dizzah Media Motivation"
+              >
+
+              <div>
+
+                <span class="tag">
+                  Motivation
+                </span>
+
+                <h4>
+                  Mawazo yanayojenga kizazi kipya.
+                </h4>
+
+                <p>
+                  Inspiration, mindset na stories za mafanikio.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SIMULIZI
+    ========================== -->
+
+    <section class="video-section">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="eyebrow">
+              Human Stories
+            </div>
+
+            <h2>
+              Simulizi Zinazogusa Maisha
+            </h2>
+
+            <p>
+              Hadithi za watu, maisha, changamoto, mapenzi,
+              ndoto na safari za mafanikio.
+            </p>
+
+          </div>
+
+          <a href="simulizi.html" class="view-all">
+            Simulizi Zote →
+          </a>
+
+        </div>
+
+
+        <div class="cards-3">
+
+          <article class="card">
+
+            <div class="card-img">
+
+              <img
+                src="assets/simulizi.jpg"
+                alt="Simulizi za maisha"
+              >
+
+            </div>
+
+            <div class="card-body">
+
+              <span class="tag">
+                Simulizi
+              </span>
+
+              <h3>
+                Hadithi za Maisha
+              </h3>
+
+              <p>
+                Maudhui yanayozungumzia maisha halisi
+                na safari za watu mbalimbali.
+              </p>
+
+              <a href="simulizi.html" class="card-link">
+                Soma zaidi →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-img">
+
+              <img
+                src="assets/movie.jpg"
+                alt="Dizzah storytelling"
+              >
+
+            </div>
+
+            <div class="card-body">
+
+              <span class="tag">
+                Storytelling
+              </span>
+
+              <h3>
+                Stories With Purpose
+              </h3>
+
+              <p>
+                Tunatafuta hadithi zenye maana
+                na kuzifikisha kwa hadhira pana.
+              </p>
+
+              <a href="originals.html" class="card-link">
+                Explore Originals →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-img">
+
+              <img
+                src="assets/news1.jpg"
+                alt="Dizzah Motivation"
+              >
+
+            </div>
+
+            <div class="card-body">
+
+              <span class="tag">
+                Motivation
+              </span>
+
+              <h3>
+                Inspire. Learn. Grow.
+              </h3>
+
+              <p>
+                Mawazo, uzoefu na simulizi zinazolenga
+                kuhamasisha kizazi kipya.
+              </p>
+
+              <a href="motivation.html" class="card-link">
+                Explore Motivation →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DIZZAH ORIGINALS
+    ========================== -->
+
+    <section class="originals">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="eyebrow">
+              Dizzah Production
+            </div>
+
+            <h2>
+              Dizzah Originals
+            </h2>
+
+            <p>
+              Stories Made For The World. Local Stories. Global Standards.
+            </p>
+
+          </div>
+
+          <a
+            href="originals.html"
+            class="view-all"
+            style="color:#cfc2ff"
+          >
+            Explore Originals →
+          </a>
+
+        </div>
+
+
+        <div class="original-grid">
+
+          <article class="original-feature">
+
+            <img
+              src="assets/movie.jpg"
+              alt="Dizzah Originals"
+            >
+
+            <div class="original-overlay">
+
+              <span class="tag">
+                ORIGINALS
+              </span>
+
+              <h3>
+                Local Stories.
+                Global Standards.
+              </h3>
+
+              <p>
+                Dizzah Originals ni kitengo cha ubunifu
+                kinacholenga kutengeneza films, series
+                na documentaries zenye ubora.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <div class="original-list">
+
+            <article class="original-item">
+
+              <img
+                src="assets/movie.jpg"
+                alt="Dizzah Films"
+              >
+
+              <div>
+
+                <h4>
+                  Dizzah Films
+                </h4>
+
+                <p>
+                  Feature films na storytelling ya kisasa.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="original-item">
+
+              <img
+                src="assets/simulizi.jpg"
+                alt="Dizzah Series"
+              >
+
+              <div>
+
+                <h4>
+                  Dizzah Series
+                </h4>
+
+                <p>
+                  Series zinazobeba maisha na jamii.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="original-item">
+
+              <img
+                src="assets/news1.jpg"
+                alt="Dizzah Documentary"
+              >
+
+              <div>
+
+                <h4>
+                  Dizzah Documentary
+                </h4>
+
+                <p>
+                  Real stories, people and places.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="original-item">
+
+              <img
+                src="assets/movie.jpg"
+                alt="Dizzah Creative"
+              >
+
+              <div>
+
+                <h4>
+                  Creative Projects
+                </h4>
+
+                <p>
+                  Ubunifu unaovuka mipaka.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         VIDEOS
+    ========================== -->
+
+    <section class="video-section">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="eyebrow">
+              Dizzah Media TV
+            </div>
+
+            <h2>
+              Watch. Discover. Experience.
+            </h2>
+
+            <p>
+              Tazama video, interviews, stories na maudhui
+              mengine kupitia Dizzah Media YouTube.
+            </p>
+
+          </div>
+
+          <a href="videos.html" class="view-all">
+            Videos Zote →
+          </a>
+
+        </div>
+
+
+        <div class="cards-3">
+
+          <article class="card video-card">
+
+            <div class="card-img video-thumb">
+
+              <img
+                src="assets/news1.jpg"
+                alt="Dizzah Media TV"
+              >
+
+              <span class="play">
+                ▶
+              </span>
+
+            </div>
+
+            <div class="card-body">
+
+              <span class="tag">
+                Dizzah TV
+              </span>
+
+              <h3>
+                Stories From Tanzania
+              </h3>
+
+              <p>
+                Discover people, places and stories.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="card video-card">
+
+            <div class="card-img video-thumb">
+
+              <img
+                src="assets/simulizi.jpg"
+                alt="Dizzah Stories"
+              >
+
+              <span class="play">
+                ▶
+              </span>
+
+            </div>
+
+            <div class="card-body">
+
+              <span class="tag">
+                Stories
+              </span>
+
+              <h3>
+                Simulizi za Maisha
+              </h3>
+
+              <p>
+                Hadithi zinazogusa maisha halisi.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="card video-card">
+
+            <div class="card-img video-thumb">
+
+              <img
+                src="assets/movie.jpg"
+                alt="Dizzah Movies"
+              >
+
+              <span class="play">
+                ▶
+              </span>
+
+            </div>
+
+            <div class="card-body">
+
+              <span class="tag">
+                Entertainment
+              </span>
+
+              <h3>
+                Movies & Entertainment
+              </h3>
+
+              <p>
+                Filamu na maudhui ya burudani.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <div class="youtube-banner">
+
+          <div>
+
+            <h3>
+              Dizzah Media on YouTube
+            </h3>
+
+            <p>
+              Tazama video zetu na subscribe kwenye channel.
+            </p>
+
+          </div>
+
+          <a
+            href="https://www.youtube.com/@DizzahMedia"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            ▶ Tazama YouTube
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MEDIA HOUSE
+    ========================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="eyebrow">
+              One Media House
+            </div>
+
+            <h2>
+              Explore Dizzah Media
+            </h2>
+
+            <p>
+              Jukwaa moja kwa aina mbalimbali za maudhui.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="media-grid">
+
+          <a href="news.html" class="media-box">
+
+            <div class="media-icon">
+              N
+            </div>
+
+            <h3>
+              News
+            </h3>
+
+            <p>
+              Habari na taarifa.
+            </p>
+
+          </a>
+
+
+          <a href="simulizi.html" class="media-box">
+
+            <div class="media-icon">
+              S
+            </div>
+
+            <h3>
+              Simulizi
+            </h3>
+
+            <p>
+              Hadithi za maisha.
+            </p>
+
+          </a>
+
+
+          <a href="movies.html" class="media-box">
+
+            <div class="media-icon">
+              M
+            </div>
+
+            <h3>
+              Movies
+            </h3>
+
+            <p>
+              Filamu na burudani.
+            </p>
+
+          </a>
+
+
+          <a href="podcasts.html" class="media-box">
+
+            <div class="media-icon">
+              P
+            </div>
+
+            <h3>
+              Podcasts
+            </h3>
+
+            <p>
+              Mazungumzo na stories.
+            </p>
+
+          </a>
+
+
+          <a href="gallery.html" class="media-box">
+
+            <div class="media-icon">
+              G
+            </div>
+
+            <h3>
+              Gallery
+            </h3>
+
+            <p>
+              Picha na moments.
+            </p>
+
+          </a>
+
+
+          <a href="videos.html" class="media-box">
+
+            <div class="media-icon">
+              V
+            </div>
+
+            <h3>
+              Videos
+            </h3>
+
+            <p>
+              Video content.
+            </p>
+
+          </a>
+
+
+          <a href="motivation.html" class="media-box">
+
+            <div class="media-icon">
+              +
+            </div>
+
+            <h3>
+              Motivation
+            </h3>
+
+            <p>
+              Inspire the next generation.
+            </p>
+
+          </a>
+
+
+          <a href="originals.html" class="media-box">
+
+            <div class="media-icon">
+              ★
+            </div>
+
+            <h3>
+              Dizzah Originals
+            </h3>
+
+            <p>
+              Original productions.
+            </p>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MISSION
+    ========================== -->
+
+    <section class="mission">
+
+      <div class="container mission-grid">
+
+        <div class="mission-image">
+
+          <img
+            src="assets/dizzah-logo-profile.png"
+            alt="Dizzah Media"
+          >
+
+        </div>
+
+
+        <div class="mission-copy">
+
+          <div class="eyebrow">
+            Our Mission
+          </div>
+
+          <h2>
+            Hakika Leo,
+            Kesho kwa Ubora Zaidi.
+          </h2>
+
+          <p>
+            Dizzah Media inalenga kuwa media house ya kisasa
+            inayotengeneza na kusambaza maudhui yenye ubora,
+            ubunifu na thamani kwa hadhira ya Tanzania,
+            Afrika na dunia.
+          </p>
+
+
+          <div class="mission-points">
+
+            <div class="point">
+
+              <strong>01</strong>
+
+              <div>
+                <b>Quality Content</b><br>
+                Maudhui yanayoweka ubora mbele.
+              </div>
+
+            </div>
+
+
+            <div class="point">
+
+              <strong>02</strong>
+
+              <div>
+                <b>Global Vision</b><br>
+                Hadithi za ndani zenye uwezo wa kufika dunia nzima.
+              </div>
+
+            </div>
+
+
+            <div class="point">
+
+              <strong>03</strong>
+
+              <div>
+                <b>Creative Storytelling</b><br>
+                Tunatumia ubunifu kuwasilisha stories kwa njia mpya.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="Profile.html"
+              class="btn"
+              style="background:var(--purple);color:#fff"
+            >
+              Angalia Profile
+            </a>
+
+            <a
+              href="contact.html"
+              class="btn"
+              style="border:1px solid #ddd;color:var(--purple-dark)"
+            >
+              Wasiliana Nasi
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOCIAL
+    ========================== -->
+
+    <section class="social-cta">
+
+      <div class="container">
+
+        <div class="social-box">
+
+          <div>
+
+            <div class="eyebrow">
+              Connect With Dizzah
+            </div>
+
+            <h2>
+              Tuko kwenye platforms unazopenda.
+            </h2>
+
+            <p>
+              Fuatilia Dizzah Media kwa habari, video,
+              simulizi na updates za maudhui mapya.
+            </p>
+
+          </div>
+
+
+          <div class="social-links">
+
+            <a
+              href="https://www.youtube.com/@DizzahMedia"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+            >
+              YouTube
+            </a>
+
+            <a
+              href="https://www.instagram.com/dizzah_media"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@dizzahmedia"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+            >
+              TikTok
+            </a>
+
+            <a
+              href="https://www.facebook.com/share/1ES11b5jWR/"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+            >
+              Facebook
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <img
+            src="assets/dizzah-logo-profile.png"
+            alt="Dizzah Media Logo"
+          >
+
+          <h3>
+            DIZZAH MEDIA
+          </h3>
+
+          <p>
+            Hakika Leo, Kesho kwa Ubora Zaidi.
+            Tanzania → Africa → World.
+          </p>
+
+          <p>
+            Media house inayolenga kuunganisha
+            watu kupitia habari, stories na ubunifu.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Explore
+          </h4>
+
+          <a href="news.html">News</a>
+          <a href="simulizi.html">Simulizi</a>
+          <a href="movies.html">Movies</a>
+          <a href="originals.html">Originals</a>
+          <a href="videos.html">Videos</a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            More
+          </h4>
+
+          <a href="gallery.html">Gallery</a>
+          <a href="podcasts.html">Podcasts</a>
+          <a href="motivation.html">Motivation</a>
+          <a href="Live.html">Live</a>
+          <a href="Search.html">Search</a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Company
+          </h4>
+
+          <a href="Profile.html">Profile</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="Privacy.html">Privacy</a>
+          <a href="Terms.html">Terms</a>
+          <a href="faq.htm">FAQ</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <div>
+          © <span id="year"></span> Dizzah Media. All Rights Reserved.
+        </div>
+
+        <div class="footer-bottom-links">
+
+          <a href="Privacy.html">
+            Privacy
+          </a>
+
+          <a href="Terms.html">
+            Terms
+          </a>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const mobileToggle =
+      document.getElementById("mobileToggle");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+
+    mobileToggle.addEventListener("click", () => {
+
+      const open =
+        mainNav.classList.toggle("open");
+
+      mobileToggle.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+      mobileToggle.textContent =
+        open ? "✕" : "☰";
+
+    });
+
+
+    document
+      .querySelectorAll("#mainNav a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          mainNav.classList.remove("open");
+
+          mobileToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          mobileToggle.textContent = "☰";
+
+        });
+
+      });
+
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
