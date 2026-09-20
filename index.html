@@ -2,1242 +2,1101 @@
 <html lang="sw">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Dizzah Media | Habari, Simulizi, Movies, Motivation & Originals</title>
-
-  <meta name="description"
-    content="Dizzah Media ni media house inayowasilisha habari, simulizi za maisha, movies, motivation, podcasts, video na Dizzah Originals kutoka Tanzania kwenda Afrika na dunia.">
-
-  <meta name="keywords"
-    content="Dizzah Media, Tanzania news, habari Tanzania, simulizi, movies, motivation, podcasts, Dizzah Originals, media Tanzania">
-
+  <meta name="description" content="Dizzah Media — habari, simulizi za maisha, movies, motivation, podcasts, video na Dizzah Originals kutoka Tanzania kwenda Afrika na dunia.">
   <meta name="author" content="Dizzah Media">
-
   <meta name="theme-color" content="#17113d">
-
   <meta property="og:type" content="website">
   <meta property="og:title" content="Dizzah Media | Tanzania → Africa → World">
-  <meta property="og:description"
-    content="Habari, simulizi, video, movies, motivation, podcasts na Dizzah Originals.">
+  <meta property="og:description" content="Habari, simulizi, video, movies, motivation, podcasts na Dizzah Originals.">
   <meta property="og:image" content="assets/dizzah-logo-profile.png">
-
   <link rel="icon" type="image/png" href="assets/favicon-32.png">
 
   <style>
-    :root {
-      --purple: #5b35d5;
-      --purple-dark: #17113d;
-      --purple-deep: #0d0924;
-      --purple-light: #eee9ff;
-      --white: #ffffff;
-      --black: #111111;
-      --text: #202020;
-      --muted: #707070;
-      --border: #e8e8e8;
-      --soft: #f6f6f8;
-      --red: #e3293f;
-      --green: #159957;
-      --max: 1240px;
-      --shadow: 0 12px 35px rgba(18, 12, 48, .10);
-      --radius: 16px;
+    :root{
+      --purple:#5b35d5;
+      --purple-dark:#17113d;
+      --purple-deep:#0d0924;
+      --purple-light:#eee9ff;
+      --white:#fff;
+      --black:#111;
+      --text:#202020;
+      --muted:#707070;
+      --border:#e8e8e8;
+      --soft:#f6f6f8;
+      --red:#e3293f;
+      --green:#159957;
+      --max:1240px;
+      --shadow:0 12px 35px rgba(18,12,48,.10);
+      --radius:16px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      background:var(--white);
+      color:var(--text);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{width:100%;display:block}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    .container{width:min(92%,var(--max));margin:auto}
+
+    .skip-link{
+      position:fixed;left:12px;top:-60px;z-index:3000;
+      background:#fff;color:var(--purple-dark);padding:10px 14px;
+      border-radius:8px;box-shadow:var(--shadow);font-weight:800
+    }
+    .skip-link:focus{top:12px}
+
+    /* TOP BAR */
+    .utility{background:var(--purple-deep);color:#fff;font-size:13px}
+    .utility-inner{
+      min-height:38px;display:flex;align-items:center;
+      justify-content:space-between;gap:20px
+    }
+    .utility-left,.utility-right{display:flex;align-items:center;gap:18px}
+    .utility a{opacity:.9}
+    .utility a:hover{opacity:1;color:#d8ccff}
+
+    /* HEADER */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(255,255,255,.97);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border)
     }
 
-    html {
-      scroll-behavior: smooth;
+    .header-main{
+      min-height:82px;display:flex;align-items:center;
+      justify-content:space-between;gap:25px
     }
 
-    body {
-      font-family:
-        Inter,
-        Arial,
-        Helvetica,
-        sans-serif;
-      background: var(--white);
-      color: var(--text);
-      line-height: 1.65;
+    .brand{
+      display:flex;align-items:center;gap:12px;min-width:190px
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .brand img{width:58px;height:58px;object-fit:contain}
+
+    .brand-text{line-height:1.1}
+
+    .brand-name{
+      font-size:22px;font-weight:900;
+      letter-spacing:.7px;color:var(--purple-dark)
     }
 
-    img {
-      width: 100%;
-      display: block;
+    .brand-tagline{
+      font-size:10px;color:var(--muted);
+      margin-top:5px;font-weight:600
     }
 
-    button,
-    input {
-      font: inherit;
+    nav{
+      display:flex;align-items:center;justify-content:flex-end;
+      gap:3px;flex-wrap:wrap
     }
 
-    .container {
-      width: min(92%, var(--max));
-      margin: auto;
-    }
-
-    /* =========================
-       TOP UTILITY BAR
-    ========================== */
-
-    .utility {
-      background: var(--purple-deep);
-      color: #fff;
-      font-size: 13px;
-    }
-
-    .utility-inner {
-      min-height: 38px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .utility-left,
-    .utility-right {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .utility a {
-      opacity: .9;
-    }
-
-    .utility a:hover {
-      opacity: 1;
-      color: #d8ccff;
-    }
-
-    /* =========================
-       MAIN HEADER
-    ========================== */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-main {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 190px;
-    }
-
-    .brand img {
-      width: 58px;
-      height: 58px;
-      object-fit: contain;
-    }
-
-    .brand-text {
-      line-height: 1.1;
-    }
-
-    .brand-name {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: .7px;
-      color: var(--purple-dark);
-    }
-
-    .brand-tagline {
-      font-size: 10px;
-      color: var(--muted);
-      margin-top: 5px;
-      font-weight: 600;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 3px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      padding: 9px 10px;
-      border-radius: 9px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #333;
-      transition: .2s ease;
+    nav a{
+      padding:9px 10px;border-radius:9px;font-size:13px;
+      font-weight:700;color:#333;transition:.2s ease
     }
 
     nav a:hover,
-    nav a.active {
-      background: var(--purple-light);
-      color: var(--purple);
+    nav a.active{
+      background:var(--purple-light);
+      color:var(--purple)
     }
 
-    .nav-cta {
-      background: var(--purple) !important;
-      color: #fff !important;
-      padding-left: 14px !important;
-      padding-right: 14px !important;
+    .nav-cta{
+      background:var(--purple)!important;
+      color:#fff!important
     }
 
-    .mobile-toggle {
-      display: none;
-      border: 0;
-      background: var(--purple-light);
-      color: var(--purple-dark);
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      font-size: 22px;
-      cursor: pointer;
+    .mobile-toggle{
+      display:none;border:0;
+      background:var(--purple-light);
+      color:var(--purple-dark);
+      width:44px;height:44px;border-radius:10px;
+      font-size:22px
     }
 
-    /* =========================
-       BREAKING NEWS
-    ========================== */
-
-    .breaking {
-      background: var(--black);
-      color: #fff;
-      border-bottom: 3px solid var(--purple);
+    /* BREAKING */
+    .breaking{
+      background:var(--black);
+      color:#fff;
+      border-bottom:3px solid var(--purple)
     }
 
-    .breaking-inner {
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .breaking-inner{
+      min-height:44px;
+      display:flex;
+      align-items:center;
+      gap:16px
     }
 
-    .breaking-label {
-      background: var(--red);
-      padding: 5px 12px;
-      border-radius: 5px;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .7px;
-      white-space: nowrap;
+    .breaking-label{
+      background:var(--red);
+      padding:5px 12px;
+      border-radius:5px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.7px;
+      white-space:nowrap
     }
 
-    .breaking-text {
-      font-size: 13px;
-      font-weight: 600;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    .breaking-text{
+      font-size:13px;
+      font-weight:600;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis
     }
 
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
+    /* HERO */
+    .hero{
       background:
-        radial-gradient(circle at 85% 20%, rgba(117,76,255,.45), transparent 32%),
-        linear-gradient(120deg, #100a2c, #25145c 55%, #5b35d5);
-      color: #fff;
-      overflow: hidden;
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(117,76,255,.45),
+          transparent 32%
+        ),
+        linear-gradient(
+          120deg,
+          #100a2c,
+          #25145c 55%,
+          #5b35d5
+        );
+      color:#fff;
+      overflow:hidden
     }
 
-    .hero-inner {
-      min-height: 500px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-      gap: 50px;
-      padding: 70px 0;
+    .hero-inner{
+      min-height:500px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      align-items:center;
+      gap:50px;
+      padding:70px 0
     }
 
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border: 1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.08);
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .6px;
-      text-transform: uppercase;
+    .hero-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      border-radius:999px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.6px;
+      text-transform:uppercase
     }
 
-    .hero h1 {
-      margin-top: 20px;
-      font-size: clamp(38px, 5vw, 70px);
-      line-height: 1.02;
-      font-weight: 950;
-      letter-spacing: -2px;
+    .hero h1{
+      margin-top:20px;
+      font-size:clamp(38px,5vw,70px);
+      line-height:1.02;
+      font-weight:950;
+      letter-spacing:-2px
     }
 
-    .hero h1 span {
-      color: #cfc2ff;
-    }
-
-    .hero p {
-      max-width: 670px;
-      margin-top: 20px;
-      font-size: 17px;
-      color: rgba(255,255,255,.82);
-    }
+    .hero h1 span{color:#cfc2ff}
 
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
+    .hero p{
+      max-width:670px;
+      margin-top:20px;
+      font-size:17px;
+      color:rgba(255,255,255,.82)
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 850;
-      border: 1px solid transparent;
-      transition: .2s ease;
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:30px
     }
 
-    .btn-primary {
-      background: #fff;
-      color: var(--purple-dark);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:10px;
+      font-size:13px;
+      font-weight:850;
+      border:1px solid transparent;
+      transition:.2s ease
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover{transform:translateY(-2px)}
 
-    .btn-outline {
-      border-color: rgba(255,255,255,.32);
-      color: #fff;
-      background: rgba(255,255,255,.06);
+    .btn-primary{
+      background:#fff;
+      color:var(--purple-dark)
     }
 
-    .btn-outline:hover {
-      background: rgba(255,255,255,.14);
+    .btn-outline{
+      border-color:rgba(255,255,255,.32);
+      color:#fff;
+      background:rgba(255,255,255,.06)
     }
 
-    .hero-visual {
-      position: relative;
+    .btn-outline:hover{
+      background:rgba(255,255,255,.14)
     }
 
-    .hero-card {
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.18);
-      padding: 12px;
-      border-radius: 22px;
-      box-shadow: 0 25px 60px rgba(0,0,0,.22);
-    }
+    .hero-visual{position:relative}
 
-    .hero-card img {
-      height: 340px;
-      object-fit: cover;
-      border-radius: 15px;
+    .hero-card{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      padding:12px;
+      border-radius:22px;
+      box-shadow:0 25px 60px rgba(0,0,0,.22)
     }
 
-    .hero-card-caption {
-      padding: 15px 7px 6px;
+    .hero-card img{
+      height:340px;
+      object-fit:cover;
+      border-radius:15px
     }
 
-    .hero-card-caption small {
-      color: #cfc2ff;
-      font-weight: 800;
+    .hero-card-caption{
+      padding:15px 7px 6px
     }
 
-    .hero-card-caption h3 {
-      margin-top: 5px;
-      font-size: 19px;
+    .hero-card-caption small{
+      color:#cfc2ff;
+      font-weight:800
     }
 
-    /* =========================
-       CATEGORY STRIP
-    ========================== */
-
-    .categories {
-      border-bottom: 1px solid var(--border);
-      background: #fff;
+    .hero-card-caption h3{
+      margin-top:5px;
+      font-size:19px
     }
 
-    .category-inner {
-      min-height: 62px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
+    /* CATEGORIES */
+    .categories{
+      border-bottom:1px solid var(--border);
+      background:#fff
     }
 
-    .category-inner::-webkit-scrollbar {
-      display: none;
+    .category-inner{
+      min-height:62px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      overflow-x:auto;
+      scrollbar-width:none
     }
 
-    .category {
-      white-space: nowrap;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--soft);
-      font-size: 12px;
-      font-weight: 800;
-      color: #444;
-    }
+    .category-inner::-webkit-scrollbar{display:none}
 
-    .category:hover {
-      background: var(--purple-light);
-      color: var(--purple);
+    .category{
+      white-space:nowrap;
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--soft);
+      font-size:12px;
+      font-weight:800;
+      color:#444
     }
-
-    /* =========================
-       SECTION SYSTEM
-    ========================== */
 
-    section {
-      padding: 70px 0;
+    .category:hover{
+      background:var(--purple-light);
+      color:var(--purple)
     }
 
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 28px;
-    }
+    /* SECTIONS */
+    section{padding:70px 0}
 
-    .eyebrow {
-      color: var(--purple);
-      font-size: 11px;
-      font-weight: 950;
-      text-transform: uppercase;
-      letter-spacing: 1.3px;
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:28px
     }
 
-    .section-head h2 {
-      margin-top: 5px;
-      font-size: clamp(27px, 3vw, 40px);
-      line-height: 1.1;
-      color: var(--purple-dark);
+    .eyebrow{
+      color:var(--purple);
+      font-size:11px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:1.3px
     }
 
-    .section-head p {
-      color: var(--muted);
-      max-width: 600px;
-      font-size: 14px;
-      margin-top: 8px;
+    .section-head h2{
+      margin-top:5px;
+      font-size:clamp(27px,3vw,40px);
+      line-height:1.1;
+      color:var(--purple-dark)
     }
 
-    .view-all {
-      color: var(--purple);
-      font-size: 13px;
-      font-weight: 850;
-      white-space: nowrap;
+    .section-head p{
+      color:var(--muted);
+      max-width:650px;
+      font-size:14px;
+      margin-top:8px
     }
 
-    /* =========================
-       LEAD NEWS
-    ========================== */
-
-    .lead-grid {
-      display: grid;
-      grid-template-columns: 1.5fr .85fr;
-      gap: 24px;
+    .view-all{
+      color:var(--purple);
+      font-size:13px;
+      font-weight:850;
+      white-space:nowrap
     }
 
-    .lead-story {
-      position: relative;
-      min-height: 460px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--black);
-      color: #fff;
-      box-shadow: var(--shadow);
+    /* FEATURED */
+    .lead-grid{
+      display:grid;
+      grid-template-columns:1.5fr .85fr;
+      gap:24px
     }
 
-    .lead-story img {
-      height: 100%;
-      min-height: 460px;
-      object-fit: cover;
-      opacity: .76;
-      transition: transform .4s ease;
+    .lead-story{
+      position:relative;
+      min-height:460px;
+      overflow:hidden;
+      border-radius:var(--radius);
+      background:var(--black);
+      color:#fff;
+      box-shadow:var(--shadow)
     }
 
-    .lead-story:hover img {
-      transform: scale(1.03);
+    .lead-story img{
+      height:100%;
+      min-height:460px;
+      object-fit:cover;
+      opacity:.76;
+      transition:transform .4s ease
     }
 
-    .lead-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        transparent 20%,
-        rgba(0,0,0,.88) 100%
-      );
-      display: flex;
-      align-items: end;
-      padding: 30px;
+    .lead-story:hover img{
+      transform:scale(1.03)
     }
 
-    .lead-content {
-      max-width: 720px;
+    .lead-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(
+          transparent 20%,
+          rgba(0,0,0,.88) 100%
+        );
+      display:flex;
+      align-items:end;
+      padding:30px
     }
 
-    .tag {
-      display: inline-block;
-      background: var(--purple);
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 10px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
+    .lead-content{max-width:720px}
 
-    .lead-content h3 {
-      font-size: clamp(27px, 3vw, 44px);
-      line-height: 1.08;
-      margin-top: 12px;
+    .tag{
+      display:inline-block;
+      background:var(--purple);
+      color:#fff;
+      padding:5px 10px;
+      border-radius:5px;
+      font-size:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.5px
     }
 
-    .lead-content p {
-      margin-top: 12px;
-      color: rgba(255,255,255,.78);
-      font-size: 14px;
+    .lead-content h3{
+      font-size:clamp(27px,3vw,44px);
+      line-height:1.08;
+      margin-top:12px
     }
 
-    .story-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 16px;
-      font-size: 11px;
-      color: #bbb;
+    .lead-content p{
+      margin-top:12px;
+      color:rgba(255,255,255,.78);
+      font-size:14px
     }
 
-    .side-stories {
-      display: grid;
-      gap: 18px;
+    .story-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:16px;
+      font-size:11px;
+      color:#bbb
     }
 
-    .side-story {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 14px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
+    .side-stories{
+      display:grid;
+      gap:18px
     }
 
-    .side-story img {
-      height: 105px;
-      object-fit: cover;
-      border-radius: 11px;
+    .side-story{
+      display:grid;
+      grid-template-columns:130px 1fr;
+      gap:14px;
+      padding-bottom:18px;
+      border-bottom:1px solid var(--border)
     }
 
-    .side-story .tag {
-      background: var(--purple-light);
-      color: var(--purple);
+    .side-story img{
+      height:105px;
+      object-fit:cover;
+      border-radius:11px
     }
 
-    .side-story h4 {
-      margin-top: 6px;
-      font-size: 16px;
-      line-height: 1.25;
+    .side-story .tag{
+      background:var(--purple-light);
+      color:var(--purple)
     }
 
-    .side-story p {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 6px;
+    .side-story h4{
+      margin-top:6px;
+      font-size:16px;
+      line-height:1.25
     }
 
-    /* =========================
-       CONTENT CARDS
-    ========================== */
-
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .side-story p{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:6px
     }
 
-    .card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: .25s ease;
+    /* CARDS */
+    .cards-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-      border-color: #d8cffc;
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      transition:.25s ease
     }
 
-    .card-img {
-      position: relative;
-      overflow: hidden;
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+      border-color:#d8cffc
     }
 
-    .card-img img {
-      height: 220px;
-      object-fit: cover;
-      transition: transform .35s ease;
+    .card-img{
+      position:relative;
+      overflow:hidden
     }
 
-    .card:hover .card-img img {
-      transform: scale(1.04);
+    .card-img img{
+      height:220px;
+      object-fit:cover;
+      transition:transform .35s ease
     }
 
-    .card-body {
-      padding: 20px;
+    .card:hover .card-img img{
+      transform:scale(1.04)
     }
 
-    .card-body h3 {
-      font-size: 19px;
-      line-height: 1.25;
-      color: var(--purple-dark);
-      margin-top: 10px;
-    }
+    .card-body{padding:20px}
 
-    .card-body p {
-      margin-top: 9px;
-      color: var(--muted);
-      font-size: 13px;
+    .card-body h3{
+      font-size:19px;
+      line-height:1.25;
+      color:var(--purple-dark);
+      margin-top:10px
     }
 
-    .card-link {
-      display: inline-flex;
-      margin-top: 15px;
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 900;
+    .card-body p{
+      margin-top:9px;
+      color:var(--muted);
+      font-size:13px
     }
-
-    /* =========================
-       DIZZAH ORIGINALS
-    ========================== */
 
-    .originals {
-      background: var(--purple-deep);
-      color: #fff;
+    .card-link{
+      display:inline-flex;
+      margin-top:15px;
+      color:var(--purple);
+      font-size:12px;
+      font-weight:900
     }
 
-    .originals .section-head h2 {
-      color: #fff;
+    /* ORIGINALS */
+    .originals{
+      background:var(--purple-deep);
+      color:#fff
     }
 
-    .originals .section-head p {
-      color: rgba(255,255,255,.65);
-    }
+    .originals .section-head h2{color:#fff}
 
-    .original-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
+    .originals .section-head p{
+      color:rgba(255,255,255,.65)
     }
 
-    .original-feature {
-      min-height: 440px;
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: #000;
+    .original-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:24px
     }
 
-    .original-feature img {
-      height: 100%;
-      min-height: 440px;
-      object-fit: cover;
-      opacity: .7;
+    .original-feature{
+      min-height:440px;
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--radius);
+      background:#000
     }
 
-    .original-overlay {
-      position: absolute;
-      inset: 0;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      background: linear-gradient(
-        transparent 20%,
-        rgba(10,6,25,.96)
-      );
+    .original-feature img{
+      height:100%;
+      min-height:440px;
+      object-fit:cover;
+      opacity:.7
     }
 
-    .original-overlay h3 {
-      margin-top: 12px;
-      font-size: 34px;
-      line-height: 1.1;
+    .original-overlay{
+      position:absolute;
+      inset:0;
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:end;
+      background:
+        linear-gradient(
+          transparent 20%,
+          rgba(10,6,25,.96)
+        )
     }
 
-    .original-overlay p {
-      margin-top: 10px;
-      color: rgba(255,255,255,.75);
-      font-size: 13px;
+    .original-overlay h3{
+      margin-top:12px;
+      font-size:34px;
+      line-height:1.1
     }
 
-    .original-list {
-      display: grid;
-      gap: 14px;
+    .original-overlay p{
+      margin-top:10px;
+      color:rgba(255,255,255,.75);
+      font-size:13px
     }
 
-    .original-item {
-      display: grid;
-      grid-template-columns: 105px 1fr;
-      gap: 15px;
-      padding: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 13px;
-      background: rgba(255,255,255,.05);
+    .original-list{
+      display:grid;
+      gap:14px
     }
 
-    .original-item img {
-      height: 92px;
-      object-fit: cover;
-      border-radius: 9px;
+    .original-item{
+      display:grid;
+      grid-template-columns:105px 1fr;
+      gap:15px;
+      padding:12px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:13px;
+      background:rgba(255,255,255,.05)
     }
 
-    .original-item h4 {
-      font-size: 16px;
-      line-height: 1.25;
+    .original-item img{
+      height:92px;
+      object-fit:cover;
+      border-radius:9px
     }
 
-    .original-item p {
-      font-size: 11px;
-      color: rgba(255,255,255,.62);
-      margin-top: 6px;
+    .original-item h4{
+      font-size:16px;
+      line-height:1.25
     }
 
-    /* =========================
-       VIDEO
-    ========================== */
-
-    .video-section {
-      background: var(--soft);
+    .original-item p{
+      font-size:11px;
+      color:rgba(255,255,255,.62);
+      margin-top:6px
     }
 
-    .video-card {
-      position: relative;
-    }
+    /* VIDEO */
+    .video-section{background:var(--soft)}
 
-    .video-thumb {
-      position: relative;
-    }
+    .video-thumb{position:relative}
 
-    .play {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #fff;
-      color: var(--red);
-      display: grid;
-      place-items: center;
-      font-size: 17px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.2);
+    .play{
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:#fff;
+      color:var(--red);
+      display:grid;
+      place-items:center;
+      font-size:17px;
+      box-shadow:0 5px 20px rgba(0,0,0,.2)
     }
 
-    .youtube-banner {
-      margin-top: 30px;
-      padding: 25px;
-      border-radius: var(--radius);
-      background: linear-gradient(120deg, #24125a, #5b35d5);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .youtube-banner{
+      margin-top:30px;
+      padding:25px;
+      border-radius:var(--radius);
+      background:
+        linear-gradient(
+          120deg,
+          #24125a,
+          #5b35d5
+        );
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px
     }
 
-    .youtube-banner h3 {
-      font-size: 23px;
-    }
+    .youtube-banner h3{font-size:23px}
 
-    .youtube-banner p {
-      margin-top: 5px;
-      font-size: 13px;
-      color: rgba(255,255,255,.75);
+    .youtube-banner p{
+      margin-top:5px;
+      font-size:13px;
+      color:rgba(255,255,255,.75)
     }
-
-    /* =========================
-       MEDIA HOUSE GRID
-    ========================== */
 
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
+    /* MEDIA HOUSE */
+    .media-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px
     }
 
-    .media-box {
-      min-height: 190px;
-      padding: 22px;
-      border-radius: 14px;
-      background: var(--soft);
-      border: 1px solid var(--border);
-      transition: .2s ease;
+    .media-box{
+      min-height:190px;
+      padding:22px;
+      border-radius:14px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      transition:.2s ease
     }
 
-    .media-box:hover {
-      background: var(--purple-light);
-      transform: translateY(-3px);
+    .media-box:hover{
+      background:var(--purple-light);
+      transform:translateY(-3px)
     }
 
-    .media-icon {
-      width: 45px;
-      height: 45px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--purple);
-      color: #fff;
-      font-size: 18px;
-      font-weight: 900;
+    .media-icon{
+      width:45px;
+      height:45px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:var(--purple);
+      color:#fff;
+      font-size:18px;
+      font-weight:900
     }
 
-    .media-box h3 {
-      margin-top: 18px;
-      font-size: 17px;
-      color: var(--purple-dark);
+    .media-box h3{
+      margin-top:18px;
+      font-size:17px;
+      color:var(--purple-dark)
     }
 
-    .media-box p {
-      margin-top: 7px;
-      font-size: 12px;
-      color: var(--muted);
+    .media-box p{
+      margin-top:7px;
+      font-size:12px;
+      color:var(--muted)
     }
 
-    /* =========================
-       ABOUT / MISSION
-    ========================== */
+    /* MISSION */
+    .mission{background:#fff}
 
-    .mission {
-      background: #fff;
+    .mission-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:55px;
+      align-items:center
     }
 
-    .mission-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 55px;
-      align-items: center;
+    .mission-image{
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:var(--shadow)
     }
 
-    .mission-image {
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+    .mission-image img{
+      height:430px;
+      object-fit:cover
     }
 
-    .mission-image img {
-      height: 430px;
-      object-fit: cover;
+    .mission-copy h2{
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.08;
+      color:var(--purple-dark);
+      margin-top:8px
     }
 
-    .mission-copy h2 {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.08;
-      color: var(--purple-dark);
-      margin-top: 8px;
+    .mission-copy>p{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:15px
     }
 
-    .mission-copy > p {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 15px;
+    .mission-points{
+      display:grid;
+      gap:12px;
+      margin-top:22px
     }
 
-    .mission-points {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
+    .point{
+      display:flex;
+      gap:12px;
+      align-items:flex-start
     }
 
-    .point {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
+    .point strong{
+      color:var(--purple);
+      font-size:17px
     }
 
-    .point strong {
-      color: var(--purple);
-      font-size: 17px;
+    .point div{
+      font-size:13px;
+      color:#555
     }
-
-    .point div {
-      font-size: 13px;
-      color: #555;
-    }
-
-    /* =========================
-       SOCIAL CTA
-    ========================== */
 
-    .social-cta {
+    /* SOCIAL */
+    .social-cta{
       background:
         linear-gradient(
           135deg,
           #f1edff,
-          #ffffff
-        );
+          #fff
+        )
     }
 
-    .social-box {
-      padding: 45px;
-      border-radius: 22px;
-      border: 1px solid #ddd4ff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
+    .social-box{
+      padding:45px;
+      border-radius:22px;
+      border:1px solid #ddd4ff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:30px
     }
 
-    .social-box h2 {
-      color: var(--purple-dark);
-      font-size: 32px;
-      line-height: 1.1;
+    .social-box h2{
+      color:var(--purple-dark);
+      font-size:32px;
+      line-height:1.1
     }
 
-    .social-box p {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-      max-width: 620px;
+    .social-box p{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      max-width:620px
     }
 
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .social-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px
     }
 
-    .social-link {
-      border: 1px solid #d9d2f4;
-      background: #fff;
-      color: var(--purple-dark);
-      padding: 9px 13px;
-      border-radius: 9px;
-      font-size: 11px;
-      font-weight: 850;
+    .social-link{
+      border:1px solid #d9d2f4;
+      background:#fff;
+      color:var(--purple-dark);
+      padding:9px 13px;
+      border-radius:9px;
+      font-size:11px;
+      font-weight:850
     }
 
-    .social-link:hover {
-      background: var(--purple);
-      color: #fff;
+    .social-link:hover{
+      background:var(--purple);
+      color:#fff
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      background: var(--purple-deep);
-      color: #fff;
-      padding-top: 60px;
+    /* FOOTER */
+    footer{
+      background:var(--purple-deep);
+      color:#fff;
+      padding-top:60px
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 35px;
-      padding-bottom: 45px;
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr 1fr;
+      gap:35px;
+      padding-bottom:45px
     }
 
-    .footer-brand {
-      max-width: 330px;
+    .footer-brand{max-width:330px}
+
+    .footer-brand img{
+      width:78px;
+      height:78px;
+      object-fit:contain;
+      margin-bottom:14px
     }
 
-    .footer-brand img {
-      width: 78px;
-      height: 78px;
-      object-fit: contain;
-      margin-bottom: 14px;
+    .footer-brand h3{font-size:22px}
+
+    .footer-brand p{
+      color:rgba(255,255,255,.58);
+      font-size:13px;
+      margin-top:10px
     }
 
-    .footer-brand h3 {
-      font-size: 22px;
+    .footer-col h4{
+      font-size:13px;
+      color:#fff;
+      margin-bottom:15px;
+      text-transform:uppercase;
+      letter-spacing:.7px
     }
 
-    .footer-brand p {
-      color: rgba(255,255,255,.58);
-      font-size: 13px;
-      margin-top: 10px;
+    .footer-col a{
+      display:block;
+      color:rgba(255,255,255,.6);
+      font-size:12px;
+      margin:9px 0
     }
 
-    .footer-col h4 {
-      font-size: 13px;
-      color: #fff;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: .7px;
+    .footer-col a:hover{color:#fff}
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.09);
+      min-height:70px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      color:rgba(255,255,255,.45);
+      font-size:11px
     }
 
-    .footer-col a {
-      display: block;
-      color: rgba(255,255,255,.6);
-      font-size: 12px;
-      margin: 9px 0;
+    .footer-bottom-links{
+      display:flex;
+      gap:15px
     }
 
-    .footer-col a:hover {
-      color: #fff;
+    /* DATA / CONNECTION STATUS */
+    .data-status{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      z-index:2000;
+      background:rgba(13,9,36,.94);
+      color:#fff;
+      padding:8px 11px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:800;
+      opacity:0;
+      transform:translateY(8px);
+      pointer-events:none;
+      transition:.25s ease
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.09);
-      min-height: 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      color: rgba(255,255,255,.45);
-      font-size: 11px;
+    .data-status.show{
+      opacity:1;
+      transform:translateY(0)
     }
 
-    .footer-bottom-links {
-      display: flex;
-      gap: 15px;
+    .data-status.ok::before{
+      content:"● ";
+      color:#49d18d
     }
 
-    /* =========================
-       MOBILE
-    ========================== */
+    .data-status.off::before{
+      content:"● ";
+      color:#ff9b9b
+    }
 
-    @media (max-width: 1050px) {
-      nav {
-        gap: 0;
+    /* RESPONSIVE */
+    @media (max-width:1050px){
+      nav{gap:0}
+
+      nav a{
+        padding:8px 7px;
+        font-size:12px
       }
 
-      nav a {
-        padding: 8px 7px;
-        font-size: 12px;
+      .hero-inner{
+        grid-template-columns:1fr
       }
 
-      .hero-inner {
-        grid-template-columns: 1fr;
+      .hero-visual{
+        max-width:700px
       }
 
-      .hero-visual {
-        max-width: 700px;
+      .lead-grid{
+        grid-template-columns:1fr
       }
 
-      .lead-grid {
-        grid-template-columns: 1fr;
+      .side-stories{
+        grid-template-columns:repeat(2,1fr)
       }
 
-      .side-stories {
-        grid-template-columns: repeat(2, 1fr);
+      .media-grid{
+        grid-template-columns:repeat(2,1fr)
       }
 
-      .media-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .footer-grid{
+        grid-template-columns:repeat(2,1fr)
       }
     }
 
-    @media (max-width: 760px) {
-      .utility {
-        display: none;
+    @media (max-width:760px){
+      .utility{display:none}
+
+      header{position:relative}
+
+      .header-main{
+        min-height:72px
       }
 
-      header {
-        position: relative;
+      .brand img{
+        width:50px;
+        height:50px
       }
 
-      .header-main {
-        min-height: 72px;
+      .brand-name{font-size:18px}
+
+      .brand-tagline{font-size:9px}
+
+      .mobile-toggle{display:block}
+
+      nav{
+        display:none;
+        position:absolute;
+        left:0;
+        right:0;
+        top:72px;
+        background:#fff;
+        padding:12px 4%;
+        border-bottom:1px solid var(--border);
+        box-shadow:0 15px 30px rgba(0,0,0,.08);
+        flex-direction:column;
+        align-items:stretch
       }
 
-      .brand img {
-        width: 50px;
-        height: 50px;
+      nav.open{display:flex}
+
+      nav a{
+        padding:12px;
+        font-size:13px
       }
 
-      .brand-name {
-        font-size: 18px;
+      .hero-inner{
+        min-height:auto;
+        padding:55px 0;
+        gap:35px
       }
 
-      .brand-tagline {
-        font-size: 9px;
+      .hero h1{letter-spacing:-1px}
+
+      .hero p{font-size:15px}
+
+      .hero-card img{height:260px}
+
+      section{padding:50px 0}
+
+      .section-head{
+        align-items:flex-start;
+        flex-direction:column
       }
 
-      .mobile-toggle {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 72px;
-        background: #fff;
-        padding: 12px 4%;
-        border-bottom: 1px solid var(--border);
-        box-shadow: 0 15px 30px rgba(0,0,0,.08);
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      nav a {
-        padding: 12px;
-        font-size: 13px;
-      }
-
-      .hero-inner {
-        min-height: auto;
-        padding: 55px 0;
-        gap: 35px;
-      }
-
-      .hero h1 {
-        letter-spacing: -1px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .hero-card img {
-        height: 260px;
-      }
-
-      section {
-        padding: 50px 0;
-      }
-
-      .section-head {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .cards-3 {
-        grid-template-columns: 1fr;
+      .cards-3{
+        grid-template-columns:1fr
       }
 
       .lead-story,
-      .lead-story img {
-        min-height: 380px;
+      .lead-story img{
+        min-height:380px
       }
 
-      .lead-overlay {
-        padding: 20px;
+      .lead-overlay{padding:20px}
+
+      .lead-content h3{font-size:27px}
+
+      .side-stories{
+        grid-template-columns:1fr
       }
 
-      .lead-content h3 {
-        font-size: 27px;
-      }
-
-      .side-stories {
-        grid-template-columns: 1fr;
-      }
-
-      .original-grid {
-        grid-template-columns: 1fr;
+      .original-grid{
+        grid-template-columns:1fr
       }
 
       .original-feature,
-      .original-feature img {
-        min-height: 370px;
+      .original-feature img{
+        min-height:370px
       }
 
-      .youtube-banner {
-        flex-direction: column;
-        align-items: flex-start;
+      .youtube-banner{
+        flex-direction:column;
+        align-items:flex-start
       }
 
-      .media-grid {
-        grid-template-columns: 1fr 1fr;
+      .media-grid{
+        grid-template-columns:1fr 1fr
       }
 
-      .mission-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+      .mission-grid{
+        grid-template-columns:1fr;
+        gap:30px
       }
 
-      .mission-image img {
-        height: 300px;
+      .mission-image img{
+        height:300px
       }
 
-      .social-box {
-        padding: 28px;
-        flex-direction: column;
-        align-items: flex-start;
+      .social-box{
+        padding:28px;
+        flex-direction:column;
+        align-items:flex-start
       }
 
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px 20px;
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+        gap:28px 20px
       }
 
-      .footer-bottom {
-        padding: 18px 0;
-        flex-direction: column;
-        align-items: flex-start;
+      .footer-bottom{
+        padding:18px 0;
+        flex-direction:column;
+        align-items:flex-start
       }
     }
 
-    @media (max-width: 470px) {
-      .media-grid {
-        grid-template-columns: 1fr;
+    @media (max-width:470px){
+      .media-grid{
+        grid-template-columns:1fr
       }
 
-      .side-story {
-        grid-template-columns: 105px 1fr;
+      .side-story{
+        grid-template-columns:105px 1fr
       }
 
-      .side-story img {
-        height: 90px;
+      .side-story img{
+        height:90px
       }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
+      .footer-grid{
+        grid-template-columns:1fr
       }
 
-      .brand-tagline {
-        display: none;
-      }
+      .brand-tagline{display:none}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       UTILITY BAR
-  ========================== -->
+  <a class="skip-link" href="#main-content">
+    Ruka kwenye maudhui
+  </a>
 
   <div class="utility">
     <div class="container utility-inner">
@@ -1256,16 +1115,12 @@
     </div>
   </div>
 
-
-  <!-- =========================
-       HEADER
-  ========================== -->
-
   <header>
-
     <div class="container header-main">
 
-      <a href="index.html" class="brand">
+      <a href="index.html"
+         class="brand"
+         aria-label="Dizzah Media Home">
 
         <img
           src="assets/dizzah-logo-profile.png"
@@ -1273,7 +1128,10 @@
         >
 
         <div class="brand-text">
-          <div class="brand-name">DIZZAH MEDIA</div>
+          <div class="brand-name">
+            DIZZAH MEDIA
+          </div>
+
           <div class="brand-tagline">
             Hakika Leo, Kesho kwa Ubora Zaidi.
           </div>
@@ -1281,42 +1139,64 @@
 
       </a>
 
-
       <button
         class="mobile-toggle"
         id="mobileToggle"
+        type="button"
         aria-label="Fungua menyu"
+        aria-controls="mainNav"
         aria-expanded="false"
-      >
-        ☰
-      </button>
+      >☰</button>
 
+      <nav id="mainNav" aria-label="Menyu kuu">
 
-      <nav id="mainNav">
+        <a href="index.html" class="active">
+          Home
+        </a>
 
-        <a href="index.html" class="active">Home</a>
+        <a href="news.html">
+          News
+        </a>
 
-        <a href="news.html">News</a>
+        <a href="simulizi.html">
+          Simulizi
+        </a>
 
-        <a href="simulizi.html">Simulizi</a>
+        <a href="movies.html">
+          Movies
+        </a>
 
-        <a href="movies.html">Movies</a>
+        <a href="originals.html">
+          Originals
+        </a>
 
-        <a href="originals.html">Originals</a>
+        <a href="videos.html">
+          Videos
+        </a>
 
-        <a href="videos.html">Videos</a>
+        <a href="gallery.html">
+          Gallery
+        </a>
 
-        <a href="gallery.html">Gallery</a>
+        <a href="podcasts.html">
+          Podcasts
+        </a>
 
-        <a href="podcasts.html">Podcasts</a>
+        <a href="motivation.html">
+          Motivation
+        </a>
 
-        <a href="motivation.html">Motivation</a>
+        <a href="Live.html">
+          Live
+        </a>
 
-        <a href="Live.html">Live</a>
+        <a href="Search.html">
+          Search
+        </a>
 
-        <a href="Search.html">Search</a>
-
-        <a href="Profile.html">Profile</a>
+        <a href="Profile.html">
+          Profile
+        </a>
 
         <a href="contact.html" class="nav-cta">
           Contact
@@ -1325,15 +1205,9 @@
       </nav>
 
     </div>
-
   </header>
 
-
-  <!-- =========================
-       BREAKING NEWS
-  ========================== -->
-
-  <div class="breaking">
+  <div class="breaking" aria-label="Breaking news">
 
     <div class="container breaking-inner">
 
@@ -1341,21 +1215,19 @@
         BREAKING
       </span>
 
-      <div class="breaking-text">
-        Karibu Dizzah Media — Tunakuletea habari, simulizi, video na maudhui yenye ubora kutoka Tanzania kwenda dunia.
+      <div class="breaking-text" id="breakingText">
+        Karibu Dizzah Media — Tunakuletea habari,
+        simulizi, video na maudhui yenye ubora
+        kutoka Tanzania kwenda dunia.
       </div>
 
     </div>
 
   </div>
 
+  <main id="main-content">
 
-  <!-- =========================
-       HERO
-  ========================== -->
-
-  <main>
-
+    <!-- HERO -->
     <section class="hero">
 
       <div class="container hero-inner">
@@ -1373,18 +1245,25 @@
           </h1>
 
           <p>
-            Dizzah Media ni media house inayolenga kuunganisha
-            Tanzania, Afrika na dunia kupitia habari, simulizi,
-            movies, motivation, podcasts, video na Dizzah Originals.
+            Dizzah Media ni media house inayolenga
+            kuunganisha Tanzania, Afrika na dunia kupitia
+            habari, simulizi, movies, motivation,
+            podcasts, video na Dizzah Originals.
           </p>
 
           <div class="hero-buttons">
 
-            <a href="news.html" class="btn btn-primary">
+            <a
+              href="news.html"
+              class="btn btn-primary"
+            >
               📰 Soma Habari
             </a>
 
-            <a href="originals.html" class="btn btn-outline">
+            <a
+              href="originals.html"
+              class="btn btn-outline"
+            >
               ▶ Dizzah Originals
             </a>
 
@@ -1392,24 +1271,26 @@
 
         </div>
 
-
         <div class="hero-visual">
 
           <div class="hero-card">
 
             <img
+              id="heroImage"
               src="assets/news1.jpg"
               alt="Dizzah Media featured story"
+              fetchpriority="high"
             >
 
             <div class="hero-card-caption">
 
-              <small>
+              <small id="heroCategory">
                 DIZZAH MEDIA
               </small>
 
-              <h3>
-                Maudhui yenye hadithi, taarifa na mtazamo wa dunia.
+              <h3 id="heroTitle">
+                Maudhui yenye hadithi,
+                taarifa na mtazamo wa dunia.
               </h3>
 
             </div>
@@ -1422,11 +1303,7 @@
 
     </section>
 
-
-    <!-- =========================
-         CATEGORIES
-    ========================== -->
-
+    <!-- CATEGORIES -->
     <div class="categories">
 
       <div class="container category-inner">
@@ -1467,18 +1344,15 @@
 
     </div>
 
-
-    <!-- =========================
-         LEAD STORIES
-    ========================== -->
-
-    <section>
+    <!-- FEATURED -->
+    <section id="featuredSection">
 
       <div class="container">
 
         <div class="section-head">
 
           <div>
+
             <div class="eyebrow">
               Newsroom
             </div>
@@ -1488,91 +1362,113 @@
             </h2>
 
             <p>
-              Chagua habari na simulizi zinazokupa mtazamo
-              mpana wa kinachoendelea Tanzania, Afrika na dunia.
+              Chagua habari na simulizi zinazokupa
+              mtazamo mpana wa kinachoendelea Tanzania,
+              Afrika na dunia.
             </p>
+
           </div>
 
-          <a href="news.html" class="view-all">
+          <a
+            href="news.html"
+            class="view-all"
+          >
             Angalia Habari Zote →
           </a>
 
         </div>
 
-
         <div class="lead-grid">
 
-          <article class="lead-story">
+          <article
+            class="lead-story"
+            id="leadStory"
+          >
 
-            <img
-              src="assets/news1.jpg"
-              alt="Featured Dizzah Media story"
-            >
+            <a href="news.html">
 
-            <div class="lead-overlay">
+              <img
+                src="assets/news1.jpg"
+                alt="Featured Dizzah Media story"
+              >
 
-              <div class="lead-content">
+              <div class="lead-overlay">
 
-                <span class="tag">
-                  Featured
-                </span>
+                <div class="lead-content">
 
-                <h3>
-                  Karibu Dizzah Media — Sauti za Tanzania kwa Dunia.
-                </h3>
+                  <span class="tag">
+                    Dizzah Media
+                  </span>
 
-                <p>
-                  Tunajenga jukwaa la maudhui linalochanganya
-                  taarifa, ubunifu, burudani na hadithi za maisha.
-                </p>
+                  <h3>
+                    Karibu Dizzah Media —
+                    Sauti za Tanzania kwa Dunia.
+                  </h3>
 
-                <div class="story-meta">
-                  <span>● Dizzah Media</span>
-                  <span>Media House</span>
-                  <span>Tanzania</span>
+                  <p>
+                    Habari, simulizi na maudhui
+                    yanayounganisha watu na mawazo.
+                  </p>
+
+                  <div class="story-meta">
+                    <span>Latest</span>
+                    <span>Dizzah Media</span>
+                  </div>
+
                 </div>
 
               </div>
 
-            </div>
+            </a>
 
           </article>
 
-
-          <div class="side-stories">
+          <div
+            class="side-stories"
+            id="sideStories"
+          >
 
             <article class="side-story">
 
-              <img
-                src="assets/news1.jpg"
-                alt="Dizzah Media News"
-              >
+              <a href="news.html">
+
+                <img
+                  src="assets/news1.jpg"
+                  alt="Dizzah Media News"
+                >
+
+              </a>
 
               <div>
 
                 <span class="tag">
-                  News
+                  Habari
                 </span>
 
                 <h4>
-                  Habari kutoka Tanzania na dunia.
+                  Habari na taarifa kutoka
+                  Dizzah Media.
                 </h4>
 
                 <p>
-                  Taarifa na maudhui kwa mtazamo mpana.
+                  Taarifa muhimu kwa hadhira
+                  ya Tanzania na dunia.
                 </p>
 
               </div>
 
             </article>
 
-
             <article class="side-story">
 
-              <img
-                src="assets/simulizi.jpg"
-                alt="Dizzah Media Simulizi"
-              >
+              <a href="simulizi.html">
+
+                <img
+                  src="assets/simulizi.jpg"
+                  alt="Dizzah Media Simulizi"
+                >
+
+              </a>
 
               <div>
 
@@ -1581,24 +1477,28 @@
                 </span>
 
                 <h4>
-                  Hadithi za maisha zinazogusa jamii.
+                  Simulizi zinazogusa maisha.
                 </h4>
 
                 <p>
-                  Simulizi zinazobeba hisia, changamoto na matumaini.
+                  Hadithi za watu, changamoto,
+                  ndoto na mafanikio.
                 </p>
 
               </div>
 
             </article>
 
-
             <article class="side-story">
 
-              <img
-                src="assets/movie.jpg"
-                alt="Dizzah Media Movies"
-              >
+              <a href="movies.html">
+
+                <img
+                  src="assets/movie.jpg"
+                  alt="Dizzah Media Movies"
+                >
+
+              </a>
 
               <div>
 
@@ -1607,24 +1507,29 @@
                 </span>
 
                 <h4>
-                  Filamu na storytelling ya kisasa.
+                  Burudani na productions
+                  za Dizzah Media.
                 </h4>
 
                 <p>
-                  Ubunifu wa ndani wenye mtazamo wa kimataifa.
+                  Filamu na creative projects
+                  zenye mtazamo wa kisasa.
                 </p>
 
               </div>
 
             </article>
 
-
             <article class="side-story">
 
-              <img
-                src="assets/news1.jpg"
-                alt="Dizzah Media Motivation"
-              >
+              <a href="motivation.html">
+
+                <img
+                  src="assets/news1.jpg"
+                  alt="Dizzah Media Motivation"
+                >
+
+              </a>
 
               <div>
 
@@ -1637,7 +1542,8 @@
                 </h4>
 
                 <p>
-                  Inspiration, mindset na stories za mafanikio.
+                  Inspiration, mindset na
+                  stories za mafanikio.
                 </p>
 
               </div>
@@ -1652,12 +1558,11 @@
 
     </section>
 
-
-    <!-- =========================
-         SIMULIZI
-    ========================== -->
-
-    <section class="video-section">
+    <!-- SIMULIZI -->
+    <section
+      class="video-section"
+      id="simuliziSection"
+    >
 
       <div class="container">
 
@@ -1674,20 +1579,25 @@
             </h2>
 
             <p>
-              Hadithi za watu, maisha, changamoto, mapenzi,
-              ndoto na safari za mafanikio.
+              Hadithi za watu, maisha, changamoto,
+              mapenzi, ndoto na safari za mafanikio.
             </p>
 
           </div>
 
-          <a href="simulizi.html" class="view-all">
+          <a
+            href="simulizi.html"
+            class="view-all"
+          >
             Simulizi Zote →
           </a>
 
         </div>
 
-
-        <div class="cards-3">
+        <div
+          class="cards-3"
+          id="simuliziCards"
+        >
 
           <article class="card">
 
@@ -1696,6 +1606,7 @@
               <img
                 src="assets/simulizi.jpg"
                 alt="Simulizi za maisha"
+                loading="lazy"
               >
 
             </div>
@@ -1707,30 +1618,33 @@
               </span>
 
               <h3>
-                Hadithi za Maisha
+                Safari ya Mafanikio
               </h3>
 
               <p>
-                Maudhui yanayozungumzia maisha halisi
-                na safari za watu mbalimbali.
+                Hadithi zinazotufundisha kuhusu
+                safari, subira na mafanikio.
               </p>
 
-              <a href="simulizi.html" class="card-link">
-                Soma zaidi →
+              <a
+                href="simulizi.html"
+                class="card-link"
+              >
+                Soma Simulizi →
               </a>
 
             </div>
 
           </article>
 
-
           <article class="card">
 
             <div class="card-img">
 
               <img
-                src="assets/movie.jpg"
-                alt="Dizzah storytelling"
+                src="assets/news1.jpg"
+                alt="Dizzah Originals story"
+                loading="lazy"
               >
 
             </div>
@@ -1742,22 +1656,24 @@
               </span>
 
               <h3>
-                Stories With Purpose
+                Stories Behind The Story
               </h3>
 
               <p>
-                Tunatafuta hadithi zenye maana
-                na kuzifikisha kwa hadhira pana.
+                Maudhui yanayochunguza upande
+                wa ndani wa maisha na watu.
               </p>
 
-              <a href="originals.html" class="card-link">
-                Explore Originals →
+              <a
+                href="simulizi.html"
+                class="card-link"
+              >
+                Explore →
               </a>
 
             </div>
 
           </article>
-
 
           <article class="card">
 
@@ -1765,7 +1681,8 @@
 
               <img
                 src="assets/news1.jpg"
-                alt="Dizzah Motivation"
+                alt="Motivation"
+                loading="lazy"
               >
 
             </div>
@@ -1781,11 +1698,14 @@
               </h3>
 
               <p>
-                Mawazo, uzoefu na simulizi zinazolenga
-                kuhamasisha kizazi kipya.
+                Mawazo, uzoefu na simulizi
+                zinazolenga kuhamasisha kizazi kipya.
               </p>
 
-              <a href="motivation.html" class="card-link">
+              <a
+                href="motivation.html"
+                class="card-link"
+              >
                 Explore Motivation →
               </a>
 
@@ -1799,11 +1719,7 @@
 
     </section>
 
-
-    <!-- =========================
-         DIZZAH ORIGINALS
-    ========================== -->
-
+    <!-- ORIGINALS -->
     <section class="originals">
 
       <div class="container">
@@ -1821,7 +1737,8 @@
             </h2>
 
             <p>
-              Stories Made For The World. Local Stories. Global Standards.
+              Stories Made For The World.
+              Local Stories. Global Standards.
             </p>
 
           </div>
@@ -1831,25 +1748,25 @@
             class="view-all"
             style="color:#cfc2ff"
           >
-            Explore Originals →
+            View Originals →
           </a>
 
         </div>
-
 
         <div class="original-grid">
 
           <article class="original-feature">
 
             <img
-              src="assets/movie.jpg"
+              src="assets/news1.jpg"
               alt="Dizzah Originals"
+              loading="lazy"
             >
 
             <div class="original-overlay">
 
               <span class="tag">
-                ORIGINALS
+                Original
               </span>
 
               <h3>
@@ -1858,71 +1775,67 @@
               </h3>
 
               <p>
-                Dizzah Originals ni kitengo cha ubunifu
-                kinacholenga kutengeneza films, series
-                na documentaries zenye ubora.
+                Maudhui ya asili yanayolenga
+                kufikisha sauti za Tanzania
+                kwa hadhira pana.
               </p>
 
             </div>
 
           </article>
 
-
           <div class="original-list">
 
             <article class="original-item">
 
               <img
-                src="assets/movie.jpg"
-                alt="Dizzah Films"
+                src="assets/simulizi.jpg"
+                alt="Dizzah Stories"
+                loading="lazy"
               >
 
               <div>
-
                 <h4>
-                  Dizzah Films
+                  Dizzah Stories
                 </h4>
 
                 <p>
-                  Feature films na storytelling ya kisasa.
+                  Simulizi, watu na maisha.
                 </p>
-
               </div>
 
             </article>
-
 
             <article class="original-item">
 
               <img
-                src="assets/simulizi.jpg"
-                alt="Dizzah Series"
+                src="assets/movie.jpg"
+                alt="Dizzah Film"
+                loading="lazy"
               >
 
               <div>
-
                 <h4>
-                  Dizzah Series
+                  Dizzah Film
                 </h4>
 
                 <p>
-                  Series zinazobeba maisha na jamii.
+                  Drama, documentary na
+                  creative productions.
                 </p>
-
               </div>
 
             </article>
-
 
             <article class="original-item">
 
               <img
                 src="assets/news1.jpg"
                 alt="Dizzah Documentary"
+                loading="lazy"
               >
 
               <div>
-
                 <h4>
                   Dizzah Documentary
                 </h4>
@@ -1930,21 +1843,19 @@
                 <p>
                   Real stories, people and places.
                 </p>
-
               </div>
 
             </article>
-
 
             <article class="original-item">
 
               <img
                 src="assets/movie.jpg"
                 alt="Dizzah Creative"
+                loading="lazy"
               >
 
               <div>
-
                 <h4>
                   Creative Projects
                 </h4>
@@ -1952,7 +1863,6 @@
                 <p>
                   Ubunifu unaovuka mipaka.
                 </p>
-
               </div>
 
             </article>
@@ -1965,12 +1875,11 @@
 
     </section>
 
-
-    <!-- =========================
-         VIDEOS
-    ========================== -->
-
-    <section class="video-section">
+    <!-- VIDEOS -->
+    <section
+      class="video-section"
+      id="videosSection"
+    >
 
       <div class="container">
 
@@ -1987,124 +1896,144 @@
             </h2>
 
             <p>
-              Tazama video, interviews, stories na maudhui
-              mengine kupitia Dizzah Media YouTube.
+              Tazama video, interviews,
+              stories na maudhui mengine
+              kupitia Dizzah Media.
             </p>
 
           </div>
 
-          <a href="videos.html" class="view-all">
+          <a
+            href="videos.html"
+            class="view-all"
+          >
             Videos Zote →
           </a>
 
         </div>
 
-
-        <div class="cards-3">
+        <div
+          class="cards-3"
+          id="videoCards"
+        >
 
           <article class="card video-card">
 
-            <div class="card-img video-thumb">
+            <a href="videos.html">
 
-              <img
-                src="assets/news1.jpg"
-                alt="Dizzah Media TV"
-              >
+              <div class="card-img video-thumb">
 
-              <span class="play">
-                ▶
-              </span>
+                <img
+                  src="assets/news1.jpg"
+                  alt="Dizzah Media TV"
+                  loading="lazy"
+                >
 
-            </div>
+                <span class="play">
+                  ▶
+                </span>
 
-            <div class="card-body">
+              </div>
 
-              <span class="tag">
-                Dizzah TV
-              </span>
+              <div class="card-body">
 
-              <h3>
-                Stories From Tanzania
-              </h3>
+                <span class="tag">
+                  Video
+                </span>
 
-              <p>
-                Discover people, places and stories.
-              </p>
+                <h3>
+                  Dizzah Media TV
+                </h3>
 
-            </div>
+                <p>
+                  Video, interviews na stories
+                  kutoka Dizzah Media.
+                </p>
+
+              </div>
+
+            </a>
 
           </article>
 
-
           <article class="card video-card">
 
-            <div class="card-img video-thumb">
+            <a href="videos.html">
 
-              <img
-                src="assets/simulizi.jpg"
-                alt="Dizzah Stories"
-              >
+              <div class="card-img video-thumb">
 
-              <span class="play">
-                ▶
-              </span>
+                <img
+                  src="assets/simulizi.jpg"
+                  alt="Dizzah Stories"
+                  loading="lazy"
+                >
 
-            </div>
+                <span class="play">
+                  ▶
+                </span>
 
-            <div class="card-body">
+              </div>
 
-              <span class="tag">
-                Stories
-              </span>
+              <div class="card-body">
 
-              <h3>
-                Simulizi za Maisha
-              </h3>
+                <span class="tag">
+                  Stories
+                </span>
 
-              <p>
-                Hadithi zinazogusa maisha halisi.
-              </p>
+                <h3>
+                  Stories & Interviews
+                </h3>
 
-            </div>
+                <p>
+                  Watu, uzoefu na simulizi
+                  zinazoleta mtazamo mpya.
+                </p>
+
+              </div>
+
+            </a>
 
           </article>
 
-
           <article class="card video-card">
 
-            <div class="card-img video-thumb">
+            <a href="movies.html">
 
-              <img
-                src="assets/movie.jpg"
-                alt="Dizzah Movies"
-              >
+              <div class="card-img video-thumb">
 
-              <span class="play">
-                ▶
-              </span>
+                <img
+                  src="assets/movie.jpg"
+                  alt="Dizzah Movies"
+                  loading="lazy"
+                >
 
-            </div>
+                <span class="play">
+                  ▶
+                </span>
 
-            <div class="card-body">
+              </div>
 
-              <span class="tag">
-                Entertainment
-              </span>
+              <div class="card-body">
 
-              <h3>
-                Movies & Entertainment
-              </h3>
+                <span class="tag">
+                  Entertainment
+                </span>
 
-              <p>
-                Filamu na maudhui ya burudani.
-              </p>
+                <h3>
+                  Movies & Entertainment
+                </h3>
 
-            </div>
+                <p>
+                  Filamu na maudhui ya burudani.
+                </p>
+
+              </div>
+
+            </a>
 
           </article>
 
         </div>
-
 
         <div class="youtube-banner">
 
@@ -2115,7 +2044,8 @@
             </h3>
 
             <p>
-              Tazama video zetu na subscribe kwenye channel.
+              Tazama video zetu na subscribe
+              kwenye channel.
             </p>
 
           </div>
@@ -2123,7 +2053,7 @@
           <a
             href="https://www.youtube.com/@DizzahMedia"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="btn btn-primary"
           >
             ▶ Tazama YouTube
@@ -2135,11 +2065,7 @@
 
     </section>
 
-
-    <!-- =========================
-         MEDIA HOUSE
-    ========================== -->
-
+    <!-- EXPLORE -->
     <section>
 
       <div class="container">
@@ -2157,149 +2083,86 @@
             </h2>
 
             <p>
-              Jukwaa moja kwa aina mbalimbali za maudhui.
+              Jukwaa moja kwa aina mbalimbali
+              za maudhui.
             </p>
 
           </div>
 
         </div>
 
-
         <div class="media-grid">
 
-          <a href="news.html" class="media-box">
-
-            <div class="media-icon">
-              N
-            </div>
-
-            <h3>
-              News
-            </h3>
-
-            <p>
-              Habari na taarifa.
-            </p>
-
+          <a
+            href="news.html"
+            class="media-box"
+          >
+            <div class="media-icon">N</div>
+            <h3>News</h3>
+            <p>Habari na taarifa.</p>
           </a>
 
-
-          <a href="simulizi.html" class="media-box">
-
-            <div class="media-icon">
-              S
-            </div>
-
-            <h3>
-              Simulizi
-            </h3>
-
-            <p>
-              Hadithi za maisha.
-            </p>
-
+          <a
+            href="simulizi.html"
+            class="media-box"
+          >
+            <div class="media-icon">S</div>
+            <h3>Simulizi</h3>
+            <p>Stories za maisha.</p>
           </a>
 
-
-          <a href="movies.html" class="media-box">
-
-            <div class="media-icon">
-              M
-            </div>
-
-            <h3>
-              Movies
-            </h3>
-
-            <p>
-              Filamu na burudani.
-            </p>
-
+          <a
+            href="movies.html"
+            class="media-box"
+          >
+            <div class="media-icon">M</div>
+            <h3>Movies</h3>
+            <p>Filamu na entertainment.</p>
           </a>
 
-
-          <a href="podcasts.html" class="media-box">
-
-            <div class="media-icon">
-              P
-            </div>
-
-            <h3>
-              Podcasts
-            </h3>
-
-            <p>
-              Mazungumzo na stories.
-            </p>
-
+          <a
+            href="podcasts.html"
+            class="media-box"
+          >
+            <div class="media-icon">P</div>
+            <h3>Podcasts</h3>
+            <p>Audio conversations.</p>
           </a>
 
-
-          <a href="gallery.html" class="media-box">
-
-            <div class="media-icon">
-              G
-            </div>
-
-            <h3>
-              Gallery
-            </h3>
-
-            <p>
-              Picha na moments.
-            </p>
-
+          <a
+            href="gallery.html"
+            class="media-box"
+          >
+            <div class="media-icon">G</div>
+            <h3>Gallery</h3>
+            <p>Picha na moments.</p>
           </a>
 
-
-          <a href="videos.html" class="media-box">
-
-            <div class="media-icon">
-              V
-            </div>
-
-            <h3>
-              Videos
-            </h3>
-
-            <p>
-              Video content.
-            </p>
-
+          <a
+            href="videos.html"
+            class="media-box"
+          >
+            <div class="media-icon">V</div>
+            <h3>Videos</h3>
+            <p>Video content.</p>
           </a>
 
-
-          <a href="motivation.html" class="media-box">
-
-            <div class="media-icon">
-              +
-            </div>
-
-            <h3>
-              Motivation
-            </h3>
-
-            <p>
-              Inspire the next generation.
-            </p>
-
+          <a
+            href="motivation.html"
+            class="media-box"
+          >
+            <div class="media-icon">+</div>
+            <h3>Motivation</h3>
+            <p>Inspire the next generation.</p>
           </a>
 
-
-          <a href="originals.html" class="media-box">
-
-            <div class="media-icon">
-              ★
-            </div>
-
-            <h3>
-              Dizzah Originals
-            </h3>
-
-            <p>
-              Original productions.
-            </p>
-
+          <a
+            href="originals.html"
+            class="media-box"
+          >
+            <div class="media-icon">★</div>
+            <h3>Dizzah Originals</h3>
+            <p>Original productions.</p>
           </a>
 
         </div>
@@ -2308,11 +2171,7 @@
 
     </section>
 
-
-    <!-- =========================
-         MISSION
-    ========================== -->
-
+    <!-- MISSION -->
     <section class="mission">
 
       <div class="container mission-grid">
@@ -2322,10 +2181,10 @@
           <img
             src="assets/dizzah-logo-profile.png"
             alt="Dizzah Media"
+            loading="lazy"
           >
 
         </div>
-
 
         <div class="mission-copy">
 
@@ -2339,70 +2198,40 @@
           </h2>
 
           <p>
-            Dizzah Media inalenga kuwa media house ya kisasa
-            inayotengeneza na kusambaza maudhui yenye ubora,
-            ubunifu na thamani kwa hadhira ya Tanzania,
-            Afrika na dunia.
+            Dizzah Media inalenga kuwa media house
+            ya kisasa inayotengeneza na kusambaza
+            maudhui yenye ubora, ubunifu na thamani
+            kwa hadhira ya Tanzania, Afrika na dunia.
           </p>
-
 
           <div class="mission-points">
 
             <div class="point">
-
               <strong>01</strong>
-
               <div>
-                <b>Quality Content</b><br>
-                Maudhui yanayoweka ubora mbele.
+                <b>Ubora</b><br>
+                Maudhui yenye kiwango na
+                uwasilishaji unaoaminika.
               </div>
-
             </div>
 
-
             <div class="point">
-
               <strong>02</strong>
-
               <div>
-                <b>Global Vision</b><br>
-                Hadithi za ndani zenye uwezo wa kufika dunia nzima.
+                <b>Ubunifu</b><br>
+                Njia mpya za kusimulia stories
+                na kuwasilisha ideas.
               </div>
-
             </div>
-
 
             <div class="point">
-
               <strong>03</strong>
-
               <div>
-                <b>Creative Storytelling</b><br>
-                Tunatumia ubunifu kuwasilisha stories kwa njia mpya.
+                <b>Hadhira</b><br>
+                Kujenga jamii inayounganishwa
+                na maudhui yenye maana.
               </div>
-
             </div>
-
-          </div>
-
-
-          <div class="hero-buttons">
-
-            <a
-              href="Profile.html"
-              class="btn"
-              style="background:var(--purple);color:#fff"
-            >
-              Angalia Profile
-            </a>
-
-            <a
-              href="contact.html"
-              class="btn"
-              style="border:1px solid #ddd;color:var(--purple-dark)"
-            >
-              Wasiliana Nasi
-            </a>
 
           </div>
 
@@ -2412,11 +2241,7 @@
 
     </section>
 
-
-    <!-- =========================
-         SOCIAL
-    ========================== -->
-
+    <!-- SOCIAL -->
     <section class="social-cta">
 
       <div class="container">
@@ -2426,55 +2251,45 @@
           <div>
 
             <div class="eyebrow">
-              Connect With Dizzah
+              Join The Community
             </div>
 
             <h2>
-              Tuko kwenye platforms unazopenda.
+              Fuata Dizzah Media.
             </h2>
 
             <p>
-              Fuatilia Dizzah Media kwa habari, video,
-              simulizi na updates za maudhui mapya.
+              Endelea nasi kwenye mitandao ya kijamii
+              kwa habari, stories, videos na updates mpya.
             </p>
 
           </div>
 
-
           <div class="social-links">
 
             <a
+              class="social-link"
               href="https://www.youtube.com/@DizzahMedia"
               target="_blank"
-              rel="noopener"
-              class="social-link"
+              rel="noopener noreferrer"
             >
               YouTube
             </a>
 
             <a
-              href="https://www.instagram.com/dizzah_media"
-              target="_blank"
-              rel="noopener"
               class="social-link"
-            >
-              Instagram
-            </a>
-
-            <a
               href="https://www.tiktok.com/@dizzahmedia"
               target="_blank"
-              rel="noopener"
-              class="social-link"
+              rel="noopener noreferrer"
             >
               TikTok
             </a>
 
             <a
+              class="social-link"
               href="https://www.facebook.com/share/1ES11b5jWR/"
               target="_blank"
-              rel="noopener"
-              class="social-link"
+              rel="noopener noreferrer"
             >
               Facebook
             </a>
@@ -2489,11 +2304,7 @@
 
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
+  <!-- FOOTER -->
   <footer>
 
     <div class="container">
@@ -2505,6 +2316,7 @@
           <img
             src="assets/dizzah-logo-profile.png"
             alt="Dizzah Media Logo"
+            loading="lazy"
           >
 
           <h3>
@@ -2523,36 +2335,61 @@
 
         </div>
 
-
         <div class="footer-col">
 
           <h4>
             Explore
           </h4>
 
-          <a href="news.html">News</a>
-          <a href="simulizi.html">Simulizi</a>
-          <a href="movies.html">Movies</a>
-          <a href="originals.html">Originals</a>
-          <a href="videos.html">Videos</a>
+          <a href="news.html">
+            News
+          </a>
+
+          <a href="simulizi.html">
+            Simulizi
+          </a>
+
+          <a href="movies.html">
+            Movies
+          </a>
+
+          <a href="originals.html">
+            Originals
+          </a>
+
+          <a href="videos.html">
+            Videos
+          </a>
 
         </div>
-
 
         <div class="footer-col">
 
           <h4>
-            More
+            Media
           </h4>
 
-          <a href="gallery.html">Gallery</a>
-          <a href="podcasts.html">Podcasts</a>
-          <a href="motivation.html">Motivation</a>
-          <a href="Live.html">Live</a>
-          <a href="Search.html">Search</a>
+          <a href="gallery.html">
+            Gallery
+          </a>
+
+          <a href="podcasts.html">
+            Podcasts
+          </a>
+
+          <a href="motivation.html">
+            Motivation
+          </a>
+
+          <a href="Live.html">
+            Live
+          </a>
+
+          <a href="Search.html">
+            Search
+          </a>
 
         </div>
-
 
         <div class="footer-col">
 
@@ -2560,22 +2397,39 @@
             Company
           </h4>
 
-          <a href="Profile.html">Profile</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-          <a href="Privacy.html">Privacy</a>
-          <a href="Terms.html">Terms</a>
-          <a href="faq.htm">FAQ</a>
+          <a href="Profile.html">
+            Profile
+          </a>
+
+          <a href="about.html">
+            About
+          </a>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+          <a href="Privacy.html">
+            Privacy
+          </a>
+
+          <a href="Terms.html">
+            Terms
+          </a>
+
+          <a href="faq.htm">
+            FAQ
+          </a>
 
         </div>
 
       </div>
 
-
       <div class="footer-bottom">
 
         <div>
-          © <span id="year"></span> Dizzah Media. All Rights Reserved.
+          © <span id="year"></span>
+          Dizzah Media. All Rights Reserved.
         </div>
 
         <div class="footer-bottom-links">
@@ -2600,538 +2454,883 @@
 
   </footer>
 
+  <div
+    id="dataStatus"
+    class="data-status"
+    aria-live="polite"
+  ></div>
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+  <!-- SUPABASE -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- JAVASCRIPT -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (() => {
+      "use strict";
 
-<script>
-document.addEventListener("DOMContentLoaded", async function () {
+      const SUPABASE_URL =
+        "https://otmejtcequreccarwvkt.supabase.co";
 
-  /* =========================================
-     DIZZAH MEDIA — SUPABASE CONNECTION
-     ========================================= */
+      const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
 
-  const SUPABASE_URL = "https://otmejtcequreccarwvkt.supabase.co";
-  const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
+      const $ = (
+        selector,
+        root = document
+      ) => root.querySelector(selector);
 
-  const { createClient } = window.supabase;
+      const $$ = (
+        selector,
+        root = document
+      ) => [...root.querySelectorAll(selector)];
 
-  const supabaseClient = createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-  );
+      const mobileToggle =
+        $("#mobileToggle");
 
+      const mainNav =
+        $("#mainNav");
 
-  /* =========================================
-     MOBILE MENU
-     ========================================= */
+      const year =
+        $("#year");
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("header nav");
+      const status =
+        $("#dataStatus");
 
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", function () {
-      nav.classList.toggle("open");
-    });
-  }
-
-
-  /* =========================================
-     FOOTER YEAR
-     ========================================= */
-
-  const yearElements = document.querySelectorAll(".year");
-
-  yearElements.forEach(function (element) {
-    element.textContent = new Date().getFullYear();
-  });
-
-
-  /* =========================================
-     HTML SECURITY
-     ========================================= */
-
-  function escapeHTML(value) {
-    if (value === null || value === undefined) return "";
-
-    return String(value)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-
-
-  /* =========================================
-     CATEGORY NORMALIZATION
-     ========================================= */
-
-  function normalizeCategory(category) {
-    const value = String(category || "").trim().toLowerCase();
-
-    if (value === "news" || value === "habari") {
-      return "Habari";
-    }
-
-    if (value === "simulizi") {
-      return "Simulizi";
-    }
-
-    if (value === "video" || value === "videos") {
-      return "Video";
-    }
-
-    if (value === "movie" || value === "movies") {
-      return "Movie";
-    }
-
-    if (value === "motivation") {
-      return "Motivation";
-    }
-
-    if (value === "gallery") {
-      return "Gallery";
-    }
-
-    if (value === "podcast" || value === "podcasts") {
-      return "Podcast";
-    }
-
-    return category || "";
-  }
-
-
-  /* =========================================
-     GET POSTS FROM SUPABASE
-     ========================================= */
-
-  async function loadDizzahPosts() {
-
-    try {
-
-      const { data, error } = await supabaseClient
-        .from("posts")
-        .select(`
-          id,
-          title,
-          category,
-          image_url,
-          video_url,
-          description,
-          created_at
-        `)
-        .order("created_at", {
-          ascending: false
-        });
-
-      if (error) {
-        console.error("Dizzah Media Supabase Error:", error);
-        return [];
+      if (year) {
+        year.textContent =
+          new Date().getFullYear();
       }
 
-      if (!data || data.length === 0) {
-        return [];
+      /* MOBILE MENU */
+      if (mobileToggle && mainNav) {
+
+        mobileToggle.addEventListener(
+          "click",
+          () => {
+
+            const isOpen =
+              mainNav.classList.toggle("open");
+
+            mobileToggle.setAttribute(
+              "aria-expanded",
+              String(isOpen)
+            );
+
+            mobileToggle.textContent =
+              isOpen ? "✕" : "☰";
+          }
+        );
+
+        $$("a", mainNav).forEach(
+          link => {
+
+            link.addEventListener(
+              "click",
+              () => {
+
+                mainNav.classList.remove("open");
+
+                mobileToggle.setAttribute(
+                  "aria-expanded",
+                  "false"
+                );
+
+                mobileToggle.textContent =
+                  "☰";
+              }
+            );
+
+          }
+        );
+
+        document.addEventListener(
+          "click",
+          event => {
+
+            if (
+              window.innerWidth <= 760 &&
+              mainNav.classList.contains("open") &&
+              !mainNav.contains(event.target) &&
+              !mobileToggle.contains(event.target)
+            ) {
+
+              mainNav.classList.remove("open");
+
+              mobileToggle.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+              mobileToggle.textContent =
+                "☰";
+            }
+
+          }
+        );
+
       }
 
-      return data;
+      /* SUPABASE */
+      let supabaseClient = null;
 
-    } catch (error) {
+      try {
 
-      console.error(
-        "Dizzah Media connection error:",
-        error
-      );
+        if (
+          window.supabase?.createClient
+        ) {
 
-      return [];
-    }
-  }
+          supabaseClient =
+            window.supabase.createClient(
+              SUPABASE_URL,
+              SUPABASE_PUBLISHABLE_KEY
+            );
 
+        }
 
-  /* =========================================
-     HOMEPAGE CONTENT
-     ========================================= */
+      } catch (error) {
 
-  const posts = await loadDizzahPosts();
+        console.error(
+          "Supabase initialization error:",
+          error
+        );
 
-  if (!posts.length) {
-    console.log(
-      "Hakuna post mpya kutoka Supabase. Static homepage imeachwa."
-    );
-    return;
-  }
+      }
 
+      function escapeHTML(value) {
 
-  const normalizedPosts = posts.map(function (post) {
+        return String(value ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
 
-    return {
-      ...post,
-      category: normalizeCategory(post.category)
-    };
+      }
 
-  });
+      function normalizeCategory(value) {
 
+        const category =
+          String(value ?? "")
+            .trim()
+            .toLowerCase();
 
-  /* =========================================
-     SECTION TARGETS
-     ========================================= */
+        const map = {
 
-  const sections = document.querySelectorAll("main > section");
+          news: "Habari",
 
-  const featuredSection = sections[0];
-  const simuliziSection = sections[1];
-  const videosSection = sections[3];
+          habari: "Habari",
 
+          simulizi: "Simulizi",
 
-  /* =========================================
-     BREAKING NEWS
-     ========================================= */
+          video: "Video",
 
-  const latestPost = normalizedPosts[0];
+          videos: "Video",
 
-  if (latestPost) {
+          movie: "Movie",
 
-    const breakingElements = document.querySelectorAll(
-      ".breaking-strip span, .breaking-news span"
-    );
+          movies: "Movie",
 
-    breakingElements.forEach(function (element) {
+          gallery: "Gallery",
 
-      if (
-        latestPost.title &&
-        latestPost.title.trim() !== ""
+          podcast: "Podcast",
+
+          podcasts: "Podcast",
+
+          motivation: "Motivation"
+
+        };
+
+        return (
+          map[category] ||
+          String(value ?? "").trim()
+        );
+
+      }
+
+      function categoryPage(category) {
+
+        const pages = {
+
+          Habari: "news.html",
+
+          Simulizi: "simulizi.html",
+
+          Movie: "movies.html",
+
+          Video: "videos.html",
+
+          Gallery: "gallery.html",
+
+          Podcast: "podcasts.html",
+
+          Motivation: "motivation.html"
+
+        };
+
+        return (
+          pages[category] ||
+          "Search.html"
+        );
+
+      }
+
+      function safeImage(
+        url,
+        fallback = "assets/news1.jpg"
       ) {
 
-        element.textContent =
-          latestPost.title;
+        const value =
+          String(url ?? "").trim();
+
+        return value || fallback;
 
       }
 
-    });
-  }
+      function formatDate(dateValue) {
 
+        if (!dateValue) {
+          return "Dizzah Media";
+        }
 
-  /* =========================================
-     FEATURED STORIES
-     ========================================= */
+        const date =
+          new Date(dateValue);
 
-  if (featuredSection) {
+        if (
+          Number.isNaN(
+            date.getTime()
+          )
+        ) {
+          return "Dizzah Media";
+        }
 
-    const leadStory =
-      featuredSection.querySelector(".lead-story");
+        try {
 
-    const sideStories =
-      featuredSection.querySelector(".side-stories");
+          return new Intl.DateTimeFormat(
+            "sw-TZ",
+            {
+              day: "2-digit",
+              month: "short",
+              year: "numeric"
+            }
+          ).format(date);
 
-    const featuredPosts =
-      normalizedPosts.slice(0, 5);
+        } catch {
 
+          return date.toLocaleDateString();
 
-    /* ---------- MAIN FEATURED STORY ---------- */
+        }
 
-    if (leadStory && featuredPosts[0]) {
+      }
 
-      const post = featuredPosts[0];
+      function showStatus(
+        message,
+        ok = true
+      ) {
 
-      const image =
-        post.image_url ||
-        "assets/news1.jpg";
+        if (!status) return;
 
-      const title =
-        post.title ||
-        "Dizzah Media";
+        status.textContent =
+          message;
 
-      const description =
-        post.description ||
-        "Karibu Dizzah Media. Habari, simulizi, video na maudhui mbalimbali kutoka Dizzah Media.";
+        status.className =
+          "data-status show " +
+          (ok ? "ok" : "off");
 
+        window.clearTimeout(
+          showStatus.timer
+        );
 
-      leadStory.innerHTML = `
-        <a href="search.html?q=${encodeURIComponent(title)}">
-          <img
-            src="${escapeHTML(image)}"
-            alt="${escapeHTML(title)}"
-            loading="lazy"
-          >
-
-          <div class="lead-story-content">
-
-            <span class="eyebrow">
-              ${escapeHTML(post.category || "Dizzah Media")}
-            </span>
-
-            <h3>
-              ${escapeHTML(title)}
-            </h3>
-
-            <p>
-              ${escapeHTML(description)}
-            </p>
-
-          </div>
-        </a>
-      `;
-    }
-
-
-    /* ---------- SIDE STORIES ---------- */
-
-    if (sideStories && featuredPosts.length > 1) {
-
-      const sidePosts =
-        featuredPosts.slice(1, 5);
-
-      sideStories.innerHTML =
-        sidePosts.map(function (post) {
-
-          const image =
-            post.image_url ||
-            "assets/news1.jpg";
-
-          return `
-            <article class="side-story">
-
-              <a href="search.html?q=${encodeURIComponent(post.title || "")}">
-
-                <img
-                  src="${escapeHTML(image)}"
-                  alt="${escapeHTML(post.title || "Dizzah Media")}"
-                  loading="lazy"
-                >
-
-                <div>
-
-                  <span class="eyebrow">
-                    ${escapeHTML(post.category || "Dizzah Media")}
-                  </span>
-
-                  <h4>
-                    ${escapeHTML(post.title || "")}
-                  </h4>
-
-                </div>
-
-              </a>
-
-            </article>
-          `;
-
-        }).join("");
-
-    }
-
-  }
-
-
-  /* =========================================
-     SIMULIZI SECTION
-     ========================================= */
-
-  if (simuliziSection) {
-
-    const cards =
-      simuliziSection.querySelector(".cards-3");
-
-    const simuliziPosts =
-      normalizedPosts
-        .filter(function (post) {
-          return post.category === "Simulizi";
-        })
-        .slice(0, 3);
-
-
-    if (cards && simuliziPosts.length) {
-
-      cards.innerHTML =
-        simuliziPosts.map(function (post) {
-
-          const image =
-            post.image_url ||
-            "assets/news1.jpg";
-
-          return `
-            <article class="card">
-
-              <a href="search.html?q=${encodeURIComponent(post.title || "")}">
-
-                <img
-                  src="${escapeHTML(image)}"
-                  alt="${escapeHTML(post.title || "Simulizi")}"
-                  loading="lazy"
-                >
-
-                <div class="card-body">
-
-                  <span class="eyebrow">
-                    Simulizi
-                  </span>
-
-                  <h3>
-                    ${escapeHTML(post.title || "")}
-                  </h3>
-
-                  <p>
-                    ${escapeHTML(
-                      post.description ||
-                      "Soma simulizi hii kutoka Dizzah Media."
-                    )}
-                  </p>
-
-                </div>
-
-              </a>
-
-            </article>
-          `;
-
-        }).join("");
-
-    }
-
-  }
-
-
-  /* =========================================
-     VIDEOS SECTION
-     ========================================= */
-
-  if (videosSection) {
-
-    const cards =
-      videosSection.querySelector(".cards-3");
-
-    const videoPosts =
-      normalizedPosts
-        .filter(function (post) {
-          return post.category === "Video";
-        })
-        .slice(0, 3);
-
-
-    if (cards && videoPosts.length) {
-
-      cards.innerHTML =
-        videoPosts.map(function (post) {
-
-          const image =
-            post.image_url ||
-            "assets/news1.jpg";
-
-          const videoLink =
-            post.video_url ||
-            "videos.html";
-
-
-          return `
-            <article class="card">
-
-              <a
-                href="${escapeHTML(videoLink)}"
-                target="_blank"
-                rel="noopener"
-              >
-
-                <img
-                  src="${escapeHTML(image)}"
-                  alt="${escapeHTML(post.title || "Dizzah Media Video")}"
-                  loading="lazy"
-                >
-
-                <div class="card-body">
-
-                  <span class="eyebrow">
-                    Video
-                  </span>
-
-                  <h3>
-                    ${escapeHTML(post.title || "")}
-                  </h3>
-
-                  <p>
-                    ${escapeHTML(
-                      post.description ||
-                      "Tazama video kutoka Dizzah Media."
-                    )}
-                  </p>
-
-                </div>
-
-              </a>
-
-            </article>
-          `;
-
-        }).join("");
-
-    }
-
-  }
-
-
-  /* =========================================
-     FINISHED
-     ========================================= */
-
-  console.log(
-    "Dizzah Media Homepage imeunganishwa na Supabase.",
-    normalizedPosts.length,
-    "posts zimepatikana."
-  );
-
-});
-</script>
-
-    const mobileToggle =
-      document.getElementById("mobileToggle");
-
-    const mainNav =
-      document.getElementById("mainNav");
-
-
-    mobileToggle.addEventListener("click", () => {
-
-      const open =
-        mainNav.classList.toggle("open");
-
-      mobileToggle.setAttribute(
-        "aria-expanded",
-        open ? "true" : "false"
-      );
-
-      mobileToggle.textContent =
-        open ? "✕" : "☰";
-
-    });
-
-
-    document
-      .querySelectorAll("#mainNav a")
-      .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-          mainNav.classList.remove("open");
-
-          mobileToggle.setAttribute(
-            "aria-expanded",
-            "false"
+        showStatus.timer =
+          window.setTimeout(
+            () => {
+              status.classList.remove("show");
+            },
+            3500
           );
 
-          mobileToggle.textContent = "☰";
+      }
 
-        });
+      function setImageFallbacks(
+        root = document
+      ) {
 
-      });
+        $$("img", root).forEach(
+          img => {
 
+            img.addEventListener(
+              "error",
+              () => {
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+                if (
+                  !img.dataset
+                    .fallbackApplied
+                ) {
 
+                  img.dataset
+                    .fallbackApplied = "1";
+
+                  img.src =
+                    "assets/news1.jpg";
+                }
+
+              },
+              { once: true }
+            );
+
+          }
+        );
+
+      }
+
+      function renderLead(post) {
+
+        const lead =
+          $("#leadStory");
+
+        if (!lead || !post) {
+          return;
+        }
+
+        const category =
+          normalizeCategory(
+            post.category
+          ) || "Dizzah Media";
+
+        const title =
+          post.title ||
+          "Karibu Dizzah Media";
+
+        const description =
+          post.description ||
+          "Habari, simulizi na maudhui " +
+          "yanayounganisha Tanzania, Afrika " +
+          "na dunia.";
+
+        const image =
+          safeImage(
+            post.image_url
+          );
+
+        const page =
+          categoryPage(category);
+
+        lead.innerHTML = `
+          <a href="${escapeHTML(page)}">
+
+            <img
+              src="${escapeHTML(image)}"
+              alt="${escapeHTML(title)}"
+              loading="eager"
+              decoding="async"
+            >
+
+            <div class="lead-overlay">
+
+              <div class="lead-content">
+
+                <span class="tag">
+                  ${escapeHTML(category)}
+                </span>
+
+                <h3>
+                  ${escapeHTML(title)}
+                </h3>
+
+                <p>
+                  ${escapeHTML(description)}
+                </p>
+
+                <div class="story-meta">
+
+                  <span>
+                    ${escapeHTML(
+                      formatDate(
+                        post.created_at
+                      )
+                    )}
+                  </span>
+
+                  <span>
+                    Dizzah Media
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </a>
+        `;
+
+        setImageFallbacks(lead);
+
+      }
+
+      function renderSideStories(posts) {
+
+        const container =
+          $("#sideStories");
+
+        if (
+          !container ||
+          !posts.length
+        ) {
+          return;
+        }
+
+        container.innerHTML =
+          posts
+            .slice(0, 4)
+            .map(post => {
+
+              const category =
+                normalizeCategory(
+                  post.category
+                ) || "Dizzah Media";
+
+              const title =
+                post.title ||
+                "Maudhui mapya ya Dizzah Media";
+
+              const description =
+                post.description ||
+                "Soma zaidi kuhusu maudhui " +
+                "haya kutoka Dizzah Media.";
+
+              const image =
+                safeImage(
+                  post.image_url
+                );
+
+              const page =
+                categoryPage(
+                  category
+                );
+
+              return `
+                <article class="side-story">
+
+                  <a
+                    href="${escapeHTML(page)}"
+                    aria-label="${escapeHTML(title)}"
+                  >
+
+                    <img
+                      src="${escapeHTML(image)}"
+                      alt="${escapeHTML(title)}"
+                      loading="lazy"
+                      decoding="async"
+                    >
+
+                  </a>
+
+                  <div>
+
+                    <span class="tag">
+                      ${escapeHTML(category)}
+                    </span>
+
+                    <h4>
+                      <a href="${escapeHTML(page)}">
+                        ${escapeHTML(title)}
+                      </a>
+                    </h4>
+
+                    <p>
+                      ${escapeHTML(description)}
+                    </p>
+
+                  </div>
+
+                </article>
+              `;
+
+            })
+            .join("");
+
+        setImageFallbacks(
+          container
+        );
+
+      }
+
+      function renderSimulizi(posts) {
+
+        const container =
+          $("#simuliziCards");
+
+        if (
+          !container ||
+          !posts.length
+        ) {
+          return;
+        }
+
+        container.innerHTML =
+          posts
+            .slice(0, 3)
+            .map(post => {
+
+              const title =
+                post.title ||
+                "Simulizi ya Dizzah Media";
+
+              const description =
+                post.description ||
+                "Soma simulizi hii kutoka " +
+                "Dizzah Media.";
+
+              const image =
+                safeImage(
+                  post.image_url
+                );
+
+              return `
+                <article class="card">
+
+                  <a href="simulizi.html">
+
+                    <div class="card-img">
+
+                      <img
+                        src="${escapeHTML(image)}"
+                        alt="${escapeHTML(title)}"
+                        loading="lazy"
+                        decoding="async"
+                      >
+
+                    </div>
+
+                    <div class="card-body">
+
+                      <span class="tag">
+                        Simulizi
+                      </span>
+
+                      <h3>
+                        ${escapeHTML(title)}
+                      </h3>
+
+                      <p>
+                        ${escapeHTML(description)}
+                      </p>
+
+                      <span class="card-link">
+                        Soma Simulizi →
+                      </span>
+
+                    </div>
+
+                  </a>
+
+                </article>
+              `;
+
+            })
+            .join("");
+
+        setImageFallbacks(
+          container
+        );
+
+      }
+
+      function renderVideos(posts) {
+
+        const container =
+          $("#videoCards");
+
+        if (
+          !container ||
+          !posts.length
+        ) {
+          return;
+        }
+
+        container.innerHTML =
+          posts
+            .slice(0, 3)
+            .map(post => {
+
+              const title =
+                post.title ||
+                "Dizzah Media Video";
+
+              const description =
+                post.description ||
+                "Tazama video kutoka " +
+                "Dizzah Media.";
+
+              const image =
+                safeImage(
+                  post.image_url
+                );
+
+              const link =
+                String(
+                  post.video_url || ""
+                ).trim() ||
+                "videos.html";
+
+              const external =
+                /^https?:\/\//i.test(
+                  link
+                );
+
+              return `
+                <article class="card video-card">
+
+                  <a
+                    href="${escapeHTML(link)}"
+                    ${
+                      external
+                        ? 'target="_blank" rel="noopener noreferrer"'
+                        : ""
+                    }
+                  >
+
+                    <div class="card-img video-thumb">
+
+                      <img
+                        src="${escapeHTML(image)}"
+                        alt="${escapeHTML(title)}"
+                        loading="lazy"
+                        decoding="async"
+                      >
+
+                      <span
+                        class="play"
+                        aria-hidden="true"
+                      >
+                        ▶
+                      </span>
+
+                    </div>
+
+                    <div class="card-body">
+
+                      <span class="tag">
+                        Video
+                      </span>
+
+                      <h3>
+                        ${escapeHTML(title)}
+                      </h3>
+
+                      <p>
+                        ${escapeHTML(description)}
+                      </p>
+
+                    </div>
+
+                  </a>
+
+                </article>
+              `;
+
+            })
+            .join("");
+
+        setImageFallbacks(
+          container
+        );
+
+      }
+
+      function updateHero(post) {
+
+        if (!post) return;
+
+        const image =
+          $("#heroImage");
+
+        const title =
+          $("#heroTitle");
+
+        const category =
+          $("#heroCategory");
+
+        if (image) {
+
+          image.src =
+            safeImage(
+              post.image_url
+            );
+
+          image.alt =
+            post.title ||
+            "Dizzah Media featured story";
+
+        }
+
+        if (title) {
+
+          title.textContent =
+            post.title ||
+            "Maudhui yenye hadithi, " +
+            "taarifa na mtazamo wa dunia.";
+
+        }
+
+        if (category) {
+
+          category.textContent =
+            normalizeCategory(
+              post.category
+            ) ||
+            "DIZZAH MEDIA";
+
+        }
+
+        setImageFallbacks();
+
+      }
+
+      async function loadPosts() {
+
+        if (!supabaseClient) {
+
+          showStatus(
+            "Database haijaunganishwa",
+            false
+          );
+
+          return [];
+
+        }
+
+        try {
+
+          const {
+            data,
+            error
+          } = await supabaseClient
+            .from("posts")
+            .select(
+              "id,title,category,image_url,video_url,description,created_at"
+            )
+            .order(
+              "created_at",
+              {
+                ascending:false
+              }
+            );
+
+          if (error) {
+            throw error;
+          }
+
+          return Array.isArray(data)
+            ? data
+            : [];
+
+        } catch (error) {
+
+          console.error(
+            "Dizzah Media Supabase error:",
+            error
+          );
+
+          showStatus(
+            "Tunaendelea na maudhui ya kawaida",
+            false
+          );
+
+          return [];
+
+        }
+
+      }
+
+      async function initDynamicHomepage() {
+
+        setImageFallbacks();
+
+        const posts =
+          await loadPosts();
+
+        if (!posts.length) {
+          return;
+        }
+
+        const normalized =
+          posts.map(post => ({
+
+            ...post,
+
+            category:
+              normalizeCategory(
+                post.category
+              )
+
+          }));
+
+        const latest =
+          normalized[0];
+
+        if (latest) {
+
+          const breakingText =
+            $("#breakingText");
+
+          if (
+            breakingText &&
+            latest.title
+          ) {
+
+            breakingText.textContent =
+              latest.title;
+
+          }
+
+          updateHero(latest);
+
+          renderLead(latest);
+
+          renderSideStories(
+            normalized.slice(1)
+          );
+
+        }
+
+        const simuliziPosts =
+          normalized.filter(
+            post =>
+              post.category ===
+              "Simulizi"
+          );
+
+        const videoPosts =
+          normalized.filter(
+            post =>
+              post.category ===
+              "Video"
+          );
+
+        renderSimulizi(
+          simuliziPosts
+        );
+
+        renderVideos(
+          videoPosts
+        );
+
+        showStatus(
+          "Content imeunganishwa",
+          true
+        );
+
+        console.log(
+          "Dizzah Media: Supabase connected.",
+          normalized.length,
+          "posts loaded."
+        );
+
+      }
+
+      initDynamicHomepage();
+
+    })();
   </script>
 
 </body>
