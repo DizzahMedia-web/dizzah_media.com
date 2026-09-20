@@ -1,117 +1,1003 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Dizzah Media</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jisajili | Dizzah Media</title>
+
+<meta name="description" content="Jisajili kwenye Dizzah Media na uwe sehemu ya jumuiya yetu.">
+<meta name="author" content="Dizzah Media">
+
+<link rel="icon" href="assets/favicon-32.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+    color:#fff;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(123,44,255,.28),transparent 30%),
+        radial-gradient(circle at 85% 80%,rgba(102,0,204,.22),transparent 30%),
+        linear-gradient(135deg,#050505,#100818,#050505);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(5,5,5,.8);
+    backdrop-filter:blur(15px);
+}
+
+.header-inner{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.brand strong{
+    font-size:19px;
+}
+
+.brand small{
+    display:block;
+    color:#b98cff;
+    font-size:9px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-top:2px;
+}
+
+.back{
+    color:#bbb;
+    font-size:13px;
+    font-weight:700;
+}
+
+.back:hover{
+    color:#b98cff;
+}
+
+/* MAIN */
+
+.main{
+    min-height:calc(100vh - 76px);
+    display:flex;
+    align-items:center;
+    padding:70px 0;
+}
+
+.register-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    max-width:950px;
+    margin:auto;
+    width:100%;
+    background:rgba(14,14,14,.9);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 30px 90px rgba(0,0,0,.45);
+}
+
+/* LEFT */
+
+.info{
+    padding:55px;
+    background:
+        radial-gradient(circle at 30% 20%,rgba(123,44,255,.25),transparent 35%),
+        linear-gradient(145deg,#160d21,#0b0b0b);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.info img{
+    width:105px;
+    height:105px;
+    object-fit:contain;
+    margin-bottom:25px;
+    border-radius:50%;
+}
+
+.info h1{
+    font-size:42px;
+    line-height:1.05;
+    margin-bottom:17px;
+}
+
+.info h1 span{
+    color:#b98cff;
+}
+
+.info p{
+    color:#aaa;
+    line-height:1.8;
+    font-size:15px;
+    max-width:430px;
+}
+
+.features{
+    margin-top:30px;
+    display:grid;
+    gap:13px;
+}
+
+.feature{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    color:#bbb;
+    font-size:13px;
+}
+
+.feature-icon{
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    background:rgba(123,44,255,.13);
+}
+
+/* FORM */
+
+.form-area{
+    padding:45px;
+    background:#0b0b0b;
+}
+
+.form-area h2{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#888;
+    font-size:14px;
+    margin-bottom:28px;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    color:#ccc;
+    margin-bottom:8px;
+}
+
+.input-wrap{
+    position:relative;
+}
+
+input{
+    width:100%;
+    padding:14px 15px;
+    border-radius:9px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#141414;
+    color:#fff;
+    outline:none;
+    font-size:14px;
+    transition:.2s;
+}
+
+input:focus{
+    border-color:#8d4dff;
+    box-shadow:0 0 0 3px rgba(123,44,255,.10);
+}
+
+.password-toggle{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    border:0;
+    background:none;
+    color:#888;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.password-toggle:hover{
+    color:#b98cff;
+}
+
+.password-strength{
+    height:4px;
+    background:#222;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:8px;
+}
+
+.password-strength span{
+    display:block;
+    width:0;
+    height:100%;
+    transition:.25s;
+    background:#7b2cff;
+}
+
+.strength-text{
+    color:#666;
+    font-size:10px;
+    margin-top:5px;
+}
+
+.terms{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    color:#777;
+    font-size:11px;
+    line-height:1.5;
+    margin:17px 0 21px;
+}
+
+.terms input{
+    width:auto;
+    margin-top:3px;
+}
+
+.terms a{
+    color:#b98cff;
+}
+
+.register-btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:9px;
+    background:linear-gradient(135deg,#7b2cff,#9b58ff);
+    color:#fff;
+    font-size:14px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.register-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(123,44,255,.25);
+}
+
+.register-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.message{
+    display:none;
+    padding:12px 14px;
+    margin-bottom:18px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.message.error{
+    display:block;
+    background:rgba(255,60,80,.08);
+    border:1px solid rgba(255,60,80,.25);
+    color:#ff8997;
+}
+
+.message.success{
+    display:block;
+    background:rgba(60,220,130,.08);
+    border:1px solid rgba(60,220,130,.25);
+    color:#72e8a0;
+}
+
+.login{
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    margin-top:22px;
+}
+
+.login a{
+    color:#b98cff;
+    font-weight:800;
+}
+
+.login a:hover{
+    color:#fff;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:25px;
+    color:#666;
+    font-size:11px;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .header-inner{
+        padding:12px 0;
+    }
+
+    .register-layout{
+        grid-template-columns:1fr;
+    }
+
+    .info{
+        padding:40px 30px;
+    }
+
+    .info h1{
+        font-size:34px;
+    }
+
+    .info img{
+        width:80px;
+        height:80px;
+    }
+
+    .form-area{
+        padding:40px 28px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .main{
+        padding:35px 0;
+    }
+
+    .brand strong{
+        font-size:16px;
+    }
+
+    .back{
+        font-size:11px;
+    }
+
+    .info{
+        padding:32px 22px;
+    }
+
+    .form-area{
+        padding:32px 20px;
+    }
+
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <h1>Dizzah Media</h1>
+<header class="header">
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Nyumbani</a></li>
-                <li><a href="news.html">Habari</a></li>
-                <li><a href="videos.html">Video</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="podcasts.html">Podcasts</a></li>
-                <li><a href="live.html">Live</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html" class="active">Register</a></li>
-            </ul>
-        </nav>
+    <div class="container header-inner">
+
+        <a href="index.html" class="brand">
+
+            <img
+                src="assets/dizzah-logo-profile.png"
+                alt="Dizzah Media Logo">
+
+            <span>
+                <strong>DIZZAH MEDIA</strong>
+                <small>Hakika Leo, Kesho kwa Ubora Zaidi.</small>
+            </span>
+
+        </a>
+
+        <a href="Login.html" class="back">
+            ← Ingia
+        </a>
+
     </div>
+
 </header>
 
-<section class="register-section">
+
+<main class="main">
+
     <div class="container">
-        <h2>Fungua Akaunti ya Dizzah Media</h2>
-        <p>Jaza taarifa zako ili kujiunga na jamii ya Dizzah Media.</p><form class="register-form" action="#" method="post">
 
-    <div class="form-group">
-        <label for="fullname">Jina Kamili</label>
-        <input
-            type="text"
-            id="fullname"
-            name="fullname"
-            placeholder="Ingiza jina lako kamili"
-            required>
-    </div>
+        <div class="register-layout">
 
-    <div class="form-group">
-        <label for="email">Barua Pepe (Email)</label>
-        <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Ingiza barua pepe yako"
-            required>
-    </div>
 
-    <div class="form-group">
-        <label for="phone">Namba ya Simu</label>
-        <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="+255..."
-            required>
-    </div>
+            <!-- INFO -->
 
-    <div class="form-group">
-        <label for="password">Nenosiri</label>
-        <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Weka nenosiri"
-            required>
-    </div>
+            <section class="info">
 
-    <div class="form-group">
-        <label for="confirm-password">Thibitisha Nenosiri</label>
-        <input
-            type="password"
-            id="confirm-password"
-            name="confirm-password"
-            placeholder="Rudia nenosiri"
-            required>
-    </div>
+                <img
+                    src="assets/dizzah-logo-profile.png"
+                    alt="Dizzah Media">
 
-    <button type="submit" class="btn">
-        Fungua Akaunti
-    </button>
+                <h1>
+                    Jiunge na<br>
+                    <span>Dizzah Media.</span>
+                </h1>
 
-    <p class="login-link">
-        Tayari una akaunti?
-        <a href="login.html">Ingia hapa</a>
-    </p>
-    </div>
-</section>
+                <p>
+                    Fungua akaunti yako na uwe sehemu
+                    ya safari ya Dizzah Media kutoka
+                    Tanzania kwenda Afrika na Dunia.
+                </p>
 
-<footer class="footer">
-    <div class="container">
-        <h3>Dizzah Media</h3>
-        <p>Hakika leo, Kesho kwa ubora.</p>
 
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
+                <div class="features">
+
+                    <div class="feature">
+                        <span class="feature-icon">🌍</span>
+                        <span>Uwe sehemu ya jumuiya ya Dizzah Media.</span>
+                    </div>
+
+                    <div class="feature">
+                        <span class="feature-icon">🔐</span>
+                        <span>Taarifa za akaunti yako zinalindwa.</span>
+                    </div>
+
+                    <div class="feature">
+                        <span class="feature-icon">🚀</span>
+                        <span>Endelea na safari ya Dizzah Media.</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FORM -->
+
+            <section class="form-area">
+
+                <h2>Jisajili</h2>
+
+                <p class="subtitle">
+                    Tengeneza akaunti yako mpya.
+                </p>
+
+
+                <div id="message" class="message"></div>
+
+
+                <form id="registerForm">
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Jina Kamili
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Jina lako kamili"
+                            autocomplete="name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Barua Pepe
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="mfano@email.com"
+                            autocomplete="email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Nenosiri
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Angalau herufi 6"
+                                autocomplete="new-password"
+                                minlength="6"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword">
+                                Onyesha
+                            </button>
+
+                        </div>
+
+
+                        <div class="password-strength">
+                            <span id="strengthBar"></span>
+                        </div>
+
+                        <div
+                            class="strength-text"
+                            id="strengthText">
+                            Weka nenosiri
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Rudia Nenosiri
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Rudia nenosiri"
+                                autocomplete="new-password"
+                                minlength="6"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggleConfirm">
+                                Onyesha
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required>
+
+                        <span>
+                            Nakubali masharti ya matumizi ya
+                            Dizzah Media na
+                            <a href="Privacy.html">
+                                sera ya faragha
+                            </a>.
+                        </span>
+
+                    </label>
+
+
+                    <button
+                        type="submit"
+                        class="register-btn"
+                        id="registerBtn">
+
+                        Tengeneza Akaunti
+
+                    </button>
+
+
+                    <p class="login">
+
+                        Tayari una akaunti?
+
+                        <a href="Login.html">
+                            Ingia hapa
+                        </a>
+
+                    </p>
+
+                </form>
+
+            </section>
+
         </div>
 
-        <p>&copy; 2026 Dizzah Media. Haki zote zimehifadhiwa.</p>
     </div>
+
+</main>
+
+
+<footer class="footer">
+
+    © 2026 Dizzah Media. Haki zote zimehifadhiwa.
+
 </footer>
 
-<script src="script.js"></script>
+
+<script>
+
+const SUPABASE_URL =
+    "https://otmejtcequreccarwvkt.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+const form =
+    document.getElementById("registerForm");
+
+const nameInput =
+    document.getElementById("name");
+
+const emailInput =
+    document.getElementById("email");
+
+const passwordInput =
+    document.getElementById("password");
+
+const confirmInput =
+    document.getElementById("confirmPassword");
+
+const terms =
+    document.getElementById("terms");
+
+const registerBtn =
+    document.getElementById("registerBtn");
+
+const message =
+    document.getElementById("message");
+
+const togglePassword =
+    document.getElementById("togglePassword");
+
+const toggleConfirm =
+    document.getElementById("toggleConfirm");
+
+const strengthBar =
+    document.getElementById("strengthBar");
+
+const strengthText =
+    document.getElementById("strengthText");
+
+
+/* MESSAGE */
+
+function showMessage(text,type){
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+/* PASSWORD VISIBILITY */
+
+togglePassword.addEventListener("click",function(){
+
+    if(passwordInput.type === "password"){
+
+        passwordInput.type = "text";
+
+        togglePassword.textContent = "Ficha";
+
+    }else{
+
+        passwordInput.type = "password";
+
+        togglePassword.textContent = "Onyesha";
+
+    }
+
+});
+
+
+toggleConfirm.addEventListener("click",function(){
+
+    if(confirmInput.type === "password"){
+
+        confirmInput.type = "text";
+
+        toggleConfirm.textContent = "Ficha";
+
+    }else{
+
+        confirmInput.type = "password";
+
+        toggleConfirm.textContent = "Onyesha";
+
+    }
+
+});
+
+
+/* PASSWORD STRENGTH */
+
+passwordInput.addEventListener("input",function(){
+
+    const value =
+        passwordInput.value;
+
+    let strength = 0;
+
+    if(value.length >= 6)
+        strength++;
+
+    if(value.length >= 8)
+        strength++;
+
+    if(/[A-Z]/.test(value))
+        strength++;
+
+    if(/[0-9]/.test(value))
+        strength++;
+
+    if(/[^A-Za-z0-9]/.test(value))
+        strength++;
+
+
+    if(!value){
+
+        strengthBar.style.width = "0%";
+
+        strengthText.textContent =
+            "Weka nenosiri";
+
+        return;
+
+    }
+
+
+    if(strength <= 2){
+
+        strengthBar.style.width = "35%";
+
+        strengthText.textContent =
+            "Nenosiri dhaifu";
+
+    }else if(strength <= 3){
+
+        strengthBar.style.width = "65%";
+
+        strengthText.textContent =
+            "Nenosiri la wastani";
+
+    }else{
+
+        strengthBar.style.width = "100%";
+
+        strengthText.textContent =
+            "Nenosiri imara";
+
+    }
+
+});
+
+
+/* REGISTER */
+
+form.addEventListener("submit",async function(event){
+
+    event.preventDefault();
+
+
+    const fullName =
+        nameInput.value.trim();
+
+    const email =
+        emailInput.value.trim();
+
+    const password =
+        passwordInput.value;
+
+    const confirmPassword =
+        confirmInput.value;
+
+
+    if(!fullName ||
+       !email ||
+       !password ||
+       !confirmPassword){
+
+        showMessage(
+            "Tafadhali jaza sehemu zote.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if(password.length < 6){
+
+        showMessage(
+            "Nenosiri lazima liwe na angalau herufi 6.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if(password !== confirmPassword){
+
+        showMessage(
+            "Nenosiri mbili hazifanani.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if(!terms.checked){
+
+        showMessage(
+            "Tafadhali kubali masharti ya matumizi.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    registerBtn.disabled = true;
+
+    registerBtn.textContent =
+        "Inatengeneza akaunti...";
+
+
+    try{
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient.auth.signUp({
+
+            email:email,
+
+            password:password,
+
+            options:{
+                data:{
+                    full_name:fullName
+                }
+            }
+
+        });
+
+
+        if(error){
+
+            showMessage(
+                error.message ||
+                "Imeshindikana kutengeneza akaunti.",
+                "error"
+            );
+
+            registerBtn.disabled = false;
+
+            registerBtn.textContent =
+                "Tengeneza Akaunti";
+
+            return;
+
+        }
+
+
+        if(data.user){
+
+            if(data.session){
+
+                showMessage(
+                    "Akaunti imetengenezwa. Tunaelekeza...",
+                    "success"
+                );
+
+                setTimeout(function(){
+
+                    window.location.href =
+                        "admin.html";
+
+                },1200);
+
+            }else{
+
+                showMessage(
+                    "Akaunti imetengenezwa. Tafadhali angalia email yako kuthibitisha akaunti.",
+                    "success"
+                );
+
+                registerBtn.disabled = false;
+
+                registerBtn.textContent =
+                    "Tengeneza Akaunti";
+
+            }
+
+        }
+
+
+    }catch(error){
+
+        showMessage(
+            "Kuna tatizo la mfumo. Tafadhali jaribu tena.",
+            "error"
+        );
+
+        registerBtn.disabled = false;
+
+        registerBtn.textContent =
+            "Tengeneza Akaunti";
+
+    }
+
+});
+
+</script>
 
 </body>
-          </html>
-  </form>
+</html>
