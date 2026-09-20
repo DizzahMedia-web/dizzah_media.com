@@ -2605,7 +2605,486 @@
        JAVASCRIPT
   ========================== -->
 
-  <script>
+  <!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+
+  /* =========================================
+     DIZZAH MEDIA — SUPABASE CONNECTION
+     ========================================= */
+
+  const SUPABASE_URL = "https://otmejtcequreccarwvkt.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
+
+  const { createClient } = window.supabase;
+
+  const supabaseClient = createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+
+  /* =========================================
+     MOBILE MENU
+     ========================================= */
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("header nav");
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", function () {
+      nav.classList.toggle("open");
+    });
+  }
+
+
+  /* =========================================
+     FOOTER YEAR
+     ========================================= */
+
+  const yearElements = document.querySelectorAll(".year");
+
+  yearElements.forEach(function (element) {
+    element.textContent = new Date().getFullYear();
+  });
+
+
+  /* =========================================
+     HTML SECURITY
+     ========================================= */
+
+  function escapeHTML(value) {
+    if (value === null || value === undefined) return "";
+
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+
+  /* =========================================
+     CATEGORY NORMALIZATION
+     ========================================= */
+
+  function normalizeCategory(category) {
+    const value = String(category || "").trim().toLowerCase();
+
+    if (value === "news" || value === "habari") {
+      return "Habari";
+    }
+
+    if (value === "simulizi") {
+      return "Simulizi";
+    }
+
+    if (value === "video" || value === "videos") {
+      return "Video";
+    }
+
+    if (value === "movie" || value === "movies") {
+      return "Movie";
+    }
+
+    if (value === "motivation") {
+      return "Motivation";
+    }
+
+    if (value === "gallery") {
+      return "Gallery";
+    }
+
+    if (value === "podcast" || value === "podcasts") {
+      return "Podcast";
+    }
+
+    return category || "";
+  }
+
+
+  /* =========================================
+     GET POSTS FROM SUPABASE
+     ========================================= */
+
+  async function loadDizzahPosts() {
+
+    try {
+
+      const { data, error } = await supabaseClient
+        .from("posts")
+        .select(`
+          id,
+          title,
+          category,
+          image_url,
+          video_url,
+          description,
+          created_at
+        `)
+        .order("created_at", {
+          ascending: false
+        });
+
+      if (error) {
+        console.error("Dizzah Media Supabase Error:", error);
+        return [];
+      }
+
+      if (!data || data.length === 0) {
+        return [];
+      }
+
+      return data;
+
+    } catch (error) {
+
+      console.error(
+        "Dizzah Media connection error:",
+        error
+      );
+
+      return [];
+    }
+  }
+
+
+  /* =========================================
+     HOMEPAGE CONTENT
+     ========================================= */
+
+  const posts = await loadDizzahPosts();
+
+  if (!posts.length) {
+    console.log(
+      "Hakuna post mpya kutoka Supabase. Static homepage imeachwa."
+    );
+    return;
+  }
+
+
+  const normalizedPosts = posts.map(function (post) {
+
+    return {
+      ...post,
+      category: normalizeCategory(post.category)
+    };
+
+  });
+
+
+  /* =========================================
+     SECTION TARGETS
+     ========================================= */
+
+  const sections = document.querySelectorAll("main > section");
+
+  const featuredSection = sections[0];
+  const simuliziSection = sections[1];
+  const videosSection = sections[3];
+
+
+  /* =========================================
+     BREAKING NEWS
+     ========================================= */
+
+  const latestPost = normalizedPosts[0];
+
+  if (latestPost) {
+
+    const breakingElements = document.querySelectorAll(
+      ".breaking-strip span, .breaking-news span"
+    );
+
+    breakingElements.forEach(function (element) {
+
+      if (
+        latestPost.title &&
+        latestPost.title.trim() !== ""
+      ) {
+
+        element.textContent =
+          latestPost.title;
+
+      }
+
+    });
+  }
+
+
+  /* =========================================
+     FEATURED STORIES
+     ========================================= */
+
+  if (featuredSection) {
+
+    const leadStory =
+      featuredSection.querySelector(".lead-story");
+
+    const sideStories =
+      featuredSection.querySelector(".side-stories");
+
+    const featuredPosts =
+      normalizedPosts.slice(0, 5);
+
+
+    /* ---------- MAIN FEATURED STORY ---------- */
+
+    if (leadStory && featuredPosts[0]) {
+
+      const post = featuredPosts[0];
+
+      const image =
+        post.image_url ||
+        "assets/news1.jpg";
+
+      const title =
+        post.title ||
+        "Dizzah Media";
+
+      const description =
+        post.description ||
+        "Karibu Dizzah Media. Habari, simulizi, video na maudhui mbalimbali kutoka Dizzah Media.";
+
+
+      leadStory.innerHTML = `
+        <a href="search.html?q=${encodeURIComponent(title)}">
+          <img
+            src="${escapeHTML(image)}"
+            alt="${escapeHTML(title)}"
+            loading="lazy"
+          >
+
+          <div class="lead-story-content">
+
+            <span class="eyebrow">
+              ${escapeHTML(post.category || "Dizzah Media")}
+            </span>
+
+            <h3>
+              ${escapeHTML(title)}
+            </h3>
+
+            <p>
+              ${escapeHTML(description)}
+            </p>
+
+          </div>
+        </a>
+      `;
+    }
+
+
+    /* ---------- SIDE STORIES ---------- */
+
+    if (sideStories && featuredPosts.length > 1) {
+
+      const sidePosts =
+        featuredPosts.slice(1, 5);
+
+      sideStories.innerHTML =
+        sidePosts.map(function (post) {
+
+          const image =
+            post.image_url ||
+            "assets/news1.jpg";
+
+          return `
+            <article class="side-story">
+
+              <a href="search.html?q=${encodeURIComponent(post.title || "")}">
+
+                <img
+                  src="${escapeHTML(image)}"
+                  alt="${escapeHTML(post.title || "Dizzah Media")}"
+                  loading="lazy"
+                >
+
+                <div>
+
+                  <span class="eyebrow">
+                    ${escapeHTML(post.category || "Dizzah Media")}
+                  </span>
+
+                  <h4>
+                    ${escapeHTML(post.title || "")}
+                  </h4>
+
+                </div>
+
+              </a>
+
+            </article>
+          `;
+
+        }).join("");
+
+    }
+
+  }
+
+
+  /* =========================================
+     SIMULIZI SECTION
+     ========================================= */
+
+  if (simuliziSection) {
+
+    const cards =
+      simuliziSection.querySelector(".cards-3");
+
+    const simuliziPosts =
+      normalizedPosts
+        .filter(function (post) {
+          return post.category === "Simulizi";
+        })
+        .slice(0, 3);
+
+
+    if (cards && simuliziPosts.length) {
+
+      cards.innerHTML =
+        simuliziPosts.map(function (post) {
+
+          const image =
+            post.image_url ||
+            "assets/news1.jpg";
+
+          return `
+            <article class="card">
+
+              <a href="search.html?q=${encodeURIComponent(post.title || "")}">
+
+                <img
+                  src="${escapeHTML(image)}"
+                  alt="${escapeHTML(post.title || "Simulizi")}"
+                  loading="lazy"
+                >
+
+                <div class="card-body">
+
+                  <span class="eyebrow">
+                    Simulizi
+                  </span>
+
+                  <h3>
+                    ${escapeHTML(post.title || "")}
+                  </h3>
+
+                  <p>
+                    ${escapeHTML(
+                      post.description ||
+                      "Soma simulizi hii kutoka Dizzah Media."
+                    )}
+                  </p>
+
+                </div>
+
+              </a>
+
+            </article>
+          `;
+
+        }).join("");
+
+    }
+
+  }
+
+
+  /* =========================================
+     VIDEOS SECTION
+     ========================================= */
+
+  if (videosSection) {
+
+    const cards =
+      videosSection.querySelector(".cards-3");
+
+    const videoPosts =
+      normalizedPosts
+        .filter(function (post) {
+          return post.category === "Video";
+        })
+        .slice(0, 3);
+
+
+    if (cards && videoPosts.length) {
+
+      cards.innerHTML =
+        videoPosts.map(function (post) {
+
+          const image =
+            post.image_url ||
+            "assets/news1.jpg";
+
+          const videoLink =
+            post.video_url ||
+            "videos.html";
+
+
+          return `
+            <article class="card">
+
+              <a
+                href="${escapeHTML(videoLink)}"
+                target="_blank"
+                rel="noopener"
+              >
+
+                <img
+                  src="${escapeHTML(image)}"
+                  alt="${escapeHTML(post.title || "Dizzah Media Video")}"
+                  loading="lazy"
+                >
+
+                <div class="card-body">
+
+                  <span class="eyebrow">
+                    Video
+                  </span>
+
+                  <h3>
+                    ${escapeHTML(post.title || "")}
+                  </h3>
+
+                  <p>
+                    ${escapeHTML(
+                      post.description ||
+                      "Tazama video kutoka Dizzah Media."
+                    )}
+                  </p>
+
+                </div>
+
+              </a>
+
+            </article>
+          `;
+
+        }).join("");
+
+    }
+
+  }
+
+
+  /* =========================================
+     FINISHED
+     ========================================= */
+
+  console.log(
+    "Dizzah Media Homepage imeunganishwa na Supabase.",
+    normalizedPosts.length,
+    "posts zimepatikana."
+  );
+
+});
+</script>
 
     const mobileToggle =
       document.getElementById("mobileToggle");
