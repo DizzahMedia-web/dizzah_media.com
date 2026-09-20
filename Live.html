@@ -1,93 +1,1049 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live - Dizzah Media</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Live | Dizzah Media</title>
+
+<meta name="description" content="Dizzah Media Live - Fuata matangazo, mahojiano na matukio ya moja kwa moja kutoka Dizzah Media.">
+<meta name="keywords" content="Dizzah Media Live, Tanzania Live, Dizzah Media Tanzania, Live Streaming">
+<meta name="author" content="Dizzah Media">
+
+<link rel="icon" href="assets/favicon-32.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:#ffffff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,8,8,.96);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(14px);
+}
+
+.header-inner{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.brand img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.brand-name{
+    font-size:19px;
+    color:#ffffff;
+}
+
+.brand-tagline{
+    font-size:9px;
+    color:#b99cff;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:#d7d7d7;
+    font-size:13px;
+    font-weight:700;
+    transition:.25s ease;
+}
+
+.nav a:hover,
+.nav a.active{
+    color:#b889ff;
+}
+
+.nav-live{
+    padding:9px 15px;
+    border-radius:30px;
+    background:#7b2cff;
+    color:#fff !important;
+}
+
+/* HERO */
+
+.hero{
+    min-height:470px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 80% 20%,rgba(123,44,255,.28),transparent 35%),
+        radial-gradient(circle at 15% 80%,rgba(86,0,180,.18),transparent 30%),
+        linear-gradient(135deg,#090909,#12091d 55%,#080808);
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border:1px solid rgba(183,137,255,.12);
+    border-radius:50%;
+    right:-100px;
+    top:-100px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:800px;
+    padding:80px 0;
+}
+
+.live-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 15px;
+    border-radius:30px;
+    background:rgba(255,40,70,.10);
+    border:1px solid rgba(255,70,90,.35);
+    color:#ff6678;
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:22px;
+}
+
+.live-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#ff334f;
+    box-shadow:0 0 15px rgba(255,51,79,.8);
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:1.02;
+    margin-bottom:22px;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#b98cff;
+}
+
+.hero p{
+    max-width:700px;
+    color:#bcbcbc;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 22px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:800;
+    transition:.25s ease;
+}
+
+.btn-primary{
+    background:#7b2cff;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#934fff;
+    transform:translateY(-2px);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.18);
+    color:#fff;
+    background:rgba(255,255,255,.03);
+}
+
+.btn-outline:hover{
+    border-color:#9b63ff;
+    background:rgba(123,44,255,.10);
+}
+
+/* LIVE AREA */
+
+.live-area{
+    padding:75px 0;
+    background:#0b0b0b;
+}
+
+.section-title{
+    margin-bottom:35px;
+}
+
+.section-title small{
+    color:#a979ff;
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:clamp(30px,5vw,46px);
+    margin-top:7px;
+}
+
+.section-title p{
+    color:#999;
+    max-width:680px;
+    margin-top:10px;
+}
+
+/* OFFLINE CARD */
+
+.live-card{
+    background:linear-gradient(145deg,#151019,#0d0d0d);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.live-screen{
+    min-height:390px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 25px;
+    background:
+        radial-gradient(circle at center,rgba(123,44,255,.16),transparent 45%),
+        #070707;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.live-screen-inner{
+    max-width:620px;
+}
+
+.live-icon{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 22px;
+    background:rgba(123,44,255,.12);
+    border:1px solid rgba(164,110,255,.30);
+    font-size:35px;
+}
+
+.live-screen h3{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.live-screen p{
+    color:#999;
+    margin-bottom:25px;
+}
+
+.live-info{
+    padding:28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.live-status{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#aaa;
+    font-size:13px;
+}
+
+.status-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#777;
+}
+
+/* FEATURES */
+
+.features{
+    padding:75px 0;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    padding:30px;
+    border-radius:16px;
+    background:#111;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.25s ease;
+}
+
+.feature:hover{
+    transform:translateY(-5px);
+    border-color:rgba(155,99,255,.35);
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#999;
+    font-size:14px;
+}
+
+/* SCHEDULE */
+
+.schedule{
+    padding:75px 0;
+    background:#0d0d0d;
+}
+
+.schedule-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.schedule-card{
+    padding:25px 20px;
+    background:#121212;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+}
+
+.schedule-card .day{
+    color:#b98cff;
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.schedule-card h3{
+    margin:10px 0 6px;
+    font-size:18px;
+}
+
+.schedule-card p{
+    color:#888;
+    font-size:13px;
+}
+
+.time{
+    display:inline-block;
+    margin-top:14px;
+    padding:6px 10px;
+    border-radius:6px;
+    background:rgba(123,44,255,.12);
+    color:#b98cff;
+    font-size:12px;
+    font-weight:800;
+}
+
+/* YOUTUBE CTA */
+
+.youtube-cta{
+    padding:80px 0;
+}
+
+.youtube-box{
+    border-radius:22px;
+    padding:55px 35px;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(123,44,255,.18),transparent 50%),
+        linear-gradient(135deg,#171019,#0d0d0d);
+    border:1px solid rgba(255,255,255,.09);
+}
+
+.youtube-box h2{
+    font-size:clamp(28px,5vw,44px);
+    margin-bottom:12px;
+}
+
+.youtube-box p{
+    max-width:650px;
+    margin:0 auto 25px;
+    color:#999;
+}
+
+/* FOOTER */
+
+.footer{
+    padding:60px 0 25px;
+    background:#050505;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+}
+
+.footer h3{
+    margin-bottom:13px;
+}
+
+.footer p{
+    color:#888;
+    font-size:14px;
+    max-width:450px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.footer-links a{
+    color:#999;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:#b98cff;
+}
+
+.socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.socials a{
+    padding:8px 11px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:7px;
+    color:#aaa;
+    font-size:12px;
+}
+
+.socials a:hover{
+    color:#fff;
+    border-color:#8d4dff;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    color:#666;
+    font-size:12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .header-inner{
+        padding:12px 0;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .nav{
+        width:100%;
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        padding-bottom:5px;
+    }
+
+    .nav a{
+        white-space:nowrap;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .schedule-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:520px;
+    }
+
+    .hero-content{
+        padding:65px 0;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .live-screen{
+        min-height:330px;
+        padding:35px 18px;
+    }
+
+    .live-screen h3{
+        font-size:24px;
+    }
+
+    .live-info{
+        padding:22px;
+    }
+
+    .schedule-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <h1>Dizzah Media</h1>
+<!-- HEADER -->
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Nyumbani</a></li>
-                <li><a href="news.html">Habari</a></li>
-                <li><a href="videos.html">Video</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="podcasts.html">Podcasts</a></li>
-                <li><a href="live.html" class="active">Live</a></li>
-                <li><a href="about.html">Kuhusu</a></li>
-                <li><a href="contact.html">Mawasiliano</a></li>
-            </ul>
+<header class="header">
+    <div class="container header-inner">
+
+        <a href="index.html" class="brand">
+
+            <img src="assets/dizzah-logo-profile.png" alt="Dizzah Media Logo">
+
+            <span class="brand-text">
+                <span class="brand-name">DIZZAH MEDIA</span>
+                <span class="brand-tagline">Hakika Leo, Kesho kwa Ubora Zaidi.</span>
+            </span>
+
+        </a>
+
+        <nav class="nav">
+
+            <a href="index.html">Nyumbani</a>
+            <a href="news.html">Habari</a>
+            <a href="simulizi.html">Simulizi</a>
+            <a href="movies.html">Movies</a>
+            <a href="motivation.html">Motivation</a>
+            <a href="videos.html">Video</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="podcasts.html">Podcasts</a>
+            <a href="Live.html" class="active nav-live">🔴 Live</a>
+            <a href="about.html">Kuhusu</a>
+            <a href="contact.html">Mawasiliano</a>
+
         </nav>
+
     </div>
 </header>
 
-<section class="page-header">
-    <div class="container">
-        <h2>🔴 Live Streaming</h2>
-        <p>Karibu kwenye matangazo ya moja kwa moja ya Dizzah Media.</p>
-    </div>
-  </section><section class="live-section">
+
+<!-- HERO -->
+
+<section class="hero">
+
     <div class="container">
 
-        <div class="live-video">
-            <h3>🔴 Live Sasa</h3>
+        <div class="hero-content">
 
-            <!-- Badilisha VIDEO_ID kwa YouTube Live Stream yako -->
-            <iframe width="100%" height="500"
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                title="Dizzah Media Live"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-            </iframe>
+            <div class="live-badge">
+                <span class="live-dot"></span>
+                Dizzah Media Live
+            </div>
+
+            <h1>
+                LIVE.<br>
+                <span>UNGANA NA DIZZAH.</span>
+            </h1>
 
             <p>
-                Hapa ndipo matangazo ya moja kwa moja ya Dizzah Media yataonekana.
-                Ukianza Live kupitia YouTube, badilisha <strong>VIDEO_ID</strong>
-                na ID ya Live yako.
+                Fuata matangazo ya moja kwa moja, mahojiano,
+                matukio maalum na maudhui ya Dizzah Media
+                kutoka Tanzania kwenda Afrika na Dunia.
             </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="https://www.youtube.com/@DizzahMedia"
+                    target="_blank"
+                    class="btn btn-primary">
+                    ▶ Tazama YouTube
+                </a>
+
+                <a href="#ratiba" class="btn btn-outline">
+                    📅 Angalia Ratiba
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="live-schedule">
-            <h3>📅 Ratiba ya Live</h3>
+    </div>
 
-            <ul>
-                <li>Jumatatu – 8:00 Usiku</li>
-                <li>Jumatano – 8:00 Usiku</li>
-                <li>Ijumaa – 8:00 Usiku</li>
-                <li>Jumapili – 7:00 Jioni</li>
-            </ul>
+</section>
+
+
+<!-- LIVE NOW -->
+
+<section class="live-area">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <small>Live Broadcast</small>
+
+            <h2>Live Sasa</h2>
 
             <p>
-                Endelea kutembelea ukurasa huu ili kufuatilia matangazo yote ya moja kwa moja kutoka Dizzah Media.
+                Wakati hakuna matangazo ya moja kwa moja,
+                hapa utaona taarifa ya kipindi kinachofuata.
             </p>
+
+        </div>
+
+
+        <div class="live-card">
+
+            <div class="live-screen">
+
+                <div class="live-screen-inner">
+
+                    <div class="live-icon">
+                        📡
+                    </div>
+
+                    <h3>Hakuna Live kwa sasa</h3>
+
+                    <p>
+                        Dizzah Media haipo Live kwa wakati huu.
+                        Tufuate YouTube ili usikose matangazo
+                        yajayo na vipindi maalum.
+                    </p>
+
+                    <a
+                        href="https://www.youtube.com/@DizzahMedia"
+                        target="_blank"
+                        class="btn btn-primary">
+                        ▶ Fungua Dizzah Media YouTube
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="live-info">
+
+                <div class="live-status">
+                    <span class="status-dot"></span>
+                    Offline kwa sasa
+                </div>
+
+                <span style="color:#777;font-size:13px;">
+                    Ratiba ya matangazo itaonekana hapa
+                </span>
+
+            </div>
+
         </div>
 
     </div>
-  </section><footer class="footer">
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
     <div class="container">
-        <h3>Dizzah Media</h3>
-        <p>Hakika leo, Kesho kwa ubora.</p>
 
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
+        <div class="section-title">
+
+            <small>What To Expect</small>
+
+            <h2>Utakachokiona kwenye Live</h2>
+
         </div>
 
-        <p>&copy; 2026 Dizzah Media. Haki zote zimehifadhiwa.</p>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+
+                <div class="feature-icon">🎙️</div>
+
+                <h3>Mahojiano</h3>
+
+                <p>
+                    Mazungumzo na watu mbalimbali,
+                    creators, viongozi wa jamii,
+                    wafanyabiashara na wageni maalum.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🎬</div>
+
+                <h3>Matukio Maalum</h3>
+
+                <p>
+                    Matukio ya Dizzah Media,
+                    premieres, shughuli za kijamii
+                    na matukio mengine muhimu.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🌍</div>
+
+                <h3>Tanzania → Dunia</h3>
+
+                <p>
+                    Maudhui yanayolenga kuunganisha
+                    Tanzania, Afrika na hadhira ya
+                    kimataifa.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
+
+</section>
+
+
+<!-- SCHEDULE -->
+
+<section class="schedule" id="ratiba">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <small>Coming Up</small>
+
+            <h2>Ratiba ya Live</h2>
+
+            <p>
+                Vipindi na ratiba rasmi vitaongezwa hapa
+                kila Dizzah Media inapopanga Live mpya.
+            </p>
+
+        </div>
+
+
+        <div class="schedule-grid">
+
+            <div class="schedule-card">
+
+                <span class="day">Jumatatu</span>
+
+                <h3>Dizzah Talks</h3>
+
+                <p>
+                    Mazungumzo na wageni maalum.
+                </p>
+
+                <span class="time">
+                    Ratiba ijayo
+                </span>
+
+            </div>
+
+
+            <div class="schedule-card">
+
+                <span class="day">Jumatano</span>
+
+                <h3>Live Stories</h3>
+
+                <p>
+                    Simulizi na hadithi zinazogusa maisha.
+                </p>
+
+                <span class="time">
+                    Ratiba ijayo
+                </span>
+
+            </div>
+
+
+            <div class="schedule-card">
+
+                <span class="day">Ijumaa</span>
+
+                <h3>Dizzah Media Special</h3>
+
+                <p>
+                    Vipindi maalum na maudhui mapya.
+                </p>
+
+                <span class="time">
+                    Ratiba ijayo
+                </span>
+
+            </div>
+
+
+            <div class="schedule-card">
+
+                <span class="day">Jumapili</span>
+
+                <h3>Motivation Live</h3>
+
+                <p>
+                    Motivation, mindset na maendeleo.
+                </p>
+
+                <span class="time">
+                    Ratiba ijayo
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- YOUTUBE CTA -->
+
+<section class="youtube-cta">
+
+    <div class="container">
+
+        <div class="youtube-box">
+
+            <h2>Usikose Dizzah Media Live</h2>
+
+            <p>
+                Subscribe kwenye YouTube channel yetu
+                ili upate taarifa tunapoanza Live,
+                video mpya na Dizzah Originals.
+            </p>
+
+            <a
+                href="https://www.youtube.com/@DizzahMedia"
+                target="_blank"
+                class="btn btn-primary">
+                ▶ Tazama Dizzah Media YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>DIZZAH MEDIA</h3>
+
+                <p>
+                    Hakika Leo, Kesho kwa Ubora Zaidi.
+                    Dizzah Media ni media house inayolenga
+                    kuunda na kusambaza maudhui yenye ubora
+                    kutoka Tanzania kwenda Afrika na Dunia.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Explore</h3>
+
+                <div class="footer-links">
+
+                    <a href="news.html">Habari</a>
+                    <a href="simulizi.html">Simulizi</a>
+                    <a href="movies.html">Movies</a>
+                    <a href="videos.html">Video</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="podcasts.html">Podcasts</a>
+                    <a href="Live.html">Live</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>Follow Dizzah</h3>
+
+                <div class="socials">
+
+                    <a
+                        href="https://www.youtube.com/@DizzahMedia"
+                        target="_blank">
+                        YouTube
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/dizzah_media"
+                        target="_blank">
+                        Instagram
+                    </a>
+
+                    <a
+                        href="https://www.tiktok.com/@dizzahmedia"
+                        target="_blank">
+                        TikTok
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/share/1ES11b5jWR/"
+                        target="_blank">
+                        Facebook
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Dizzah Media. Haki zote zimehifadhiwa.
+            </span>
+
+            <span>
+                Kigamboni, Dar es Salaam, Tanzania
+            </span>
+
+        </div>
+
+    </div>
+
 </footer>
 
-<script src="script.js"></script>
-
 </body>
-  </html>
+</html>
