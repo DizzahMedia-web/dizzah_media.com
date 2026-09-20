@@ -1,80 +1,803 @@
 <!DOCTYPE html>
 <html lang="sw">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Dizzah Media</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Dizzah Media | Profile</title>
+
+<meta name="description"
+content="Wasifu rasmi wa Dizzah Media — media house kutoka Tanzania kwenda dunia.">
+
+<link rel="icon"
+href="assets/favicon-32.png">
+
+<style>
+
+:root{
+  --purple:#7c3aed;
+  --purple-dark:#4c1d95;
+  --purple-light:#ede9fe;
+  --black:#09090b;
+  --dark:#111113;
+  --white:#fff;
+  --text:#18181b;
+  --muted:#71717a;
+  --border:#e4e4e7;
+  --bg:#f7f7f8;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* HEADER */
+
+header{
+  background:rgba(9,9,11,.97);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid #27272a;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:72px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand img{
+  width:45px;
+  height:45px;
+  object-fit:contain;
+  border-radius:50%;
+  background:white;
+}
+
+.brand strong{
+  font-size:17px;
+  letter-spacing:.7px;
+}
+
+.brand small{
+  display:block;
+  color:#a1a1aa;
+  font-size:10px;
+  margin-top:3px;
+}
+
+nav{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+nav a{
+  color:#d4d4d8;
+  padding:9px 10px;
+  border-radius:7px;
+  font-size:12px;
+}
+
+nav a:hover,
+nav a.active{
+  background:#2e1065;
+  color:white;
+}
+
+/* HERO */
+
+.hero{
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      #6d28d9,
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #09090b,
+      #18181b
+    );
+  color:white;
+  padding:75px 20px;
+}
+
+.hero-inner{
+  max-width:1050px;
+  margin:auto;
+  text-align:center;
+}
+
+.hero-logo{
+  width:105px;
+  height:105px;
+  object-fit:contain;
+  background:white;
+  border-radius:50%;
+  padding:5px;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:46px;
+  letter-spacing:-1px;
+  margin-bottom:13px;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:#ddd6fe;
+  line-height:1.7;
+  font-size:16px;
+}
+
+.tag{
+  display:inline-block;
+  margin-bottom:18px;
+  padding:7px 12px;
+  border:1px solid #6d28d9;
+  border-radius:999px;
+  color:#c4b5fd;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+/* CONTENT */
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:50px 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-title h2{
+  font-size:29px;
+  margin-bottom:8px;
+}
+
+.section-title p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* PROFILE */
+
+.profile{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:28px;
+  align-items:stretch;
+}
+
+.profile-card,
+.info-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:27px;
+  box-shadow:0 5px 20px rgba(0,0,0,.04);
+}
+
+.profile-card{
+  text-align:center;
+}
+
+.profile-card img{
+  width:150px;
+  height:150px;
+  object-fit:contain;
+  border-radius:50%;
+  background:white;
+  margin-bottom:17px;
+}
+
+.profile-card h3{
+  font-size:22px;
+  margin-bottom:7px;
+}
+
+.profile-card span{
+  color:var(--purple);
+  font-size:12px;
+  font-weight:bold;
+}
+
+.profile-card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin-top:13px;
+}
+
+.info-card h3{
+  font-size:21px;
+  margin-bottom:14px;
+}
+
+.info-card p{
+  color:#52525b;
+  line-height:1.8;
+  font-size:14px;
+  margin-bottom:13px;
+}
+
+.info-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:22px;
+}
+
+.info{
+  background:#fafafa;
+  border:1px solid #f0f0f2;
+  border-radius:10px;
+  padding:14px;
+}
+
+.info strong{
+  display:block;
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+.info span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* VALUES */
+
+.values{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.value{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:22px;
+}
+
+.value-icon{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:var(--purple-light);
+  margin-bottom:14px;
+}
+
+.value h3{
+  font-size:16px;
+  margin-bottom:7px;
+}
+
+.value p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* SOCIAL */
+
+.social{
+  background:
+    linear-gradient(
+      135deg,
+      #1e1b4b,
+      #4c1d95
+    );
+  color:white;
+  border-radius:18px;
+  padding:40px 25px;
+  text-align:center;
+}
+
+.social h2{
+  font-size:28px;
+  margin-bottom:9px;
+}
+
+.social p{
+  color:#ddd6fe;
+  font-size:13px;
+  margin-bottom:23px;
+}
+
+.social-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.social-links a{
+  padding:10px 14px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;
+  font-size:12px;
+}
+
+.social-links a:hover{
+  background:rgba(255,255,255,.18);
+}
+
+/* FOOTER */
+
+footer{
+  background:#09090b;
+  color:white;
+  margin-top:20px;
+}
+
+.footer-inner{
+  max-width:1050px;
+  margin:auto;
+  padding:35px 20px;
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.footer-brand{
+  max-width:400px;
+}
+
+.footer-brand strong{
+  font-size:18px;
+}
+
+.footer-brand p{
+  color:#a1a1aa;
+  font-size:12px;
+  line-height:1.7;
+  margin-top:8px;
+}
+
+.footer-links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links a{
+  color:#a1a1aa;
+  font-size:12px;
+}
+
+.footer-links a:hover{
+  color:white;
+}
+
+.copyright{
+  border-top:1px solid #27272a;
+  text-align:center;
+  color:#71717a;
+  font-size:11px;
+  padding:17px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .nav{
+    flex-direction:column;
+    padding:12px 15px;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .hero{
+    padding:55px 18px;
+  }
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .profile{
+    grid-template-columns:1fr;
+  }
+
+  .values{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .brand small{
+    display:none;
+  }
+
+  nav{
+    gap:2px;
+  }
+
+  nav a{
+    padding:7px 7px;
+    font-size:11px;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .hero-logo{
+    width:85px;
+    height:85px;
+  }
+
+  .info-list{
+    grid-template-columns:1fr;
+  }
+
+  .container{
+    padding:38px 15px;
+  }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <div class="container">
-        <h1>Dizzah Media</h1>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Nyumbani</a></li>
-                <li><a href="news.html">Habari</a></li>
-                <li><a href="videos.html">Video</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="podcasts.html">Podcasts</a></li>
-                <li><a href="live.html">Live</a></li>
-                <li><a href="profile.html" class="active">Profile</a></li>
-            </ul>
-        </nav>
-    </div>
+  <div class="nav">
+
+    <a href="index.html" class="brand">
+
+      <img
+        src="assets/dizzah-logo-profile.png"
+        alt="Dizzah Media">
+
+      <div>
+        <strong>DIZZAH MEDIA</strong>
+        <small>MEDIA HOUSE</small>
+      </div>
+
+    </a>
+
+    <nav>
+
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html">Podcasts</a>
+      <a href="motivation.html">Motivation</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+  </div>
+
 </header>
 
-<section class="profile-section">
-    <div class="container">
-        <h2>Wasifu wa Mtumiaji</h2>
-        <p>Karibu kwenye ukurasa wa wasifu wa Dizzah Media.</p><div class="profile-card">
 
-    <div class="profile-image">
-        <img src="images/profile.jpg"
-             alt="Profile Picture"
-             width="180">
-    </div>
+<section class="hero">
 
-    <div class="profile-details">
-        <h3>Dizzah Media</h3>
+  <div class="hero-inner">
 
-        <p><strong>Jina Kamili:</strong> Dizzah Media</p>
+    <span class="tag">
+      Official Dizzah Media Profile
+    </span>
 
-        <p><strong>Barua Pepe:</strong> info@dizzahmedia.com</p>
+    <br>
 
-        <p><strong>Namba ya Simu:</strong> +255 XXX XXX XXX</p>
+    <img
+      class="hero-logo"
+      src="assets/dizzah-logo-profile.png"
+      alt="Dizzah Media Logo">
 
-        <p><strong>Kuhusu:</strong> Karibu kwenye wasifu rasmi wa Dizzah Media. Hapa unaweza kuona taarifa za akaunti yako na kuzisasisha wakati wowote.</p>
+    <h1>DIZZAH MEDIA</h1>
 
-        <button class="btn">
-            Hariri Wasifu
-        </button>
+    <p>
+      Hakika Leo, Kesho kwa Ubora Zaidi.
+      <br>
+      Media house inayotengeneza na kusambaza
+      maudhui ya ubora kutoka Tanzania kwenda
+      hadhira ya Afrika na dunia.
+    </p>
 
-    </div>
+  </div>
 
-                                </div>    </div>
 </section>
 
-<footer class="footer">
-    <div class="container">
-        <h3>Dizzah Media</h3>
-        <p>Hakika leo, Kesho kwa ubora.</p>
 
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
+<main>
+
+<section class="container">
+
+  <div class="section-title">
+
+    <h2>Wasifu wa Dizzah Media</h2>
+
+    <p>
+      Tunajenga jukwaa la maudhui lenye
+      hadithi, habari na ubunifu.
+    </p>
+
+  </div>
+
+
+  <div class="profile">
+
+    <div class="profile-card">
+
+      <img
+        src="assets/dizzah-logo-profile.png"
+        alt="Dizzah Media">
+
+      <h3>Dizzah Media</h3>
+
+      <span>
+        INTERNATIONAL MEDIA HOUSE
+      </span>
+
+      <p>
+        Tanzania → Africa → World
+      </p>
+
+    </div>
+
+
+    <div class="info-card">
+
+      <h3>
+        Kuhusu sisi
+      </h3>
+
+      <p>
+        Dizzah Media ni jukwaa la media
+        linalolenga kuleta habari, simulizi,
+        video, movies, motivation, podcasts
+        na maudhui ya asili kwa hadhira
+        ya kisasa.
+      </p>
+
+      <p>
+        Tunazingatia ubora wa maudhui,
+        ubunifu, uhalisia na uwezo wa
+        kusimulia hadithi zinazogusa jamii.
+      </p>
+
+      <div class="info-list">
+
+        <div class="info">
+          <strong>Brand</strong>
+          <span>Dizzah Media</span>
         </div>
 
-        <p>&copy; 2026 Dizzah Media. Haki zote zimehifadhiwa.</p>
+        <div class="info">
+          <strong>Location</strong>
+          <span>Kigamboni, Dar es Salaam</span>
+        </div>
+
+        <div class="info">
+          <strong>Email</strong>
+          <span>info@dizzahmedia.com</span>
+        </div>
+
+        <div class="info">
+          <strong>Phone</strong>
+          <span>+255 754 742 555</span>
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
+
+</section>
+
+
+<section class="container">
+
+  <div class="section-title">
+
+    <h2>Our Media Values</h2>
+
+    <p>
+      Misingi inayotuongoza katika kutengeneza
+      maudhui ya Dizzah Media.
+    </p>
+
+  </div>
+
+
+  <div class="values">
+
+    <div class="value">
+
+      <div class="value-icon">✦</div>
+
+      <h3>Ubora</h3>
+
+      <p>
+        Tunajenga maudhui yenye ubora
+        unaoweza kuwakilisha Dizzah Media
+        mbele ya hadhira ya kimataifa.
+      </p>
+
+    </div>
+
+
+    <div class="value">
+
+      <div class="value-icon">🌍</div>
+
+      <h3>Global Vision</h3>
+
+      <p>
+        Tunaanzia Tanzania lakini tunatengeneza
+        maudhui yanayoweza kufika Afrika
+        na dunia nzima.
+      </p>
+
+    </div>
+
+
+    <div class="value">
+
+      <div class="value-icon">🎬</div>
+
+      <h3>Original Stories</h3>
+
+      <p>
+        Tunathamini simulizi, filamu,
+        mahojiano na ideas zinazotengenezwa
+        kwa ubunifu wa Dizzah Media.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="container">
+
+  <div class="social">
+
+    <h2>Follow Dizzah Media</h2>
+
+    <p>
+      Endelea nasi kwenye majukwaa yetu
+      kwa habari, videos, stories na originals.
+    </p>
+
+    <div class="social-links">
+
+      <a
+        href="https://www.youtube.com/@DizzahMedia"
+        target="_blank">
+        YouTube
+      </a>
+
+      <a
+        href="https://www.instagram.com/dizzah_media"
+        target="_blank">
+        Instagram
+      </a>
+
+      <a
+        href="https://www.tiktok.com/@dizzahmedia"
+        target="_blank">
+        TikTok
+      </a>
+
+      <a
+        href="https://www.facebook.com/share/1ES11b5jWR/"
+        target="_blank">
+        Facebook
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+
+      <strong>DIZZAH MEDIA</strong>
+
+      <p>
+        Hakika Leo, Kesho kwa Ubora Zaidi.
+        <br>
+        Tanzania → Africa → World.
+      </p>
+
+    </div>
+
+    <div class="footer-links">
+
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="videos.html">Videos</a>
+      <a href="movies.html">Movies</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+
+    © 2026 Dizzah Media.
+    Haki zote zimehifadhiwa.
+
+  </div>
+
 </footer>
 
-<script src="script.js"></script>
-
 </body>
-             </html>
+</html>
