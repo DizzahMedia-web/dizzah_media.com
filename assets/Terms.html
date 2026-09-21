@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Terms & Conditions | Dizzah Media</title>
+  <meta name="description" content="Masharti na vigezo vya matumizi ya Dizzah Media.">
+  <meta name="theme-color" content="#6d28d9">
+
+  <link rel="icon" href="assets/dizzah-logo-profile.jpg">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f7f7fb;
+      color:#18181b;
+      line-height:1.7;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:#080808;
+      border-bottom:1px solid #27272a;
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      min-height:76px;
+      padding:12px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:800;
+      font-size:20px;
+      letter-spacing:.5px;
+    }
+
+    .brand img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+      border-radius:50%;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+
+    nav a{
+      color:#d4d4d8;
+      padding:9px 11px;
+      border-radius:8px;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    nav a:hover{
+      background:#27272a;
+      color:#fff;
+    }
+
+    .hero{
+      background:
+        radial-gradient(circle at top right,rgba(124,58,237,.45),transparent 35%),
+        linear-gradient(135deg,#080808,#18111f 55%,#4c1d95);
+      color:#fff;
+      padding:85px 20px;
+    }
+
+    .hero-inner{
+      max-width:1000px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1px;
+      margin-bottom:20px;
+    }
+
+    .hero h1{
+      font-size:clamp(38px,6vw,68px);
+      line-height:1.05;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      color:#e4e4e7;
+      font-size:17px;
+    }
+
+    .page{
+      max-width:1150px;
+      margin:50px auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:35px;
+    }
+
+    .side{
+      background:#fff;
+      border:1px solid #e4e4e7;
+      border-radius:18px;
+      padding:22px;
+      height:max-content;
+      position:sticky;
+      top:105px;
+    }
+
+    .side h3{
+      margin-bottom:15px;
+      font-size:16px;
+    }
+
+    .side a{
+      display:block;
+      padding:9px 0;
+      color:#52525b;
+      font-size:14px;
+      border-bottom:1px solid #f1f1f3;
+    }
+
+    .side a:hover{
+      color:#6d28d9;
+    }
+
+    .content{
+      background:#fff;
+      border:1px solid #e4e4e7;
+      border-radius:20px;
+      padding:35px;
+    }
+
+    .content section{
+      margin-bottom:42px;
+      scroll-margin-top:100px;
+    }
+
+    .content h2{
+      color:#18181b;
+      font-size:25px;
+      margin-bottom:14px;
+    }
+
+    .content h2::before{
+      content:"";
+      display:inline-block;
+      width:5px;
+      height:25px;
+      background:#7c3aed;
+      border-radius:5px;
+      margin-right:10px;
+      vertical-align:-3px;
+    }
+
+    .content p{
+      color:#52525b;
+      margin-bottom:14px;
+    }
+
+    .content ul{
+      margin:12px 0 0 22px;
+      color:#52525b;
+    }
+
+    .content li{
+      margin-bottom:8px;
+    }
+
+    .notice{
+      background:#f5f3ff;
+      border:1px solid #ddd6fe;
+      border-radius:15px;
+      padding:20px;
+      margin-bottom:35px;
+    }
+
+    .notice strong{
+      color:#5b21b6;
+    }
+
+    .contact-box{
+      background:linear-gradient(135deg,#18181b,#4c1d95);
+      color:#fff;
+      border-radius:20px;
+      padding:30px;
+      margin-top:15px;
+    }
+
+    .contact-box h2{
+      color:#fff;
+    }
+
+    .contact-box h2::before{
+      background:#fff;
+    }
+
+    .contact-box p{
+      color:#e4e4e7;
+    }
+
+    .contact-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .contact-links a{
+      background:#fff;
+      color:#18181b;
+      padding:11px 16px;
+      border-radius:9px;
+      font-weight:800;
+      font-size:13px;
+    }
+
+    footer{
+      background:#080808;
+      color:#a1a1aa;
+      padding:45px 20px 25px;
+      margin-top:70px;
+    }
+
+    .footer-inner{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:35px;
+      padding-bottom:30px;
+    }
+
+    footer h3{
+      color:#fff;
+      margin-bottom:12px;
+    }
+
+    footer p{
+      font-size:14px;
+      max-width:500px;
+    }
+
+    footer ul{
+      list-style:none;
+    }
+
+    footer li{
+      margin:7px 0;
+    }
+
+    footer a:hover{
+      color:#fff;
+    }
+
+    .copyright{
+      border-top:1px solid #27272a;
+      padding-top:20px;
+      text-align:center;
+      font-size:13px;
+    }
+
+    @media(max-width:900px){
+      nav{
+        display:none;
+      }
+
+      .page{
+        grid-template-columns:1fr;
+      }
+
+      .side{
+        position:static;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero{
+        padding:65px 18px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .page{
+        margin:30px auto;
+        padding:0 14px;
+      }
+
+      .content{
+        padding:23px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .brand span{
+        font-size:17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a href="index.html" class="brand">
+      <img src="assets/dizzah-logo-profile.jpg" alt="Dizzah Media Logo">
+      <span>DIZZAH MEDIA</span>
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="motivation.html">Motivation</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html">Podcasts</a>
+      <a href="originals.html">Originals</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="badge">DIZZAH MEDIA • TERMS</span>
+    <h1>Masharti & Vigezo</h1>
+    <p>
+      Masharti yanayoeleza matumizi sahihi ya tovuti, maudhui na huduma za Dizzah Media.
+    </p>
+  </div>
+</section>
+
+<main class="page">
+
+  <aside class="side">
+    <h3>Katika ukurasa huu</h3>
+
+    <a href="#utambulisho">1. Utambulisho</a>
+    <a href="#matumizi">2. Matumizi ya Tovuti</a>
+    <a href="#maudhui">3. Maudhui</a>
+    <a href="#hakimiliki">4. Hakimiliki</a>
+    <a href="#watumiaji">5. Watumiaji</a>
+    <a href="#viungo">6. Viungo vya Nje</a>
+    <a href="#upatikanaji">7. Upatikanaji wa Huduma</a>
+    <a href="#mabadiliko">8. Mabadiliko</a>
+    <a href="#mawasiliano">9. Mawasiliano</a>
+  </aside>
+
+  <article class="content">
+
+    <div class="notice">
+      <strong>Muhimu:</strong>
+      Kwa kutumia tovuti ya Dizzah Media, unakubali kutumia tovuti na maudhui yake kwa
+      njia inayoheshimu sheria, watumiaji wengine na haki za Dizzah Media.
+    </div>
+
+    <section id="utambulisho">
+      <h2>1. Utambulisho</h2>
+
+      <p>
+        Karibu Dizzah Media. Dizzah Media ni jukwaa la maudhui linalolenga kutoa
+        habari, simulizi, video, filamu, motisha, podcasts na maudhui mengine
+        kwa hadhira ya Tanzania, Afrika na dunia.
+      </p>
+
+      <p>
+        Masharti haya yanatumika kwa mtu yeyote anayefikia au kutumia tovuti,
+        kurasa na huduma za Dizzah Media.
+      </p>
+    </section>
+
+    <section id="matumizi">
+      <h2>2. Matumizi ya Tovuti</h2>
+
+      <p>
+        Unakubali kutumia tovuti kwa madhumuni halali na kwa namna ambayo
+        haiathiri usalama, utendaji au matumizi ya tovuti na watumiaji wengine.
+      </p>
+
+      <p>Hairuhusiwi kutumia tovuti kwa:</p>
+
+      <ul>
+        <li>kujaribu kuharibu au kuvuruga mfumo wa tovuti;</li>
+        <li>kusambaza programu hatari au malware;</li>
+        <li>kujaribu kupata taarifa ambazo hukuruhusiwa kuzifikia;</li>
+        <li>kuiga au kutumia chapa ya Dizzah Media bila ruhusa;</li>
+        <li>kutumia maudhui kwa shughuli zinazokiuka sheria.</li>
+      </ul>
+    </section>
+
+    <section id="maudhui">
+      <h2>3. Maudhui</h2>
+
+      <p>
+        Dizzah Media inaweza kuchapisha habari, makala, picha, video, simulizi,
+        maoni, podcasts, filamu na aina nyingine za maudhui.
+      </p>
+
+      <p>
+        Baadhi ya maudhui yanaweza kutoka kwa waandishi, creators, washirika
+        au vyanzo vya nje. Tunajitahidi kuweka taarifa zilizo sahihi na
+        zinazofaa, lakini taarifa zinaweza kubadilika kadiri muda unavyopita.
+      </p>
+
+      <p>
+        Mtumiaji anapaswa kutumia busara na kuthibitisha taarifa muhimu
+        kabla ya kuzitumia kwa maamuzi yenye madhara makubwa.
+      </p>
+    </section>
+
+    <section id="hakimiliki">
+      <h2>4. Hakimiliki</h2>
+
+      <p>
+        Muundo wa tovuti, nembo, maandishi, graphics, picha, video na maudhui
+        mengine yanaweza kulindwa na sheria za hakimiliki na haki nyingine
+        za kisheria.
+      </p>
+
+      <p>
+        Hairuhusiwi kunakili, kuuza, kusambaza au kutumia maudhui ya Dizzah Media
+        kwa matumizi ya kibiashara bila kupata ruhusa inayohitajika.
+      </p>
+
+      <p>
+        Pale ambapo maudhui yanamilikiwa na wahusika wengine, haki hizo
+        zinaendelea kuwa za wamiliki husika.
+      </p>
+    </section>
+
+    <section id="watumiaji">
+      <h2>5. Watumiaji</h2>
+
+      <p>
+        Ikiwa Dizzah Media itatoa sehemu zinazowaruhusu watumiaji kuwasilisha
+        maoni, taarifa au maudhui, mtumiaji anawajibika kuhakikisha kuwa
+        anachowasilisha hakikiuki sheria au haki za mtu mwingine.
+      </p>
+
+      <p>
+        Dizzah Media inaweza kuondoa maudhui yanayokiuka masharti haya,
+        sheria au viwango vya matumizi ya jukwaa.
+      </p>
+    </section>
+
+    <section id="viungo">
+      <h2>6. Viungo vya Nje</h2>
+
+      <p>
+        Tovuti inaweza kuwa na viungo vinavyoelekeza kwenye huduma au tovuti
+        za watu wengine, ikiwa ni pamoja na YouTube, Instagram, TikTok,
+        Facebook na huduma nyingine.
+      </p>
+
+      <p>
+        Dizzah Media haiwajibiki moja kwa moja kwa maudhui, sera au huduma
+        zinazotolewa na tovuti hizo za nje. Matumizi ya huduma hizo yanaweza
+        kuwa chini ya masharti yao wenyewe.
+      </p>
+    </section>
+
+    <section id="upatikanaji">
+      <h2>7. Upatikanaji wa Huduma</h2>
+
+      <p>
+        Tunajitahidi kuhakikisha tovuti inapatikana na kufanya kazi vizuri.
+        Hata hivyo, hatuwezi kuhakikisha kuwa tovuti itakuwa inapatikana
+        bila kukatika kila wakati.
+      </p>
+
+      <p>
+        Matengenezo, masasisho, matatizo ya hosting, mtandao au huduma za
+        watu wengine yanaweza kuathiri upatikanaji wa tovuti.
+      </p>
+    </section>
+
+    <section id="mabadiliko">
+      <h2>8. Mabadiliko ya Masharti</h2>
+
+      <p>
+        Dizzah Media inaweza kusasisha masharti haya pale inapohitajika ili
+        kuendana na mabadiliko ya huduma, teknolojia au mahitaji ya kisheria.
+      </p>
+
+      <p>
+        Toleo jipya likichapishwa kwenye ukurasa huu, litaanza kutumika
+        baada ya kuchapishwa isipokuwa pale itakapoelezwa vinginevyo.
+      </p>
+    </section>
+
+    <section id="mawasiliano">
+      <div class="contact-box">
+
+        <h2>9. Mawasiliano</h2>
+
+        <p>
+          Kwa maswali kuhusu masharti haya, matumizi ya tovuti au huduma za
+          Dizzah Media, unaweza kuwasiliana nasi.
+        </p>
+
+        <p>
+          <strong>Barua pepe:</strong> info@dizzahmedia.com<br>
+          <strong>Simu:</strong> +255 754 742 555<br>
+          <strong>Mahali:</strong> Kigamboni, Dar es Salaam, Tanzania
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:info@dizzahmedia.com">Tuma Email</a>
+          <a href="tel:+255754742555">Piga Simu</a>
+          <a href="https://wa.me/255754742555" target="_blank">WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+
+  </article>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>DIZZAH MEDIA</h3>
+        <p>
+          Hakika Leo, Kesho kwa Ubora Zaidi.
+          Maudhui yanayounganisha Tanzania, Afrika na dunia.
+        </p>
+      </div>
+
+      <div>
+        <h3>Kurasa</h3>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Privacy.html">Privacy</a></li>
+          <li><a href="Terms.html">Terms</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Mitandao</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/@DizzahMedia" target="_blank">YouTube</a></li>
+          <li><a href="https://www.instagram.com/dizzah_media" target="_blank">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@dizzahmedia" target="_blank">TikTok</a></li>
+          <li><a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Dizzah Media. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

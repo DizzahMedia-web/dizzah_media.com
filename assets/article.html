@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Makala | Dizzah Media</title>
+  <meta name="description" content="Soma makala kutoka Dizzah Media.">
+  <meta name="author" content="Dizzah Media">
+  <meta name="theme-color" content="#17113d">
+  <link rel="canonical" href="https://dizzahmedia-web.github.io/dizzah_media.com/article.html">
+  <link rel="icon" type="image/jpeg" href="assets/dizzah-logo-profile.jpg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .article-shell{max-width:860px;margin:auto;padding:70px 20px 100px}.article-kicker{color:#7427c9;font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}.article-shell h1{font-size:clamp(2.2rem,5vw,4rem);margin:14px 0}.article-dek{font-size:1.2rem;color:#6d6d78;max-width:720px}.article-meta{display:flex;gap:14px;flex-wrap:wrap;color:#6d6d78;font-size:.85rem;margin:22px 0}.article-hero{width:100%;max-height:520px;object-fit:cover;border-radius:22px;margin:30px 0}.article-body{font-size:1.1rem;line-height:1.9}.article-actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}.article-actions a{padding:10px 15px;border:1px solid #e7e7ec;border-radius:10px;font-weight:700}.article-status{padding:30px;border:1px solid #e7e7ec;border-radius:16px;background:#f7f7fa}.article-status.error{border-color:#e5484d;background:#fff4f4}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Ruka kwenda kwenye maudhui</a>
+  <header><div class="container header-main"><a href="index.html" class="brand" aria-label="Dizzah Media Home"><img src="assets/dizzah-logo-profile.jpg" alt="Dizzah Media" width="58" height="58"><div class="brand-text"><div class="brand-name">DIZZAH MEDIA</div><div class="brand-tagline">Hakika Leo, Kesho kwa Ubora Zaidi.</div></div></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="news.html" class="active" aria-current="page">News</a><a href="videos.html">Videos</a><a href="podcasts.html">Podcasts</a><a href="Live.html">Live</a><a href="Search.html">Search</a><a href="contact.html" class="nav-cta">Contact</a></nav></div></header>
+  <main id="main-content" class="article-shell"><div id="articleRoot" class="article-status">Inapakia makala...</div></main>
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>© <span id="year"></span> Dizzah Media. All Rights Reserved.</span><div class="footer-links"><a href="Privacy.html">Privacy</a><a href="Terms.html">Terms</a><a href="contact.html">Contact</a></div></div></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="site-data.js"></script><script src="script.js"></script>
+  <script>
+    const root = document.getElementById('articleRoot');
+    const id = new URLSearchParams(location.search).get('id');
+    const renderError = (message) => { root.className='article-status error'; root.innerHTML='<h1>Haikuweza kufungua makala</h1><p>'+DizzahData.escapeHTML(message)+'</p><p><a href="news.html">← Rudi Newsroom</a></p>'; };
+    async function loadArticle(){
+      if(!id){ renderError('Makala hii haina kitambulisho halali.'); return; }
+      try{
+        const client = await DizzahData.getClient?.();
+        const {data,error} = await client.from('posts').select('id,title,category,image_url,video_url,description,created_at').eq('id', id).maybeSingle();
+        if(error) throw error;
+        if(!data){ renderError('Makala haikupatikana au imeondolewa.'); return; }
+        const title=DizzahData.escapeHTML(data.title || 'Bila kichwa cha habari');
+        const description=DizzahData.escapeHTML(data.description || 'Dizzah Media itaongeza maelezo ya makala hii.');
+        root.className=''; root.innerHTML='<div class="article-kicker">'+DizzahData.escapeHTML(data.category || 'Habari')+'</div><h1>'+title+'</h1><p class="article-dek">'+description+'</p><div class="article-meta"><span>Dizzah Media</span><span>'+DizzahData.formatDate(data.created_at)+'</span></div><img class="article-hero" src="'+DizzahData.escapeHTML(DizzahData.imageFor(data))+'" alt="'+title+'" onerror="this.src=\'assets/news1.jpg\'"><div class="article-actions"><a href="news.html">← Newsroom</a>'+(data.video_url?'<a href="'+DizzahData.escapeHTML(data.video_url)+'" target="_blank" rel="noopener noreferrer">▶ Tazama video</a>':'')+'</div><div class="article-body"><p>'+description+'</p><p><strong>Uhariri:</strong> Makala hii imechapishwa na Dizzah Media. Kwa masahihisho au taarifa za ziada, <a href="contact.html">wasiliana na newsroom</a>.</p></div>';
+      }catch(e){ console.error(e); renderError('Kuna tatizo la kuwasiliana na newsroom. Jaribu tena baadaye.'); }
+    }
+    loadArticle();
+  </script>
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Dizzah Media | Admin Login</title>
+  <meta name="description" content="Dizzah Media secure administration login.">
+
+<link rel="icon"
+href="assets/dizzah-logo-profile.jpg">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+:root{
+  --purple:#7c3aed;
+  --purple-dark:#4c1d95;
+  --purple-light:#ede9fe;
+  --black:#09090b;
+  --dark:#111113;
+  --white:#fff;
+  --text:#18181b;
+  --muted:#71717a;
+  --border:#e4e4e7;
+  --red:#dc2626;
+  --green:#16a34a;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(
+      circle at top right,
+      #4c1d95 0,
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #09090b,
+      #18181b
+    );
+}
+
+.page{
+  width:100%;
+  max-width:1050px;
+  display:grid;
+  grid-template-columns:1fr 430px;
+  overflow:hidden;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.45);
+}
+
+/* BRAND SIDE */
+
+.brand-side{
+  min-height:620px;
+  padding:55px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      145deg,
+      #09090b,
+      #241044 55%,
+      #4c1d95
+    );
+}
+
+.brand-side:before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  right:-180px;
+  top:-150px;
+}
+
+.brand-side:after{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:50%;
+  left:-170px;
+  bottom:-120px;
+}
+
+.brand-content{
+  position:relative;
+  z-index:2;
+}
+
+.logo{
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  background:#fff;
+  padding:5px;
+  object-fit:contain;
+  margin-bottom:28px;
+}
+
+.brand-side h1{
+  font-size:43px;
+  line-height:1.05;
+  letter-spacing:-1px;
+  margin-bottom:17px;
+}
+
+.brand-side h1 span{
+  color:#c4b5fd;
+}
+
+.slogan{
+  font-size:16px;
+  color:#ddd6fe;
+  line-height:1.7;
+  max-width:470px;
+}
+
+.divider{
+  width:65px;
+  height:4px;
+  border-radius:10px;
+  background:#a78bfa;
+  margin:28px 0;
+}
+
+.features{
+  display:grid;
+  gap:14px;
+  margin-top:35px;
+}
+
+.feature{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#e4e4e7;
+  font-size:13px;
+}
+
+.feature-icon{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:rgba(255,255,255,.08);
+}
+
+/* LOGIN SIDE */
+
+.login-side{
+  padding:48px 40px;
+  display:flex;
+  align-items:center;
+}
+
+.login-box{
+  width:100%;
+}
+
+.login-box h2{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.login-box .intro{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:28px;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.field{
+  margin-bottom:18px;
+}
+
+input{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:none;
+  font-size:14px;
+  color:var(--text);
+}
+
+input:focus{
+  border-color:var(--purple);
+  box-shadow:
+    0 0 0 3px
+    rgba(124,58,237,.10);
+}
+
+.password-wrap{
+  position:relative;
+}
+
+.password-wrap input{
+  padding-right:55px;
+}
+
+.show-password{
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  padding:8px;
+  cursor:pointer;
+}
+
+.login-button{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:14px;
+  background:var(--purple);
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.login-button:hover{
+  background:var(--purple-dark);
+}
+
+.login-button:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+}
+
+.message{
+  display:none;
+  margin-top:16px;
+  padding:12px 13px;
+  border-radius:9px;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.message.error{
+  display:block;
+  color:#991b1b;
+  background:#fee2e2;
+}
+
+.message.success{
+  display:block;
+  color:#166534;
+  background:#dcfce7;
+}
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:22px;
+  color:var(--purple-dark);
+  font-size:13px;
+  font-weight:bold;
+}
+
+.back:hover{
+  text-decoration:underline;
+}
+
+.security{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:25px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .page{
+    grid-template-columns:1fr;
+    max-width:480px;
+  }
+
+  .brand-side{
+    min-height:auto;
+    padding:32px 28px;
+  }
+
+  .brand-side h1{
+    font-size:32px;
+  }
+
+  .features{
+    display:none;
+  }
+
+  .login-side{
+    padding:34px 28px;
+  }
+
+}
+
+@media(max-width:430px){
+
+  body{
+    padding:10px;
+  }
+
+  .page{
+    border-radius:16px;
+  }
+
+  .brand-side{
+    padding:28px 22px;
+  }
+
+  .login-side{
+    padding:30px 22px;
+  }
+
+  .logo{
+    width:65px;
+    height:65px;
+  }
+
+  .brand-side h1{
+    font-size:28px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- BRAND -->
+
+  <section class="brand-side">
+
+    <div class="brand-content">
+
+      <img
+        class="logo"
+        src="assets/dizzah-logo-profile.jpg"
+        alt="Dizzah Media">
+
+      <h1>
+        DIZZAH
+        <span>MEDIA</span>
+      </h1>
+
+      <p class="slogan">
+        Hakika Leo, Kesho kwa Ubora Zaidi.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="slogan">
+        Karibu kwenye newsroom ya Dizzah Media.
+        Simamia habari, simulizi, video, movies,
+        podcasts na maudhui mengine kutoka sehemu
+        moja.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">📰</div>
+          <span>Professional Newsroom Management</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🔐</div>
+          <span>Secure Admin Authentication</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🌍</div>
+          <span>Content Built for a Global Audience</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LOGIN -->
+
+  <section class="login-side">
+
+    <div class="login-box">
+
+      <h2>Admin Login</h2>
+
+      <p class="intro">
+        Ingia kwenye Dizzah Media Newsroom
+        ili kusimamia maudhui ya platform yako.
+      </p>
+
+      <form id="loginForm">
+
+        <div class="field">
+
+          <label for="email">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Ingiza email yako"
+            autocomplete="email"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="password">
+            Password
+          </label>
+
+          <div class="password-wrap">
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Ingiza password yako"
+              autocomplete="current-password"
+              required>
+
+            <button
+              type="button"
+              class="show-password"
+              onclick="togglePassword()"
+              id="showPassword">
+              👁
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="login-button"
+          id="loginButton">
+
+          Ingia kwenye Newsroom
+
+        </button>
+
+      </form>
+
+
+      <div
+        id="message"
+        class="message">
+      </div>
+
+
+      <a
+        href="index.html"
+        class="back">
+
+        ← Rudi kwenye Dizzah Media
+
+      </a>
+
+
+      <div class="security">
+
+        🔒 Secure authentication powered by Supabase
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<script>
+
+/* SUPABASE */
+
+const SUPABASE_URL =
+"https://otmejtcequreccarwvkt.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_9vUQ1lhAWELSbSGrk7Aw_Q_0h0-WvuX";
+
+const {
+  createClient
+} = window.supabase;
+
+const supabaseClient =
+createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+
+/* ELEMENTS */
+
+const loginForm =
+document.getElementById("loginForm");
+
+const loginButton =
+document.getElementById("loginButton");
+
+const message =
+document.getElementById("message");
+
+
+/* SHOW / HIDE PASSWORD */
+
+function togglePassword(){
+
+  const password =
+  document.getElementById("password");
+
+  const button =
+  document.getElementById("showPassword");
+
+  if(password.type === "password"){
+
+    password.type = "text";
+
+    button.textContent = "🙈";
+
+  }else{
+
+    password.type = "password";
+
+    button.textContent = "👁";
+
+  }
+
+}
+
+
+/* MESSAGE */
+
+function showMessage(
+  text,
+  type
+){
+
+  message.className =
+  "message " + type;
+
+  message.textContent =
+  text;
+
+}
+
+
+/* LOGIN */
+
+loginForm.addEventListener(
+  "submit",
+  async function(event){
+
+    event.preventDefault();
+
+    const email =
+    document.getElementById(
+      "email"
+    ).value.trim();
+
+    const password =
+    document.getElementById(
+      "password"
+    ).value;
+
+    if(!email || !password){
+
+      showMessage(
+        "Tafadhali jaza email na password.",
+        "error"
+      );
+
+      return;
+    }
+
+    loginButton.disabled = true;
+
+    loginButton.textContent =
+    "Inaingia kwenye Newsroom...";
+
+    message.className =
+    "message";
+
+    try{
+
+      const {
+        data,
+        error
+      } =
+      await supabaseClient
+      .auth
+      .signInWithPassword({
+
+        email:email,
+
+        password:password
+
+      });
+
+
+      if(error){
+
+        throw error;
+
+      }
+
+
+      if(!data.session){
+
+        throw new Error(
+          "Session haijapatikana."
+        );
+
+      }
+
+
+      showMessage(
+        "Umefanikiwa kuingia. Newsroom inafunguka...",
+        "success"
+      );
+
+
+      setTimeout(
+        function(){
+
+          window.location.href =
+          "admin.html";
+
+        },
+        700
+      );
+
+
+    }catch(error){
+
+      let text =
+      "Imeshindikana kuingia.";
+
+      if(
+        error.message &&
+        error.message
+        .toLowerCase()
+        .includes("invalid login")
+      ){
+
+        text =
+        "Email au password si sahihi.";
+
+      }else if(error.message){
+
+        text +=
+        " " +
+        error.message;
+
+      }
+
+
+      showMessage(
+        text,
+        "error"
+      );
+
+      loginButton.disabled =
+      false;
+
+      loginButton.textContent =
+      "Ingia kwenye Newsroom";
+
+    }
+
+  }
+);
+
+
+/* EXISTING SESSION */
+
+async function checkSession(){
+
+  const {
+    data
+  } =
+  await supabaseClient
+  .auth
+  .getSession();
+
+  if(data.session){
+
+    window.location.href =
+    "admin.html";
+
+  }
+
+}
+
+checkSession();
+
+</script>
+
+</body>
+</html>

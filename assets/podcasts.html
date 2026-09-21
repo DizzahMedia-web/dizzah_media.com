@@ -3,109 +3,451 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Podcasts — Dizzah Media</title>
-<meta name="description" content="Vipindi vya sauti na mazungumzo maalum.">
-<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
-<link rel="apple-touch-icon" href="assets/favicon-180.png">
-<link rel="stylesheet" href="style.css">
+
+<title>Podcasts | Dizzah Media</title>
+<meta name="description" content="Podcasts za Dizzah Media — simulizi, mazungumzo, motisha na mawazo yanayojenga.">
+
+<link rel="icon" href="assets/dizzah-logo-profile.jpg">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070707;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#050505;
+  border-bottom:1px solid #222;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo img{
+  width:145px;
+  display:block;
+}
+
+nav{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+nav a{
+  font-size:14px;
+  color:#ddd;
+  transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+  color:#e50914;
+}
+
+.hero{
+  min-height:48vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.9)),
+    url("assets/simulizi.jpg") center/cover;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,80px);
+  line-height:1;
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+
+.hero h1 span{
+  color:#e50914;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:18px;
+  max-width:650px;
+  margin:auto;
+}
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:65px 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:34px;
+  margin-bottom:8px;
+}
+
+.section-title p{
+  color:#aaa;
+}
+
+.podcasts{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.card{
+  background:#111;
+  border:1px solid #222;
+  border-radius:14px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#e50914;
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-content{
+  padding:22px;
+}
+
+.card h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#aaa;
+  margin-bottom:20px;
+}
+
+.btn{
+  display:inline-block;
+  padding:11px 20px;
+  background:#e50914;
+  border-radius:7px;
+  font-weight:bold;
+  font-size:14px;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#b80710;
+}
+
+.note{
+  max-width:850px;
+  margin:10px auto 0;
+  padding:22px;
+  background:#0e0e0e;
+  border:1px solid #222;
+  border-left:4px solid #e50914;
+  border-radius:10px;
+  color:#bbb;
+  text-align:center;
+}
+
+.cta{
+  text-align:center;
+  background:#111;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
+}
+
+.cta h2{
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.cta p{
+  color:#aaa;
+  margin-bottom:22px;
+}
+
+footer{
+  background:#030303;
+  border-top:1px solid #222;
+  padding:45px 20px 25px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo{
+  width:180px;
+  margin-bottom:15px;
+}
+
+footer p{
+  color:#999;
+}
+
+footer h3{
+  margin-bottom:15px;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.footer-links a{
+  color:#999;
+}
+
+.footer-links a:hover{
+  color:#e50914;
+}
+
+.copy{
+  max-width:1200px;
+  margin:35px auto 0;
+  padding-top:20px;
+  border-top:1px solid #222;
+  text-align:center;
+  color:#666;
+  font-size:13px;
+}
+
+@media(max-width:900px){
+  .podcasts{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:650px){
+  .nav{
+    flex-direction:column;
+  }
+
+  nav{
+    gap:10px;
+  }
+
+  nav a{
+    font-size:13px;
+  }
+
+  .podcasts{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:42vh;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+}
+</style>
 </head>
+
 <body>
-<header class="site-header">
-  <nav class="nav wrap">
-    <a href="index.html" class="brand"><img src="assets/logo-nav.png" alt="Dizzah Media" class="brand-logo"> Dizzah Media</a>
-    <form class="nav-search" role="search">
-      <input type="text" placeholder="Tafuta habari...">
-      <button type="submit" aria-label="Tafuta">🔍</button>
-    </form>
-    <button class="nav-toggle" aria-label="Fungua menyu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="simulizi.html">Simulizi</a></li>
-      <li><a href="movies.html">Movies</a></li>
-      <li><a href="motivation.html">Motivation</a></li>
-      <li><a href="videos.html">Videos</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="podcasts.html">Podcasts</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+
+<header>
+  <div class="nav">
+
+    <a href="index.html" class="logo">
+      <img src="assets/dizzah-logo-profile.jpg" alt="Dizzah Media">
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html" class="active">Podcasts</a>
+      <a href="motivation.html">Motivation</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </div>
 </header>
-<section class="page-hero">
-  <div class="wrap">
-    <span class="tag">Podcasts</span>
-    <h1>Sikiliza mazungumzo yasiyokoma.</h1>
-    <p>Vipindi vya sauti na mazungumzo maalum na wageni mbalimbali.</p>
-    
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Dizzah <span>Podcasts</span></h1>
+    <p>
+      Mazungumzo, simulizi, motisha na mawazo yanayogusa maisha
+      kutoka Dizzah Media.
+    </p>
   </div>
 </section>
-<main class="section">
-  <div class="wrap" style="max-width:760px;">
-    <div class="pod-item reveal">
-      <div class="play">▶</div>
-      <div class="meta"><h3>Kipindi #1 — Kuanza Safari</h3><span class="len">24 dak</span></div>
-    </div>
-    <div class="pod-item reveal">
-      <div class="play">▶</div>
-      <div class="meta"><h3>Kipindi #2 — Mazungumzo na Msanii</h3><span class="len">31 dak</span></div>
-    </div>
-    <div class="pod-item reveal">
-      <div class="play">▶</div>
-      <div class="meta"><h3>Kipindi #3 — Fedha na Vijana</h3><span class="len">19 dak</span></div>
-    </div>
+
+<section class="section">
+
+  <div class="section-title">
+    <h2>Karibu Dizzah Podcasts</h2>
+    <p>Chagua mada unayotaka kuisikiliza na kuifuatilia.</p>
   </div>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="brand"><img src="assets/logo-nav.png" alt="Dizzah Media" class="brand-logo"> Dizzah Media</a>
-        <p style="margin-top:14px; color:var(--muted); font-size:14px; max-width:34ch;">Habari, simulizi na burudani ya Kiswahili — iliyotengenezwa kwa ajili ya kizazi kipya.</p>
-        <div class="social-row" style="margin-top:16px;">
-          <a href="https://www.instagram.com/dizzah_media" aria-label="Instagram" target="_blank" rel="noopener">📷</a>
-          <a href="https://www.facebook.com/share/189dcf1AFh/" aria-label="Facebook" target="_blank" rel="noopener">📘</a>
-          <a href="https://www.tiktok.com/@dizzahmedia" aria-label="TikTok" target="_blank" rel="noopener">🎵</a>
-          <a href="https://www.youtube.com/@DizzahMedia" aria-label="YouTube" target="_blank" rel="noopener">▶</a>
-        </div>
-        <form class="newsletter">
-          <input type="email" placeholder="Barua pepe yako" required>
-          <button type="submit">Jiunge</button>
-        </form>
-        <p class="newsletter-note"></p>
+
+  <div class="podcasts">
+
+    <article class="card">
+      <img src="assets/simulizi.jpg" alt="Dizzah Stories">
+      <div class="card-content">
+        <h3>Dizzah Stories</h3>
+        <p>
+          Simulizi za maisha, changamoto, mafanikio na hadithi
+          zinazogusa jamii.
+        </p>
+        <a class="btn" href="https://www.youtube.com/@DizzahMedia" target="_blank">
+          Tazama YouTube
+        </a>
       </div>
-      <div>
-        <h4>Chunguza</h4>
-        <ul>
-          <li><a href="news.html">News</a></li>
-          <li><a href="simulizi.html">Simulizi</a></li>
-          <li><a href="movies.html">Movies</a></li>
-          <li><a href="motivation.html">Motivation</a></li>
-        </ul>
+    </article>
+
+    <article class="card">
+      <img src="assets/news1.jpg" alt="Dizzah Talks">
+      <div class="card-content">
+        <h3>Dizzah Talks</h3>
+        <p>
+          Mazungumzo kuhusu jamii, maisha, vijana, ubunifu na
+          masuala yanayotuzunguka.
+        </p>
+        <a class="btn" href="https://www.youtube.com/@DizzahMedia" target="_blank">
+          Tazama YouTube
+        </a>
       </div>
-      <div>
-        <h4>Zaidi</h4>
-        <ul>
-          <li><a href="videos.html">Videos</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="podcasts.html">Podcasts</a></li>
-        </ul>
+    </article>
+
+    <article class="card">
+      <img src="assets/movie.jpg" alt="Motivation Hub">
+      <div class="card-content">
+        <h3>Motivation Hub</h3>
+        <p>
+          Mawazo na simulizi za hamasa kwa watu wanaotafuta
+          kujenga maisha na ndoto zao.
+        </p>
+        <a class="btn" href="https://www.youtube.com/@DizzahMedia" target="_blank">
+          Tazama YouTube
+        </a>
       </div>
-      <div>
-        <h4>Kampuni</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Dizzah Media. Haki zote zimehifadhiwa.</span>
-      <span>Imetengenezwa kwa 💜 kwa vijana wa Kiswahili.</span>
-    </div>
+    </article>
+
   </div>
+
+  <div class="note">
+    🎙️ Podcast mpya zitaongezwa kadri Dizzah Media inavyoendelea
+    kuzalisha maudhui mapya.
+  </div>
+
+</section>
+
+<section class="section cta">
+  <h2>Fuatilia Dizzah Media</h2>
+  <p>
+    Usikose video, simulizi, mahojiano na maudhui mapya.
+  </p>
+
+  <a class="btn" href="https://www.youtube.com/@DizzahMedia" target="_blank">
+    Tazama Channel ya YouTube
+  </a>
+</section>
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      <img class="footer-logo" src="assets/dizzah-logo-profile.jpg" alt="Dizzah Media">
+      <p>
+        Hakika Leo, Kesho kwa Ubora Zaidi.
+      </p>
+      <p>
+        Media house kutoka Tanzania inayolenga kuleta
+        maudhui yenye ubora kwa hadhira ya ndani na kimataifa.
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="simulizi.html">Simulizi</a>
+        <a href="movies.html">Movies</a>
+        <a href="videos.html">Videos</a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Connect</h3>
+      <div class="footer-links">
+        <a href="https://www.youtube.com/@DizzahMedia" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/dizzah_media" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@dizzahmedia" target="_blank">TikTok</a>
+        <a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">Facebook</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="copy">
+    © 2026 Dizzah Media. All Rights Reserved.
+  </div>
+
 </footer>
-<script src="script.js"></script>
+
 </body>
 </html>

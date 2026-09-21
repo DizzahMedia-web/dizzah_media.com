@@ -1,0 +1,5 @@
+DIZZAH MEDIA FINAL UPLOAD
+
+Upload every file and folder in this archive to the ROOT of your hosting account.
+The two most important root files are visible here: index.html and CNAME.
+Do not put index.html or CNAME inside assets/.

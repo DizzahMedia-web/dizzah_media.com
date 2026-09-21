@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FAQ | Dizzah Media — Frequently Asked Questions</title>
+  <meta name="description" content="Maswali yanayoulizwa mara kwa mara kuhusu Dizzah Media, maudhui, habari, Dizzah Originals, video, ushirikiano na mawasiliano.">
+  <meta name="keywords" content="Dizzah Media, FAQ, Dizzah Media Tanzania, media house, habari, video, movies, originals">
+  <meta name="theme-color" content="#6d28d9">
+
+  <link rel="icon" href="assets/favicon-32.png">
+
+  <style>
+    :root{
+      --black:#080808;
+      --dark:#111113;
+      --purple:#6d28d9;
+      --purple2:#7c3aed;
+      --light:#f7f7fb;
+      --white:#ffffff;
+      --text:#18181b;
+      --muted:#71717a;
+      --border:#e4e4e7;
+      --soft:#f4f0ff;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--light);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font:inherit;
+    }
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(8,8,8,.97);
+      border-bottom:1px solid #27272a;
+      backdrop-filter:blur(12px);
+    }
+
+    .nav{
+      max-width:1250px;
+      min-height:76px;
+      margin:auto;
+      padding:12px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      flex-shrink:0;
+    }
+
+    .brand img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+      border-radius:50%;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+
+    .brand-name{
+      font-size:19px;
+      font-weight:900;
+      letter-spacing:.6px;
+    }
+
+    .brand-tagline{
+      color:#a1a1aa;
+      font-size:9px;
+      margin-top:5px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      gap:4px;
+    }
+
+    nav a{
+      color:#d4d4d8;
+      padding:8px 9px;
+      border-radius:7px;
+      font-size:12px;
+      font-weight:700;
+      transition:.2s;
+    }
+
+    nav a:hover{
+      background:#27272a;
+      color:#fff;
+    }
+
+    .nav-cta{
+      background:var(--purple) !important;
+      color:#fff !important;
+      padding:9px 13px !important;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      background:
+        radial-gradient(circle at 85% 20%,rgba(124,58,237,.48),transparent 30%),
+        radial-gradient(circle at 15% 80%,rgba(109,40,217,.22),transparent 28%),
+        linear-gradient(135deg,#050505,#17121f 55%,#3b176d);
+      padding:95px 20px 90px;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      right:-140px;
+      bottom:-180px;
+      width:420px;
+      height:420px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:50%;
+      box-shadow:
+        0 0 0 45px rgba(255,255,255,.02),
+        0 0 0 90px rgba(255,255,255,.015);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.07);
+      border-radius:999px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+
+    .hero h1{
+      font-size:clamp(42px,7vw,76px);
+      line-height:1;
+      letter-spacing:-2px;
+      margin-bottom:22px;
+    }
+
+    .hero h1 span{
+      color:#c4b5fd;
+    }
+
+    .hero p{
+      max-width:690px;
+      margin:auto;
+      color:#e4e4e7;
+      font-size:17px;
+    }
+
+    /* SEARCH */
+
+    .search-wrap{
+      max-width:720px;
+      margin:35px auto 0;
+      position:relative;
+    }
+
+    .search{
+      width:100%;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.09);
+      color:#fff;
+      border-radius:14px;
+      padding:17px 20px 17px 50px;
+      outline:none;
+      font-size:15px;
+    }
+
+    .search::placeholder{
+      color:#a1a1aa;
+    }
+
+    .search:focus{
+      border-color:#a78bfa;
+      background:rgba(255,255,255,.12);
+    }
+
+    .search-icon{
+      position:absolute;
+      left:18px;
+      top:50%;
+      transform:translateY(-50%);
+      color:#c4b5fd;
+      font-size:19px;
+    }
+
+    /* MAIN */
+
+    .main{
+      max-width:1120px;
+      margin:55px auto;
+      padding:0 20px;
+    }
+
+    .intro{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 45px;
+    }
+
+    .intro h2{
+      font-size:32px;
+      margin-bottom:10px;
+    }
+
+    .intro p{
+      color:var(--muted);
+    }
+
+    /* CATEGORIES */
+
+    .categories{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:9px;
+      margin-bottom:42px;
+    }
+
+    .category{
+      border:1px solid var(--border);
+      background:#fff;
+      color:#52525b;
+      padding:9px 15px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:800;
+      transition:.2s;
+    }
+
+    .category:hover,
+    .category.active{
+      background:var(--purple);
+      border-color:var(--purple);
+      color:#fff;
+    }
+
+    /* FAQ */
+
+    .faq-list{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .faq-item{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:15px;
+      margin-bottom:12px;
+      overflow:hidden;
+      transition:.2s;
+    }
+
+    .faq-item:hover{
+      border-color:#c4b5fd;
+      box-shadow:0 8px 30px rgba(24,24,27,.05);
+    }
+
+    .faq-question{
+      width:100%;
+      border:0;
+      background:none;
+      padding:20px 52px 20px 22px;
+      text-align:left;
+      cursor:pointer;
+      font-weight:800;
+      font-size:15px;
+      color:var(--text);
+      position:relative;
+    }
+
+    .faq-question::after{
+      content:"+";
+      position:absolute;
+      right:21px;
+      top:50%;
+      transform:translateY(-50%);
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      background:var(--soft);
+      color:var(--purple);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      font-weight:400;
+    }
+
+    .faq-item.open .faq-question{
+      color:var(--purple);
+    }
+
+    .faq-item.open .faq-question::after{
+      content:"−";
+      background:var(--purple);
+      color:#fff;
+    }
+
+    .faq-answer{
+      display:none;
+      padding:0 22px 22px;
+      color:#52525b;
+      font-size:14px;
+    }
+
+    .faq-item.open .faq-answer{
+      display:block;
+    }
+
+    .faq-answer p{
+      margin-bottom:10px;
+    }
+
+    .faq-answer ul{
+      margin:8px 0 0 20px;
+    }
+
+    .faq-answer a{
+      color:var(--purple);
+      font-weight:700;
+    }
+
+    /* HIGHLIGHT */
+
+    .highlight{
+      max-width:900px;
+      margin:50px auto;
+      padding:28px;
+      border-radius:20px;
+      background:linear-gradient(135deg,#f5f3ff,#fff);
+      border:1px solid #ddd6fe;
+    }
+
+    .highlight h3{
+      margin-bottom:8px;
+      color:#4c1d95;
+      font-size:20px;
+    }
+
+    .highlight p{
+      color:#52525b;
+    }
+
+    /* CTA */
+
+    .cta{
+      margin-top:65px;
+      border-radius:24px;
+      padding:55px 25px;
+      text-align:center;
+      color:#fff;
+      background:
+        radial-gradient(circle at 85% 20%,rgba(124,58,237,.4),transparent 30%),
+        linear-gradient(135deg,#0a0a0a,#21122f,#4c1d95);
+    }
+
+    .cta h2{
+      font-size:clamp(28px,5vw,42px);
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      max-width:650px;
+      margin:auto;
+      color:#d4d4d8;
+    }
+
+    .cta-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:11px;
+      margin-top:25px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 19px;
+      border-radius:9px;
+      font-weight:800;
+      font-size:13px;
+      transition:.2s;
+    }
+
+    .btn-light{
+      background:#fff;
+      color:#18181b;
+    }
+
+    .btn-purple{
+      background:#7c3aed;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.2);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    /* FOOTER */
+
+    footer{
+      margin-top:75px;
+      background:#080808;
+      color:#a1a1aa;
+      padding:50px 20px 25px;
+    }
+
+    .footer-inner{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:35px;
+      padding-bottom:35px;
+    }
+
+    footer h3{
+      color:#fff;
+      margin-bottom:13px;
+      font-size:16px;
+    }
+
+    footer p{
+      max-width:470px;
+      font-size:14px;
+    }
+
+    footer ul{
+      list-style:none;
+    }
+
+    footer li{
+      margin:7px 0;
+      font-size:14px;
+    }
+
+    footer a:hover{
+      color:#fff;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      margin-bottom:14px;
+    }
+
+    .footer-brand img{
+      width:44px;
+      height:44px;
+      object-fit:contain;
+      border-radius:50%;
+    }
+
+    .footer-brand strong{
+      color:#fff;
+      font-size:17px;
+    }
+
+    .copyright{
+      border-top:1px solid #27272a;
+      padding-top:21px;
+      text-align:center;
+      font-size:12px;
+    }
+
+    /* HIDDEN SEARCH STATE */
+
+    .no-results{
+      display:none;
+      text-align:center;
+      padding:40px 20px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:15px;
+      color:var(--muted);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:1050px){
+      nav a{
+        padding:7px 6px;
+        font-size:11px;
+      }
+    }
+
+    @media(max-width:900px){
+      nav{
+        display:none;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero{
+        padding:70px 16px;
+      }
+
+      .hero h1{
+        font-size:46px;
+        letter-spacing:-1.5px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .main{
+        margin:38px auto;
+        padding:0 14px;
+      }
+
+      .intro h2{
+        font-size:27px;
+      }
+
+      .faq-question{
+        font-size:14px;
+        padding:18px 48px 18px 17px;
+      }
+
+      .faq-answer{
+        padding:0 17px 18px;
+      }
+
+      .highlight{
+        padding:22px;
+      }
+
+      .cta{
+        padding:42px 18px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="nav">
+
+    <a href="index.html" class="brand">
+      <img src="assets/dizzah-logo-profile.png" alt="Dizzah Media">
+      <span class="brand-text">
+        <span class="brand-name">DIZZAH MEDIA</span>
+        <span class="brand-tagline">Hakika Leo, Kesho kwa Ubora Zaidi</span>
+      </span>
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="simulizi.html">Simulizi</a>
+      <a href="movies.html">Movies</a>
+      <a href="motivation.html">Motivation</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="podcasts.html">Podcasts</a>
+      <a href="originals.html">Originals</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <span class="eyebrow">Dizzah Media • Help Center</span>
+
+    <h1>Maswali <span>Yanayoulizwa</span> Mara kwa Mara</h1>
+
+    <p>
+      Pata majibu kuhusu Dizzah Media, maudhui yetu, Dizzah Originals,
+      habari, video, ushirikiano na njia za kuwasiliana nasi.
+    </p>
+
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input
+        type="search"
+        id="faqSearch"
+        class="search"
+        placeholder="Tafuta swali lako hapa..."
+        aria-label="Tafuta kwenye maswali"
+      >
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MAIN -->
+
+<main class="main">
+
+  <div class="intro">
+    <h2>Tunaweza kukusaidia nini?</h2>
+    <p>
+      Chagua kundi hapa chini au tafuta moja kwa moja swali unalotaka jibu.
+    </p>
+  </div>
+
+  <!-- CATEGORIES -->
+
+  <div class="categories">
+
+    <button class="category active" data-category="all">
+      Yote
+    </button>
+
+    <button class="category" data-category="about">
+      Kuhusu Dizzah
+    </button>
+
+    <button class="category" data-category="content">
+      Maudhui
+    </button>
+
+    <button class="category" data-category="business">
+      Ushirikiano
+    </button>
+
+    <button class="category" data-category="contact">
+      Mawasiliano
+    </button>
+
+  </div>
+
+  <!-- FAQ LIST -->
+
+  <div class="faq-list" id="faqList">
+
+    <div class="faq-item" data-category="about">
+
+      <button class="faq-question">
+        Dizzah Media ni nini?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Dizzah Media ni media house inayolenga kuzalisha na kusambaza
+          maudhui mbalimbali kwa hadhira ya Tanzania, Afrika na dunia.
+        </p>
+
+        <p>
+          Tunajenga jukwaa linalounganisha habari, simulizi, video,
+          movies, podcasts, motivation na Dizzah Originals.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="about">
+
+      <button class="faq-question">
+        Dizzah Media inalenga kufikia wapi?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Dira ya Dizzah Media ni kujenga brand ya media yenye hadhira
+          ya kimataifa, kuanzia Tanzania na Afrika hadi masoko ya kimataifa.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="about">
+
+      <button class="faq-question">
+        Kauli mbiu ya Dizzah Media ni ipi?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Kauli mbiu yetu ni:
+          <strong>“Hakika Leo, Kesho kwa Ubora Zaidi.”</strong>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="content">
+
+      <button class="faq-question">
+        Dizzah Media inachapisha aina gani za maudhui?
+      </button>
+
+      <div class="faq-answer">
+
+        <p>Tunajenga maeneo mbalimbali ya maudhui, ikiwemo:</p>
+
+        <ul>
+          <li>Habari</li>
+          <li>Simulizi za maisha</li>
+          <li>Movies</li>
+          <li>Videos</li>
+          <li>Podcasts</li>
+          <li>Motivation</li>
+          <li>Gallery</li>
+          <li>Dizzah Originals</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="content">
+
+      <button class="faq-question">
+        Dizzah Originals ni nini?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Dizzah Originals ni eneo maalum la maudhui yanayozalishwa
+          chini ya Dizzah Media, likiwemo simulizi, documentary,
+          series, movies na miradi mingine ya kiubunifu.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="content">
+
+      <button class="faq-question">
+        Naweza kuangalia video za Dizzah Media wapi?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Unaweza kufuatilia video na maudhui yetu kupitia
+          Dizzah Media kwenye YouTube.
+        </p>
+
+        <p>
+          <a href="https://www.youtube.com/@DizzahMedia" target="_blank">
+            Tembelea Dizzah Media YouTube →
+          </a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="content">
+
+      <button class="faq-question">
+        Je Dizzah Media inapokea story au taarifa kutoka kwa watu?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Ndiyo. Kwa taarifa au story inayoweza kuwa na umuhimu kwa jamii,
+          unaweza kuwasiliana na timu yetu kupitia taarifa za mawasiliano
+          zilizo kwenye ukurasa wa Contact.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="business">
+
+      <button class="faq-question">
+        Naweza kushirikiana na Dizzah Media?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Ndiyo. Dizzah Media inaweza kushirikiana na creators,
+          brands, businesses, organizations, filmmakers na wadau wengine
+          katika miradi inayolingana na dira yetu.
+        </p>
+
+        <p>
+          Kwa ushirikiano, tumia ukurasa wetu wa
+          <a href="contact.html">Contact</a>.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="business">
+
+      <button class="faq-question">
+        Je Dizzah Media inafanya matangazo na brand partnerships?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Kwa miradi inayofaa, Dizzah Media inaweza kufanya partnerships,
+          branded content, promotional campaigns na aina nyingine za
+          ushirikiano wa kibiashara.
+        </p>
+
+        <p>
+          Wasiliana nasi ili kujadili mahitaji ya mradi wako.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="business">
+
+      <button class="faq-question">
+        Nawezaje kuwasilisha proposal ya ushirikiano?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Tuma maelezo ya proposal yako kupitia:
+        </p>
+
+        <p>
+          <a href="mailto:info@dizzahmedia.com">
+            info@dizzahmedia.com
+          </a>
+        </p>
+
+        <p>
+          Ni vizuri kuweka jina la mradi, aina ya ushirikiano,
+          malengo na taarifa zako za mawasiliano.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="contact">
+
+      <button class="faq-question">
+        Nawezaje kuwasiliana na Dizzah Media?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Unaweza kutufikia kupitia:
+        </p>
+
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:info@dizzahmedia.com">
+              info@dizzahmedia.com
+            </a>
+          </li>
+
+          <li>
+            Simu:
+            <a href="tel:+255754742555">
+              +255 754 742 555
+            </a>
+          </li>
+
+          <li>
+            WhatsApp:
+            <a href="https://wa.me/255754742555" target="_blank">
+              Chat kwenye WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="contact">
+
+      <button class="faq-question">
+        Dizzah Media iko wapi?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Dizzah Media ina mawasiliano ya Tanzania kupitia
+          <strong>Kigamboni, Dar es Salaam, Tanzania.</strong>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="contact">
+
+      <button class="faq-question">
+        Naweza kufuatilia Dizzah Media kwenye mitandao gani?
+      </button>
+
+      <div class="faq-answer">
+
+        <p>
+          Tufuate kwenye platforms zetu rasmi:
+        </p>
+
+        <ul>
+          <li>
+            <a href="https://www.youtube.com/@DizzahMedia" target="_blank">
+              YouTube
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/dizzah_media" target="_blank">
+              Instagram
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.tiktok.com/@dizzahmedia" target="_blank">
+              TikTok
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com/share/1ES11b5jWR/" target="_blank">
+              Facebook
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="faq-item" data-category="about">
+
+      <button class="faq-question">
+        Ninaweza kutumia maudhui ya Dizzah Media?
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Maudhui yanaweza kuwa chini ya hakimiliki au haki nyingine za
+          kisheria. Kwa matumizi ambayo yanahitaji ruhusa, ni muhimu
+          kuwasiliana na Dizzah Media kabla ya kuyatumia.
+        </p>
+
+        <p>
+          Angalia pia ukurasa wetu wa
+          <a href="Terms.html">Terms & Conditions</a>.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+    <strong>Hakuna matokeo yaliyopatikana.</strong>
+    <p>Jaribu kutumia maneno mengine kwenye utafutaji.</p>
+  </div>
+
+  <!-- HIGHLIGHT -->
+
+  <div class="highlight">
+
+    <h3>Unahitaji msaada zaidi?</h3>
+
+    <p>
+      Kama swali lako halijajibiwa hapa, timu ya Dizzah Media iko tayari
+      kupokea ujumbe wako kupitia ukurasa wa mawasiliano.
+    </p>
+
+  </div>
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>Ungana na Dizzah Media</h2>
+
+    <p>
+      Fuata maudhui yetu, tazama video, soma simulizi na endelea
+      kuwa sehemu ya safari ya Dizzah Media kutoka Tanzania hadi dunia.
+    </p>
+
+    <div class="cta-buttons">
+
+      <a
+        href="https://www.youtube.com/@DizzahMedia"
+        target="_blank"
+        class="btn btn-light"
+      >
+        Tazama YouTube
+      </a>
+
+      <a
+        href="contact.html"
+        class="btn btn-purple"
+      >
+        Wasiliana Nasi
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div class="footer-brand">
+          <img src="assets/dizzah-logo-profile.png" alt="Dizzah Media Logo">
+          <strong>DIZZAH MEDIA</strong>
+        </div>
+
+        <p>
+          Hakika Leo, Kesho kwa Ubora Zaidi.
+          Media house inayolenga kuunganisha Tanzania,
+          Afrika na dunia kupitia maudhui bora.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3>Explore</h3>
+
+        <ul>
+          <li><a href="news.html">News</a></li>
+          <li><a href="simulizi.html">Simulizi</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="videos.html">Videos</a></li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>Dizzah</h3>
+
+        <ul>
+          <li><a href="originals.html">Dizzah Originals</a></li>
+          <li><a href="podcasts.html">Podcasts</a></li>
+          <li><a href="motivation.html">Motivation</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3>Company</h3>
+
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Privacy.html">Privacy</a></li>
+          <li><a href="Terms.html">Terms</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Dizzah Media. All Rights Reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+
+  /* FAQ ACCORDION */
+
+  const questions = document.querySelectorAll(".faq-question");
+
+  questions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+      const item = question.parentElement;
+
+      document.querySelectorAll(".faq-item.open").forEach(openItem => {
+
+        if(openItem !== item){
+          openItem.classList.remove("open");
+        }
+
+      });
+
+      item.classList.toggle("open");
+
+    });
+
+  });
+
+
+  /* CATEGORY FILTER */
+
+  const categoryButtons = document.querySelectorAll(".category");
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  categoryButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      categoryButtons.forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      const category = button.dataset.category;
+
+      faqItems.forEach(item => {
+
+        if(category === "all" || item.dataset.category === category){
+          item.style.display = "block";
+        }else{
+          item.style.display = "none";
+        }
+
+      });
+
+      document.getElementById("noResults").style.display = "none";
+
+    });
+
+  });
+
+
+  /* SEARCH */
+
+  const searchInput = document.getElementById("faqSearch");
+  const noResults = document.getElementById("noResults");
+
+  searchInput.addEventListener("input", () => {
+
+    const query = searchInput.value.toLowerCase().trim();
+
+    let found = 0;
+
+    faqItems.forEach(item => {
+
+      const text = item.innerText.toLowerCase();
+
+      if(text.includes(query)){
+
+        item.style.display = "block";
+        found++;
+
+      }else{
+
+        item.style.display = "none";
+
+      }
+
+    });
+
+    if(query && found === 0){
+
+      noResults.style.display = "block";
+
+    }else{
+
+      noResults.style.display = "none";
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
