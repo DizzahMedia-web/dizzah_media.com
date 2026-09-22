@@ -7,7 +7,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Dizzah Media | Admin Login</title>
+<title>Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.</title>
   <meta name="description" content="Dizzah Media secure administration login.">
 
 <link rel="icon"
@@ -370,6 +370,14 @@ input:focus{
 
 </style>
 
+<link rel="canonical" href="https://dizzahmedia.com/admin-login.html">
+<meta property="og:url" content="https://dizzahmedia.com/admin-login.html">
+<meta property="og:site_name" content="Dizzah Media">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.">
+<meta property="og:description" content="Dizzah Media ni media house ya Tanzania inayounganisha habari, simulizi, video, movies, podcasts na Dizzah Originals na hadhira ya Afrika na dunia.">
+<meta property="og:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
+<meta name="robots" content="noindex,nofollow">
 </head>
 
 <body>
@@ -532,6 +540,8 @@ input:focus{
 
 /* SUPABASE */
 
+const DIZZAH_OWNER_EMAIL = "shabarnkhamisskhamiss@gmail.com";
+
 const SUPABASE_URL =
 "https://otmejtcequreccarwvkt.supabase.co";
 
@@ -621,6 +631,11 @@ loginForm.addEventListener(
     document.getElementById(
       "password"
     ).value;
+
+    if(email.toLowerCase() !== DIZZAH_OWNER_EMAIL){
+      showMessage("Newsroom hii ni ya Owner pekee.", "error");
+      return;
+    }
 
     if(!email || !password){
 

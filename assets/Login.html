@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ingia | Dizzah Media</title>
+<title>Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.</title>
 
 <meta name="description" content="Ingia kwenye akaunti yako ya Dizzah Media.">
 <meta name="author" content="Dizzah Media">
@@ -431,6 +431,14 @@ input:focus{
 <!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<link rel="canonical" href="https://dizzahmedia.com/Login.html">
+<meta property="og:url" content="https://dizzahmedia.com/Login.html">
+<meta property="og:site_name" content="Dizzah Media">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.">
+<meta property="og:description" content="Dizzah Media ni media house ya Tanzania inayounganisha habari, simulizi, video, movies, podcasts na Dizzah Originals na hadhira ya Afrika na dunia.">
+<meta property="og:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
+<meta name="robots" content="noindex,nofollow">
 </head>
 
 <body>
@@ -580,7 +588,7 @@ input:focus{
 
                         </label>
 
-                        <a href="#" class="forgot">
+                        <a href="#" class="forgot" id="forgotPassword">
                             Umesahau nenosiri?
                         </a>
 
@@ -636,6 +644,8 @@ input:focus{
 
 
 <script>
+
+const DIZZAH_OWNER_EMAIL = "shabarnkhamisskhamiss@gmail.com";
 
 const SUPABASE_URL =
     "https://otmejtcequreccarwvkt.supabase.co";
@@ -701,6 +711,28 @@ function showMessage(text,type){
 
 }
 
+
+function routeAfterLogin(session){
+    const sessionEmail = (session?.user?.email || "").toLowerCase();
+    window.location.href = sessionEmail === DIZZAH_OWNER_EMAIL ? "admin.html" : "index.html";
+}
+
+const forgotPassword = document.getElementById("forgotPassword");
+forgotPassword.addEventListener("click", async function(event){
+    event.preventDefault();
+    const userEmail = email.value.trim().toLowerCase();
+    if(userEmail !== DIZZAH_OWNER_EMAIL){
+        showMessage("Weka email ya Owner ya Dizzah Media kwanza.", "error");
+        return;
+    }
+    forgotPassword.textContent = "Inatuma link...";
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(userEmail, {
+        redirectTo: "https://dizzahmedia.com/reset-password.html"
+    });
+    if(error){ showMessage("Imeshindikana kutuma link: " + error.message, "error"); }
+    else { showMessage("Link ya kubadilisha nenosiri imetumwa kwenye email yako.", "success"); }
+    forgotPassword.textContent = "Umesahau nenosiri?";
+});
 
 /* LOGIN */
 
@@ -781,8 +813,7 @@ form.addEventListener("submit",async function(event){
 
             setTimeout(function(){
 
-                window.location.href =
-                    "admin.html";
+                routeAfterLogin(data.session);
 
             },900);
 
@@ -820,8 +851,7 @@ form.addEventListener("submit",async function(event){
 
         if(data && data.session){
 
-            window.location.href =
-                "admin.html";
+            routeAfterLogin(data.session);
 
         }
 

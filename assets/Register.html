@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jisajili | Dizzah Media</title>
+<title>Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.</title>
 
 <meta name="description" content="Jisajili kwenye Dizzah Media na uwe sehemu ya jumuiya yetu.">
 <meta name="author" content="Dizzah Media">
@@ -414,6 +414,14 @@ input:focus{
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<link rel="canonical" href="https://dizzahmedia.com/Register.html">
+<meta property="og:url" content="https://dizzahmedia.com/Register.html">
+<meta property="og:site_name" content="Dizzah Media">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.">
+<meta property="og:description" content="Dizzah Media ni media house ya Tanzania inayounganisha habari, simulizi, video, movies, podcasts na Dizzah Originals na hadhira ya Afrika na dunia.">
+<meta property="og:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
+<meta name="robots" content="noindex,nofollow">
 </head>
 
 <body>
@@ -667,6 +675,8 @@ input:focus{
 
 <script>
 
+const DIZZAH_OWNER_EMAIL = "shabarnkhamisskhamiss@gmail.com";
+
 const SUPABASE_URL =
     "https://otmejtcequreccarwvkt.supabase.co";
 
@@ -847,6 +857,11 @@ form.addEventListener("submit",async function(event){
 
     const password =
         passwordInput.value;
+
+    if(email.toLowerCase() !== DIZZAH_OWNER_EMAIL){
+        showMessage("Usajili wa Newsroom umefungwa kwa Owner pekee.", "error");
+        return;
+    }
 
     const confirmPassword =
         confirmInput.value;

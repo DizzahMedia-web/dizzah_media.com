@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dizzah Media | Admin Dashboard</title>
+  <title>Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.</title>
   <link rel="icon" type="image/jpeg" href="assets/dizzah-logo-profile.jpg">
 
   <meta name="description" content="Dizzah Media Administration Dashboard">
@@ -696,6 +696,14 @@
       }
     }
   </style>
+<link rel="canonical" href="https://dizzahmedia.com/admin.html">
+<meta property="og:url" content="https://dizzahmedia.com/admin.html">
+<meta property="og:site_name" content="Dizzah Media">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.">
+<meta property="og:description" content="Dizzah Media ni media house ya Tanzania inayounganisha habari, simulizi, video, movies, podcasts na Dizzah Originals na hadhira ya Afrika na dunia.">
+<meta property="og:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
+<meta name="robots" content="noindex,nofollow">
 </head>
 
 <body>
@@ -1248,6 +1256,8 @@
        SUPABASE CONFIGURATION
     ========================================== */
 
+    const DIZZAH_OWNER_EMAIL = "shabarnkhamisskhamiss@gmail.com";
+
     const SUPABASE_URL =
       "https://otmejtcequreccarwvkt.supabase.co";
 
@@ -1273,6 +1283,8 @@
 
     let editingPostId = null;
 
+    let isOwner = false;
+
 
     /* ==========================================
        PROTECT ADMIN PAGE
@@ -1297,6 +1309,14 @@
           window.location.href = "admin-login.html";
           return;
         }
+
+        const sessionEmail = (data.session.user?.email || "").toLowerCase();
+        if (sessionEmail !== DIZZAH_OWNER_EMAIL) {
+          await supabaseClient.auth.signOut();
+          window.location.href = "admin-login.html";
+          return;
+        }
+        isOwner = true;
 
       } catch (error) {
 
@@ -1878,6 +1898,10 @@
 
       event.preventDefault();
 
+      if (!isOwner) {
+        showMessage("Ruhusa ya Owner inahitajika.", "error");
+        return;
+      }
 
       const title =
         document
@@ -2145,6 +2169,11 @@
     ========================================== */
 
     async function deletePost(id) {
+
+      if (!isOwner) {
+        showMessage("Ruhusa ya Owner inahitajika.", "error");
+        return;
+      }
 
       const post =
         allPosts.find(

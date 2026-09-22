@@ -1,4 +1,24 @@
-DIZZAH MEDIA — FINAL RELEASE ASSETS
-===================================
+DIZZAH MEDIA — RELEASE ASSETS
+==============================
 
-The assets/ directory contains the media and brand files used by the Dizzah Media website. The primary profile image is assets/dizzah-logo-profile.jpg. The package includes the custom-domain CNAME file at repository root, SEO files, web manifest, favicon files, content images, and all website pages.
+Folder assets/ lina media na brand files za website ya Dizzah Media.
+
+Brand/profile files:
+- dizzah-logo-profile.jpg — profile logo kuu ya Dizzah Media
+- logo-full.png — legacy logo reference
+- logo-nav.png — legacy navigation logo reference
+- favicon.svg
+- favicon-16.png, favicon-32.png, favicon-64.png, favicon-180.png
+- site.webmanifest — web app metadata
+
+Content images:
+- gallery.jpg
+- motivation.jpg
+- movie.jpg
+- news1.jpg, news2.jpg, news3.jpg
+- originals.jpg
+- podcast.jpg
+- simulizi.jpg
+- videos.jpg
+
+The website references the profile logo as assets/dizzah-logo-profile.jpg.
