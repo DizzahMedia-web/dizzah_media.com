@@ -1,0 +1,4 @@
+Contact: mailto:info@dizzahmedia.com
+Preferred-Languages: sw, en
+Canonical: https://dizzahmedia.com/.well-known/security.txt
+Policy: https://dizzahmedia.com/Terms.html
