@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".mobile-menu-btn");
 
   const navLinks =
-    document.querySelector(".nav-links");
+    document.querySelector(".nav-links") || document.querySelector("#mainNav") || document.querySelector("nav");
 
   if (mobileToggle && navLinks) {
 
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
      ======================================================= */
 
   const header =
-    document.querySelector(".site-header");
+    document.querySelector(".site-header") || document.querySelector("header");
 
   const updateHeader =
     () => {

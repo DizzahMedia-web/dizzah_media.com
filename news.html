@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Habari | Dizzah Media</title>
+  <title>News | Dizzah Media</title>
 
   <meta
     name="description"
@@ -27,7 +27,7 @@
   >
   <meta
     property="og:image"
-    content="assets/dizzah-logo-profile.png"
+    content="assets/dizzah-logo-profile.jpg"
   >
 
   <link
@@ -38,7 +38,7 @@
   <link
     rel="icon"
     type="image/png"
-    href="assets/favicon-32.png"
+    href="assets/dizzah-logo-profile.jpg"
   >
 
   <link rel="stylesheet" href="style.css">
@@ -47,6 +47,10 @@
   <script
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
   ></script>
+<script src="site-data.js"></script>
+<meta property="og:url" content="https://dizzahmedia.com/news.html">
+<meta property="og:site_name" content="Dizzah Media">
+<meta property="og:type" content="website">
 </head>
 
 <body>
@@ -97,7 +101,7 @@
       >
 
         <img
-          src="assets/dizzah-logo-profile.png"
+          src="assets/dizzah-logo-profile.jpg"
           alt="Dizzah Media"
           width="58"
           height="58"
@@ -461,7 +465,7 @@
         <div class="footer-brand">
 
           <img
-            src="assets/dizzah-logo-profile.png"
+            src="assets/dizzah-logo-profile.jpg"
             alt="Dizzah Media"
             width="65"
             height="65"
@@ -940,7 +944,9 @@
                 </span>
 
                 <h3>
-                  ${title}
+                  <a href="article.html?id=${encodeURIComponent(post.id)}">
+                    ${title}
+                  </a>
                 </h3>
 
                 <p>
@@ -948,11 +954,8 @@
                 </p>
 
                 <div class="story-meta">
-
-                  <span>
-                    ${escapeHTML(date)}
-                  </span>
-
+                  <span>${escapeHTML(date)}</span>
+                  <a class="card-link" href="article.html?id=${encodeURIComponent(post.id)}">Soma makala →</a>
                 </div>
 
                 ${videoHTML}

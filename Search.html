@@ -8,13 +8,13 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Tafuta | Dizzah Media</title>
+<title>Search | Dizzah Media</title>
 
 <meta name="description"
 content="Tafuta habari, simulizi, videos, movies na maudhui mengine ya Dizzah Media.">
 
 <link rel="icon"
-href="assets/favicon-32.png">
+href="assets/dizzah-logo-profile.jpg">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -481,6 +481,14 @@ footer{
 
 </style>
 
+<script src="site-data.js"></script>
+<link rel="canonical" href="https://dizzahmedia.com/Search.html">
+<meta property="og:url" content="https://dizzahmedia.com/Search.html">
+<meta property="og:site_name" content="Dizzah Media">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Search | Dizzah Media">
+<meta property="og:description" content="Dizzah Media ni media house ya Tanzania inayounganisha habari, simulizi, video, movies, podcasts na Dizzah Originals na hadhira ya Afrika na dunia.">
+<meta property="og:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
 </head>
 
 <body>
@@ -492,7 +500,7 @@ footer{
 <a href="index.html" class="brand">
 
 <img
-src="assets/dizzah-logo-profile.png"
+src="assets/dizzah-logo-profile.jpg"
 alt="Dizzah Media">
 
 <div>
@@ -528,7 +536,7 @@ alt="Dizzah Media">
 
 <img
 class="hero-logo"
-src="assets/dizzah-logo-profile.png"
+src="assets/dizzah-logo-profile.jpg"
 alt="Dizzah Media">
 
 <br>
@@ -828,8 +836,7 @@ let filtered =
 allPosts.filter(post => {
 
 const matchesCategory =
-!activeCategory ||
-post.category === activeCategory;
+!activeCategory || String(post.category || "").toLowerCase() === activeCategory.toLowerCase();
 
 if(!term){
 return matchesCategory;
@@ -926,9 +933,7 @@ onerror="this.src='assets/news1.jpg'">
 
 <div>
 
-<h3>
-${escapeHTML(post.title)}
-</h3>
+<h3><a href="article.html?id=${encodeURIComponent(post.id)}">${escapeHTML(post.title)}</a></h3>
 
 <p>
 ${escapeHTML(
