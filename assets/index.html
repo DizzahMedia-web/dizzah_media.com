@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dizzah Media | Tanzania, Africa & World News</title>
+  <title>Dizzah Media | Habari, Simulizi, Movies, Motivation & Originals</title>
   <meta name="description" content="Dizzah Media — habari, simulizi za maisha, movies, motivation, podcasts, video na Dizzah Originals kutoka Tanzania kwenda Afrika na dunia.">
   <meta name="author" content="Dizzah Media">
   <meta name="theme-color" content="#17113d">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Dizzah Media | Tanzania → Africa → World">
   <meta property="og:description" content="Habari, simulizi, video, movies, motivation, podcasts na Dizzah Originals.">
-  <meta property="og:image" content="assets/dizzah-logo-profile.jpg">
-  <link rel="canonical" href="https://dizzahmedia.com/">
-  <link rel="icon" type="image/jpeg" href="assets/dizzah-logo-profile.jpg">
+  <meta property="og:image" content="assets/logo-nav.png">
+  <link rel="icon" type="image/png" href="assets/favicon-32.png">
 
   <style>
     :root{
@@ -1091,16 +1090,18 @@
       .brand-tagline{display:none}
     }
   </style>
+  <link rel="stylesheet" href="global-enhancements.css">
 
-  <link rel="manifest" href="assets/site.webmanifest">
-  <link rel="apple-touch-icon" href="assets/dizzah-logo-profile.jpg">
+  <link rel="canonical" href="https://dizzahmedia.com/index.html">
+  <meta property="og:url" content="https://dizzahmedia.com/index.html">
+  <meta property="og:locale" content="sw_TZ">
+  <meta property="og:site_name" content="Dizzah Media">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dizzah Media | Tanzania → Africa → World">
-  <meta name="twitter:description" content="Habari, simulizi, video, podcasts na Dizzah Originals kutoka Tanzania kwenda Afrika na dunia.">
-  <meta name="twitter:image" content="assets/dizzah-logo-profile.jpg">
-<meta property="og:url" content="https://dizzahmedia.com/">
-<meta property="og:site_name" content="Dizzah Media">
-<meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"Dizzah Media","url":"https://dizzahmedia.com/","logo":"https://dizzahmedia.com/assets/logo-nav.png","description":"Habari, simulizi, video, movies, podcasts na Dizzah Originals kutoka Tanzania kwenda Afrika na dunia.","sameAs":["https://www.youtube.com/@DizzahMedia","https://www.instagram.com/dizzah_media","https://www.tiktok.com/@dizzahmedia"]}</script>
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="Dizzah Media RSS" href="feed.xml">
+  <link rel="alternate" hreflang="sw" href="index.html">
+  <link rel="alternate" hreflang="en" href="index.html?lang=en">
 </head>
 
 <body>
@@ -1134,7 +1135,7 @@
          aria-label="Dizzah Media Home">
 
         <img
-          src="assets/dizzah-logo-profile.jpg"
+          src="assets/logo-nav.png"
           alt="Dizzah Media Logo"
         >
 
@@ -2190,7 +2191,7 @@
         <div class="mission-image">
 
           <img
-            src="assets/dizzah-logo-profile.jpg"
+            src="assets/logo-nav.png"
             alt="Dizzah Media"
             loading="lazy"
           >
@@ -2325,7 +2326,7 @@
         <div class="footer-brand">
 
           <img
-            src="assets/dizzah-logo-profile.jpg"
+            src="assets/logo-nav.png"
             alt="Dizzah Media Logo"
             loading="lazy"
           >
@@ -2473,6 +2474,7 @@
 
   <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="content.js"></script>
 
   <script>
     (() => {
@@ -2822,7 +2824,7 @@
           );
 
         const page =
-          categoryPage(category);
+          `article.html?id=${encodeURIComponent(post.id || "")}`;
 
         lead.innerHTML = `
           <a href="${escapeHTML(page)}">
@@ -2914,9 +2916,7 @@
                 );
 
               const page =
-                categoryPage(
-                  category
-                );
+                `article.html?id=${encodeURIComponent(post.id || "")}`;
 
               return `
                 <article class="side-story">
@@ -2999,7 +2999,7 @@
               return `
                 <article class="card">
 
-                  <a href="simulizi.html">
+                  <a href="article.html?id=${encodeURIComponent(post.id || "")}">
 
                     <div class="card-img">
 
@@ -3198,59 +3198,13 @@
       }
 
       async function loadPosts() {
-
-        if (!supabaseClient) {
-
-          showStatus(
-            "Database haijaunganishwa",
-            false
-          );
-
-          return [];
-
-        }
-
         try {
-
-          const {
-            data,
-            error
-          } = await supabaseClient
-            .from("posts")
-            .select(
-              "id,title,category,image_url,video_url,description,created_at"
-            )
-            .order(
-              "created_at",
-              {
-                ascending:false
-              }
-            );
-
-          if (error) {
-            throw error;
-          }
-
-          return Array.isArray(data)
-            ? data
-            : [];
-
+          return await window.DizzahContent.getPosts();
         } catch (error) {
-
-          console.error(
-            "Dizzah Media Supabase error:",
-            error
-          );
-
-          showStatus(
-            "Tunaendelea na maudhui ya kawaida",
-            false
-          );
-
-          return [];
-
+          console.error("Dizzah Media content error:", error);
+          showStatus("Tunaendelea na maudhui ya kawaida", false);
+          return window.DizzahContent.fallbackPosts;
         }
-
       }
 
       async function initDynamicHomepage() {
@@ -3344,5 +3298,6 @@
     })();
   </script>
 
+  <script src="global-enhancements.js"></script>
 </body>
 </html>

@@ -1,10 +1,17 @@
 {
   "name": "Dizzah Media",
-  "short_name": "Dizzah Media",
-  "description": "Tanzania → Africa → World",
-  "start_url": "/",
+  "short_name": "Dizzah",
+  "description": "Habari, simulizi, video, movies, podcasts na Dizzah Originals kutoka Tanzania kwenda Afrika na dunia.",
+  "lang": "sw-TZ",
+  "dir": "ltr",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0d0924",
-  "theme_color": "#5b35d5",
-  "icons": [{"src": "/assets/dizzah-logo-profile.jpg", "sizes": "1254x1254", "type": "image/jpeg", "purpose": "any maskable"}]
+  "background_color": "#12051f",
+  "theme_color": "#5b19a1",
+  "categories": ["news", "entertainment", "lifestyle"],
+  "icons": [
+    {"src":"assets/favicon-180.png","sizes":"180x180","type":"image/png","purpose":"any maskable"},
+    {"src":"assets/favicon-32.png","sizes":"32x32","type":"image/png","purpose":"any"}
+  ]
 }

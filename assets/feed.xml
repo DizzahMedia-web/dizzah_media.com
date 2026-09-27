@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Dizzah Media</title>
+    <link>https://dizzahmedia.com/</link>
+    <description>Habari, simulizi na maudhui kutoka Tanzania kwenda Afrika na dunia.</description>
+    <language>sw-TZ</language>
+    <item>
+      <title>Karibu Dizzah Media — Sauti za Tanzania kwa Dunia</title>
+      <link>https://dizzahmedia.com/article.html?id=welcome-dizzah-media</link>
+      <description>Dizzah Media ni jukwaa la habari, simulizi na ubunifu linalounganisha Tanzania, Afrika na dunia.</description>
+      <guid>https://dizzahmedia.com/article.html?id=welcome-dizzah-media</guid>
+    </item>
+  </channel>
+</rss>

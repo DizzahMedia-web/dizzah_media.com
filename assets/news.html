@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>News | Dizzah Media</title>
+  <title>Habari | Dizzah Media</title>
 
   <meta
     name="description"
@@ -27,7 +27,7 @@
   >
   <meta
     property="og:image"
-    content="assets/dizzah-logo-profile.jpg"
+    content="assets/logo-nav.png"
   >
 
   <link
@@ -38,7 +38,7 @@
   <link
     rel="icon"
     type="image/png"
-    href="assets/dizzah-logo-profile.jpg"
+    href="assets/favicon-32.png"
   >
 
   <link rel="stylesheet" href="style.css">
@@ -47,10 +47,11 @@
   <script
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
   ></script>
-<script src="site-data.js"></script>
-<meta property="og:url" content="https://dizzahmedia.com/news.html">
-<meta property="og:site_name" content="Dizzah Media">
-<meta property="og:type" content="website">
+  <link rel="stylesheet" href="global-enhancements.css">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="Dizzah Media RSS" href="feed.xml">
+  <link rel="alternate" hreflang="sw" href="index.html">
+  <link rel="alternate" hreflang="en" href="index.html?lang=en">
 </head>
 
 <body>
@@ -101,7 +102,7 @@
       >
 
         <img
-          src="assets/dizzah-logo-profile.jpg"
+          src="assets/logo-nav.png"
           alt="Dizzah Media"
           width="58"
           height="58"
@@ -465,7 +466,7 @@
         <div class="footer-brand">
 
           <img
-            src="assets/dizzah-logo-profile.jpg"
+            src="assets/logo-nav.png"
             alt="Dizzah Media"
             width="65"
             height="65"
@@ -657,6 +658,8 @@
   </footer>
 
 
+  <script src="content.js"></script>
+
   <!-- NEWS DATA / SUPABASE -->
   <script>
 
@@ -773,227 +776,33 @@
 
 
     async function loadNews() {
-
-      showStatus(
-        "Inapakia...",
-        "Tafadhali subiri kidogo."
-      );
-
-
+      showStatus("Inapakia...", "Tafadhali subiri kidogo.");
       try {
-
-        const {
-          data,
-          error
-        } =
-        await supabaseClient
-          .from("posts")
-          .select(
-            `
-              id,
-              title,
-              category,
-              image_url,
-              video_url,
-              description,
-              created_at
-            `
-          )
-          .order(
-            "created_at",
-            {
-              ascending: false
-            }
-          );
-
-
-        if (error) {
-
-          console.error(
-            "Supabase error:",
-            error
-          );
-
-          showStatus(
-            "Imeshindikana kupakia habari",
-            "Kuna tatizo wakati wa kuwasiliana na mfumo wa habari.",
-            true
-          );
-
+        const data = await DizzahContent.getPosts();
+        if (!data.length) {
+          showStatus("Hakuna habari mpya", "Habari mpya zitaonekana hapa baada ya kuongezwa kupitia Dizzah Media Admin.");
           return;
         }
-
-
-        if (
-          !data ||
-          data.length === 0
-        ) {
-
-          showStatus(
-            "Hakuna habari mpya",
-            "Habari mpya zitaonekana hapa baada ya kuongezwa kupitia Dizzah Media Admin."
-          );
-
-          return;
-        }
-
-
-        const grid =
-          document.createElement(
-            "div"
-          );
-
-        grid.className =
-          "cards-3";
-
-
-        data.forEach(
-          (post) => {
-
-            const card =
-              document.createElement(
-                "article"
-              );
-
-            card.className =
-              "card";
-
-
-            const image =
-              post.image_url &&
-              String(
-                post.image_url
-              ).trim()
-                ? escapeHTML(
-                    post.image_url
-                  )
-                : "assets/news1.jpg";
-
-
-            const category =
-              escapeHTML(
-                post.category ||
-                "Habari"
-              );
-
-
-            const title =
-              escapeHTML(
-                post.title ||
-                "Bila kichwa cha habari"
-              );
-
-
-            const description =
-              escapeHTML(
-                post.description ||
-                "Hakuna maelezo ya habari hii."
-              );
-
-
-            const date =
-              formatDate(
-                post.created_at
-              );
-
-
-            let videoHTML = "";
-
-
-            if (
-              post.video_url &&
-              String(
-                post.video_url
-              ).trim()
-            ) {
-
-              videoHTML = `
-                <a
-                  href="${escapeHTML(
-                    post.video_url
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-link"
-                >
-                  ▶ Tazama Video
-                </a>
-              `;
-
-            }
-
-
-            card.innerHTML = `
-
-              <div class="card-img">
-
-                <img
-                  src="${image}"
-                  alt="${title}"
-                  loading="lazy"
-                  onerror="this.src='assets/news1.jpg'"
-                >
-
-              </div>
-
-
-              <div class="card-body">
-
-                <span class="tag">
-                  ${category}
-                </span>
-
-                <h3>
-                  <a href="article.html?id=${encodeURIComponent(post.id)}">
-                    ${title}
-                  </a>
-                </h3>
-
-                <p>
-                  ${description}
-                </p>
-
-                <div class="story-meta">
-                  <span>${escapeHTML(date)}</span>
-                  <a class="card-link" href="article.html?id=${encodeURIComponent(post.id)}">Soma makala →</a>
-                </div>
-
-                ${videoHTML}
-
-              </div>
-            `;
-
-
-            grid.appendChild(
-              card
-            );
-
-          }
-        );
-
-
+        const grid = document.createElement("div");
+        grid.className = "cards-3";
+        DizzahContent.normalize(data).forEach((post) => {
+          const card = document.createElement("article");
+          card.className = "card";
+          const image = post.image_url && String(post.image_url).trim() ? escapeHTML(post.image_url) : "assets/news1.jpg";
+          const category = escapeHTML(post.category || "Habari");
+          const title = escapeHTML(post.title || "Bila kichwa cha habari");
+          const description = escapeHTML(post.description || "Endelea kufuatilia Dizzah Media kwa maudhui zaidi.");
+          const date = formatDate(post.created_at);
+          const videoHTML = post.video_url ? `<a href="${escapeHTML(post.video_url)}" target="_blank" rel="noopener noreferrer" class="card-link">▶ Tazama Video</a>` : "";
+          card.innerHTML = `<div class="card-img"><img src="${image}" alt="${title}" loading="lazy" onerror="this.src='assets/news1.jpg'"></div><div class="card-body"><span class="tag">${category}</span><h3><a href="article.html?id=${encodeURIComponent(post.id || '')}">${title}</a></h3><p>${description}</p><div class="story-meta"><span>${escapeHTML(date)}</span><span>${escapeHTML(post.author || 'Dizzah Media Editorial')}</span></div><a href="article.html?id=${encodeURIComponent(post.id || '')}" class="card-link">Soma article →</a>${videoHTML}</div>`;
+          grid.appendChild(card);
+        });
         newsContainer.innerHTML = "";
-
-        newsContainer.appendChild(
-          grid
-        );
-
-
+        newsContainer.appendChild(grid);
       } catch (error) {
-
-        console.error(
-          "Unexpected error:",
-          error
-        );
-
-        showStatus(
-          "Hitilafu imetokea",
-          "Tafadhali jaribu tena.",
-          true
-        );
-
+        console.error("Unexpected error:", error);
+        showStatus("Hitilafu imetokea", "Tafadhali jaribu tena.", true);
       }
-
     }
 
 
@@ -1015,5 +824,6 @@
   <!-- GLOBAL JS -->
   <script src="script.js"></script>
 
+  <script src="global-enhancements.js"></script>
 </body>
 </html>
