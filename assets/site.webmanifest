@@ -1,0 +1,10 @@
+{
+  "name": "Dizzah Media",
+  "short_name": "Dizzah Media",
+  "description": "Tanzania → Africa → World",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0924",
+  "theme_color": "#5b35d5",
+  "icons": [{"src": "/assets/dizzah-logo-profile.jpg", "sizes": "1254x1254", "type": "image/jpeg", "purpose": "any maskable"}]
+}
