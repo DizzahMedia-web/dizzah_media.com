@@ -5,4 +5,6 @@ Disallow: /admin-login.html
 Disallow: /Login.html
 Disallow: /Register.html
 Disallow: /reset-password.html
+Disallow: /Search.html
+Disallow: /article.html
 Sitemap: https://dizzahmedia.com/sitemap.xml
