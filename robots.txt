@@ -7,4 +7,4 @@ Disallow: /Register.html
 Disallow: /reset-password.html
 Disallow: /Search.html
 Disallow: /article.html
-Sitemap: https://dizzahmedia.com/sitemap.xml
+Sitemap: https://dizzahmedia-web.github.io/dizzah_media.com/sitemap.xml
