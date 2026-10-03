@@ -695,15 +695,15 @@
         padding: 15px;
       }
     }
-  </style>
-<link rel="canonical" href="https://dizzahmedia.com/admin.html">
-<meta property="og:url" content="https://dizzahmedia.com/admin.html">
+  </style><link rel="canonical" href="https://dizzahmedia-web.github.io/dizzah_media.com/admin.html">
+<meta property="og:url" content="https://dizzahmedia-web.github.io/dizzah_media.com/admin.html">
 <meta property="og:site_name" content="Dizzah Media">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dizzah Media | Hakika Leo, Kesho kwa Ubora Zaidi.">
 <meta property="og:description" content="Dizzah Media ni media house ya Tanzania inayounganisha habari, simulizi, video, movies, podcasts na Dizzah Originals na hadhira ya Afrika na dunia.">
-<meta property="og:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
-<meta name="robots" content="noindex, nofollow">
+<meta property="og:image" content="https://dizzahmedia-web.github.io/dizzah_media.com/assets/dizzah-logo-profile.jpg">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
 </head>
 
 <body>
@@ -1219,6 +1219,252 @@
           </div>
 
 
+          <div class="panel-body">
+
+            <div
+              id="libraryContent"
+              class="table-wrap">
+
+              <div class="loading">
+                <strong>Inapakia content...</strong>
+                Tafadhali subiri.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <footer class="admin-footer">
+        © 2026 Dizzah Media — Admin Dashboard
+      </footer>
+
+    </main>
+
+  </div>                  <select
+                    id="category"
+                    required>
+
+                    <option value="">
+                      -- Chagua Category --
+                    </option>
+
+                    <option value="Habari">
+                      Habari
+                    </option>
+
+                    <option value="Simulizi">
+                      Simulizi
+                    </option>
+
+                    <option value="Video">
+                      Video
+                    </option>
+
+                    <option value="Movie">
+                      Movie
+                    </option>
+
+                    <option value="Gallery">
+                      Gallery
+                    </option>
+
+                    <option value="Podcast">
+                      Podcast
+                    </option>
+
+                    <option value="Motivation">
+                      Motivation
+                    </option>
+
+                  </select>
+
+                  <div class="form-help">
+                    Category mpya itatumia jina <strong>Habari</strong>.
+                    Mfumo pia unatambua category ya zamani <strong>News</strong>.
+                  </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                  <label for="imageUrl">
+                    Image URL
+                  </label>
+
+                  <input
+                    type="url"
+                    id="imageUrl"
+                    placeholder="https://example.com/image.jpg">
+
+                  <div class="form-help">
+                    Weka link ya picha ikiwa ipo.
+                  </div>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                  <label for="videoUrl">
+                    Video URL
+                  </label>
+
+                  <input
+                    type="url"
+                    id="videoUrl"
+                    placeholder="https://youtube.com/...">
+
+                  <div class="form-help">
+                    Unaweza kuweka YouTube au video link nyingine.
+                  </div>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                  <label for="description">
+                    Maelezo / Maudhui
+                  </label>
+
+                  <textarea
+                    id="description"
+                    placeholder="Andika maelezo ya content yako hapa..."></textarea>
+
+                </div>
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  type="submit"
+                  class="primary-btn"
+                  id="saveButton">
+                  Hifadhi Content
+                </button>
+
+                <button
+                  type="button"
+                  class="secondary-btn"
+                  onclick="resetForm()">
+                  Futa Form
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           LIBRARY
+      ========================= -->
+
+      <section
+        id="librarySection"
+        style="display:none;">
+
+        <div class="page-header">
+
+          <div>
+            <h1>Content Library</h1>
+
+            <p>
+              Simamia content zote za Dizzah Media.
+            </p>
+          </div>
+
+          <div class="header-actions">
+
+            <button
+              class="primary-btn"
+              onclick="openCreateSection()">
+              + Andika Content
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+              <h2>Content Zote</h2>
+
+              <p>
+                Tafuta, hariri au futa content.
+              </p>
+            </div>
+
+            <div class="library-tools">
+
+              <input
+                class="search-box"
+                type="search"
+                id="searchInput"
+                placeholder="Tafuta title au maelezo..."
+                oninput="renderLibrary()">
+
+              <select
+                class="filter-box"
+                id="filterCategory"
+                onchange="renderLibrary()">
+
+                <option value="all">
+                  Categories zote
+                </option>
+
+                <option value="Habari">
+                  Habari
+                </option>
+
+                <option value="Simulizi">
+                  Simulizi
+                </option>
+
+                <option value="Video">
+                  Video
+                </option>
+
+                <option value="Movie">
+                  Movie
+                </option>
+
+                <option value="Gallery">
+                  Gallery
+                </option>
+
+                <option value="Podcast">
+                  Podcast
+                </option>
+
+                <option value="Motivation">
+                  Motivation
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
           <div class="table-wrap">
 
             <div id="postsTableContainer">
@@ -1311,11 +1557,17 @@
         }
 
         const sessionEmail = (data.session.user?.email || "").toLowerCase();
+
         if (sessionEmail !== DIZZAH_OWNER_EMAIL) {
+
           await supabaseClient.auth.signOut();
+
           window.location.href = "admin-login.html";
+
           return;
+
         }
+
         isOwner = true;
 
       } catch (error) {
@@ -1498,85 +1750,133 @@
 
     function updateStats() {
 
-      document.getElementById(
-        "totalCount"
-      ).textContent =
+      const total =
         allPosts.length;
 
-
-      const habariCount =
+      const news =
         allPosts.filter(
           post =>
-            normalizeCategory(
-              post.category
-            ) === "Habari"
+            normalizeCategory(post.category) === "Habari"
+        ).length;
+
+      const stories =
+        allPosts.filter(
+          post =>
+            normalizeCategory(post.category) === "Simulizi"
+        ).length;
+
+      const videos =
+        allPosts.filter(
+          post =>
+            normalizeCategory(post.category) === "Video"
         ).length;
 
 
-      const storiesCount =
-        allPosts.filter(
-          post =>
-            normalizeCategory(
-              post.category
-            ) === "Simulizi"
-        ).length;
+      const totalElement =
+        document.getElementById(
+          "totalCount"
+        );
+
+      const newsElement =
+        document.getElementById(
+          "newsCount"
+        );
+
+      const storyElement =
+        document.getElementById(
+          "storyCount"
+        );
+
+      const videoElement =
+        document.getElementById(
+          "videoCount"
+        );
 
 
-      const videosCount =
-        allPosts.filter(
-          post =>
-            normalizeCategory(
-              post.category
-            ) === "Video"
-        ).length;
+      if (totalElement) {
+        totalElement.textContent = total;
+      }
 
+      if (newsElement) {
+        newsElement.textContent = news;
+      }
 
-      document.getElementById(
-        "newsCount"
-      ).textContent =
-        habariCount;
+      if (storyElement) {
+        storyElement.textContent = stories;
+      }
 
-
-      document.getElementById(
-        "storiesCount"
-      ).textContent =
-        storiesCount;
-
-
-      document.getElementById(
-        "videosCount"
-      ).textContent =
-        videosCount;
+      if (videoElement) {
+        videoElement.textContent = videos;
+      }
 
     }
 
 
     /* ==========================================
-       CATEGORY NORMALIZATION
-       ==========================================
-       Old database:
-       News
-
-       New system:
-       Habari
+       CATEGORY NORMALIZER
     ========================================== */
 
-    function normalizeCategory(category) {
-
-      if (!category) {
-        return "";
-      }
+    function normalizeCategory(
+      category
+    ) {
 
       const value =
-        String(category).trim();
+        String(
+          category || ""
+        )
+          .trim()
+          .toLowerCase();
+
 
       if (
-        value.toLowerCase() === "news"
+        value === "news" ||
+        value === "habari"
       ) {
         return "Habari";
       }
 
-      return value;
+      if (
+        value === "story" ||
+        value === "stories" ||
+        value === "simulizi"
+      ) {
+        return "Simulizi";
+      }
+
+      if (
+        value === "video" ||
+        value === "videos"
+      ) {
+        return "Video";
+      }
+
+      if (
+        value === "movie" ||
+        value === "movies"
+      ) {
+        return "Movie";
+      }
+
+      if (
+        value === "gallery"
+      ) {
+        return "Gallery";
+      }
+
+      if (
+        value === "podcast" ||
+        value === "podcasts"
+      ) {
+        return "Podcast";
+      }
+
+      if (
+        value === "motivation"
+      ) {
+        return "Motivation";
+      }
+
+      return category || "";
 
     }
 
@@ -1592,95 +1892,98 @@
           "recentPosts"
         );
 
+      if (!container) {
+        return;
+      }
+
 
       if (!allPosts.length) {
 
         container.innerHTML = `
           <div class="empty">
-            <strong>Hakuna content bado.</strong>
-            Anza kwa kuandika content yako ya kwanza.
+            Hakuna content bado.
           </div>
         `;
 
         return;
+
       }
 
 
       const recentPosts =
-        allPosts.slice(0, 5);
+        allPosts.slice(
+          0,
+          6
+        );
 
 
-      let html = `
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Tarehe</th>
-              </tr>
-            </thead>
-            <tbody>
-      `;
+      container.innerHTML =
+        recentPosts.map(
+          post => {
 
+            const title =
+              escapeHtml(
+                post.title || "Untitled"
+              );
 
-      recentPosts.forEach(post => {
+            const category =
+              escapeHtml(
+                normalizeCategory(
+                  post.category
+                )
+              );
 
-        const category =
-          normalizeCategory(
-            post.category
-          );
-
-
-        html += `
-          <tr>
-
-            <td class="title-cell">
-
-              <div class="title-main">
-                ${escapeHtml(
-                  post.title || "Bila title"
-                )}
-              </div>
-
-              <div class="description-small">
-                ${escapeHtml(
-                  post.description || ""
-                )}
-              </div>
-
-            </td>
-
-            <td>
-              ${categoryBadge(category)}
-            </td>
-
-            <td>
-              ${formatDate(
+            const date =
+              formatDate(
                 post.created_at
-              )}
-            </td>
-
-          </tr>
-        `;
-
-      });
+              );
 
 
-      html += `
-            </tbody>
-          </table>
-        </div>
-      `;
+            return `
+              <div class="recent-item">
 
+                <div class="recent-thumb">
 
-      container.innerHTML = html;
+                  ${
+                    post.image_url
+                      ? `
+                        <img
+                          src="${escapeAttribute(post.image_url)}"
+                          alt="${title}"
+                          loading="lazy">
+                      `
+                      : `
+                        <span>
+                          DM
+                        </span>
+                      `
+                  }
+
+                </div>
+
+                <div class="recent-content">
+
+                  <strong>
+                    ${title}
+                  </strong>
+
+                  <span>
+                    ${category} · ${date}
+                  </span>
+
+                </div>
+
+              </div>
+            `;
+
+          }
+        ).join("");
 
     }
 
 
     /* ==========================================
-       RENDER LIBRARY
+       LIBRARY RENDER
     ========================================== */
 
     function renderLibrary() {
@@ -1690,207 +1993,210 @@
           "postsTableContainer"
         );
 
-
-      const searchInput =
-        document.getElementById(
-          "searchInput"
-        );
-
-      const filter =
-        document.getElementById(
-          "filterCategory"
-        );
+      if (!container) {
+        return;
+      }
 
 
       const search =
-        searchInput
-          ? searchInput.value
-              .trim()
-              .toLowerCase()
-          : "";
+        (
+          document.getElementById(
+            "searchInput"
+          )?.value || ""
+        )
+          .trim()
+          .toLowerCase();
 
 
-      const categoryFilter =
-        filter
-          ? filter.value
-          : "all";
+      const category =
+        document.getElementById(
+          "filterCategory"
+        )?.value || "all";
 
 
       const filtered =
-        allPosts.filter(post => {
+        allPosts.filter(
+          post => {
 
-          const title =
-            String(
-              post.title || ""
-            ).toLowerCase();
+            const title =
+              String(
+                post.title || ""
+              ).toLowerCase();
+
+            const description =
+              String(
+                post.description || ""
+              ).toLowerCase();
+
+            const postCategory =
+              normalizeCategory(
+                post.category
+              );
 
 
-          const description =
-            String(
-              post.description || ""
-            ).toLowerCase();
+            const matchesSearch =
+              !search ||
+              title.includes(search) ||
+              description.includes(search);
 
 
-          const category =
-            normalizeCategory(
-              post.category
+            const matchesCategory =
+              category === "all" ||
+              postCategory === category;
+
+
+            return (
+              matchesSearch &&
+              matchesCategory
             );
 
-
-          const matchesSearch =
-            !search ||
-            title.includes(search) ||
-            description.includes(search);
-
-
-          const matchesCategory =
-            categoryFilter === "all" ||
-            category === categoryFilter;
-
-
-          return (
-            matchesSearch &&
-            matchesCategory
-          );
-
-        });
+          }
+        );
 
 
       if (!filtered.length) {
 
         container.innerHTML = `
           <div class="empty">
-            <strong>Hakuna content iliyopatikana.</strong>
-            Jaribu kubadilisha search au category.
+
+            <strong>
+              Hakuna content iliyopatikana.
+            </strong>
+
+            <span>
+              Jaribu kubadilisha search au category.
+            </span>
+
           </div>
         `;
 
         return;
+
       }
 
 
-      let html = `
-        <table>
+      container.innerHTML = `
 
-          <thead>
+        <div class="posts-table">
 
-            <tr>
-              <th>Content</th>
-              <th>Category</th>
-              <th>Tarehe</th>
-              <th>Actions</th>
-            </tr>
+          <div class="table-head">
 
-          </thead>
+            <div>Content</div>
+            <div>Category</div>
+            <div>Tarehe</div>
+            <div>Actions</div>
 
-          <tbody>
+          </div>
+
+          ${
+
+            filtered.map(
+              post => {
+
+                const title =
+                  escapeHtml(
+                    post.title || "Untitled"
+                  );
+
+                const postCategory =
+                  escapeHtml(
+                    normalizeCategory(
+                      post.category
+                    )
+                  );
+
+                const date =
+                  formatDate(
+                    post.created_at
+                  );
+
+
+                return `
+
+                  <div class="table-row">
+
+                    <div class="content-cell">
+
+                      <div class="content-thumb">
+
+                        ${
+                          post.image_url
+                            ? `
+                              <img
+                                src="${escapeAttribute(post.image_url)}"
+                                alt="${title}"
+                                loading="lazy">
+                            `
+                            : `
+                              <span>
+                                DM
+                              </span>
+                            `
+                        }
+
+                      </div>
+
+                      <div>
+
+                        <strong>
+                          ${title}
+                        </strong>
+
+                        <small>
+                          ${
+                            escapeHtml(
+                              truncate(
+                                post.description || "",
+                                80
+                              )
+                            )
+                          }
+                        </small>
+
+                      </div>
+
+                    </div>
+
+                    <div>
+                      <span class="category-badge">
+                        ${postCategory}
+                      </span>
+                    </div>
+
+                    <div>
+                      ${date}
+                    </div>
+
+                    <div class="actions">
+
+                      <button
+                        class="edit-btn"
+                        onclick="editPost('${escapeAttribute(post.id)}')">
+                        Hariri
+                      </button>
+
+                      <button
+                        class="delete-btn"
+                        onclick="deletePost('${escapeAttribute(post.id)}')">
+                        Futa
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                `;
+
+              }
+            ).join("")
+
+          }
+
+        </div>
+
       `;
 
-
-      filtered.forEach(post => {
-
-        const category =
-          normalizeCategory(
-            post.category
-          );
-
-
-        html += `
-          <tr>
-
-            <td class="title-cell">
-
-              <div class="title-main">
-                ${escapeHtml(
-                  post.title || "Bila title"
-                )}
-              </div>
-
-              <div class="description-small">
-                ${escapeHtml(
-                  post.description || "Hakuna maelezo"
-                )}
-              </div>
-
-            </td>
-
-
-            <td>
-              ${categoryBadge(category)}
-            </td>
-
-
-            <td>
-              ${formatDate(
-                post.created_at
-              )}
-            </td>
-
-
-            <td>
-
-              <div class="row-actions">
-
-                <button
-                  class="small-btn edit"
-                  onclick="editPost(${Number(post.id)})">
-                  Hariri
-                </button>
-
-                <button
-                  class="small-btn delete"
-                  onclick="deletePost(${Number(post.id)})">
-                  Futa
-                </button>
-
-              </div>
-
-            </td>
-
-          </tr>
-        `;
-
-      });
-
-
-      html += `
-          </tbody>
-
-        </table>
-      `;
-
-
-      container.innerHTML = html;
-
-    }
-
-
-    /* ==========================================
-       CATEGORY BADGE
-    ========================================== */
-
-    function categoryBadge(category) {
-
-      const safeCategory =
-        category || "Haijawekwa";
-
-
-      const cssClass =
-        safeCategory
-          .toLowerCase()
-          .replace(/\s+/g, "-");
-
-
-      return `
-        <span class="category-badge ${cssClass}">
-          ${escapeHtml(safeCategory)}
-        </span>
-      `;
-
-    }
-
-
-    /* ==========================================
+    }    /* ==========================================
        SAVE POST
     ========================================== */
 
@@ -1899,9 +2205,13 @@
       event.preventDefault();
 
       if (!isOwner) {
-        showMessage("Ruhusa ya Owner inahitajika.", "error");
+        showMessage(
+          "Ruhusa ya Owner inahitajika.",
+          "error"
+        );
         return;
       }
+
 
       const title =
         document
@@ -1946,7 +2256,6 @@
         );
 
         return;
-
       }
 
 
@@ -2052,13 +2361,18 @@
 
         showMessage(
           "Imeshindikana kuhifadhi content: " +
-          (error.message || "Unknown error"),
+          (
+            error.message ||
+            "Unknown error"
+          ),
           "error"
         );
+
 
       } finally {
 
         button.disabled = false;
+
 
         button.textContent =
           editingPostId
@@ -2074,7 +2388,18 @@
        EDIT POST
     ========================================== */
 
-    function editPost(id) {
+    async function editPost(id) {
+
+      if (!isOwner) {
+
+        showMessage(
+          "Ruhusa ya Owner inahitajika.",
+          "error"
+        );
+
+        return;
+      }
+
 
       const post =
         allPosts.find(
@@ -2091,7 +2416,6 @@
         );
 
         return;
-
       }
 
 
@@ -2131,21 +2455,32 @@
         post.description || "";
 
 
-      document.getElementById(
-        "formTitle"
-      ).textContent =
-        "Hariri Content";
+      const formTitle =
+        document.getElementById(
+          "formTitle"
+        );
 
 
-      document.getElementById(
-        "saveButton"
-      ).textContent =
-        "Hifadhi Mabadiliko";
+      if (formTitle) {
+
+        formTitle.textContent =
+          "Hariri Content";
+
+      }
 
 
-      document.getElementById(
-        "editLabel"
-      ).classList.add("show");
+      const saveButton =
+        document.getElementById(
+          "saveButton"
+        );
+
+
+      if (saveButton) {
+
+        saveButton.textContent =
+          "Hifadhi Mabadiliko";
+
+      }
 
 
       showSection(
@@ -2171,9 +2506,15 @@
     async function deletePost(id) {
 
       if (!isOwner) {
-        showMessage("Ruhusa ya Owner inahitajika.", "error");
+
+        showMessage(
+          "Ruhusa ya Owner inahitajika.",
+          "error"
+        );
+
         return;
       }
+
 
       const post =
         allPosts.find(
@@ -2183,14 +2524,19 @@
 
 
       if (!post) {
+
+        showMessage(
+          "Content haijapatikana.",
+          "error"
+        );
+
         return;
       }
 
 
       const confirmed =
         confirm(
-          "Una uhakika unataka kufuta content hii?\n\n" +
-          (post.title || "")
+          `Una uhakika unataka kufuta "${post.title || "content hii"}"?`
         );
 
 
@@ -2203,16 +2549,17 @@
 
         const {
           error
-        } = await supabaseClient
+        } =
+          await supabaseClient
 
-          .from("posts")
+            .from("posts")
 
-          .delete()
+            .delete()
 
-          .eq(
-            "id",
-            id
-          );
+            .eq(
+              "id",
+              id
+            );
 
 
         if (error) {
@@ -2232,14 +2579,17 @@
       } catch (error) {
 
         console.error(
-          "Delete error:",
+          "Delete post error:",
           error
         );
 
 
         showMessage(
           "Imeshindikana kufuta content: " +
-          (error.message || "Unknown error"),
+          (
+            error.message ||
+            "Unknown error"
+          ),
           "error"
         );
 
@@ -2254,33 +2604,46 @@
 
     function resetForm() {
 
+      const form =
+        document.getElementById(
+          "contentForm"
+        );
+
+
+      if (form) {
+        form.reset();
+      }
+
+
       editingPostId = null;
 
 
-      document
-        .getElementById(
-          "contentForm"
-        )
-        .reset();
+      const formTitle =
+        document.getElementById(
+          "formTitle"
+        );
 
 
-      document.getElementById(
-        "formTitle"
-      ).textContent =
-        "Andika Content";
+      if (formTitle) {
+
+        formTitle.textContent =
+          "Ongeza Content";
+
+      }
 
 
-      document.getElementById(
-        "saveButton"
-      ).textContent =
-        "Hifadhi Content";
+      const saveButton =
+        document.getElementById(
+          "saveButton"
+        );
 
 
-      document.getElementById(
-        "editLabel"
-      ).classList.remove(
-        "show"
-      );
+      if (saveButton) {
+
+        saveButton.textContent =
+          "Hifadhi Content";
+
+      }
 
     }
 
@@ -2290,55 +2653,53 @@
     ========================================== */
 
     function showSection(
-      section,
-      button
+      sectionName,
+      activeButton
     ) {
 
-      const dashboard =
-        document.getElementById(
-          "dashboardSection"
-        );
+      const sections = {
+        dashboard:
+          document.getElementById(
+            "dashboardSection"
+          ),
 
-      const create =
-        document.getElementById(
-          "createSection"
-        );
+        create:
+          document.getElementById(
+            "createSection"
+          ),
 
-      const library =
-        document.getElementById(
-          "librarySection"
-        );
-
-
-      dashboard.style.display =
-        "none";
-
-      create.style.display =
-        "none";
-
-      library.style.display =
-        "none";
+        library:
+          document.getElementById(
+            "librarySection"
+          )
+      };
 
 
-      if (section === "dashboard") {
+      Object.values(
+        sections
+      ).forEach(
+        section => {
 
-        dashboard.style.display =
-          "block";
+          if (section) {
 
-      }
+            section.style.display =
+              "none";
 
+          }
 
-      if (section === "create") {
-
-        create.style.display =
-          "block";
-
-      }
+        }
+      );
 
 
-      if (section === "library") {
+      const selected =
+        sections[
+          sectionName
+        ];
 
-        library.style.display =
+
+      if (selected) {
+
+        selected.style.display =
           "block";
 
       }
@@ -2348,20 +2709,31 @@
         .querySelectorAll(
           ".nav-btn"
         )
-        .forEach(btn => {
+        .forEach(
+          button => {
 
-          btn.classList.remove(
-            "active"
-          );
+            button.classList.remove(
+              "active"
+            );
 
-        });
+          }
+        );
 
 
-      if (button) {
+      if (activeButton) {
 
-        button.classList.add(
+        activeButton.classList.add(
           "active"
         );
+
+      }
+
+
+      if (
+        sectionName === "library"
+      ) {
+
+        renderLibrary();
 
       }
 
@@ -2369,58 +2741,51 @@
 
 
     /* ==========================================
-       OPEN CREATE
+       DASHBOARD
+    ========================================== */
+
+    function openDashboard() {
+
+      showSection(
+        "dashboard",
+        document.querySelectorAll(
+          ".nav-btn"
+        )[0]
+      );
+
+    }
+
+
+    /* ==========================================
+       CREATE CONTENT
     ========================================== */
 
     function openCreateSection() {
 
-      resetForm();
-
-
-      const buttons =
-        document.querySelectorAll(
-          ".nav-btn"
-        );
-
-
       showSection(
         "create",
-        buttons[1]
+        document.querySelectorAll(
+          ".nav-btn"
+        )[1]
       );
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
 
     }
 
 
     /* ==========================================
-       OPEN LIBRARY
+       CONTENT LIBRARY
     ========================================== */
 
     function openLibrarySection() {
 
-      const buttons =
-        document.querySelectorAll(
-          ".nav-btn"
-        );
-
-
       showSection(
         "library",
-        buttons[2]
+        document.querySelectorAll(
+          ".nav-btn"
+        )[2]
       );
 
-
-      renderLibrary();
-
-    }
-
-
-    /* ==========================================
+    }    /* ==========================================
        DATE FORMAT
     ========================================== */
 
@@ -2440,7 +2805,9 @@
           date.getTime()
         )
       ) {
+
         return "—";
+
       }
 
 
@@ -2490,16 +2857,82 @@
 
 
     /* ==========================================
-       START
+       ATTRIBUTE ESCAPE
+    ========================================== */
+
+    function escapeAttribute(value) {
+
+      return escapeHtml(value);
+
+    }
+
+
+    /* ==========================================
+       INITIALIZE ADMIN
     ========================================== */
 
     document.addEventListener(
       "DOMContentLoaded",
       async () => {
 
-        await protectAdminPage();
+        try {
 
-        await loadPosts();
+          await protectAdminPage();
+
+          if (!isOwner) {
+            return;
+          }
+
+          openDashboard();
+
+          await loadPosts();
+
+        } catch (error) {
+
+          console.error(
+            "Admin initialization error:",
+            error
+          );
+
+        }
+
+      }
+    );
+
+
+    /* ==========================================
+       CLOSE MOBILE SIDEBAR
+    ========================================== */
+
+    document.addEventListener(
+      "click",
+      event => {
+
+        const sidebar =
+          document.getElementById(
+            "sidebar"
+          );
+
+        const menuButton =
+          document.getElementById(
+            "menuButton"
+          );
+
+
+        if (
+          window.innerWidth <= 850 &&
+          sidebar &&
+          sidebar.classList.contains("open") &&
+          !sidebar.contains(event.target) &&
+          (!menuButton ||
+            !menuButton.contains(event.target))
+        ) {
+
+          sidebar.classList.remove(
+            "open"
+          );
+
+        }
 
       }
     );
