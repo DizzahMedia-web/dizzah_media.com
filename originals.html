@@ -12,6 +12,83 @@
 
   <link rel="icon" href="assets/dizzah-logo-profile.jpg">
 
+  <link rel="canonical" href="https://dizzahmedia-web.github.io/dizzah_media.com/originals.html">
+
+  <meta property="og:url" content="https://dizzahmedia-web.github.io/dizzah_media.com/originals.html">
+  <meta property="og:site_name" content="Dizzah Media">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dizzah Originals | Dizzah Media">
+  <meta property="og:description" content="Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.">
+  <meta property="og:image" content="https://dizzahmedia-web.github.io/dizzah_media.com/assets/dizzah-logo-profile.jpg">
+  <meta property="og:image:alt" content="Dizzah Media logo">
+
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dizzah Originals | Dizzah Media">
+  <meta name="twitter:description" content="Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.">
+  <meta name="twitter:image" content="https://dizzahmedia-web.github.io/dizzah_media.com/assets/dizzah-logo-profile.jpg">
+  <meta name="twitter:image:alt" content="Dizzah Media logo">
+
+  <script type="application/ld+json" data-seo-schema="dizzah-media">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "MediaOrganization"
+        ],
+        "@id": "https://dizzahmedia-web.github.io/dizzah_media.com/#organization",
+        "name": "Dizzah Media",
+        "url": "https://dizzahmedia-web.github.io/dizzah_media.com/",
+        "description": "Hakika Leo, Kesho kwa Ubora Zaidi.",
+        "slogan": "Hakika Leo, Kesho kwa Ubora Zaidi.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://dizzahmedia-web.github.io/dizzah_media.com/assets/dizzah-logo-profile.jpg"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@DizzahMedia"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dizzahmedia-web.github.io/dizzah_media.com/#website",
+        "name": "Dizzah Media",
+        "url": "https://dizzahmedia-web.github.io/dizzah_media.com/",
+        "description": "Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.",
+        "publisher": {
+          "@id": "https://dizzahmedia-web.github.io/dizzah_media.com/#organization"
+        },
+        "inLanguage": "sw-TZ",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://dizzahmedia-web.github.io/dizzah_media.com/Search.html?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://dizzahmedia-web.github.io/dizzah_media.com/originals.html#webpage",
+        "url": "https://dizzahmedia-web.github.io/dizzah_media.com/originals.html",
+        "name": "Dizzah Originals | Dizzah Media",
+        "description": "Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.",
+        "isPartOf": {
+          "@id": "https://dizzahmedia-web.github.io/dizzah_media.com/#website"
+        },
+        "about": {
+          "@id": "https://dizzahmedia-web.github.io/dizzah_media.com/#organization"
+        },
+        "inLanguage": "sw-TZ"
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root{
       --black:#070707;
@@ -48,8 +125,6 @@
       color:inherit;
       text-decoration:none;
     }
-
-    /* HEADER */
 
     header{
       position:sticky;
@@ -132,8 +207,6 @@
       background:var(--purple);
       color:#fff !important;
     }
-
-    /* HERO */
 
     .hero{
       position:relative;
@@ -262,8 +335,6 @@
       transform:translateY(-2px);
     }
 
-    /* HERO CARD */
-
     .hero-card{
       border:1px solid rgba(255,255,255,.13);
       background:rgba(255,255,255,.07);
@@ -313,8 +384,6 @@
       text-transform:uppercase;
     }
 
-    /* SECTION */
-
     .section{
       max-width:1200px;
       margin:80px auto;
@@ -349,8 +418,6 @@
       color:var(--muted);
       font-size:14px;
     }
-
-    /* FEATURE */
 
     .feature{
       display:grid;
@@ -414,8 +481,6 @@
       font-size:10px;
       font-weight:800;
     }
-
-    /* PROJECTS */
 
     .projects{
       display:grid;
@@ -498,8 +563,6 @@
       font-weight:900;
     }
 
-    /* MISSION */
-
     .mission{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -532,8 +595,6 @@
     .mission-card.dark p{
       color:#d4d4d8;
     }
-
-    /* PIPELINE */
 
     .pipeline{
       display:grid;
@@ -571,8 +632,6 @@
       color:var(--muted);
       font-size:12px;
     }
-
-    /* CTA */
 
     .cta{
       max-width:1200px;
@@ -612,8 +671,6 @@
       gap:10px;
       margin-top:25px;
     }
-
-    /* FOOTER */
 
     footer{
       background:#080808;
@@ -687,13 +744,13 @@
       font-size:12px;
     }
 
-    /* MOBILE */
-
     @media(max-width:1050px){
+
       nav a{
         padding:7px 6px;
         font-size:11px;
       }
+
     }
 
     @media(max-width:900px){
@@ -729,6 +786,7 @@
       .footer-grid{
         grid-template-columns:1fr 1fr;
       }
+
     }
 
     @media(max-width:600px){
@@ -803,85 +861,12 @@
       .footer-grid{
         grid-template-columns:1fr;
       }
+
     }
   </style>
-<link rel="canonical" href="https://dizzahmedia.com/originals.html">
-<meta property="og:url" content="https://dizzahmedia.com/originals.html">
-<meta property="og:site_name" content="Dizzah Media">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dizzah Originals | Dizzah Media">
-<meta property="og:description" content="Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.">
-<meta property="og:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta property="og:image:alt" content="Dizzah Media logo">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dizzah Originals | Dizzah Media">
-  <meta name="twitter:description" content="Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.">
-  <meta name="twitter:image" content="https://dizzahmedia.com/assets/dizzah-logo-profile.jpg">
-  <meta name="twitter:image:alt" content="Dizzah Media logo">
-  <script type="application/ld+json" data-seo-schema="dizzah-media">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "Organization",
-        "MediaOrganization"
-      ],
-      "@id": "https://dizzahmedia.com/#organization",
-      "name": "Dizzah Media",
-      "url": "https://dizzahmedia.com/",
-      "description": "Hakika Leo, Kesho kwa Ubora Zaidi.",
-      "slogan": "Hakika Leo, Kesho kwa Ubora Zaidi.",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://dizzahmedia.com/assets/dizzah-logo-profile.jpg"
-      },
-      "sameAs": [
-        "https://www.youtube.com/@DizzahMedia"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://dizzahmedia.com/#website",
-      "name": "Dizzah Media",
-      "url": "https://dizzahmedia.com/",
-      "description": "Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.",
-      "publisher": {
-        "@id": "https://dizzahmedia.com/#organization"
-      },
-      "inLanguage": "sw-TZ",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://dizzahmedia.com/Search.html?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://dizzahmedia.com/originals.html#webpage",
-      "url": "https://dizzahmedia.com/originals.html",
-      "name": "Dizzah Originals | Dizzah Media",
-      "description": "Dizzah Originals — original stories, films, documentaries, series and premium productions from Dizzah Media.",
-      "isPartOf": {
-        "@id": "https://dizzahmedia.com/#website"
-      },
-      "about": {
-        "@id": "https://dizzahmedia.com/#organization"
-      },
-      "inLanguage": "sw-TZ"
-    }
-  ]
-}
-  </script>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
@@ -960,9 +945,6 @@
 
 </header>
 
-
-<!-- HERO -->
-
 <section class="hero">
 
   <div class="hero-inner">
@@ -1002,7 +984,6 @@
       </div>
 
     </div>
-
 
     <div class="hero-card">
 
@@ -1046,9 +1027,6 @@
 
 </section>
 
-
-<!-- FEATURED -->
-
 <section class="section">
 
   <div class="section-head">
@@ -1072,7 +1050,6 @@
     </p>
 
   </div>
-
 
   <div class="feature">
 
@@ -1129,9 +1106,6 @@
 
 </section>
 
-
-<!-- PRODUCTIONS -->
-
 <section class="section" id="productions">
 
   <div class="section-head">
@@ -1155,9 +1129,7 @@
 
   </div>
 
-
   <div class="projects">
-
 
     <article class="project">
 
@@ -1197,7 +1169,6 @@
 
     </article>
 
-
     <article class="project">
 
       <div class="project-image">
@@ -1235,7 +1206,6 @@
       </div>
 
     </article>
-
 
     <article class="project">
 
@@ -1275,13 +1245,9 @@
 
     </article>
 
-
   </div>
 
 </section>
-
-
-<!-- MISSION -->
 
 <section class="section">
 
@@ -1306,7 +1272,6 @@
 
     </div>
 
-
     <div class="mission-card">
 
       <div class="section-kicker">
@@ -1328,9 +1293,6 @@
   </div>
 
 </section>
-
-
-<!-- PRODUCTION PIPELINE -->
 
 <section class="section">
 
@@ -1355,9 +1317,7 @@
 
   </div>
 
-
   <div class="pipeline">
-
 
     <div class="pipeline-card">
 
@@ -1376,7 +1336,6 @@
 
     </div>
 
-
     <div class="pipeline-card">
 
       <div class="pipeline-number">
@@ -1393,7 +1352,6 @@
       </p>
 
     </div>
-
 
     <div class="pipeline-card">
 
@@ -1412,7 +1370,6 @@
 
     </div>
 
-
     <div class="pipeline-card">
 
       <div class="pipeline-number">
@@ -1430,13 +1387,9 @@
 
     </div>
 
-
   </div>
 
 </section>
-
-
-<!-- CTA -->
 
 <section class="cta">
 
@@ -1475,15 +1428,11 @@
 
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
 
   <div class="footer-inner">
 
     <div class="footer-grid">
-
 
       <div>
 
@@ -1507,7 +1456,6 @@
         </p>
 
       </div>
-
 
       <div>
 
@@ -1545,7 +1493,6 @@
 
       </div>
 
-
       <div>
 
         <h3>
@@ -1581,7 +1528,6 @@
         </ul>
 
       </div>
-
 
       <div>
 
@@ -1619,14 +1565,10 @@
 
       </div>
 
-
     </div>
 
-
     <div class="copyright">
-
       © 2026 Dizzah Media. All Rights Reserved.
-
     </div>
 
   </div>
