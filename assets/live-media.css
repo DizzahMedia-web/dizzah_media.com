@@ -1,0 +1,90 @@
+/* Dizzah Media — live satellite visual layer */
+.dm-live-strip {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: 12px 0;
+  color: #fff;
+  background: #0b0820;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.dm-live-inner {
+  width: min(94%, 1240px);
+  margin: 0 auto;
+}
+
+.dm-live-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+  font: 800 11px/1.2 Inter, Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.dm-live-title { display: flex; align-items: center; gap: 8px; }
+.dm-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff3b55; box-shadow: 0 0 0 5px rgba(255,59,85,.14); animation: dm-live-pulse 1.5s infinite; }
+.dm-live-time { color: #bcb4e9; font-size: 10px; letter-spacing: .02em; text-transform: none; }
+
+.dm-live-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dm-live-card {
+  position: relative;
+  min-height: 105px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 13px;
+  background: #15122c;
+  isolation: isolate;
+}
+
+.dm-live-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(3,2,14,.05), rgba(3,2,14,.9));
+  pointer-events: none;
+}
+
+.dm-live-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 105px;
+  display: block;
+  object-fit: cover;
+  opacity: .88;
+  filter: saturate(1.08) contrast(1.04);
+  transition: opacity .45s ease, transform 8s ease;
+}
+
+.dm-live-card:hover img { transform: scale(1.08); }
+.dm-live-card.is-changing img { opacity: .15; }
+.dm-live-caption { position: absolute; z-index: 2; right: 10px; bottom: 8px; left: 10px; display: flex; align-items: end; justify-content: space-between; gap: 10px; }
+.dm-live-caption strong { font-size: 12px; }
+.dm-live-caption span { color: #c9c2ec; font-size: 10px; }
+.dm-live-events { margin-top: 9px; color: #c9c2ec; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dm-live-events a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+@keyframes dm-live-pulse { 50% { opacity: .38; transform: scale(.78); } }
+
+@media (max-width: 700px) {
+  .dm-live-strip { padding: 10px 0; }
+  .dm-live-grid { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+  .dm-live-grid::-webkit-scrollbar { display: none; }
+  .dm-live-card { flex: 0 0 74vw; min-height: 88px; }
+  .dm-live-card img { min-height: 88px; }
+  .dm-live-time { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-live-dot { animation: none; }
+  .dm-live-card img { transition: none; }
+}
