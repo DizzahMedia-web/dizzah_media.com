@@ -1284,7 +1284,114 @@
       .brand-tagline{
         display:none
       }
-    }
+    }/* DIZZAH MEDIA PRESENTER */
+.dizzah-presenter-hero{
+  position:relative;
+  min-height:100svh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:#080512;
+  color:#fff;
+}
+
+.dizzah-presenter-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  animation:dizzahZoom 14s ease-in-out infinite alternate;
+}
+
+.dizzah-presenter-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,2,15,.92),rgba(5,2,15,.48),rgba(5,2,15,.12)),
+    linear-gradient(0deg,rgba(5,2,15,.75),transparent 55%);
+}
+
+@keyframes dizzahZoom{
+  from{transform:scale(1.03)}
+  to{transform:scale(1.12)}
+}
+
+.dizzah-presenter-content{
+  position:relative;
+  z-index:2;
+  width:min(92%,1240px);
+  margin:auto;
+  padding:100px 0;
+}
+
+.dizzah-presenter-badge{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:30px;
+  background:rgba(91,53,213,.8);
+  border:1px solid rgba(255,255,255,.3);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.dizzah-presenter-content h2{
+  max-width:850px;
+  margin:22px 0 15px;
+  font-size:clamp(48px,8vw,105px);
+  line-height:.92;
+  letter-spacing:-3px;
+  font-weight:950;
+}
+
+.dizzah-presenter-content h2 span{
+  color:#bda9ff;
+}
+
+.dizzah-presenter-content p{
+  max-width:650px;
+  font-size:clamp(16px,2vw,22px);
+  color:rgba(255,255,255,.88);
+}
+
+.dizzah-presenter-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.dizzah-presenter-actions a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 20px;
+  border-radius:12px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;
+  font-weight:800;
+  backdrop-filter:blur(8px);
+}
+
+.dizzah-presenter-actions a.primary{
+  background:#5b35d5;
+  border-color:#5b35d5;
+}
+
+@media(max-width:700px){
+  .dizzah-presenter-content{
+    padding:90px 0 60px;
+  }
+
+  .dizzah-presenter-content h2{
+    letter-spacing:-1.5px;
+  }
+}
   </style>
 </head>
 
