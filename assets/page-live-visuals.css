@@ -1,0 +1,47 @@
+/* Dizzah Media — page-specific live visual feed */
+.dm-page-live {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 28px;
+  padding: 22px 0 10px;
+}
+
+.dm-page-live-inner { width: min(92%, 1240px); margin: 0 auto; }
+.dm-page-live-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
+.dm-page-live-kicker { color: #6b3ee8; font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.dm-page-live-title { margin-top: 5px; color: #17131f; font-size: clamp(22px, 3vw, 34px); line-height: 1.08; }
+.dm-page-live-note { max-width: 300px; color: #77717f; font-size: 12px; text-align: right; }
+
+.dm-page-live-grid { display: grid; grid-template-columns: 1.25fr .875fr .875fr; gap: 12px; }
+.dm-page-live-card { position: relative; min-height: 188px; overflow: hidden; border-radius: 18px; background: #110d20; box-shadow: 0 12px 32px rgba(34,20,70,.14); isolation: isolate; }
+.dm-page-live-card:first-child { min-height: 280px; }
+.dm-page-live-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(12,8,28,.06) 28%, rgba(12,8,28,.92) 100%); pointer-events: none; }
+.dm-page-live-card img { width: 100%; height: 100%; min-height: inherit; display: block; object-fit: cover; filter: saturate(1.16) contrast(1.07); transition: opacity .4s ease, transform 9s ease; }
+.dm-page-live-card.is-changing img { opacity: .12; }
+.dm-page-live-card:hover img { transform: scale(1.08); }
+.dm-page-live-card:nth-child(2) img { filter: saturate(1.35) hue-rotate(12deg) contrast(1.12); }
+.dm-page-live-card:nth-child(3) img { filter: saturate(1.28) hue-rotate(290deg) contrast(1.1); }
+.dm-page-live-card-content { position: absolute; right: 15px; bottom: 14px; left: 15px; z-index: 2; color: #fff; }
+.dm-page-live-card-content strong { display: block; font-size: 15px; }
+.dm-page-live-card-content span { display: block; margin-top: 3px; color: #d9d0f6; font-size: 10px; }
+.dm-page-live-badge { position: absolute; top: 13px; left: 13px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(10,7,26,.55); color: #fff; font-size: 10px; font-weight: 900; letter-spacing: .08em; }
+.dm-page-live-badge i { width: 6px; height: 6px; border-radius: 50%; background: #ff4962; animation: dm-page-live-pulse 1.4s infinite; }
+.dm-page-live-event { margin-top: 12px; color: #71697d; font-size: 12px; }
+.dm-page-live-event a { color: #5b35d5; text-decoration: underline; text-underline-offset: 2px; }
+
+@keyframes dm-page-live-pulse { 50% { opacity: .35; transform: scale(.75); } }
+
+@media (max-width: 760px) {
+  .dm-page-live { padding-top: 12px; }
+  .dm-page-live-heading { display: block; }
+  .dm-page-live-note { max-width: none; margin-top: 7px; text-align: left; }
+  .dm-page-live-grid { display: flex; gap: 10px; overflow-x: auto; padding: 2px 4% 8px; margin: 0 -4%; scrollbar-width: none; }
+  .dm-page-live-grid::-webkit-scrollbar { display: none; }
+  .dm-page-live-card, .dm-page-live-card:first-child { flex: 0 0 78vw; min-height: 190px; }
+  .dm-page-live-card:first-child { min-height: 225px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-page-live-badge i { animation: none; }
+  .dm-page-live-card img { transition: none; }
+}
