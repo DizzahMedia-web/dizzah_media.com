@@ -3364,108 +3364,151 @@
                     <h4>
                       Dizzah Media
                     </h4>
+function renderSimulizi(posts) {
 
-                    <p>
-                      ${escapeHTML(
-                        categoryInfo.description
-                      )}
-                    </p>
+  const container =
+    $("#simuliziCards");
 
-                    <span class="dizzah-live-label waiting">
-                      ◌ Bado haijawekewa post
-                    </span>
+  if (!container)
+    return;
 
-                  </div>
+  const allPosts =
+    Array.isArray(posts)
+      ? posts
+      : [];
 
-                </article>
+  /*
+   * Chuja simulizi halisi tu.
+   * Hii inahakikisha homepage
+   * haionyeshi content ya category nyingine.
+   */
+  const simuliziPosts =
+    allPosts.filter(post => {
 
-              `;
+      return (
+        normalizeCategory(
+          post.category
+        ) === "Simulizi"
+      );
 
-            })
-            .join("");
+    });
 
-        setImageFallbacks(container);
+  /*
+   * Kama hakuna simulizi bado,
+   * onyesha ujumbe wa kusubiri
+   * badala ya kuacha section ikiwa tupu.
+   */
+  if (!simuliziPosts.length) {
 
-      }
+    container.innerHTML = `
 
-      function renderSimulizi(posts) {
+      <article class="card">
 
-        const container =
-          $("#simuliziCards");
+        <div class="card-body">
 
-        if (
-          !container ||
-          !posts.length
-        )
-          return;
+          <span class="tag">
+            Simulizi
+          </span>
 
-        container.innerHTML =
-          posts
-            .slice(0, 3)
-            .map(post => {
+          <h3>
+            Simulizi za Dizzah Media
+          </h3>
 
-              const title =
-                post.title ||
-                "Simulizi ya Dizzah Media";
+          <p>
+            Simulizi mpya zitaonekana hapa
+            mara tu zitakapowekwa kwenye
+            Dizzah Media.
+          </p>
 
-              const description =
-                post.description ||
-                "Soma simulizi hii kutoka Dizzah Media.";
+          <a
+            class="card-link"
+            href="simulizi.html"
+          >
+            Fungua Simulizi →
+          </a>
 
-              const image =
-                safeImage(
-                  post.image_url
-                );
+        </div>
 
-              return `
+      </article>
 
-                <article class="card">
+    `;
 
-                  <a href="simulizi.html">
+    return;
+  }
 
-                    <div class="card-img">
+  /*
+   * Chukua simulizi 3 mpya zaidi.
+   */
+  container.innerHTML =
+    simuliziPosts
+      .slice(0, 3)
+      .map(post => {
 
-                      <img
-                        src="${escapeHTML(image)}"
-                        alt="${escapeHTML(title)}"
-                        loading="lazy"
-                        decoding="async"
-                      >
+        const title =
+          post.title ||
+          "Simulizi ya Dizzah Media";
 
-                    </div>
+        const description =
+          post.description ||
+          "Soma simulizi hii kutoka Dizzah Media.";
 
-                    <div class="card-body">
+        const image =
+          safeImage(
+            post.image_url
+          );
 
-                      <span class="tag">
-                        Simulizi
-                      </span>
+        return `
 
-                      <h3>
-                        ${escapeHTML(title)}
-                      </h3>
+          <article class="card">
 
-                      <p>
-                        ${escapeHTML(description)}
-                      </p>
+            <a
+              href="simulizi.html"
+              aria-label="${escapeHTML(title)}"
+            >
 
-                      <span class="card-link">
-                        Soma Simulizi →
-                      </span>
+              <div class="card-img">
 
-                    </div>
+                <img
+                  src="${escapeHTML(image)}"
+                  alt="${escapeHTML(title)}"
+                  loading="lazy"
+                  decoding="async"
+                >
 
-                  </a>
+              </div>
 
-                </article>
+              <div class="card-body">
 
-              `;
+                <span class="tag">
+                  Simulizi
+                </span>
 
-            })
-            .join("");
+                <h3>
+                  ${escapeHTML(title)}
+                </h3>
 
-        setImageFallbacks(container);
+                <p>
+                  ${escapeHTML(description)}
+                </p>
 
-      }
+                <span class="card-link">
+                  Soma Simulizi →
+                </span>
+
+              </div>
+
+            </a>
+
+          </article>
+
+        `;
+
+      })
+      .join("");
+
+  setImageFallbacks(container);
+
+}
 
       function renderVideos(posts) {
 
