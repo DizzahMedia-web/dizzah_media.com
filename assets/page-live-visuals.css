@@ -24,6 +24,7 @@
 .dm-page-live-card-content { position: absolute; right: 15px; bottom: 14px; left: 15px; z-index: 2; color: #fff; }
 .dm-page-live-card-content strong { display: block; font-size: 15px; }
 .dm-page-live-card-content span { display: block; margin-top: 3px; color: #d9d0f6; font-size: 10px; }
+.dm-page-live-card-content a { display: inline-block; margin-top: 4px; color: #fff; font-size: 10px; text-decoration: underline; text-underline-offset: 2px; }
 .dm-page-live-badge { position: absolute; top: 13px; left: 13px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(10,7,26,.55); color: #fff; font-size: 10px; font-weight: 900; letter-spacing: .08em; }
 .dm-page-live-badge i { width: 6px; height: 6px; border-radius: 50%; background: #ff4962; animation: dm-page-live-pulse 1.4s infinite; }
 .dm-page-live-event { margin-top: 12px; color: #71697d; font-size: 12px; }

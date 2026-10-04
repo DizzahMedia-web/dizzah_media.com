@@ -4,6 +4,7 @@
 
   const GIBS = "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best";
   const EVENTS = "https://eonet.gsfc.nasa.gov/api/v3/events?status=open&limit=10";
+  const COMMONS_API = "https://commons.wikimedia.org/w/api.php";
   const layer = "VIIRS_SNPP_CorrectedReflectance_TrueColor";
   const matrix = "GoogleMapsCompatible_Level9";
   const positions = [[3, 3], [4, 3], [2, 4]];
@@ -28,6 +29,11 @@
 
   const config = configs[page];
   if (!config || document.querySelector(".dm-page-live")) return;
+  const commonsQuery = page === "gallery.html"
+    ? "beautiful flowers gardens city skylines"
+    : page === "movies.html" || page === "originals.html" || page === "videos.html"
+      ? "city skyline beautiful cities travel landscape"
+      : "beautiful gardens flowers world cities";
 
   const dateFor = (daysAgo) => {
     const date = new Date();
@@ -51,10 +57,10 @@
         </div>
         <div class="dm-page-live-grid">
           ${positions.map((position, index) => `
-            <article class="dm-page-live-card" data-page-live-card="${index}">
+            <article class="dm-page-live-card" data-page-live-card="${index}" data-source="nasa">
               <span class="dm-page-live-badge"><i></i> LIVE NASA</span>
               <img src="${tile(1, position[0], position[1])}" alt="NASA satellite frame ${index + 1}" loading="lazy">
-              <div class="dm-page-live-card-content"><strong data-page-live-title>${index === 0 ? config[1] : "Earth Watch"}</strong><span data-page-live-meta>${dateFor(1)} • NASA GIBS</span></div>
+              <div class="dm-page-live-card-content"><strong data-page-live-title>${index === 0 ? config[1] : "Earth Watch"}</strong><span data-page-live-meta>${dateFor(1)} • NASA GIBS</span><a data-page-live-credit hidden target="_blank" rel="noopener noreferrer">Chanzo</a></div>
             </article>
           `).join("")}
         </div>
@@ -70,6 +76,7 @@
     const cards = [...section.querySelectorAll("[data-page-live-card]")];
     const update = () => {
       cards.forEach((card, index) => {
+        if (card.dataset.source === "commons") return;
         const image = card.querySelector("img");
         const meta = card.querySelector("[data-page-live-meta]");
         const [row, col] = positions[index];
@@ -117,10 +124,67 @@
     }
   };
 
+  const loadCommonsVisuals = async (section) => {
+    const cards = [...section.querySelectorAll("[data-page-live-card]")];
+    const query = new URLSearchParams({
+      action: "query",
+      generator: "search",
+      gsrsearch: commonsQuery,
+      gsrnamespace: "6",
+      gsrlimit: "12",
+      prop: "imageinfo",
+      iiprop: "url|extmetadata",
+      iiurlwidth: "1000",
+      format: "json",
+      origin: "*"
+    });
+    try {
+      const response = await fetch(`${COMMONS_API}?${query.toString()}`);
+      if (!response.ok) throw new Error("Commons unavailable");
+      const payload = await response.json();
+      const images = Object.values(payload.query?.pages || {})
+        .map((item) => {
+          const info = item.imageinfo?.[0] || {};
+          const title = String(item.title || "World scene").replace(/^File:/i, "");
+          const artist = String(info.extmetadata?.Artist?.value || info.extmetadata?.Credit?.value || "Wikimedia Commons");
+          return { url: info.thumburl || info.url, title, artist, page: `https://commons.wikimedia.org/wiki/${encodeURIComponent(item.title || "")}` };
+        })
+        .filter((item) => /^https?:\/\//i.test(item.url));
+      if (!images.length) throw new Error("No Commons images");
+
+      let cursor = 0;
+      const targets = page === "gallery.html" ? cards : cards.slice(1);
+      const render = () => {
+        targets.forEach((card) => {
+          const item = images[cursor % images.length];
+          const image = card.querySelector("img");
+          const title = card.querySelector("[data-page-live-title]");
+          const meta = card.querySelector("[data-page-live-meta]");
+          const credit = card.querySelector("[data-page-live-credit]");
+          card.dataset.source = "commons";
+          card.classList.add("is-changing");
+          window.setTimeout(() => {
+            image.src = item.url;
+            image.alt = `${item.title} — Wikimedia Commons`;
+            if (title) title.textContent = item.title.length > 42 ? `${item.title.slice(0, 42)}…` : item.title;
+            if (meta) meta.textContent = `Wikimedia Commons • ${item.artist.replace(/<[^>]+>/g, "").slice(0, 44)}`;
+            if (credit) { credit.hidden = false; credit.href = item.page; credit.textContent = "Credits"; }
+            card.classList.remove("is-changing");
+          }, 260);
+          cursor += 1;
+        });
+      };
+      render();
+      window.setInterval(render, 14000);
+    } catch {
+      // NASA cards remain active when Commons is unavailable.
+    }
+  };
+
   const upgradeStaticContentImages = () => {
     const staticAssets = /assets\/(news1|news2|news3|gallery|motivation|movie|originals|podcast|simulizi|videos)\.jpg$/i;
     const images = [...document.querySelectorAll("main img")]
-      .filter((image) => !image.closest(".dm-page-live, .dm-live-strip") && staticAssets.test(image.getAttribute("src") || ""));
+      .filter((image) => !image.closest(".dm-page-live, .dm-live-strip, .gallery") && staticAssets.test(image.getAttribute("src") || ""));
     if (!images.length) return;
 
     let frame = 1;
@@ -154,6 +218,7 @@
     if (!section) return;
     rotate(section);
     loadEvents(section);
+    loadCommonsVisuals(section);
     upgradeStaticContentImages();
   };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
