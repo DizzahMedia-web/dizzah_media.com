@@ -1391,7 +1391,140 @@
   .dizzah-presenter-content h2{
     letter-spacing:-1.5px;
   }
-}
+}      /* ================================
+         DIZZAH LIVE CATEGORY CARDS
+         ================================ */
+
+      .dizzah-live-category{
+        position:relative;
+        overflow:hidden;
+        transition:
+          transform .35s ease,
+          box-shadow .35s ease,
+          border-color .35s ease;
+      }
+
+      .dizzah-live-category:hover{
+        transform:translateY(-5px);
+        box-shadow:0 18px 45px rgba(70,45,180,.16);
+        border-color:#d8cffc;
+      }
+
+      .dizzah-category-image,
+      .dizzah-category-empty{
+        position:relative;
+        width:130px;
+        height:105px;
+        overflow:hidden;
+        border-radius:11px;
+        background:
+          linear-gradient(
+            135deg,
+            #17112e,
+            #5134c9,
+            #8b5cf6
+          );
+      }
+
+      .dizzah-category-image img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition:
+          transform .6s ease,
+          opacity .35s ease;
+      }
+
+      .dizzah-live-category:hover
+      .dizzah-category-image img{
+        transform:scale(1.08);
+      }
+
+      .dizzah-category-icon{
+        position:absolute;
+        right:8px;
+        bottom:8px;
+        width:32px;
+        height:32px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:50%;
+        background:rgba(0,0,0,.65);
+        backdrop-filter:blur(8px);
+        font-size:17px;
+      }
+
+      .dizzah-category-empty{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        text-align:center;
+      }
+
+      .dizzah-category-empty span{
+        font-size:27px;
+        line-height:1;
+      }
+
+      .dizzah-category-empty small{
+        margin-top:7px;
+        font-size:9px;
+        font-weight:900;
+        letter-spacing:1.2px;
+        text-transform:uppercase;
+      }
+
+      .dizzah-category-empty em{
+        margin-top:5px;
+        font-size:8px;
+        opacity:.72;
+        font-style:normal;
+      }
+
+      .dizzah-live-label{
+        display:inline-flex;
+        align-items:center;
+        gap:5px;
+        margin-top:8px;
+        font-size:9px;
+        font-weight:800;
+        color:#19a463;
+      }
+
+      .dizzah-live-label.waiting{
+        color:#8a7fa8;
+      }
+
+      .dizzah-live-label:not(.waiting)::first-letter{
+        color:#e50914;
+      }
+
+      .dizzah-live-category h4 a{
+        color:inherit;
+        text-decoration:none;
+      }
+
+      .dizzah-live-category h4 a:hover{
+        color:var(--purple);
+      }
+
+      @media(max-width:760px){
+
+        .dizzah-category-image,
+        .dizzah-category-empty{
+          width:110px;
+          height:92px;
+        }
+
+        .dizzah-live-category{
+          grid-template-columns:110px 1fr;
+        }
+
+  }
   </style>
 </head>
 
@@ -2972,71 +3105,258 @@
         const container =
           $("#sideStories");
 
-        if (
-          !container ||
-          !posts.length
-        )
+        if (!container)
           return;
 
+        const categories = [
+          {
+            name: "Habari",
+            icon: "📰",
+            description:
+              "Habari na taarifa mpya kutoka Tanzania, Afrika na dunia."
+          },
+
+          {
+            name: "Simulizi",
+            icon: "📖",
+            description:
+              "Hadithi za maisha, changamoto, ndoto na mafanikio."
+          },
+
+          {
+            name: "Movie",
+            icon: "🎬",
+            description:
+              "Filamu na productions za Dizzah Media."
+          },
+
+          {
+            name: "Video",
+            icon: "▶️",
+            description:
+              "Video mpya na maudhui ya Dizzah Media."
+          },
+
+          {
+            name: "Podcast",
+            icon: "🎙️",
+            description:
+              "Mazungumzo, interviews na vipindi vya sauti."
+          },
+
+          {
+            name: "Motivation",
+            icon: "💡",
+            description:
+              "Mawazo, inspiration na ujumbe wa kujenga."
+          },
+
+          {
+            name: "Gallery",
+            icon: "🖼️",
+            description:
+              "Picha na matukio kutoka Dizzah Media."
+          },
+
+          {
+            name: "Originals",
+            icon: "⭐",
+            description:
+              "Maudhui maalumu ya Dizzah Originals."
+          }
+        ];
+
+        const allPosts =
+          Array.isArray(posts)
+            ? posts
+            : [];
+
         container.innerHTML =
-          posts
-            .slice(0, 4)
-            .map(post => {
+          categories
+            .map(categoryInfo => {
 
-              const category =
-                normalizeCategory(
-                  post.category
-                ) || "Dizzah Media";
+              const categoryPosts =
+                allPosts.filter(post => {
 
-              const title =
-                post.title ||
-                "Maudhui mapya ya Dizzah Media";
+                  return (
+                    normalizeCategory(
+                      post.category
+                    ) === categoryInfo.name
+                  );
 
-              const description =
-                post.description ||
-                "Soma zaidi kuhusu maudhui haya kutoka Dizzah Media.";
+                });
 
-              const image =
-                safeImage(
-                  post.image_url
-                );
+              /*
+               * Chukua post mpya zaidi
+               * kwenye category husika.
+               */
+
+              const post =
+                categoryPosts[0] || null;
 
               const page =
-                categoryPage(category);
+                categoryPage(
+                  categoryInfo.name
+                );
+
+              /*
+               * Kama kuna post halisi,
+               * tumia taarifa zake.
+               */
+
+              if (post) {
+
+                const title =
+                  post.title ||
+                  `${categoryInfo.name} — Dizzah Media`;
+
+                const description =
+                  post.description ||
+                  categoryInfo.description;
+
+                const image =
+                  safeImage(
+                    post.image_url,
+                    ""
+                  );
+
+                return `
+
+                  <article
+                    class="side-story dizzah-live-category has-content"
+                    data-category="${escapeHTML(
+                      categoryInfo.name
+                    )}"
+                  >
+
+                    <a
+                      href="${escapeHTML(page)}"
+                      aria-label="${escapeHTML(title)}"
+                    >
+
+                      ${
+                        image
+                          ? `
+                            <div class="dizzah-category-image">
+                              <img
+                                src="${escapeHTML(image)}"
+                                alt="${escapeHTML(title)}"
+                                loading="lazy"
+                                decoding="async"
+                              >
+                              <span class="dizzah-category-icon">
+                                ${categoryInfo.icon}
+                              </span>
+                            </div>
+                          `
+                          : `
+                            <div class="dizzah-category-empty">
+                              <span>
+                                ${categoryInfo.icon}
+                              </span>
+                              <small>
+                                DIZZAH MEDIA
+                              </small>
+                            </div>
+                          `
+                      }
+
+                    </a>
+
+                    <div>
+
+                      <span class="tag">
+                        ${escapeHTML(
+                          categoryInfo.name
+                        )}
+                      </span>
+
+                      <h4>
+                        <a href="${escapeHTML(page)}">
+                          ${escapeHTML(title)}
+                        </a>
+                      </h4>
+
+                      <p>
+                        ${escapeHTML(description)}
+                      </p>
+
+                      <span class="dizzah-live-label">
+                        ● Maudhui hai
+                      </span>
+
+                    </div>
+
+                  </article>
+
+                `;
+
+              }
+
+              /*
+               * Kama category bado haina post,
+               * usiweke picha ya uongo.
+               * Onyesha category yenyewe
+               * kama sehemu inayosubiri maudhui.
+               */
 
               return `
 
-                <article class="side-story">
+                <article
+                  class="side-story dizzah-live-category waiting-content"
+                  data-category="${escapeHTML(
+                    categoryInfo.name
+                  )}"
+                >
 
                   <a
                     href="${escapeHTML(page)}"
-                    aria-label="${escapeHTML(title)}"
+                    aria-label="${escapeHTML(
+                      categoryInfo.name
+                    )}"
                   >
 
-                    <img
-                      src="${escapeHTML(image)}"
-                      alt="${escapeHTML(title)}"
-                      loading="lazy"
-                      decoding="async"
-                    >
+                    <div class="dizzah-category-empty">
+
+                      <span>
+                        ${categoryInfo.icon}
+                      </span>
+
+                      <small>
+                        ${escapeHTML(
+                          categoryInfo.name
+                        )}
+                      </small>
+
+                      <em>
+                        Inasubiri maudhui...
+                      </em>
+
+                    </div>
 
                   </a>
 
                   <div>
 
                     <span class="tag">
-                      ${escapeHTML(category)}
+                      ${escapeHTML(
+                        categoryInfo.name
+                      )}
                     </span>
 
                     <h4>
-                      <a href="${escapeHTML(page)}">
-                        ${escapeHTML(title)}
-                      </a>
+                      Dizzah Media
                     </h4>
 
                     <p>
-                      ${escapeHTML(description)}
+                      ${escapeHTML(
+                        categoryInfo.description
+                      )}
                     </p>
+
+                    <span class="dizzah-live-label waiting">
+                      ◌ Bado haijawekewa post
+                    </span>
 
                   </div>
 
