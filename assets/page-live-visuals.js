@@ -145,7 +145,8 @@
         image.style.opacity = "1";
       }, { once: true });
     });
-    window.setInterval(update, 15000);
+    update();
+    window.setInterval(update, 12000);
   };
 
   const init = () => {
