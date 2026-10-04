@@ -1501,6 +1501,43 @@
     </div>
   </div>
 </section>
+    <section class="earth-watch" id="earth-watch" aria-label="Dizzah Earth Watch">
+  <div class="earth-watch-heading">
+    <span class="earth-watch-kicker">🛰️ DIZZAH EARTH WATCH</span>
+    <h2>Dunia Inaendelea <span>Hivi Sasa.</span></h2>
+    <p>
+      Tazama picha za satellite na matukio mbalimbali duniani
+      kupitia data za NASA.
+    </p>
+  </div>
+
+  <div class="earth-watch-grid">
+    <div class="earth-map-card">
+      <div class="earth-map-top">
+        <strong>🌍 NASA Satellite View</strong>
+        <span id="earthStatus">Inapakia...</span>
+      </div>
+
+      <div id="dizzahEarthMap"></div>
+
+      <div class="earth-map-bottom">
+        <span>🛰️ NASA GIBS</span>
+        <span>🌐 Global View</span>
+      </div>
+    </div>
+
+    <aside class="earth-events-card">
+      <div class="earth-events-head">
+        <strong>🌎 Matukio Duniani</strong>
+        <span>LIVE DATA</span>
+      </div>
+
+      <div id="dizzahEarthEvents">
+        <p>Inapakia matukio ya dunia...</p>
+      </div>
+    </aside>
+  </div>
+  </section>
     <section class="hero">
 
       <div class="container hero-inner">
@@ -3381,7 +3418,194 @@
         );
 
       }
+<!-- DIZZAH EARTH WATCH -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  crossorigin=""
+>
 
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  crossorigin=""
+></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const mapElement = document.getElementById("dizzahEarthMap");
+  const statusElement = document.getElementById("earthStatus");
+  const eventsElement = document.getElementById("dizzahEarthEvents");
+
+  if (!mapElement || !window.L) return;
+
+  const map = L.map(mapElement, {
+    center: [5, 20],
+    zoom: 3,
+    minZoom: 2,
+    maxZoom: 7,
+    worldCopyJump: true
+  });
+
+  const osm = L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }
+  ).addTo(map);
+
+  const NASA_GIBS =
+    "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/";
+
+  function getDate(daysAgo) {
+    const date = new Date();
+    date.setUTCDate(date.getUTCDate() - daysAgo);
+    return date.toISOString().slice(0, 10);
+  }
+
+  function satelliteLayer(daysAgo) {
+    return L.tileLayer(
+      NASA_GIBS +
+      "VIIRS_SNPP_CorrectedReflectance_TrueColor/default/" +
+      getDate(daysAgo) +
+      "/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg",
+      {
+        maxZoom: 9,
+        opacity: 0.92,
+        attribution: "NASA GIBS"
+      }
+    );
+  }
+
+  const satelliteToday = satelliteLayer(1);
+  const satellitePrevious = satelliteLayer(2);
+
+  satelliteToday.addTo(map);
+
+  const eventLayer = L.layerGroup().addTo(map);
+
+  if (statusElement) {
+    statusElement.textContent = "NASA satellite • NRT";
+  }
+
+  /*
+   * BADILI PICHA ZA SATELLITE KILA SEKUNDE 12
+   */
+  let showingPrevious = false;
+
+  setInterval(() => {
+    if (showingPrevious) {
+      map.removeLayer(satellitePrevious);
+      satelliteToday.addTo(map);
+      showingPrevious = false;
+    } else {
+      map.removeLayer(satelliteToday);
+      satellitePrevious.addTo(map);
+      showingPrevious = true;
+    }
+  }, 12000);
+
+  /*
+   * NASA EONET — MATUKIO YA DUNIA
+   */
+  fetch(
+    "https://eonet.gsfc.nasa.gov/api/v3/events?status=open&limit=25"
+  )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("EONET request failed");
+      }
+      return response.json();
+    })
+    .then(data => {
+      const events = Array.isArray(data.events)
+        ? data.events
+        : [];
+
+      eventLayer.clearLayers();
+
+      if (eventsElement) {
+        eventsElement.innerHTML = "";
+      }
+
+      if (!events.length) {
+        if (eventsElement) {
+          eventsElement.innerHTML =
+            "<p>Hakuna tukio jipya lililoripotiwa kwa sasa.</p>";
+        }
+        return;
+      }
+
+      events.slice(0, 12).forEach(event => {
+        const geo = event.geometry && event.geometry[0];
+
+        if (
+          geo &&
+          Array.isArray(geo.coordinates) &&
+          geo.coordinates.length >= 2
+        ) {
+          const longitude = geo.coordinates[0];
+          const latitude = geo.coordinates[1];
+
+          L.circleMarker(
+            [latitude, longitude],
+            {
+              radius: 7,
+              weight: 2,
+              fillOpacity: 0.75
+            }
+          )
+            .bindPopup(
+              "<strong>" +
+              (event.title || "Dunia") +
+              "</strong><br>" +
+              (event.categories &&
+               event.categories[0]
+                ? event.categories[0].title
+                : "Earth event")
+            )
+            .addTo(eventLayer);
+        }
+
+        if (eventsElement) {
+          const item = document.createElement("div");
+          item.className = "earth-event-item";
+
+          item.innerHTML =
+            "<strong>" +
+            (event.title || "Tukio la Dunia") +
+            "</strong>" +
+            "<span>" +
+            (
+              event.categories &&
+              event.categories[0]
+                ? event.categories[0].title
+                : "Earth event"
+            ) +
+            "</span>";
+
+          eventsElement.appendChild(item);
+        }
+      });
+    })
+    .catch(() => {
+      if (eventsElement) {
+        eventsElement.innerHTML =
+          "<p>Data za matukio hazijapatikana kwa sasa.</p>";
+      }
+
+      if (statusElement) {
+        statusElement.textContent = "Satellite available";
+      }
+    });
+
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 500);
+})();
+</script>
       initDynamicHomepage();
 
     })();
