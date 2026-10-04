@@ -425,9 +425,15 @@
     }
 
     .hero-card img{
-      height:340px;
+      height:380px;
       object-fit:cover;
       border-radius:15px
+    }
+
+    .hero-card img.hero-brand-image{
+      object-fit:contain;
+      padding:10px;
+      background:radial-gradient(circle at 50% 35%,rgba(116,39,201,.32),transparent 45%),#080612
     }
 
     .hero-card-caption{
@@ -1711,8 +1717,9 @@
 
             <img
               id="heroImage"
-              src="assets/news1.jpg"
-              alt="Dizzah Media featured story"
+              src="assets/dizzah-hero-logo.jpg"
+              class="hero-brand-image"
+              alt="Dizzah Media — Hakika Leo, Kesho kwa Ubora Zaidi"
               fetchpriority="high"
             >
 
@@ -3630,6 +3637,7 @@ function renderSimulizi(posts) {
             safeImage(
               post.image_url
             );
+          image.classList.remove("hero-brand-image");
 
           image.alt =
             post.title ||
