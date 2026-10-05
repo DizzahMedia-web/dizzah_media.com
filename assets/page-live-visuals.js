@@ -16,7 +16,7 @@
     "movies.html": ["CINEMATIC EARTH", "Scenes from a living planet", "Mionekano ya cinematic kutoka Earth Watch; si movie stills za watu wengine."],
     "originals.html": ["DIZZAH ORIGINALS LIVE", "Local stories • global planet", "Visuals za dunia kwa ubunifu wa Dizzah Originals."],
     "videos.html": ["DIZZAH MEDIA TV LIVE", "Watch the world change", "Frames za satellite na matukio yanayoweza kugeuzwa kuwa video stories."],
-    "gallery.html": ["WORLD MOMENTS", "Gallery inayobadilika", "Satellite frames na moments za dunia zikibadilika kila baada ya muda."],
+    "gallery.html": ["WORLD MOMENTS", "Gallery inayobadilika", "Mito, maporomoko, bustani, vivutio na moments za dunia zikibadilika kila baada ya muda."],
     "podcasts.html": ["DIZZAH TALKS • LIVE EARTH", "Listen to the planet", "Visual companion ya mazungumzo, interviews na matukio ya dunia."],
     "motivation.html": ["INSPIRATION FROM EARTH", "Dunia iko hai", "Mabadiliko ya dunia kama background ya ujumbe wa kujenga."],
     "live.html": ["NASA LIVE MAP", "Earth Watch", "Matukio ya asili yanayotolewa na NASA EONET."],
@@ -30,10 +30,10 @@
   const config = configs[page];
   if (!config || document.querySelector(".dm-page-live")) return;
   const commonsQuery = page === "gallery.html"
-    ? "beautiful flowers gardens city skylines"
+    ? "beautiful flowers gardens rivers waterfalls lakes world attractions city skylines"
     : page === "movies.html" || page === "originals.html" || page === "videos.html"
-      ? "city skyline beautiful cities travel landscape"
-      : "beautiful gardens flowers world cities";
+      ? "world attractions rivers waterfalls lakes city skyline travel landscapes"
+      : "beautiful gardens flowers rivers waterfalls lakes world landmarks cities";
 
   const dateFor = (daysAgo) => {
     const date = new Date();

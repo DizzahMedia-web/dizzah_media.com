@@ -62,7 +62,7 @@
     const params = new URLSearchParams({
       action: "query",
       generator: "search",
-      gsrsearch: "beautiful flowers gardens city skylines",
+      gsrsearch: "beautiful flowers gardens rivers waterfalls lakes world attractions city skylines",
       gsrnamespace: "6",
       gsrlimit: "18",
       prop: "imageinfo",
