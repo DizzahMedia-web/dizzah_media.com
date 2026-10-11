@@ -27,7 +27,7 @@ window.DizzahData = (() => {
   async function fetchPosts() {
     const client = await getClient();
     const { data, error } = await client.from("posts")
-      .select("id,title,category,image_url,video_url,description,created_at")
+      .select("id,title,category,image_url,video_url,description,body,author,created_at")
       .order("created_at", { ascending: false });
     if (error) throw error;
     return data || [];

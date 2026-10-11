@@ -146,7 +146,7 @@
 
         const { data, error } = await client
           .from('posts')
-          .select('id,title,category,image_url,video_url,description,created_at')
+          .select('id,title,category,image_url,video_url,description,body,author,created_at')
           .eq('id', id)
           .maybeSingle();
 
@@ -165,6 +165,11 @@
           data.description ||
           'Dizzah Media itaongeza maelezo ya makala hii.'
         );
+
+        const articleBody = String(data.body || data.description || 'Dizzah Media itaongeza maelezo ya makala hii.')
+          .split(/\r?\n\s*\r?\n/)
+          .map((paragraph) => '<p>' + DizzahData.escapeHTML(paragraph).replace(/\r?\n/g, '<br>') + '</p>')
+          .join('');
 
         root.className = '';
 
@@ -217,9 +222,7 @@
 
           '<div class="article-body">' +
 
-          '<p>' +
-          description +
-          '</p>' +
+          articleBody +
 
           '<p>' +
           '<strong>Uhariri:</strong> Makala hii imechapishwa na Dizzah Media. ' +
